@@ -1,5 +1,4 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
   "name": "Mobula API",
   "logo": {
     "dark": "/logo/dark_logo.svg",
@@ -32,11 +31,17 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["quickstart", "development", "upgrade"]
+      "pages": [
+        "quickstart",
+        "development",
+        "upgrade"
+      ]
     },
     {
       "group": "API Documentation",
-      "pages": ["api-reference/introduction"]
+      "pages": [
+        "api-reference/introduction"
+      ]
     },
     {
       "group": "Endpoint Examples",
