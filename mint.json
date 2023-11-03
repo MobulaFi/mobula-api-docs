@@ -5,7 +5,7 @@
     "dark": "/logo/dark_logo.svg",
     "light": "/logo/logo_light.svg"
   },
-  "openapi": "https://mintlify.com/specs/v2/openapi.json",
+  "openapi": "http://mobula.fi/openapi.yml",
   "favicon": "/favicon.png",
   "colors": {
     "primary": "#131727",
