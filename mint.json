@@ -3,16 +3,16 @@
   "name": "Mobula API",
   "logo": {
     "dark": "/logo/dark_logo.svg",
-    "light": "/logo/logo_light.svg"
+    "light": "/logo/light_logo.svg"
   },
-  "openapi": "https://mintlify.com/specs/v2/openapi.json",
+  "openapi": ["api-reference/openapi.yaml"],
   "favicon": "/favicon.png",
   "colors": {
     "primary": "#131727",
     "light": "#082642",
     "dark": "#131727",
     "anchors": {
-      "from": "#0D9373",
+      "from": "#3a2d6d",
       "to": "#082642"
     }
   },
@@ -20,6 +20,10 @@
     {
       "name": "API Reference",
       "url": "api-reference"
+    },
+    {
+      "name": "SDK",
+      "url": "sdk"
     }
   ],
   "anchors": [
@@ -27,23 +31,58 @@
       "name": "Support",
       "icon": "telegram",
       "url": "https://t.me/MobulaPartnerBot?start=Mobula_API_Support"
+    },
+    {
+      "name": "Github",
+      "icon": "github",
+      "url": "https://github.com/anouci/mobula-api-sdk"
+    },
+    {
+      "name": "Mobula",
+      "icon": "globe",
+      "url": "https://mobula.fi/"
     }
   ],
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["quickstart", "development", "upgrade"]
+      "pages": ["introduction", "authentification", "upgrade"]
     },
     {
       "group": "API Documentation",
-      "pages": ["api-reference/introduction"]
+      "pages": [
+        "api-reference/introduction",
+        "api-reference/authentification",
+        "api-reference/upgrade"
+      ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "Wallet Explorer API",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "api-reference/introduction_wallet_explorer",
+        "api-reference/endpoint/get-portfolio",
+        "api-reference/endpoint/get-the-historical-balance-of-any-evm-compatible-wallets-at-any-time",
+        "api-reference/endpoint/get-the-portfolio-of-holdings-from-any-evm-compatible-wallets-at-any-time",
+        "api-reference/endpoint/get-the-wallet-transactions"
+      ]
+    },
+    {
+      "group": "Market API",
+      "pages": [
+        "api-reference/introduction_market",
+        "api-reference/endpoint/get-multiple-assets-market-data",
+        "api-reference/endpoint/get-the-market-metrics-for-any-asset",
+        "api-reference/endpoint/retrieve-trade-history-for-a-given-asset",
+        "api-reference/endpoint/get-the-market-metrics-of-an-asset-over-a-given-timeframe"
+      ]
+    },
+    {
+      "group": "Metadata API",
+      "pages": [
+        "api-reference/introduction_metadata",
+        "api-reference/endpoint/get-all-crypto-data-with-extra-fields-as-needed",
+        "api-reference/endpoint/get-market-metrics-at-a-specific-time",
+        "api-reference/endpoint/search-crypto-data-by-name-or-symbol"
       ]
     }
   ],

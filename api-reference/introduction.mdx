@@ -1,33 +1,41 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: "Ready to build"
+description: "Mobula opens all the APIs powering the platform: meta-data, market & historical data for crypto-assets (logo, price, volumes, charts), wallet data (transactions, historical balances, ROIs), and DeFi quotes (swap quotes).
+"
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+## Start now
 
-## Welcome
+To make your life easier, we don’t require an API key to get started - however, it’s highly recommended to generate one, as requests without API keys will get important rate limits (1 query / 15 seconds).
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+<CardGroup>
 
 <Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
+  title="Wallet Explorer API"
+  icon="square-code"
+  href="/api-playground/configuration"
 >
-  View the OpenAPI specification file
+  Implement your OpenAPI spec and enable API user interaction.
 </Card>
 
-## Authentication
+<Card
+  title="Market Data API"
+  icon="chart-mixed"
+  href="/analytics/supported-integrations"
+>
+  Draw insights from user interactions with your documentation.
+</Card>
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+<Card
+  title="Metadata API"
+  icon="browser"
+  href="/settings/custom-domain/subdomain"
+>
+  Keep your docs on your own website's subdomain.
+</Card>
 
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
-```
+<Card title="Swap Quote API" icon="browser" href="#">
+  Soon...
+</Card>
+
+</CardGroup>
