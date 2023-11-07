@@ -4,11 +4,7 @@
     "dark": "/logo/dark_logo.svg",
     "light": "/logo/light_logo.svg"
   },
-<<<<<<< HEAD
   "openapi": ["api-reference/openapi.yaml"],
-=======
-  "openapi": "http://mobula.fi/openapi.yml",
->>>>>>> 8bc5048409dc062718fc9f503549b9963238899b
   "favicon": "/favicon.png",
   "colors": {
     "primary": "#131727",
@@ -49,20 +45,11 @@
   "navigation": [
     {
       "group": "Get Started",
-<<<<<<< HEAD
       "pages": ["introduction", "authentification", "upgrade"]
-=======
-      "pages": [
-        "quickstart",
-        "development",
-        "upgrade"
-      ]
->>>>>>> 8bc5048409dc062718fc9f503549b9963238899b
     },
     {
       "group": "API Documentation",
       "pages": [
-<<<<<<< HEAD
         "api-reference/introduction",
         "api-reference/authentification",
         "api-reference/upgrade"
@@ -86,9 +73,6 @@
         "api-reference/endpoint/get-the-market-metrics-for-any-asset",
         "api-reference/endpoint/retrieve-trade-history-for-a-given-asset",
         "api-reference/endpoint/get-the-market-metrics-of-an-asset-over-a-given-timeframe"
-=======
-        "api-reference/introduction"
->>>>>>> 8bc5048409dc062718fc9f503549b9963238899b
       ]
     },
     {
