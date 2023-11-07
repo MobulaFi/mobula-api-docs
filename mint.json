@@ -15,6 +15,9 @@
       "to": "#082642"
     }
   },
+  "primaryTab": {
+    "name": "Home"
+  },
   "tabs": [
     {
       "name": "API Reference",
@@ -44,16 +47,16 @@
   ],
   "navigation": [
     {
-      "group": "Get Started",
-      "pages": ["introduction", "authentification", "upgrade"]
+      "group": "Home",
+      "pages": ["start_here"]
     },
     {
-      "group": "API Documentation",
-      "pages": [
-        "api-reference/introduction",
-        "api-reference/authentification",
-        "api-reference/upgrade"
-      ]
+      "group": "Resources",
+      "pages": ["resources/tutorials"]
+    },
+    {
+      "group": "API Reference",
+      "pages": ["api-reference/introduction", "api-reference/upgrade"]
     },
     {
       "group": "Wallet Explorer API",
@@ -83,6 +86,14 @@
         "api-reference/endpoint/get-market-metrics-at-a-specific-time",
         "api-reference/endpoint/search-crypto-data-by-name-or-symbol"
       ]
+    },
+    {
+      "group": "Mobula SDK",
+      "pages": ["sdk/introduction", "sdk/upgrade"]
+    },
+    {
+      "group": "Methods",
+      "pages": ["sdk/methods_glossary"]
     }
   ],
   "footerSocials": {

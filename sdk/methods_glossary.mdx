@@ -1,0 +1,37 @@
+---
+title: "Glossary"
+icon: "gear-complex-code"
+---
+
+## SDK Methods
+
+The `{ Mobula }` class provides several methods to interact with the Mobula API.
+
+Here's a list of available methods:
+
+1. `fetchCryptoDataByName(options: { name?: string; requestOptions?: RequestOptions; })`
+   <Info>Fetch crypto data by its name.</Info>
+2. `fetchWalletNFTs(options: { wallet?: string; force?: boolean; requestOptions?: RequestOptions; })`
+   <Info>Retrieve NFTs associated with a given wallet.</Info>
+3. `fetchAllCryptoDetails(options: { fields?: string; requestOptions?: RequestOptions; })`
+   <Info>Get details of all cryptocurrencies.</Info>
+4. `fetchAssetMarketData(options: { asset: string; blockchain?: string; requestOptions?: RequestOptions; })`
+   <Info>Fetch market data for a specific asset.</Info>
+5. `fetchAssetMarketHistory(options: { asset: string; blockchain?: string; from?: number; to?: number; requestOptions?RequestOptions; })`
+   <Info>Get market history for a particular asset.</Info>
+6. `fetchAssetMetadata(options: { asset?: string; requestOptions?: RequestOptions; })`
+   <Info> Retrieve metadata for a specific asset.</Info>
+7. `fetchAssetTradeHistory(options: { asset: string; maxResults?: number; requestOptions?: RequestOptions; })`
+   <Info>Get trade history for an asset.</Info>
+8. `fetchMultipleAssetMarketData(options: { assets: string; blockchains?: string; requestOptions?: RequestOptions; })`
+   <Info>Fetch market data for multiple assets.</Info>
+9. `fetchSwapQuote(options: { chain: string; fromToken: string; toToken: string; fromAddress: string; amount: bigint; slippage: number; receiver?: string; type?: TypeEnum; requestOptions?: RequestOptions; })`
+   <Info>Get a swap quote.</Info>
+10. `fetchWalletHistoryBalance(options: { wallet: string; from?: number; to?: number; requestOptions?: RequestOptions; })`
+    <Info>Retrieve the history balance of a wallet.</Info>
+11. `fetchWalletHoldings(options: { wallet: string; timestamp?: number; asset?: string; blockchain?: string; tokens?: boolean; nfts?: boolean; coins?: boolean; requestOptions?: RequestOptions; })`
+    <Info>Get holdings of a wallet.</Info>
+12. `fetchWalletTransactions(options: { wallet: string; from?: number; to?: number; asset?: string; blockchain?: string; trades?: boolean; transactions?: boolean; limit?: number; offset?: number; order?: OrderEnum; requestOptions?: RequestOptions; })`
+    <Info>Fetch transactions of a wallet.</Info>
+
+---

@@ -1,0 +1,69 @@
+---
+title: "Setting up"
+description: "With the Mobula API SDK, you can seamlessly integrate real-time crypto metrics into your projects. Whether you're building a new crypto dashboard or just exploring the world of cryptocurrencies, Mobula API SDK has got you covered."
+icon: "stars"
+---
+
+## Prerequisite
+
+Before starting with the Mobula API SDK, ensure you have Node.js installed on your machine.
+
+<Tip>Download and install Node.js from [here](https://nodejs.org/)</Tip>
+
+## Installation
+
+<Steps>
+  <Step title="First Step">
+    Create a new directory for your project and navigate into it
+
+    ```bash
+    mkdir my-new-project
+    cd my-new-project
+    ```
+
+  </Step>
+  <Step title="Second Step">
+    Initialize a new npm project. This step creates a package.json file in your project directory
+
+    ```bash
+    npm init -y
+    ```
+
+  </Step>
+  <Step title="Third Step">
+    Install mobula-api-sdk. This will install the package and add it as a dependency in your package.json file
+    
+    ```bash
+    npm install mobula-api-sdk
+    ```
+  </Step>
+</Steps>
+
+## Example of integration
+
+Initiate the SDK as shown below:
+
+```typescript myproject.ts
+import { Mobula } from "mobula-api-sdk/dist/cjs/apiWrapper_2";
+
+const mobula = new Mobula("YOUR_API_KEY_HERE");
+
+mobula
+  .fetchWalletHistoryBalance({
+    wallet: "0x77A89C51f106D6cD547542a3A83FE73cB4459135",
+  })
+  .then((response) => {
+    console.log(response);
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
+```
+
+Replace `YOUR_API_KEY_HERE` with your API key.
+
+### Response
+
+![Response example](https://i.imgur.com/Es0DhoJ.png)
+
+---
