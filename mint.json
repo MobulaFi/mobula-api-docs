@@ -20,11 +20,11 @@
   },
   "tabs": [
     {
-      "name": "API Reference",
+      "name": "Mobula API",
       "url": "api-reference"
     },
     {
-      "name": "SDK",
+      "name": "Mobula SDK",
       "url": "sdk"
     }
   ],
@@ -55,7 +55,7 @@
       "pages": ["resources/tutorials"]
     },
     {
-      "group": "API Reference",
+      "group": "Introduction",
       "pages": ["api-reference/introduction", "api-reference/upgrade"]
     },
     {
@@ -88,12 +88,16 @@
       ]
     },
     {
-      "group": "Mobula SDK",
+      "group": "Introduction",
       "pages": ["sdk/introduction", "sdk/upgrade"]
     },
     {
-      "group": "Methods",
-      "pages": ["sdk/methods_glossary"]
+      "group": "Resources",
+      "pages": ["sdk/methods_index", "sdk/tutorials"]
+    },
+    {
+      "group": "SDK Examples",
+      "pages": ["sdk/examples/"]
     }
   ],
   "footerSocials": {
