@@ -1,8 +1,12 @@
 ---
 title: "Installation"
-description: "With the Mobula API SDK, you can seamlessly integrate real-time crypto metrics into your projects. Whether you're building a new crypto dashboard or just exploring the world of cryptocurrencies, Mobula API SDK has got you covered."
+description: "Whether you're building a new crypto dashboard or just exploring the world of cryptocurrencies, Mobula API SDK has got you covered."
 icon: "download"
 ---
+
+<Frame>
+  <img src="https://i.imgur.com/EvfM1NX.png" />
+</Frame>
 
 ## Prerequisite
 
@@ -14,37 +18,29 @@ Before starting with the Mobula API SDK, ensure you have Node.js installed on yo
 
 <Steps>
   <Step title="First Step">
-    Create a new directory for your project and navigate into it
+    Install mobula-api-sdk
 
     ```bash
-    mkdir my-new-project
-    cd my-new-project
+    npm install mobula-api-sdk
     ```
 
   </Step>
   <Step title="Second Step">
-    Initialize a new npm project. This step creates a package.json file in your project directory
+    Import the `{ Mobula }` class
 
     ```bash
-    npm init -y
+    import { Mobula } from "mobula-api-sdk"
     ```
 
-  </Step>
-  <Step title="Third Step">
-    Install mobula-api-sdk. This will install the package and add it as a dependency in your package.json file
-    
-    ```bash
-    npm install mobula-api-sdk
-    ```
   </Step>
 </Steps>
 
-## Import
+## Example
 
-Initiate the SDK as shown below:
+Initiate the SDK as shown below
 
 ```typescript myproject.ts
-import { Mobula } from "mobula-api-sdk/dist/cjs/apiWrapper_2";
+import { Mobula } from "mobula-api-sdk";
 
 const mobula = new Mobula("YOUR_API_KEY_HERE");
 
@@ -60,10 +56,31 @@ mobula
   });
 ```
 
-Replace `YOUR_API_KEY_HERE` with your API key.
+<Tip>Replace `YOUR_API_KEY_HERE` with your API key.</Tip>
 
-### Response
+## Response
 
-![Response example](https://i.imgur.com/Es0DhoJ.png)
+The data is contained in the request body
 
----
+```https
+body: '{"data":{"wallet":["0x77a89c51f106d6cd547542a3a83fe73cb4459135"],"balance_usd":186.11174894116627,"balance_history":
+[[1650788304000,0],[1650788305000,0],[1650874705000,40.94737444508439],
+[1650961105000,41.43979364186007],[1651047505000,41.52255389488385],
+[1651133905000,39.98507396566903],[1651220305000,41.36797682434358],
+[1651306705000,39.94252843778348],[1651393105000,38.42918052538283],
+[1651479505000,38.44553804299468],[1651565905000,42.12988132520523],
+[1651652305000,41.08260516823677],[1651738705000,42.932806984287325],
+[1651825105000,40.20314283431752],[1661265693000,61.1200498094'... 51976 more characters,
+```
+
+<CardGroup>
+
+<Card title="API Key" icon="key-skeleton" href="#">
+  Generate your own API Key
+</Card>
+
+<Card title="Upgrade" icon="wand-magic-sparkles" href="/api-reference/upgrade">
+  Need more data?
+</Card>
+
+</CardGroup>

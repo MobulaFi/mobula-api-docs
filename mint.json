@@ -7,9 +7,13 @@
   "openapi": ["api-reference/openapi.yaml"],
   "favicon": "/favicon.png",
   "colors": {
-    "primary": "#131727",
-    "light": "#082642",
-    "dark": "#131727",
+    "background": {
+      "light": "#f5f5f5",
+      "dark": "#111524"
+    },
+    "primary": "#000000",
+    "light": "#ffffff",
+    "dark": "#000000",
     "anchors": {
       "from": "#3a2d6d",
       "to": "#082642"
@@ -26,13 +30,27 @@
     {
       "name": "Mobula SDK",
       "url": "sdk"
+    },
+    {
+      "name": "Widgets",
+      "url": "widgets"
     }
   ],
   "anchors": [
     {
+      "name": "Dashboard",
+      "icon": "gauge",
+      "url": "https://t.me/MobulaPartnerBot?start=Mobula_API_Support"
+    },
+    {
       "name": "Support",
       "icon": "telegram",
       "url": "https://t.me/MobulaPartnerBot?start=Mobula_API_Support"
+    },
+    {
+      "name": "Email",
+      "icon": "envelope",
+      "url": "mailto:contact@mobulalabs.org"
     },
     {
       "name": "Github",
@@ -51,12 +69,21 @@
       "pages": ["start_here"]
     },
     {
-      "group": "Resources",
-      "pages": ["resources/tutorials"]
+      "group": "Engineering",
+      "pages": ["engineering/introduction"]
+    },
+    {
+      "group": "Frontend",
+      "pages": ["frontend/open_source"]
     },
     {
       "group": "Introduction",
-      "pages": ["api-reference/introduction", "api-reference/upgrade"]
+      "pages": [
+        "api-reference/introduction",
+        "api-reference/authentification",
+        "api-reference/usage",
+        "api-reference/upgrade"
+      ]
     },
     {
       "group": "Wallet Explorer API",
@@ -89,7 +116,12 @@
     },
     {
       "group": "Introduction",
-      "pages": ["sdk/introduction", "sdk/upgrade"]
+      "pages": [
+        "sdk/introduction",
+        "sdk/authentification",
+        "sdk/usage",
+        "sdk/upgrade"
+      ]
     },
     {
       "group": "Resources",
@@ -97,7 +129,17 @@
     },
     {
       "group": "SDK Examples",
-      "pages": ["sdk/examples/"]
+      "pages": [
+        "sdk/examples/history_balance_wallet",
+        "sdk/examples/metadata_specific_asset",
+        "sdk/examples/nft_of_wallet",
+        "sdk/examples/marketdata_asset",
+        "sdk/examples/wallet_transactions"
+      ]
+    },
+    {
+      "group": "Introduction",
+      "pages": ["widgets/tracker_widget", "widgets/dex_widget"]
     }
   ],
   "footerSocials": {
