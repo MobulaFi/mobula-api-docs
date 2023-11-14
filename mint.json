@@ -30,10 +30,6 @@
     {
       "name": "Mobula SDK",
       "url": "sdk"
-    },
-    {
-      "name": "Widgets",
-      "url": "widgets"
     }
   ],
   "anchors": [
@@ -56,25 +52,12 @@
       "name": "Github",
       "icon": "github",
       "url": "https://github.com/anouci/mobula-api-sdk"
-    },
-    {
-      "name": "Mobula",
-      "icon": "globe",
-      "url": "https://mobula.fi/"
     }
   ],
   "navigation": [
     {
       "group": "Home",
       "pages": ["start_here"]
-    },
-    {
-      "group": "Engineering",
-      "pages": ["engineering/introduction"]
-    },
-    {
-      "group": "Frontend",
-      "pages": ["frontend/open_source"]
     },
     {
       "group": "Introduction",
@@ -86,7 +69,7 @@
       ]
     },
     {
-      "group": "Wallet Explorer API",
+      "group": "[BETA] Wallet Explorer API",
       "pages": [
         "api-reference/introduction_wallet_explorer",
         "api-reference/endpoint/get-portfolio",
@@ -136,10 +119,6 @@
         "sdk/examples/marketdata_asset",
         "sdk/examples/wallet_transactions"
       ]
-    },
-    {
-      "group": "Introduction",
-      "pages": ["widgets/tracker_widget", "widgets/dex_widget"]
     }
   ],
   "footerSocials": {
