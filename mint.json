@@ -36,7 +36,7 @@
     {
       "name": "Dashboard",
       "icon": "gauge",
-      "url": "https://api-dashboard-8kndd13cd-mobula-labs.vercel.app/auth/signIn"
+      "url": "https://api-dashboard-kappa.vercel.app/"
     },
     {
       "name": "Support",

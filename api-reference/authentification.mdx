@@ -1,4 +1,48 @@
 ---
 title: "Generate API key"
 icon: "key-skeleton"
+description: "To generate an API key, click on the **Create API Key** button on your [Dashboard](https://api-dashboard-kappa.vercel.app/) and assign a name to your key. This will enable you to enjoy enhanced rate limits."
 ---
+
+<Steps>
+  <Step title="First Step">
+    Sign-in to the [Dashboard](https://api-dashboard-kappa.vercel.app/)
+    <Frame>
+      <img src="https://i.imgur.com/6k9DBZM.png" />
+    </Frame>
+  </Step>
+  <Step title="Second Step">
+    Create your API key
+    <Frame>
+      <img src="https://i.imgur.com/gtr12UF.png" />
+    </Frame>
+  </Step>
+  <Step title="Third Step">
+    Make your first call
+
+    ```cURL
+    curl --request GET \
+
+        --url 'https://api.app-mobula.com/api/1/wallet/nfts?wallet=0xCe90a7949bb78892F159F428D0dC23a8E3584d75&force=true' \
+        --header 'Authorization: YOUR_API_KEY'
+
+    ```
+
+</Step>
+</Steps>
+
+<CardGroup>
+
+<Card
+  title="Support"
+  icon="Telegram"
+  href="https://t.me/MobulaPartnerBot?start=Mobula_API_Support"
+>
+  Telegram
+</Card>
+
+<Card title="Need help?" icon="envelope" href="mailto:contact@mobulalabs.org">
+  Email
+</Card>
+
+</CardGroup>
