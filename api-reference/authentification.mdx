@@ -18,13 +18,35 @@ description: "To generate an API key, click on the **Create API Key** button on 
     </Frame>
   </Step>
   <Step title="Third Step">
-    Make your first call
+    To make your first call add your API key in the `header` parameter like this `Authorization: YOUR_API_KEY`
 
     ```cURL
     curl --request GET \
 
         --url 'https://api.app-mobula.com/api/1/wallet/nfts?wallet=0xCe90a7949bb78892F159F428D0dC23a8E3584d75&force=true' \
         --header 'Authorization: YOUR_API_KEY'
+
+    ```
+
+</Step>
+  <Step title="Fourth Step">
+    You can also use the SDK, [learn more](../sdk/introduction).
+   
+    ```typescript
+   import { Mobula } from "mobula-api-sdk";
+
+    const mobula = new Mobula("YOUR_API_KEY_HERE");
+
+    mobula
+    .fetchWalletNFTs({
+    wallet: "0xCe90a7949bb78892F159F428D0dC23a8E3584d75",
+    })
+    .then((response) => {
+    console.log(response);
+    })
+    .catch((error) => {
+    console.error("Error:", error);
+    });
 
     ```
 
