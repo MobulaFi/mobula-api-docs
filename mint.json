@@ -4,6 +4,11 @@
     "dark": "/logo/dark_logo.svg",
     "light": "/logo/light_logo.svg"
   },
+  "analytics": {
+    "mixpanel": {
+      "projectToken": "792afbf66aa630430016bdbd59c52ba7"
+    }
+  },
   "openapi": ["api-reference/openapi.yaml"],
   "favicon": "/favicon.png",
   "colors": {
