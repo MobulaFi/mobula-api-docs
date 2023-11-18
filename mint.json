@@ -37,15 +37,14 @@
       "url": "sdk"
     }
   ],
-  "topAnchor": [
-    {
-      "name": "Dashboard",
-      "icon": "gauge",
-      "url": "https://admin.mobula.fi/"
-    },
+  "topbarCtaButton": {
+    "type": "link",
+    "url": "https://admin.mobula.fi/",
+    "name": "Dashboard"
+  },
+  "topbarLinks": [
     {
       "name": "Support",
-      "icon": "telegram",
       "url": "https://t.me/MobulaPartnerBot?start=Mobula_API_Support"
     }
   ],
