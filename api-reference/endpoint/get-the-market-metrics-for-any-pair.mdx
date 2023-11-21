@@ -1,0 +1,16 @@
+---
+title: Fetch market data for a specific DEX pair
+openapi: get /market/pair
+---
+
+### Query details
+
+Blockchain is only mandatory if the DEX is Balancer V2 but recommended (blockchain format can be found here).
+
+You can also add an asset as optionnal parameter, which will then return at the highest level `priceToken` & `price` that would be the price & price-in-other-token of the given asset (same query pattern as [market/data](api-reference/endpoint/get-the-market-metrics-for-any-asset))
+
+### Data details
+
+Price data is computed using Octopus, Mobula's market data engine. You can have a high-level overview of how it's computing DeFi prices [here](https://mirror.xyz/0x6483Ca5ac1EbC6eB08d36979d217db2572CbAad2/Lw8NSSjqR4JSzthKZQCfHLwD3NPGsuaAfHGMY1zi-WI).
+
+Protocols covered right now includes: Uniswap V2 and all +800 forks, Uniswap V3 and all +30 forks, Balancer V2/V3 (and forks), TraderJoe 2.1, Camelot stableswaps & all SUI DEXes.
