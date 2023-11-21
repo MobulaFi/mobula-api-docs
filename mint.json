@@ -9,6 +9,7 @@
       "projectToken": "792afbf66aa630430016bdbd59c52ba7"
     }
   },
+  "feedback.thumbsRating": true,
   "openapi": ["api-reference/openapi.yaml"],
   "favicon": "/favicon.png",
   "colors": {
@@ -76,12 +77,48 @@
       "pages": ["start_here"]
     },
     {
+      "group": "Custom needs",
+      "pages": [
+        "introduction_custom_endpoint",
+        "introduction_custom_blockchain"
+      ]
+    },
+    {
+      "group": "Early Access",
+      "pages": [
+        "introduction_cex_data",
+        "introduction_highlevel",
+        "introduction_stablecoins",
+        "introduction_nodes",
+        "introduction_explorer_sql_api",
+        "introduction_trades_sql_api"
+      ]
+    },
+    {
       "group": "Introduction",
       "pages": [
         "api-reference/introduction",
         "api-reference/authentification",
         "api-reference/usage",
         "api-reference/upgrade"
+      ]
+    },
+    {
+      "group": "Custom needs",
+      "pages": [
+        "api-reference/custom/introduction_custom_endpoint",
+        "api-reference/custom/introduction_custom_blockchain"
+      ]
+    },
+    {
+      "group": "Early Access",
+      "pages": [
+        "api-reference/beta/introduction_cex_data",
+        "api-reference/beta/introduction_highlevel",
+        "api-reference/beta/introduction_stablecoins",
+        "api-reference/beta/introduction_nodes",
+        "api-reference/beta/introduction_explorer_sql_api",
+        "api-reference/beta/introduction_trades_sql_api"
       ]
     },
     {
@@ -127,6 +164,24 @@
       "pages": ["sdk/methods_index", "sdk/tutorials"]
     },
     {
+      "group": "Custom needs",
+      "pages": [
+        "sdk/custom/introduction_custom_endpoint",
+        "sdk/custom/introduction_custom_blockchain"
+      ]
+    },
+    {
+      "group": "Early Access",
+      "pages": [
+        "sdk/beta/introduction_cex_data",
+        "sdk/beta/introduction_highlevel",
+        "sdk/beta/introduction_stablecoins",
+        "sdk/beta/introduction_nodes",
+        "sdk/beta/introduction_explorer_sql_api",
+        "sdk/beta/introduction_trades_sql_api"
+      ]
+    },
+    {
       "group": "SDK Examples",
       "pages": [
         "sdk/examples/history_balance_wallet",
@@ -135,6 +190,10 @@
         "sdk/examples/marketdata_asset",
         "sdk/examples/wallet_transactions"
       ]
+    },
+    {
+      "group": "Troubleshooting",
+      "pages": ["sdk/issues/troubleshooting"]
     }
   ],
   "footerSocials": {
