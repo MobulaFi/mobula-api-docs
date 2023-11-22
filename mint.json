@@ -89,7 +89,8 @@
         "api-reference/introduction",
         "api-reference/authentification",
         "api-reference/usage",
-        "api-reference/upgrade"
+        "api-reference/upgrade",
+        "api-reference/blockchains"
       ]
     },
     {
@@ -100,6 +101,17 @@
       ]
     },
     {
+      "group": "Market API",
+      "pages": [
+        "api-reference/introduction_market",
+        "api-reference/endpoint/get-multiple-assets-market-data",
+        "api-reference/endpoint/get-the-market-metrics-for-any-asset",
+        "api-reference/endpoint/get-the-market-metrics-for-any-pair",
+        "api-reference/endpoint/retrieve-trade-history-for-a-given-asset",
+        "api-reference/endpoint/get-the-market-metrics-of-an-asset-over-a-given-timeframe"
+      ]
+    },
+    {
       "group": "[BETA] Wallet Explorer API",
       "pages": [
         "api-reference/introduction_wallet_explorer",
@@ -107,16 +119,6 @@
         "api-reference/endpoint/get-the-historical-balance-of-any-evm-compatible-wallets-at-any-time",
         "api-reference/endpoint/get-the-portfolio-of-holdings-from-any-evm-compatible-wallets-at-any-time",
         "api-reference/endpoint/get-the-wallet-transactions"
-      ]
-    },
-    {
-      "group": "Market API",
-      "pages": [
-        "api-reference/introduction_market",
-        "api-reference/endpoint/get-multiple-assets-market-data",
-        "api-reference/endpoint/get-the-market-metrics-for-any-asset",
-        "api-reference/endpoint/retrieve-trade-history-for-a-given-asset",
-        "api-reference/endpoint/get-the-market-metrics-of-an-asset-over-a-given-timeframe"
       ]
     },
     {
@@ -145,7 +147,8 @@
         "sdk/introduction",
         "sdk/authentification",
         "sdk/usage",
-        "sdk/upgrade"
+        "sdk/upgrade",
+        "sdk/blockchains"
       ]
     },
     {
