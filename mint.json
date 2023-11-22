@@ -84,17 +84,6 @@
       ]
     },
     {
-      "group": "Early Access",
-      "pages": [
-        "introduction_cex_data",
-        "introduction_highlevel",
-        "introduction_stablecoins",
-        "introduction_nodes",
-        "introduction_explorer_sql_api",
-        "introduction_trades_sql_api"
-      ]
-    },
-    {
       "group": "Introduction",
       "pages": [
         "api-reference/introduction",
@@ -108,17 +97,6 @@
       "pages": [
         "api-reference/custom/introduction_custom_endpoint",
         "api-reference/custom/introduction_custom_blockchain"
-      ]
-    },
-    {
-      "group": "Early Access",
-      "pages": [
-        "api-reference/beta/introduction_cex_data",
-        "api-reference/beta/introduction_highlevel",
-        "api-reference/beta/introduction_stablecoins",
-        "api-reference/beta/introduction_nodes",
-        "api-reference/beta/introduction_explorer_sql_api",
-        "api-reference/beta/introduction_trades_sql_api"
       ]
     },
     {
@@ -151,6 +129,17 @@
       ]
     },
     {
+      "group": "Early Access",
+      "pages": [
+        "api-reference/beta/introduction_cex_data",
+        "api-reference/beta/introduction_highlevel",
+        "api-reference/beta/introduction_stablecoins",
+        "api-reference/beta/introduction_nodes",
+        "api-reference/beta/introduction_explorer_sql_api",
+        "api-reference/beta/introduction_trades_sql_api"
+      ]
+    },
+    {
       "group": "Introduction",
       "pages": [
         "sdk/introduction",
@@ -171,17 +160,6 @@
       ]
     },
     {
-      "group": "Early Access",
-      "pages": [
-        "sdk/beta/introduction_cex_data",
-        "sdk/beta/introduction_highlevel",
-        "sdk/beta/introduction_stablecoins",
-        "sdk/beta/introduction_nodes",
-        "sdk/beta/introduction_explorer_sql_api",
-        "sdk/beta/introduction_trades_sql_api"
-      ]
-    },
-    {
       "group": "SDK Examples",
       "pages": [
         "sdk/examples/history_balance_wallet",
@@ -194,6 +172,17 @@
     {
       "group": "Troubleshooting",
       "pages": ["sdk/issues/troubleshooting"]
+    },
+    {
+      "group": "Early Access",
+      "pages": [
+        "sdk/beta/introduction_cex_data",
+        "sdk/beta/introduction_highlevel",
+        "sdk/beta/introduction_stablecoins",
+        "sdk/beta/introduction_nodes",
+        "sdk/beta/introduction_explorer_sql_api",
+        "sdk/beta/introduction_trades_sql_api"
+      ]
     }
   ],
   "footerSocials": {
