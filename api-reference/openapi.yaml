@@ -84,6 +84,41 @@ components:
         error:
           type: string
       type: object
+    MarketDataPairResponse:
+      properties:
+        token0:
+          type: object
+          properties:
+            reserve:
+              type: string
+              example: "136781698149874"
+            address:
+              type: string
+              example: "0xbde4ba4c2e274a60ce15c1cfff9e5c42e41654ac8b6d906a57efa4bd3c29f47d::hasui::HASUI"
+            price:
+              type: number
+              example: 0.5506246763135266
+            priceToken:
+              type: number
+              example: 1.0083925344818285
+        token1:
+          type: object
+          properties:
+            reserve:
+              type: string
+              example: "358576521067605"
+            address:
+              type: string
+              example: "0x2::sui::SUI"
+            name:
+              type: string
+              example: "Sui"
+            price:
+              type: number
+              example: 0.546042
+            priceToken:
+              type: number
+              example: 0.9916773139478455
     MarketDataResponse:
       properties:
         liquidity:
@@ -545,6 +580,40 @@ paths:
                 type: object
           description: OK
       summary: Get the market metrics for any asset
+  /market/pair:
+    get:
+      operationId: fetchPairMarketData
+      parameters:
+        - description: The address of the smart-contract of the pair (or pool, or vault).
+          in: query
+          name: address
+          required: true
+          schema:
+            example: "0x6488f911c6cd86c289aa319c5a826dcf8f1ca065"
+            type: string
+        - description: Blockchain of the pair (only mandatory for Balancer V2 pairs).
+          in: query
+          name: blockchain
+          schema:
+            type: string
+            example: Mantle
+        - description: The name/address of the asset you want in return
+          in: query
+          name: asset
+          required: false
+          schema:
+            example: Tether
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    $ref: "#/components/schemas/MarketDataPairResponse"
+                type: object
+          description: OK
+      summary: Get the market metrics for any DEX pair
   /market/history:
     get:
       operationId: fetchAssetMarketHistory
@@ -590,7 +659,7 @@ paths:
     get:
       operationId: fetchMultipleAssetMarketData
       parameters:
-        - description: Comma separated list of asset names or Ethereum addresses (max 50)
+        - description: Comma separated list of asset names or Ethereum addresses (max 500)
           in: query
           name: assets
           required: true
@@ -783,7 +852,7 @@ paths:
           name: wallet
           required: true
           schema:
-            example: "0xE7dBE6aa7Edcc38CB5007B87153d236AD879309B"
+            example: "0xf23b38099188fd5892346104bBEF2F1c11D10244"
             type: string
         - description:
             JS Timestamp (miliseconds) of the beginning of the timeframe (if
@@ -828,7 +897,7 @@ paths:
           name: wallet
           required: true
           schema:
-            example: "0xE7dBE6aa7Edcc38CB5007B87153d236AD879309B"
+            example: "0xf23b38099188fd5892346104bBEF2F1c11D10244"
             type: string
         - description:
             The blockchain you want to target (empty if you want general
@@ -892,7 +961,7 @@ paths:
           name: wallet
           required: true
           schema:
-            example: "0xE7dBE6aa7Edcc38CB5007B87153d236AD879309B"
+            example: "0xf23b38099188fd5892346104bBEF2F1c11D10244"
             type: string
         - description:
             The blockchain you want to target (empty if you want general
