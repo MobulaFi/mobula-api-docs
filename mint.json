@@ -107,6 +107,7 @@
         "api-reference/endpoint/get-multiple-assets-market-data",
         "api-reference/endpoint/get-the-market-metrics-for-any-asset",
         "api-reference/endpoint/get-the-market-metrics-for-any-pair",
+        "api-reference/endpoint/get-pairs-overview-for-any-asset",
         "api-reference/endpoint/retrieve-trade-history-for-a-given-asset",
         "api-reference/endpoint/get-the-market-metrics-of-an-asset-over-a-given-timeframe"
       ]
