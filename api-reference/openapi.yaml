@@ -614,6 +614,45 @@ paths:
                 type: object
           description: OK
       summary: Get the market metrics for any DEX pair
+  /market/pairs
+    get:
+      operationId: fetchPairsMarketData
+      parameters:
+        - description:
+            Blockchain of the asset - only mandatory if asset is sent as
+            smart-contract.
+          in: query
+          name: blockchain
+          schema:
+            type: string
+        - description:
+            The asset you want to target - asset name only works for assets
+            listed on Mobula.
+          in: query
+          name: asset
+          required: true
+          schema:
+            example: Bitcoin
+            type: string  
+        - description
+            The offset of the results
+          in: query
+          name: offset
+          schema:
+            type: integer
+            example: 0
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/MarketDataPairResponse"
+                type: object
+          description: OK
   /market/history:
     get:
       operationId: fetchAssetMarketHistory
