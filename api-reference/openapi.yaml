@@ -554,13 +554,6 @@ paths:
       operationId: fetchAssetMarketData
       parameters:
         - description:
-            Blockchain of the asset - only mandatory if asset is sent as
-            smart-contract.
-          in: query
-          name: blockchain
-          schema:
-            type: string
-        - description:
             The asset you want to target - asset name only works for assets
             listed on Mobula.
           in: query
@@ -568,6 +561,13 @@ paths:
           required: true
           schema:
             example: Bitcoin
+            type: string
+        - description:
+            Blockchain of the asset - only mandatory if asset is sent as
+            smart-contract.
+          in: query
+          name: blockchain
+          schema:
             type: string
       responses:
         "200":
@@ -584,6 +584,12 @@ paths:
     get:
       operationId: fetchPairMarketData
       parameters:
+        - description: Blockchain of the pair (only mandatory for Balancer V2 pairs).
+          in: query
+          name: blockchain
+          schema:
+            type: string
+            example: Mantle
         - description: The address of the smart-contract of the pair (or pool, or vault).
           in: query
           name: address
@@ -591,12 +597,6 @@ paths:
           schema:
             example: "0x6488f911c6cd86c289aa319c5a826dcf8f1ca065"
             type: string
-        - description: Blockchain of the pair (only mandatory for Balancer V2 pairs).
-          in: query
-          name: blockchain
-          schema:
-            type: string
-            example: Mantle
         - description: The name/address of the asset you want in return
           in: query
           name: asset
@@ -614,17 +614,10 @@ paths:
                 type: object
           description: OK
       summary: Get the market metrics for any DEX pair
-  /market/pairs
+  /market/pairs:
     get:
       operationId: fetchPairsMarketData
       parameters:
-        - description:
-            Blockchain of the asset - only mandatory if asset is sent as
-            smart-contract.
-          in: query
-          name: blockchain
-          schema:
-            type: string
         - description:
             The asset you want to target - asset name only works for assets
             listed on Mobula.
@@ -633,9 +626,15 @@ paths:
           required: true
           schema:
             example: Bitcoin
-            type: string  
-        - description
-            The offset of the results
+            type: string
+        - description:
+            Blockchain of the asset - only mandatory if asset is sent as
+            smart-contract.
+          in: query
+          name: blockchain
+          schema:
+            type: string
+        - description: The offset of the results
           in: query
           name: offset
           schema:
@@ -653,6 +652,7 @@ paths:
                       $ref: "#/components/schemas/MarketDataPairResponse"
                 type: object
           description: OK
+      summary: Fetch all DEX pairs from a specific asset
   /market/history:
     get:
       operationId: fetchAssetMarketHistory
