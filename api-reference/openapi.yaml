@@ -489,6 +489,12 @@ paths:
             type: boolean
           description: Will force a new on-chain data fetch
           example: true
+        - in: query
+          name: blockchains
+          schema:
+            type: string
+            example: 56,Ethereum
+          description: Blockchains to fetch NFTs from (by default, all) - comma separated, chain ID or chain name
       responses:
         "200":
           description: A list of NFTs in the queried wallet
@@ -907,6 +913,12 @@ paths:
           name: to
           schema:
             type: integer
+        - in: query
+          name: blockchains
+          schema:
+            type: string
+            example: 56,Ethereum
+          description: Blockchains to fetch history from (by default, all) - comma separated, chain ID or chain name
       responses:
         "200":
           content:
@@ -919,18 +931,6 @@ paths:
     get:
       operationId: fetchWalletHoldings
       parameters:
-        - description:
-            ISO Date string from which you want to start receiving transactions
-            - NOW by default
-          in: query
-          name: timestamp
-          schema:
-            type: integer
-        - description: The asset you want to target (empty if you want general portfolio)
-          in: query
-          name: asset
-          schema:
-            type: string
         - description: The user wallet queried
           in: query
           name: wallet
@@ -938,28 +938,22 @@ paths:
           schema:
             example: "0xf23b38099188fd5892346104bBEF2F1c11D10244"
             type: string
-        - description:
-            The blockchain you want to target (empty if you want general
-            transactions)
-          in: query
-          name: blockchain
+        - in: query
+          name: blockchains
           schema:
             type: string
-        - description: true if tokens included (true by default)
-          in: query
-          name: tokens
+            example: 56,Ethereum
+          description: Blockchains to fetch NFTs from (by default, all) - comma separated, chain ID or chain name
+        - in: query
+          name: cache
           schema:
             type: boolean
-        - description: true if nfts included (false by default)
-          in: query
-          name: nfts
+          description: Will use cached data if available
+        - in: query
+          name: stale
           schema:
-            type: boolean
-        - description: true if coins included (true by default)
-          in: query
-          name: coins
-          schema:
-            type: boolean
+            type: number
+          description: amount of seconds after which the cache is considered stale (default 5min)
       responses:
         "200":
           content:
@@ -1002,23 +996,12 @@ paths:
           schema:
             example: "0xf23b38099188fd5892346104bBEF2F1c11D10244"
             type: string
-        - description:
-            The blockchain you want to target (empty if you want general
-            transactions)
-          in: query
-          name: blockchain
+        - in: query
+          name: blockchains
           schema:
             type: string
-        - description: true if trades included (true by default)
-          in: query
-          name: trades
-          schema:
-            type: boolean
-        - description: true if non-trades transactions included (true by default)
-          in: query
-          name: transactions
-          schema:
-            type: boolean
+            example: 56,Ethereum
+          description: Blockchains to fetch NFTs from (by default, all) - comma separated, chain ID or chain name
         - description: Number of transactions to return (100 by default)
           in: query
           name: limit
