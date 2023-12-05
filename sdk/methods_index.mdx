@@ -10,28 +10,134 @@ The `{ Mobula }` class provides several methods to interact with the Mobula API.
 Here's a list of available methods:
 
 1. `fetchCryptoDataByName(options: { name?: string; requestOptions?: RequestOptions; })`
-   <Info>Fetch crypto data by its name.</Info>
-2. `fetchWalletNFTs(options: { wallet?: string; force?: boolean; requestOptions?: RequestOptions; })`
-   <Info>Retrieve NFTs associated with a given wallet.</Info>
+
+   <Info>
+     Search for crypto data by name or symbol. Supports partial name/symbol
+     matching.
+   </Info>
+
+2. `fetchWalletNFTs(options: { wallet?: string; force?: boolean; blockchains?: string; requestOptions?: RequestOptions; })`
+
+   <Info>
+     Retrieve NFTs associated with a given wallet. Optional parameters to force
+     on-chain data fetch and specify blockchains.
+   </Info>
+
 3. `fetchAllCryptoDetails(options: { fields?: string; requestOptions?: RequestOptions; })`
-   <Info>Get details of all cryptocurrencies.</Info>
+
+   <Info>
+     Get detailed information of all cryptocurrencies. Allows specifying
+     additional fields to be included in the response.
+   </Info>
+
 4. `fetchAssetMarketData(options: { asset: string; blockchain?: string; requestOptions?: RequestOptions; })`
-   <Info>Fetch market data for a specific asset.</Info>
-5. `fetchAssetMarketHistory(options: { asset: string; blockchain?: string; from?: number; to?: number; requestOptions?RequestOptions; })`
-   <Info>Get historical chart and price for a particular asset.</Info>
-6. `fetchAssetMetadata(options: { asset?: string; requestOptions?: RequestOptions; })`
-   <Info> Retrieve metadata for a specific asset.</Info>
-7. `fetchAssetTradeHistory(options: { asset: string; maxResults?: number; requestOptions?: RequestOptions; })`
-   <Info>Get trade history for an asset.</Info>
-8. `fetchMultipleAssetMarketData(options: { assets: string; blockchains?: string; requestOptions?: RequestOptions; })`
-   <Info>Fetch market data for multiple assets.</Info>
-9. `fetchSwapQuote(options: { chain: string; fromToken: string; toToken: string; fromAddress: string; amount: bigint; slippage: number; receiver?: string; type?: TypeEnum; requestOptions?: RequestOptions; })`
-   <Info>Get a swap quote.</Info>
-10. `fetchWalletHistoryBalance(options: { wallet: string; from?: number; to?: number; requestOptions?: RequestOptions; })`
-    <Info>Retrieve the history balance of a wallet.</Info>
-11. `fetchWalletHoldings(options: { wallet: string; timestamp?: number; asset?: string; blockchain?: string; tokens?: boolean; nfts?: boolean; coins?: boolean; requestOptions?: RequestOptions; })`
-    <Info>Get holdings of a wallet.</Info>
-12. `fetchWalletTransactions(options: { wallet: string; from?: number; to?: number; asset?: string; blockchain?: string; trades?: boolean; transactions?: boolean; limit?: number; offset?: number; order?: OrderEnum; requestOptions?: RequestOptions; })`
-    <Info>Fetch transactions of a wallet.</Info>
+
+   <Info>
+     Fetch market data for a specific asset. Blockchain parameter is optional
+     but required if asset is specified as a smart contract.
+   </Info>
+
+5. `fetchPairMarketData(options: { address: string; blockchain?: string; asset?: unknown; requestOptions?: RequestOptions; })`
+
+   <Info>
+     Obtain market data for a specific pair identified by the smart-contract
+     address. Optional parameters include blockchain and target asset.
+   </Info>
+
+6. `fetchPairsMarketData(options: { asset: string; blockchain?: string; offset?: number; requestOptions?: RequestOptions; })`
+
+   <Info>
+     Retrieve market data for multiple pairs based on asset. Supports pagination
+     through the offset parameter.
+   </Info>
+
+7. `fetchAssetMarketHistory(options: { asset: string; blockchain?: string; from?: number; to?: number; requestOptions?: RequestOptions; })`
+
+   <Info>
+     Get historical market data for an asset. Parameters allow specifying time
+     range and blockchain.
+   </Info>
+
+8. `fetchAssetTradeHistory(options: { asset: string; maxResults?: number; requestOptions?: RequestOptions; })`
+
+   <Info>
+     Access trade history for a given asset. Optional maxResults parameter to
+     limit the number of results.
+   </Info>
+
+9. `fetchAssetMetadata(options: { asset?: string; requestOptions?: RequestOptions; })`
+
+   <Info>
+     Retrieve metadata for a specific asset. Asset parameter is optional.
+   </Info>
+
+10. `fetchSwapQuote(options: { chain: string; fromToken: string; toToken: string; fromAddress: string; amount: bigint; slippage: number; receiver?: string; type?: TypeEnum; requestOptions?: RequestOptions; })`
+
+    <Info>
+      Get a quote for a token swap. Includes parameters for specifying swap
+      details like amount, slippage, and tokens involved.
+    </Info>
+
+11. `fetchWalletHistoryBalance(options: { wallet: string; from?: number; to?: number; blockchains?: string; requestOptions?: RequestOptions; })`
+
+    <Info>
+      Retrieve historical balance information for a wallet. Allows filtering by
+      time range and blockchain.
+    </Info>
+
+12. `fetchWalletHoldings(options: { wallet: string; blockchains?: string; cache?: boolean; stale?: number; requestOptions?: RequestOptions; })`
+
+    <Info>
+      Get current holdings in a wallet. Includes options for caching and stale
+      data handling.
+    </Info>
+
+13. `fetchWalletTransactions(options: { wallet: string; from?: number; to?: number; asset?: string; blockchain?: string; limit?: number; offset?: number; order?: OrderEnum; requestOptions?: RequestOptions; })`
+
+    <Info>
+      Fetch transaction history for a wallet. Supports various filters like
+      asset, blockchain, and time range.
+    </Info>
+
+14. `fetchWalletTransactions(options: { wallet: string; from?: number; to?: number; asset?: string; blockchain?: string; limit?: number; offset?: number; order?: OrderEnum; requestOptions?: RequestOptions; })`
+
+    <Info>
+      Fetch transaction history for a specific wallet. Options include filtering
+      by date range, asset, blockchain, and pagination controls.
+    </Info>
+
+15. `fetchMultipleAssetMarketData(options: { assets: string; blockchains?: string; requestOptions?: RequestOptions; })`
+
+    <Info>
+      Retrieve market data for multiple assets simultaneously. Supports
+      specifying a list of assets and blockchains.
+    </Info>
+
+16. `fetchSwapQuote(options: { chain: string; fromToken: string; toToken: string; fromAddress: string; amount: bigint; slippage: number; receiver?: string; type?: TypeEnum; requestOptions?: RequestOptions; })`
+
+    <Info>
+      Obtain a swap quote for token exchange, specifying details such as the
+      tokens involved, amount, and slippage tolerance.
+    </Info>
+
+17. `fetchWalletHistoryBalance(options: { wallet: string; from?: number; to?: number; blockchains?: string; requestOptions?: RequestOptions; })`
+
+    <Info>
+      Get historical balance data for a wallet over a specified time range,
+      optionally filtered by blockchain.
+    </Info>
+
+18. `fetchWalletHoldings(options: { wallet: string; blockchains?: string; cache?: boolean; stale?: number; requestOptions?: RequestOptions; })`
+
+    <Info>
+      Query current holdings in a specified wallet, with options for caching and
+      stale data handling.
+    </Info>
+
+19. `fetchAssetMetadata(options: { asset?: string; requestOptions?: RequestOptions; })`
+    <Info>
+      Access metadata for a specific asset, with an optional asset parameter for
+      targeted queries.
+    </Info>
 
 ---
