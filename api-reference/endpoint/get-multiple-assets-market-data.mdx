@@ -17,6 +17,8 @@ For example, you can query with parameters:
 
 We will map the first blockchain with the first contract address found, and so on.
 
+It is also possible to query using symbols - in that situation mobula sorts all assets with the same symbol and returns the one with the highest market cap - particularly useful if you need to map data coming from CEX trading pairs - if symbol is used, asset isn't mandatory anymore.
+
 ### Data details
 
 Price data is computed using Octopus, Mobula's market data engine. You can have a high-level overview of how it's computing DeFi prices [here](https://mirror.xyz/0x6483Ca5ac1EbC6eB08d36979d217db2572CbAad2/Lw8NSSjqR4JSzthKZQCfHLwD3NPGsuaAfHGMY1zi-WI). `volume` is on-chain volume, and `off_chain_volume` is - as name implies, the off-chain volume.

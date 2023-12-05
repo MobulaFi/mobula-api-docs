@@ -1,5 +1,5 @@
 servers:
-  - url: https://api.app-mobula.com/api/1
+  - url: https://api.mobula.io/api/1
 components:
   schemas:
     Asset:
@@ -89,9 +89,6 @@ components:
         token0:
           type: object
           properties:
-            reserve:
-              type: string
-              example: "136781698149874"
             address:
               type: string
               example: "0xbde4ba4c2e274a60ce15c1cfff9e5c42e41654ac8b6d906a57efa4bd3c29f47d::hasui::HASUI"
@@ -104,9 +101,6 @@ components:
         token1:
           type: object
           properties:
-            reserve:
-              type: string
-              example: "358576521067605"
             address:
               type: string
               example: "0x2::sui::SUI"
@@ -564,7 +558,6 @@ paths:
             listed on Mobula.
           in: query
           name: asset
-          required: true
           schema:
             example: Bitcoin
             type: string
@@ -575,6 +568,12 @@ paths:
           name: blockchain
           schema:
             type: string
+        - description: Symbol of the asset - only mandatory if no asset name/contract is provided
+          in: query
+          name: symbol
+          schema:
+            type: string
+            example: BTC
       responses:
         "200":
           content:
@@ -707,12 +706,18 @@ paths:
         - description: Comma separated list of asset names or Ethereum addresses (max 500)
           in: query
           name: assets
-          required: true
+          required: false
           schema:
             type: string
         - description: Comma separated list of blockchain names
           in: query
           name: blockchains
+          required: false
+          schema:
+            type: string
+        - description: Comma separated list of symbols
+          in: query
+          name: symbols
           required: false
           schema:
             type: string
@@ -775,6 +780,13 @@ paths:
           example: Bitcoin
           in: query
           name: asset
+          schema:
+            type: string
+          required: true
+        - description: Blockchain of the asset
+          example: Ethereum
+          in: query
+          name: blockchain
           schema:
             type: string
       responses:
