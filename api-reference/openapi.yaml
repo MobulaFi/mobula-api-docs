@@ -696,7 +696,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/MarketHistoryResponse"
+                properties:
+                  data:
+                    $ref: "#/components/schemas/MarketHistoryResponse"
+                type: object
           description: OK
       summary: Get the market metrics of an asset over a given timeframe
   /market/multi-data:
