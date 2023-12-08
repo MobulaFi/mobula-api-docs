@@ -113,18 +113,6 @@ components:
             priceToken:
               type: number
               example: 0.9916773139478455
-    MarketDataResponse:
-      properties:
-        liquidity:
-          description: The liquidity of the asset.
-          type: number
-        market_cap:
-          description: The market cap of the asset.
-          type: number
-        price:
-          description: The price of the asset.
-          type: number
-      type: object
     MarketHistoryResponse:
       properties:
         price_history:
@@ -154,8 +142,6 @@ components:
         price:
           type: number
         volume:
-          type: number
-        volume_7d:
           type: number
       type: object
     MarketTradesResponse:
@@ -581,7 +567,7 @@ paths:
               schema:
                 properties:
                   data:
-                    $ref: "#/components/schemas/MarketDataResponse"
+                    $ref: "#/components/schemas/MarketMetrics"
                 type: object
           description: OK
       summary: Get the market metrics for any asset
@@ -729,10 +715,13 @@ paths:
           content:
             application/json:
               schema:
-                additionalProperties:
-                  $ref: "#/components/schemas/MarketMetrics"
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/MarketMetrics"
                 type: object
-          description: Successful operation
+          description: OK
         "400":
           content:
             application/json:
