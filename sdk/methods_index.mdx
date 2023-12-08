@@ -30,7 +30,7 @@ Here's a list of available methods:
      additional fields to be included in the response.
    </Info>
 
-4. `fetchAssetMarketData(options: { asset: string; blockchain?: string; requestOptions?: RequestOptions; })`
+4. `fetchAssetMarketData(options: { asset: string; blockchain?: string; symbol?: string; requestOptions?: RequestOptions; })`
 
    <Info>
      Fetch market data for a specific asset. Blockchain parameter is optional
@@ -106,7 +106,7 @@ Here's a list of available methods:
       by date range, asset, blockchain, and pagination controls.
     </Info>
 
-15. `fetchMultipleAssetMarketData(options: { assets: string; blockchains?: string; requestOptions?: RequestOptions; })`
+15. `fetchMultipleAssetMarketData(options: { assets: string; blockchains?: symbol?: string; string; requestOptions?: RequestOptions; })`
 
     <Info>
       Retrieve market data for multiple assets simultaneously. Supports
@@ -134,7 +134,7 @@ Here's a list of available methods:
       stale data handling.
     </Info>
 
-19. `fetchAssetMetadata(options: { asset?: string; requestOptions?: RequestOptions; })`
+19. `fetchAssetMetadata(options: { asset?: string; blockchain?: string; requestOptions?: RequestOptions; })`
     <Info>
       Access metadata for a specific asset, with an optional asset parameter for
       targeted queries.
