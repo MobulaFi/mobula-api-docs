@@ -53,7 +53,7 @@
     {
       "name": "Dashboard",
       "icon": "gauge",
-      "url": "https://api-dashboard-kappa.vercel.app/"
+      "url": "https://admin.mobula.fi"
     },
     {
       "name": "Support",
