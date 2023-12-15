@@ -120,7 +120,7 @@
         "api-reference/endpoint/get-the-historical-balance-of-any-evm-compatible-wallets-at-any-time",
         "api-reference/endpoint/get-the-portfolio-of-holdings-from-any-evm-compatible-wallets-at-any-time",
         "api-reference/endpoint/get-the-wallet-transactions",
-        "api-reference/endpoint/get-complete-wallet-data.mdx"
+        "api-reference/endpoint/get-complete-wallet-data"
       ]
     },
     {
