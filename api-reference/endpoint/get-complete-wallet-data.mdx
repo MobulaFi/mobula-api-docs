@@ -1,0 +1,556 @@
+---
+title: "WSS for Wallet Data"
+icon: "wave-pulse"
+description: "Mobula provides WSS support for retrieving portfolio data to faster by sending a first cached snapshot of the wallet data & then pushing an update to the client if data cache changed. "
+---
+
+<Tip> This endpoint is only available to Growth and Enterprise plans. </Tip>
+
+Mobula provides WSS support for retrieving portfolio data to faster by sending a first cached snapshot of the wallet data & then pushing an update to the client if data cache changed.
+
+### Product demo
+
+Visit here: https://mobula.io/wallet/0xcF4548054E43eE134c78b89e612B0fd6d7fF138F
+
+<img src="https://i.imgur.com/66fTVmG.png" alt="Mobula WSS" />
+
+### Endpoint details
+
+- URL: wss://portfolio-api-wss-fgpupeioaa-uc.a.run.app
+- Message (string):
+
+```json
+{ "explorer": { "wallet": "0xcF4548054E43eE134c78b89e612B0fd6d7fF138F" } }
+```
+
+### Data model
+
+You will get a response with the following format:
+
+```json
+{
+  "addresses": ["0xcf4548054e43ee134c78b89e612b0fd6d7ff138f"],
+  "estimated_balance": 899.2457072430173,
+  "estimated_history": [
+    [1624969707000, 0],
+    ....
+    [1702651955000, 896.7814609257993],
+    [1702652764746, 899.2457072430173],
+    [1702652764746, 899.2457072430173]
+  ],
+  "portfolio": [
+    {
+      "name": "Ethereum",
+      "symbol": "ETH",
+      "price_bought": 1878.06,
+      "price": 2244.985991008866,
+      "max_buy_price": 2889.5911295911296,
+      "min_buy_price": 1068.54245014245,
+      "realized_roi": -17.6409,
+      "unrealized_roi": 18.1982,
+      "realized_usd": -3126.2138,
+      "unrealized_usd": 3224.9819,
+      "total_invested": 17721.441,
+      "change_24h": -1.9086082,
+      "token_balance": 0.3928164569,
+      "estimated_balance": 881.8674427782381,
+      "image": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880",
+      "allocation": 98.07,
+      "id": 100004304,
+      "cross_chain_balances": { "Ethereum": 0.39281645690244016 },
+      "contracts": [
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "0x6a023ccd1ff6f2045c3309768ead9e68f978f6e1",
+        "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+        "0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab",
+        "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+        null,
+        "0x2def4285787d58a2f811af24755a8150622f4361",
+        "0xdeaddeaddeaddeaddeaddeaddeaddeaddead0000",
+        "0xe44fd7fcb2b1581822d0c862b68222998a0c299a",
+        "0x2170ed0880ac9a755fd29b2688956bd959f933f8",
+        "0xc9bdeed33cd01541e1eed10f90519d2c06fe3feb",
+        "0x639a647fbe20b6c8ac19e48e2de44ea792c62c5c",
+        "0x3674d64aab971ab974b2035667a4b3d09b5ec2b3",
+        "0xdeaddeaddeaddeaddeaddeaddeaddeaddead0000",
+        "0x4200000000000000000000000000000000000006",
+        "0xdeaddeaddeaddeaddeaddeaddeaddeaddead1111"
+      ],
+      "blockchains": [
+        "Ethereum",
+        "XDAI",
+        "Polygon",
+        "Avalanche C-Chain",
+        "Arbitrum",
+        "Harmony",
+        "Celo",
+        "Boba",
+        "Cronos",
+        "BNB Smart Chain (BEP20)",
+        "Aurora",
+        "Moonriver",
+        "Moonbeam",
+        "Optimistic",
+        "Base",
+        "Mantle"
+      ],
+      "pnl_history": {
+        "24h": [
+          [1702540800000, { "realized": 0, "unrealized": 79.54349999999977 }],
+          [1702555200000, { "realized": 0, "unrealized": -72.76449999999977 }],
+          [1702569600000, { "realized": 0, "unrealized": 21.571399999999812 }],
+          [1702584000000, { "realized": 0, "unrealized": 89.05830000000014 }],
+          [1702598400000, { "realized": 0, "unrealized": -121.72140000000036 }],
+          [1702612800000, { "realized": 0, "unrealized": -37.0645999999997 }],
+          [
+            1702627200000,
+            { "realized": 0, "unrealized": -0.18130000000019209 }
+          ],
+          [1702641600000, { "realized": 0, "unrealized": -78.13899999999967 }]
+        ],
+        "7d": [
+          [1701907200000, { "realized": 0, "unrealized": 394.0759000000003 }],
+          [1701993600000, { "realized": 0, "unrealized": -45.76119999999992 }],
+          [1702080000000, { "realized": 0, "unrealized": -42.60750000000007 }],
+          [1702166400000, { "realized": 0, "unrealized": -23.815599999999904 }],
+          [1702252800000, { "realized": 0, "unrealized": -380.69360000000006 }],
+          [1702339200000, { "realized": 0, "unrealized": -105.8447000000001 }],
+          [1702425600000, { "realized": 0, "unrealized": 184.3829999999998 }],
+          [1702512000000, { "realized": 0, "unrealized": 200.2706000000003 }],
+          [1702598400000, { "realized": 0, "unrealized": -237.10629999999992 }]
+        ],
+        "30d": [
+          [1699228800000, { "realized": 0, "unrealized": 551.1638 }],
+          [1699833600000, { "realized": 0, "unrealized": -129.76589999999987 }],
+          [1700438400000, { "realized": 0, "unrealized": 25.896799999999985 }],
+          [1701043200000, { "realized": 0, "unrealized": 733.643 }],
+          [1701648000000, { "realized": 0, "unrealized": 336.71540000000005 }],
+          [1702252800000, { "realized": 0, "unrealized": -338.991 }]
+        ],
+        "1y": [
+          [1669852800000, { "realized": 0, "unrealized": -276.1296 }],
+          [1672531200001, { "realized": 0, "unrealized": 1607.0508 }],
+          [
+            1675209600001,
+            { "realized": 1.263300000000072, "unrealized": 75.3246999999999 }
+          ],
+          [1677628800001, { "realized": 0, "unrealized": 577.1687999999999 }],
+          [1680307200001, { "realized": 0, "unrealized": 35.28670000000011 }],
+          [1682899200001, { "realized": 0, "unrealized": 105.21890000000008 }],
+          [
+            1685577600001,
+            { "realized": 97.00410000000011, "unrealized": 121.65020000000004 }
+          ],
+          [1688169600001, { "realized": 0, "unrealized": -186.50150000000008 }],
+          [1690848000001, { "realized": 0, "unrealized": -813.537 }],
+          [1693526400001, { "realized": 0, "unrealized": 351.1214 }],
+          [1696118400001, { "realized": 0, "unrealized": 383.2766999999999 }],
+          [1698796800001, { "realized": 0, "unrealized": 839.9920999999999 }],
+          [1701388800001, { "realized": 0, "unrealized": 515.6933000000004 }]
+        ]
+      },
+      "relative_pnl_history": {
+        "24h": { "realized": 0, "unrealized": -100.7171999999996 },
+        "7d": { "realized": 0, "unrealized": -367.06039999999985 },
+        "30d": { "realized": 0, "unrealized": 623.7470000000003 },
+        "1y": { "realized": 98.26740000000018, "unrealized": 3382.4715 }
+      },
+      "tracked": true
+    },
+    {
+      "name": "Ethereum Name Service",
+      "symbol": "ENS",
+      "price_bought": 75.14,
+      "price": 8.66201667902046,
+      "max_buy_price": 75.14423562935997,
+      "min_buy_price": 75.14423562935997,
+      "realized_roi": -74.1635,
+      "unrealized_roi": 0,
+      "realized_usd": -2748.767,
+      "unrealized_usd": 0,
+      "total_invested": 3706.36,
+      "change_24h": -2.9772074,
+      "token_balance": 0,
+      "estimated_balance": 0,
+      "image": "https://assets.coingecko.com/coins/images/19785/large/acatxTm8_400x400.jpg?1635850140",
+      "allocation": 0,
+      "id": 100004316,
+      "cross_chain_balances": {},
+      "contracts": [
+        "0xc18360217d8f7ab5e7c516566761ea12ce7f9d72",
+        "0x65559aa14915a70190438ef90104769e5e890a00"
+      ],
+      "blockchains": ["Ethereum", "Optimistic"],
+      "pnl_history": {
+        "24h": [
+          [1702540800000, { "realized": 0, "unrealized": 0 }],
+          [1702555200000, { "realized": 0, "unrealized": 0 }],
+          [1702569600000, { "realized": 0, "unrealized": 0 }],
+          [1702584000000, { "realized": 0, "unrealized": 0 }],
+          [1702598400000, { "realized": 0, "unrealized": 0 }],
+          [1702612800000, { "realized": 0, "unrealized": 0 }],
+          [1702627200000, { "realized": 0, "unrealized": 0 }],
+          [1702641600000, { "realized": 0, "unrealized": 0 }]
+        ],
+        "7d": [
+          [1701907200000, { "realized": 0, "unrealized": 0 }],
+          [1701993600000, { "realized": 0, "unrealized": 0 }],
+          [1702080000000, { "realized": 0, "unrealized": 0 }],
+          [1702166400000, { "realized": 0, "unrealized": 0 }],
+          [1702252800000, { "realized": 0, "unrealized": 0 }],
+          [1702339200000, { "realized": 0, "unrealized": 0 }],
+          [1702425600000, { "realized": 0, "unrealized": 0 }],
+          [1702512000000, { "realized": 0, "unrealized": 0 }],
+          [1702598400000, { "realized": 0, "unrealized": 0 }]
+        ],
+        "30d": [
+          [1699228800000, { "realized": 0, "unrealized": 0 }],
+          [1699833600000, { "realized": 0, "unrealized": 0 }],
+          [1700438400000, { "realized": 0, "unrealized": 0 }],
+          [1701043200000, { "realized": 0, "unrealized": 0 }],
+          [1701648000000, { "realized": 0, "unrealized": 0 }],
+          [1702252800000, { "realized": 0, "unrealized": 0 }]
+        ],
+        "1y": [
+          [1669852800000, { "realized": 0, "unrealized": 0 }],
+          [1672531200001, { "realized": 0, "unrealized": 0 }],
+          [1675209600001, { "realized": 0, "unrealized": 0 }],
+          [1677628800001, { "realized": 0, "unrealized": 0 }],
+          [1680307200001, { "realized": 0, "unrealized": 0 }],
+          [1682899200001, { "realized": 0, "unrealized": 0 }],
+          [1685577600001, { "realized": 0, "unrealized": 0 }],
+          [1688169600001, { "realized": 0, "unrealized": 0 }],
+          [1690848000001, { "realized": 0, "unrealized": 0 }],
+          [1693526400001, { "realized": 0, "unrealized": 0 }],
+          [1696118400001, { "realized": 0, "unrealized": 0 }],
+          [1698796800001, { "realized": 0, "unrealized": 0 }],
+          [1701388800001, { "realized": 0, "unrealized": 0 }]
+        ]
+      },
+      "relative_pnl_history": {
+        "24h": { "realized": 0, "unrealized": 0 },
+        "7d": { "realized": 0, "unrealized": 0 },
+        "30d": { "realized": 0, "unrealized": 0 },
+        "1y": { "realized": 0, "unrealized": 0 }
+      },
+      "tracked": true
+    },
+    {
+      "name": "USD Coin",
+      "symbol": "USDC",
+      "price_bought": 1,
+      "price": 0.9998862768806888,
+      "max_buy_price": 1.0021969230769232,
+      "min_buy_price": 1.0001290468405923,
+      "realized_roi": -0.0861,
+      "unrealized_roi": -0.0015,
+      "realized_usd": -2.3396,
+      "unrealized_usd": -0.0402,
+      "total_invested": 2718.739,
+      "change_24h": -0.0007369192,
+      "token_balance": 17.380241,
+      "estimated_balance": 17.3782644647791,
+      "image": "https://assets.coingecko.com/coins/images/6319/large/USD_Coin_icon.png?1547042389",
+      "allocation": 1.93,
+      "id": 100012309,
+      "cross_chain_balances": { "Ethereum": 17.380241 },
+      "contracts": [
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "0xddafbb505ad214d7b80b1f830fccc89b60fb7a83",
+        "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+        "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
+        null,
+        "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8",
+        "0xc946daf81b08146b1c7a8da2a851ddf2b3eaaf85",
+        "0xe3f5a90f9cb311505cd691a46596599aa1a0ad7d",
+        "0x66a2a913e447d6b4bf33efbec43aaef87890fbbc",
+        "0xc21223249ca28397b4b6541dffaecc539bff0c59",
+        "0xb12bfca5a55806aaf64e99521918a4bf0fc40802",
+        "0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+        "0x980a5afef3d17ad98635f6c5aebcbaeded3c3430",
+        "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+        "0x818ec0a7fe18ff94269904fced6ae3dae6d6dc0b",
+        "0x09bc4e0d864854c6afb6eb9a9cdf58ac190d0df9",
+        "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+        "0x5d4b302506645c37ff133b98c4b50a5ae14841659738d6d733d59d0d217a93bf::coin::COIN",
+        "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca"
+      ],
+      "blockchains": [
+        "Ethereum",
+        "XDAI",
+        "Polygon",
+        "BNB Smart Chain (BEP20)",
+        "Harmony",
+        "Arbitrum",
+        "OKEX",
+        "Moonriver",
+        "Boba",
+        "Cronos",
+        "Aurora",
+        "Optimistic",
+        "Kucoin",
+        "Avalanche C-Chain",
+        "Moonbeam",
+        "Mantle",
+        "Base",
+        "Sui",
+        "Base"
+      ],
+      "pnl_history": {
+        "24h": [
+          [
+            1702540800000,
+            { "realized": 0, "unrealized": -0.0011999999999999997 }
+          ],
+          [
+            1702555200000,
+            { "realized": 0, "unrealized": 0.0015999999999999973 }
+          ],
+          [
+            1702569600000,
+            { "realized": 0, "unrealized": -0.0011999999999999997 }
+          ],
+          [
+            1702584000000,
+            { "realized": 0, "unrealized": 0.0008000000000000021 }
+          ],
+          [
+            1702598400000,
+            { "realized": 0, "unrealized": 0.0068000000000000005 }
+          ],
+          [
+            1702612800000,
+            { "realized": 0, "unrealized": -0.010599999999999998 }
+          ],
+          [
+            1702627200000,
+            { "realized": 0, "unrealized": 0.0040999999999999995 }
+          ],
+          [
+            1702641600000,
+            { "realized": 0, "unrealized": -0.0025000000000000022 }
+          ]
+        ],
+        "7d": [
+          [
+            1701907200000,
+            { "realized": 0, "unrealized": 0.011700000000000002 }
+          ],
+          [
+            1701993600000,
+            { "realized": 0, "unrealized": 0.001799999999999996 }
+          ],
+          [
+            1702080000000,
+            { "realized": 0, "unrealized": 0.004500000000000004 }
+          ],
+          [
+            1702166400000,
+            { "realized": 0, "unrealized": -0.004900000000000002 }
+          ],
+          [
+            1702252800000,
+            { "realized": 0, "unrealized": 0.006899999999999996 }
+          ],
+          [
+            1702339200000,
+            { "realized": 0, "unrealized": -0.0031999999999999945 }
+          ],
+          [
+            1702425600000,
+            { "realized": 0, "unrealized": 0.000999999999999994 }
+          ],
+          [
+            1702512000000,
+            { "realized": 0, "unrealized": -0.0005999999999999964 }
+          ],
+          [
+            1702598400000,
+            { "realized": 0, "unrealized": -0.0022000000000000006 }
+          ]
+        ],
+        "30d": [
+          [
+            1699228800000,
+            { "realized": 0, "unrealized": 0.006600000000000002 }
+          ],
+          [
+            1699833600000,
+            { "realized": 0, "unrealized": -0.008100000000000003 }
+          ],
+          [
+            1700438400000,
+            { "realized": 0, "unrealized": 0.017700000000000004 }
+          ],
+          [
+            1701043200000,
+            { "realized": 0, "unrealized": -0.004400000000000001 }
+          ],
+          [
+            1701648000000,
+            { "realized": 0, "unrealized": -0.011699999999999999 }
+          ],
+          [1702252800000, { "realized": 0, "unrealized": 0.001899999999999999 }]
+        ],
+        "1y": [
+          [1669852800000, { "realized": 0, "unrealized": 1.6027 }],
+          [1672531200001, { "realized": 0, "unrealized": 1.0743999999999998 }],
+          [1675209600001, { "realized": 0, "unrealized": -5.816 }],
+          [1677628800001, { "realized": 0, "unrealized": 3.8123 }],
+          [1680307200001, { "realized": 0, "unrealized": 0.4769 }],
+          [1682899200001, { "realized": 0, "unrealized": -1.5141 }],
+          [1685577600001, { "realized": 0, "unrealized": -0.5045 }],
+          [1688169600001, { "realized": -2.3396, "unrealized": 1.5808 }],
+          [
+            1690848000001,
+            { "realized": 0, "unrealized": -0.019200000000000002 }
+          ],
+          [1693526400001, { "realized": 0, "unrealized": -0.0114 }],
+          [1696118400001, { "realized": 0, "unrealized": -0.0086 }],
+          [1698796800001, { "realized": 0, "unrealized": -0.0051 }],
+          [
+            1701388800001,
+            { "realized": 0, "unrealized": -0.001899999999999999 }
+          ]
+        ]
+      },
+      "relative_pnl_history": {
+        "24h": { "realized": 0, "unrealized": -0.0005000000000000004 },
+        "7d": { "realized": 0, "unrealized": 0.002700000000000001 },
+        "30d": { "realized": 0, "unrealized": -0.026 },
+        "1y": { "realized": -2.3396, "unrealized": 1.0019 }
+      },
+      "tracked": true
+    }
+  ],
+  "global_pnl": {
+    "24h": [
+      [1702540800000, { "realized": 0, "unrealized": 79.54229999999977 }],
+      [1702555200000, { "realized": 0, "unrealized": -72.76289999999977 }],
+      [1702569600000, { "realized": 0, "unrealized": 21.57019999999981 }],
+      [1702584000000, { "realized": 0, "unrealized": 89.05910000000014 }],
+      [1702598400000, { "realized": 0, "unrealized": -121.71460000000036 }],
+      [1702612800000, { "realized": 0, "unrealized": -37.0751999999997 }],
+      [1702627200000, { "realized": 0, "unrealized": -0.1772000000001921 }],
+      [1702641600000, { "realized": 0, "unrealized": -78.14149999999967 }]
+    ],
+    "7d": [
+      [1701907200000, { "realized": 0, "unrealized": 394.0876000000003 }],
+      [1701993600000, { "realized": 0, "unrealized": -45.759399999999914 }],
+      [1702080000000, { "realized": 0, "unrealized": -42.60300000000007 }],
+      [1702166400000, { "realized": 0, "unrealized": -23.820499999999903 }],
+      [1702252800000, { "realized": 0, "unrealized": -380.6867000000001 }],
+      [1702339200000, { "realized": 0, "unrealized": -105.84790000000011 }],
+      [1702425600000, { "realized": 0, "unrealized": 184.38399999999982 }],
+      [1702512000000, { "realized": 0, "unrealized": 200.2700000000003 }],
+      [1702598400000, { "realized": 0, "unrealized": -237.1084999999999 }]
+    ],
+    "30d": [
+      [1699228800000, { "realized": 0, "unrealized": 551.1704000000001 }],
+      [1699833600000, { "realized": 0, "unrealized": -129.7739999999999 }],
+      [1700438400000, { "realized": 0, "unrealized": 25.914499999999986 }],
+      [1701043200000, { "realized": 0, "unrealized": 733.6386 }],
+      [1701648000000, { "realized": 0, "unrealized": 336.7037 }],
+      [1702252800000, { "realized": 0, "unrealized": -338.9891 }]
+    ],
+    "1y": [
+      [1669852800000, { "realized": 0, "unrealized": -274.52689999999996 }],
+      [1672531200001, { "realized": 0, "unrealized": 1608.1252 }],
+      [
+        1675209600001,
+        { "realized": 1.263300000000072, "unrealized": 69.50869999999989 }
+      ],
+      [1677628800001, { "realized": 0, "unrealized": 580.9811 }],
+      [1680307200001, { "realized": 0, "unrealized": 35.76360000000011 }],
+      [1682899200001, { "realized": 0, "unrealized": 103.70480000000008 }],
+      [
+        1685577600001,
+        { "realized": 97.00410000000011, "unrealized": 121.14570000000005 }
+      ],
+      [
+        1688169600001,
+        { "realized": -2.3396, "unrealized": -184.92070000000007 }
+      ],
+      [1690848000001, { "realized": 0, "unrealized": -813.5562 }],
+      [1693526400001, { "realized": 0, "unrealized": 351.11 }],
+      [1696118400001, { "realized": 0, "unrealized": 383.2680999999999 }],
+      [1698796800001, { "realized": 0, "unrealized": 839.987 }],
+      [1701388800001, { "realized": 0, "unrealized": 515.6914000000004 }]
+    ]
+  },
+  "relative_global_pnl": {
+    "24h": { "realized": 0, "unrealized": -100.7176999999996 },
+    "7d": { "realized": 0, "unrealized": -367.05769999999984 },
+    "30d": { "realized": 0, "unrealized": 623.7210000000003 },
+    "1y": { "realized": 95.92780000000018, "unrealized": 3383.4734000000003 }
+  },
+  "total_realized": -5877.3204,
+  "total_unrealized": 3224.9417000000003,
+  "final": false,
+  "staking_positions": {}
+}
+
+```
+
+### Implementation example
+
+Let's take a look at [Mobula Explorer](https://mobula.io/wallet/0xcF4548054E43eE134c78b89e612B0fd6d7fF138F) implementation details.
+
+<Tip>You can use the Network tab in your browser to see the WSS requests. </Tip>
+
+```typescript
+const socket = new WebSocket("wss://portfolio-api-wss-fgpupeioaa-uc.a.run.app");
+
+socket.addEventListener("open", () => {
+  socket.send(`{"explorer": {"wallet": "${isWalletExplorer}"}`);
+});
+
+socket.addEventListener("message", (event) => {
+  if (event.data === "Goodbye.") {
+    // We're done here. Can stop loader, etc.
+    return;
+  }
+
+  if (event.data === "Hello.") {
+    // Start loader, etc.
+    return;
+  }
+
+  if (event.data.includes("Processing")) {
+    // Info msg, i.e. Processing explorer input 0xcF4548054E43eE134c78b89e612B0fd6d7fF138F
+    // Nothing to do here
+    return;
+  }
+
+  const portfolio = JSON.parse(event.data);
+
+  if (portfolio.status === "error") {
+    setError(
+      "Invalid address. Mobula Portfolio does not support smart-contracts."
+    );
+  } else {
+    setWallet(portfolio);
+  }
+});
+
+// No need to close the socket, it will close automatically.
+```
+
+Can’t find what you’re looking for? Reach out to us, response times < 1h.
+
+<CardGroup>
+
+<Card
+  title="Support"
+  icon="Telegram"
+  href="https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Key"
+>
+  Telegram
+</Card>
+
+<Card title="Need help?" icon="envelope" href="mailto:contact@mobulalabs.org">
+  Email
+</Card>
+
+</CardGroup>
+```
