@@ -1,0 +1,130 @@
+---
+title: "Get any crypto price (100% coverage)"
+icon: "key-skeleton"
+description: "Fetch from symbol, address, name aggregated price, volume, price change of any crypto - from Monero to the latest shitcoin on your favorite L2."
+---
+
+Mobula API allows you to query market data from any kind of assets in a unified way. You can query any crypto price, volume, price change, and more from any blockchain supported (check [here](/api-reference/blockchains) for the full list) or asset listed on Mobula curated token list (explorable [here](https://mobula.io)).
+
+### What you'll need
+
+1. An idea of what you want to build
+2. An API key from the [Dashboard](https://admin.mobula.fi) (only for production use, you can use the API without an API key in development mode)
+
+### Walkthrough
+
+<Steps>
+  <Step title="Identify your asset">
+    Pick your asset symbol, name or address. If it is a symbol/name, make sure to check case sensitivity and to respect the asset name as listed on Mobula curated token list (explorable [here](https://mobula.io)). If it is an address, make sure to check the blockchain supported (check [here](/api-reference/blockchains) for the full list) and to respect the blockchain ID format.
+  </Step>
+  <Step title="Call Mobula API">
+    You can call Mobula API directly from your terminal using cURL or any HTTP client.
+
+    ```bash
+
+curl --location --request GET 'https://api.mobula.io/api/1/market/data?asset=Bitcoin' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: YOUR_API_KEY_HERE'
+
+````
+
+    You can also Mobula SDK:
+
+    ```typescript
+
+import { Mobula } from "mobula-api-sdk";
+
+    const mobula = new Mobula("YOUR_API_KEY_HERE");
+
+    mobula
+    .fetchAssetMarketData({
+       asset: "Bitcoin",
+    })
+    .then((response) => {
+       console.log(response);
+    });
+```
+
+  or a basic HTTP client:
+
+  ```typescript
+
+import axios from "axios";
+
+axios.get('https://api.mobula.io/api/1/market/data?asset=Bitcoin')
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
+
+  ```
+
+
+</Step>
+
+<Step title="Get your data">
+  You will get a response with the following format:
+
+  ```json
+{
+  "data": {
+    "market_cap": 843024041586,
+    "market_cap_diluted": 903697702893,
+    "liquidity": 158895577,
+    "liquidity_change_24h": 26.329614639282227,
+    "price": 43033.22394727512,
+    "off_chain_volume": 18370240881,
+    "volume": 184557344,
+    "volume_change_24h": 41.50541687011719,
+    "volume_7d": 191757056,
+    "is_listed": true,
+    "price_change_24h": -0.5605395,
+    "price_change_1h": 0.21656898,
+    "price_change_7d": 1.4587651,
+    "price_change_1m": 21.078182,
+    "price_change_1y": 141.66528,
+    "ath": 67617.0155448617,
+    "atl": 67.809
+  }
+}
+
+  ```
+</Step>
+</Steps>
+
+### Go further
+
+Cool! We're done with the basics. Here's a few more things you can do with Mobula API:
+
+- Fetch up to 500 assets at once with market/multi-data endpoint (check [here](/api-reference/endpoint/get-multiple-assets-market-data) for more details)
+- Subcribe to real-time price updates with WebSockets (contact us on [Telegram](https://t.me/MobulaPartnerBot?start=WSS_Guide) for more details)
+- Fetch historical price data with market/history endpoint (check [here](/api-reference/endpoint/get-the-market-metrics-of-an-asset-over-a-given-timeframe) for more details)
+
+
+### Need help?
+
+
+
+Can’t find what you’re looking for? Reach out to us, response times < 1h.
+
+<CardGroup>
+
+
+
+
+<Card
+  title="Support"
+  icon="Telegram"
+  href="https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Key"
+>
+  Telegram
+</Card>
+
+<Card title="Need help?" icon="envelope" href="mailto:contact@mobulalabs.org">
+  Email
+</Card>
+
+</CardGroup>
+````
