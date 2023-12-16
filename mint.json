@@ -1,8 +1,8 @@
 {
   "name": "Mobula API",
   "logo": {
-    "dark": "/logo/dark_logo.svg",
-    "light": "/logo/light_logo.svg"
+    "dark": "/images/logo/dark-logo.svg",
+    "light": "/images/logo/light-logo.svg"
   },
   "analytics": {
     "mixpanel": {
@@ -26,15 +26,15 @@
     }
   },
   "primaryTab": {
-    "name": "Home"
+    "name": "Documentation"
   },
   "tabs": [
     {
-      "name": "Mobula API",
+      "name": "API Reference",
       "url": "api-reference"
     },
     {
-      "name": "Mobula SDK",
+      "name": "SDK",
       "url": "sdk"
     }
   ],
@@ -51,11 +51,6 @@
   ],
   "anchors": [
     {
-      "name": "Dashboard",
-      "icon": "gauge",
-      "url": "https://admin.mobula.fi"
-    },
-    {
       "name": "Support",
       "icon": "telegram",
       "url": "https://t.me/MobulaPartnerBot?start=Mobula_API_Support"
@@ -64,130 +59,95 @@
       "name": "Email",
       "icon": "envelope",
       "url": "mailto:contact@mobulalabs.org"
-    },
-    {
-      "name": "Github",
-      "icon": "github",
-      "url": "https://github.com/anouci/mobula-api-sdk"
     }
   ],
   "navigation": [
     {
-      "group": "Home",
-      "pages": ["start_here"]
+      "group": "Overview",
+      "pages": ["introduction", "benefits"]
     },
     {
-      "group": "Custom needs",
-      "pages": [
-        "introduction_custom_endpoint",
-        "introduction_custom_blockchain"
-      ]
+      "group": "Guides",
+      "pages": ["guides/query-any-crypto-price"]
+    },
+    {
+      "group": "Extra",
+      "pages": ["pricing", "blockchains"]
     },
     {
       "group": "Introduction",
-      "pages": [
-        "api-reference/introduction",
-        "api-reference/authentification",
-        "api-reference/usage",
-        "api-reference/upgrade",
-        "api-reference/blockchains"
-      ]
+      "pages": ["api-reference/introduction", "api-reference/authentification"]
     },
     {
       "group": "Custom needs",
       "pages": [
-        "api-reference/custom/introduction_custom_endpoint",
-        "api-reference/custom/introduction_custom_blockchain"
+        "custom/blockchain",
+        "custom/endpoint",
+        {
+          "group": "Early Access",
+          "pages": [
+            "beta/cex-data",
+            "beta/curated-streams",
+            "beta/explorer-sql-api",
+            "beta/trades-sql-api",
+            "beta/multi-chain-nodes",
+            "beta/stablecoins"
+          ]
+        }
       ]
     },
+
     {
-      "group": "Market API",
+      "group": "Octopus - Market API",
       "pages": [
-        "api-reference/introduction_market",
-        "api-reference/endpoint/get-multiple-assets-market-data",
-        "api-reference/endpoint/get-the-market-metrics-for-any-asset",
-        "api-reference/endpoint/get-the-market-metrics-for-any-pair",
-        "api-reference/endpoint/get-pairs-overview-for-any-asset",
-        "api-reference/endpoint/retrieve-trade-history-for-a-given-asset",
-        "api-reference/endpoint/get-the-market-metrics-of-an-asset-over-a-given-timeframe"
+        "api-reference/endpoint/market-data",
+        "api-reference/endpoint/market-multi-data",
+        "api-reference/endpoint/market-pair",
+        "api-reference/endpoint/market-pairs",
+        "api-reference/endpoint/market-trades",
+        "api-reference/endpoint/market-history"
       ]
     },
     {
       "group": "[BETA] Wallet Explorer API",
       "pages": [
-        "api-reference/introduction_wallet_explorer",
-        "api-reference/endpoint/get-portfolio",
-        "api-reference/endpoint/get-the-historical-balance-of-any-evm-compatible-wallets-at-any-time",
-        "api-reference/endpoint/get-the-portfolio-of-holdings-from-any-evm-compatible-wallets-at-any-time",
-        "api-reference/endpoint/get-the-wallet-transactions",
-        "api-reference/endpoint/get-complete-wallet-data"
+        "api-reference/endpoint/wallet-nfts",
+        "api-reference/endpoint/wallet-history",
+        "api-reference/endpoint/wallet-portfolio",
+        "api-reference/endpoint/wallet-transactions",
+        "api-reference/endpoint/wss-complete-data"
       ]
     },
     {
-      "group": "Metadata API",
+      "group": "Metacore - Metadata API",
       "pages": [
-        "api-reference/introduction_metadata",
-        "api-reference/endpoint/get-all-crypto-data-with-extra-fields-as-needed",
-        "api-reference/endpoint/get-market-metrics-at-a-specific-time",
-        "api-reference/endpoint/search-crypto-data-by-name-or-symbol"
+        "api-reference/endpoint/all",
+        "api-reference/endpoint/search",
+        "api-reference/endpoint/metadata"
       ]
     },
-    {
-      "group": "Early Access",
-      "pages": [
-        "api-reference/beta/introduction_cex_data",
-        "api-reference/beta/introduction_highlevel",
-        "api-reference/beta/introduction_stablecoins",
-        "api-reference/beta/introduction_nodes",
-        "api-reference/beta/introduction_explorer_sql_api",
-        "api-reference/beta/introduction_trades_sql_api"
-      ]
-    },
+
     {
       "group": "Introduction",
-      "pages": [
-        "sdk/introduction",
-        "sdk/authentification",
-        "sdk/usage",
-        "sdk/upgrade",
-        "sdk/blockchains"
-      ]
+      "pages": ["sdk/introduction", "sdk/authentification"]
     },
     {
       "group": "Resources",
-      "pages": ["sdk/methods_index", "sdk/tutorials"]
-    },
-    {
-      "group": "Custom needs",
-      "pages": [
-        "sdk/custom/introduction_custom_endpoint",
-        "sdk/custom/introduction_custom_blockchain"
-      ]
+      "pages": ["sdk/methods-index"]
     },
     {
       "group": "SDK Examples",
       "pages": [
-        "sdk/examples/history_balance_wallet",
-        "sdk/examples/metadata_specific_asset",
-        "sdk/examples/nft_of_wallet",
-        "sdk/examples/marketdata_asset",
-        "sdk/examples/wallet_transactions"
+        "sdk/examples/wallet-history",
+        "sdk/examples/metadata",
+        "sdk/examples/wallet-nfts",
+        "sdk/examples/market-data",
+        "sdk/examples/wallet-transactions"
       ]
     },
     {
       "group": "Troubleshooting",
       "pages": ["sdk/issues/troubleshooting"]
-    },
-    {
-      "group": "Early Access",
-      "pages": [
-        "sdk/beta/introduction_cex_data",
-        "sdk/beta/introduction_highlevel",
-        "sdk/beta/introduction_stablecoins",
-        "sdk/beta/introduction_nodes",
-        "sdk/beta/introduction_explorer_sql_api",
-        "sdk/beta/introduction_trades_sql_api"
-      ]
     }
   ],
   "footerSocials": {

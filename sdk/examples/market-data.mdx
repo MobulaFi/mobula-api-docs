@@ -1,0 +1,24 @@
+---
+title: "Get market data of an asset "
+description: "Fetch market data for a specific asset."
+icon: "whale"
+---
+
+```typescript
+import { Mobula } from "mobula-api-sdk";
+
+const mobula = new Mobula("YOUR_API_KEY_HERE");
+
+mobula
+  .fetchAssetMarketData({
+    asset: "Floki Inu",
+  })
+  .then((response) => {
+    console.log(response);
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
+```
+
+Learn more about the parameters in the [REST API documentation](/api-reference/endpoint/market-data)

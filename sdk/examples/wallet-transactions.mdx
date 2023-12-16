@@ -1,0 +1,24 @@
+---
+title: "All transactions of a wallet"
+description: "Fetch transactions of a wallet."
+icon: "narwhal"
+---
+
+```typescript
+import { Mobula } from "mobula-api-sdk";
+
+const mobula = new Mobula("YOUR_API_KEY_HERE");
+
+mobula
+  .fetchWalletTransactions({
+    wallet: "0x77A89C51f106D6cD547542a3A83FE73cB4459135",
+  })
+  .then((response) => {
+    console.log(response);
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
+```
+
+Learn more about the parameters in the [REST API documentation](/api-reference/endpoint/wallet-transactions)
