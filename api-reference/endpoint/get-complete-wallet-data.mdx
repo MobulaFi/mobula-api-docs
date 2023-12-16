@@ -502,7 +502,7 @@ Let's take a look at [Mobula Explorer](https://mobula.io/wallet/0xcF4548054E43eE
 const socket = new WebSocket("wss://portfolio-api-wss-fgpupeioaa-uc.a.run.app");
 
 socket.addEventListener("open", () => {
-  socket.send(`{"explorer": {"wallet": "${isWalletExplorer}"}`);
+  socket.send(`{"explorer": {"wallet": "${isWalletExplorer}"}}`);
 });
 
 socket.addEventListener("message", (event) => {
