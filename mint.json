@@ -124,7 +124,8 @@
         "api-reference/endpoint/wallet-history",
         "api-reference/endpoint/wallet-portfolio",
         "api-reference/endpoint/wallet-transactions",
-        "api-reference/endpoint/wss-complete-data"
+        "api-reference/endpoint/wss-complete-data",
+        "api-reference/endpoint/wss-portfolio"
       ]
     },
     {

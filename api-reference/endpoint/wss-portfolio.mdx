@@ -1,0 +1,50 @@
+---
+title: "Websocket Wallet Data"
+icon: "wave-pulse"
+description: "Get WSS streams for balance changes, USD balance change, transactions, and more."
+---
+
+<Tip> This endpoint is only available to Growth and Enterprise plans. </Tip>
+
+### Endpoint details
+
+- URL: wss://portfolio-api-wss-fgpupeioaa-uc.a.run.app
+- Message (string):
+
+```json
+{
+  "type": "wallet",
+  "authorization": "YOUR-API-KEY",
+  "payload": {
+    "wallet": "0x6557D92D629E0bD8003b8E12c83835ff3CDB9D6B",
+    "interval": 15
+  }
+}
+```
+
+Parameters:
+
+- `interval`: interval in seconds between updates (min 5s, default 30s)
+- `wallet`: wallet address to track
+
+### Data model
+
+Data reponse is the same as [market/multi-data](/api-reference/endpoint/wallet-portfolio)
+
+Can’t find what you’re looking for? Reach out to us, response times < 1h.
+
+<CardGroup>
+
+<Card
+  title="Support"
+  icon="Telegram"
+  href="https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Key"
+>
+  Telegram
+</Card>
+
+<Card title="Need help?" icon="envelope" href="mailto:contact@mobulalabs.org">
+  Email
+</Card>
+
+</CardGroup>
