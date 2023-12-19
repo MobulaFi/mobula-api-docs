@@ -45,8 +45,8 @@
   },
   "topbarLinks": [
     {
-      "name": "Support",
-      "url": "https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Nav"
+      "name": "Generate free API key",
+      "url": "https://admin.mobula.fi/"
     }
   ],
   "anchors": [
