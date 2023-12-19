@@ -1,0 +1,156 @@
+---
+title: "Get any transactions of a crypto wallet"
+description: "Discover how to access any transaction of a crypto wallet using the Mobula API. This guide provides insights on fetching real-time and historical transaction data for any EVM-compatible wallet, with options for filtering and detailed analysis."
+---
+
+Mobula API offers powerful tools to fetch real-time and historical transaction data from EVM-compatible wallets. Follow this guide to master the process of retrieving any transaction, filtered by your specific criteria.
+
+### What you'll need
+
+1. An EVM-compatible wallet address.
+2. An understanding of your project's requirements.
+3. An API key from the [Mobula Dashboard](https://admin.mobula.fi) (required for production; optional in development mode).
+
+### Walkthrough
+
+<Steps>
+  <Step title="Configure Your Query">
+    Select the wallet address you wish to investigate. You have the option to filter by transaction type, specific assets, blockchain networks, and timeframes.
+  </Step>
+
+  <Step title="Initiate the API Request">
+    Make the API call using your preferred method - cURL, Axios, or the Mobula SDK:
+
+    **Using cURL**:
+    ```bash
+    curl --location --request GET 'https://api.mobula.io/wallet/transactions?wallet=0x77A89C51f106D6cD547542a3A83FE73cB4459135'
+    ```
+
+    **Using Axios**:
+    ```javascript
+    import axios from "axios";
+    axios.get('https://api.mobula.io/wallet/transactions?wallet=0x77A89C51f106D6cD547542a3A83FE73cB4459135')
+    .then(response => console.log(response.data))
+    .catch(error => console.log(error));
+    ```
+
+    **Using Mobula SDK**:
+    ```typescript
+        import { Mobula } from "mobula-api-sdk";
+        const mobula = new Mobula("YOUR_API_KEY_HERE");
+        mobula.fetchWalletTransactions({
+        wallet: "0x77A89C51f106D6cD547542a3A83FE73cB4459135",
+        from: "START_DATE", // Optional, timestamp
+        to: "END_DATE",     // Optional, timestamp
+        asset: "ASSET_NAME", // Optional
+        blockchain: "BLOCKCHAIN_NAMES", // Optional
+        limit: 10, // Optional
+        offset: 0, // Optional
+        order: "asc" // Optional, can be 'asc' or 'desc'
+        })
+        .then(response => console.log(response))
+        .catch(error => console.log(error));
+    ```
+
+  </Step>
+
+  <Step title="Examine the Transaction Details">
+    The API's response will include a wealth of information, including transaction timestamps, types, amounts, and specific blockchain data.
+
+```json
+{
+  "data": {
+    "transactions": [
+      {
+        "timestamp": 1650788305000,
+        "asset": {
+          "name": "StaySAFU",
+          "symbol": "SAFU",
+          "id": 3,
+          "contract": "0x890cc7d14948478c98a6cd7f511e1f7f7f99f397",
+          "logo": "https://metacore.mobula.io/4ed4daf3f124fae650cfab146ae7348cdb62920bc25bf6408698654835192a1b.png"
+        },
+        "type": "buy",
+        "method_id": null,
+        "hash": "0x0768d341245f70010d2a326062b6d46f76c794fc46ef0f6a75802cf66493cc54",
+        "blockchain": "BNB Smart Chain (BEP20)",
+        "amount": 4.95,
+        "amount_usd": 41.255,
+        "to": "0x77a89c51f106d6cd547542a3a83fe73cb4459135",
+        "from": "0xbb663a119193ca68512c351b0fdfdeb9c22dc416"
+      },
+      {
+        "timestamp": 1651854030000,
+        "asset": {
+          "name": "Polygon",
+          "symbol": "MATIC",
+          "id": 100007238,
+          "contract": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+          "logo": "https://metacore.mobula.io/22884f2d889a75fd9715538bf8c4ffedfd91766e8b3a886128dd9495521deca7.png"
+        },
+        "type": "buy",
+        "method_id": "0x",
+        "hash": "0xa09eb4063df609101f94cdaff14ee936e10304501f88ba7bee58b290f86db3b9",
+        "blockchain": "Polygon",
+        "amount": 11,
+        "amount_usd": 11.485,
+        "to": "0x77a89c51f106d6cd547542a3a83fe73cb4459135",
+        "from": "0x0490d25a95befdde088c8a3d741b5afba29cb8d9"
+      },
+      {
+        "timestamp": 1652261163000,
+        "asset": {
+          "name": "Mobula",
+          "symbol": "MOBL",
+          "id": 222,
+          "contract": "0x5fef39b578deeefa4485a7e5944c7691677d5dd4",
+          "logo": "https://mobula.mypinata.cloud/ipfs/QmTn6CLSsURsMfEwQA4o5SwBJKjrHJrtuYcNKd14kdJ77o?pinataGatewayToken=WQn5Yv-xwpvoa6O4Kc6yMwL4kG-UCFSmo0FL2pcIRAdN-V8XYVaL7udtsC7R3_Nm"
+        },
+        "type": "buy",
+        "method_id": null,
+        "hash": "0xa52485281b07659f91b63d9e1924871cb6f90b666255d24dd03bd0febed0cdaf",
+        "blockchain": "Polygon",
+        "amount": 1,
+        "amount_usd": 0,
+        "to": "0x77a89c51f106d6cd547542a3a83fe73cb4459135",
+        "from": "0x0490d25a95befdde088c8a3d741b5afba29cb8d9"
+      }
+      // ... more transactions ...
+    ]
+  }
+}
+```
+
+  </Step>
+</Steps>
+
+### Utilizing Transaction Data
+
+With the retrieved information, you can:
+
+- **Monitor Wallet Transactions**: Keep an eye on incoming and outgoing transactions in real-time or historically.
+- **Understand Wallet Interactions**: Learn how the wallet engages with different cryptocurrencies and blockchains.
+- **Create Detailed Transaction Reports**: Develop comprehensive transaction histories for wallets, crucial for financial tracking or analysis.
+
+### Support and Assistance
+
+Our expert support team is on hand to help with any inquiries or issues with API integration.
+
+<CardGroup>
+
+<Card
+  title="Telegram Support"
+  icon="Telegram"
+  href="https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Key"
+>
+  Telegram
+</Card>
+
+<Card
+  title="Email Support"
+  icon="envelope"
+  href="mailto:contact@mobulalabs.org"
+>
+  Email
+</Card>
+</CardGroup>

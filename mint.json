@@ -68,7 +68,15 @@
     },
     {
       "group": "Guides",
-      "pages": ["guides/query-any-crypto-price"]
+      "pages": [
+        "guides/query-any-crypto-price",
+        "guides/query-historical-price-of-any-crypto",
+        "guides/query-any-crypto-balance-from-a-wallet",
+        "guides/query-any-crypto-transactions-from-a-wallet",
+        "guides/query-usd-balance-of-a-wallet",
+        "guides/query-historical-balance-of-a-crypto-wallet",
+        "guides/query-all-historical-transactions-of-a-crypto-wallet"
+      ]
     },
     {
       "group": "Extra",

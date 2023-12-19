@@ -1,0 +1,104 @@
+---
+title: "Get price history of an asset"
+description: "Discover how to retrieve the historical price data of any cryptocurrency using the Mobula API. This guide offers a step-by-step walkthrough for accessing past price records, providing valuable insights into cryptocurrency market trends."
+---
+
+### What You'll Need:
+
+1. An idea of what you want to build.
+2. An API key from the [Dashboard](https://admin.mobula.fi) (only for production use, you can use the API without an API key in development mode).
+3. The name of the cryptocurrency asset or its smart-contract address for querying.
+
+---
+
+### Walkthrough:
+
+<Steps>
+  <Step title="Prepare Your Query">
+    Choose the cryptocurrency asset for your query. If using a smart-contract address, also specify the blockchain.
+  </Step>
+
+  <Step title="Execute the API Call">
+    Perform the API request using cURL, Axios, or the Mobula SDK:
+
+    **Using cURL**:
+    ```bash
+    curl --request GET \
+    --url 'https://api.mobula.io/api/1/market/history?asset=Floki&from=1697648158'
+    ```
+
+    **Using Axios**:
+    ```javascript
+    import axios from "axios";
+    axios.get('https://api.mobula.io/api/1/market/history?asset=Floki&from=1697648158')
+    .then(response => console.log(response.data))
+    .catch(error => console.log(error));
+    ```
+
+    **Using Mobula SDK**:
+    ```typescript
+    import { Mobula } from "mobula-api-sdk";
+    const mobula = new Mobula("YOUR_API_KEY_HERE");
+    mobula.fetchAssetMarketHistory({
+      asset: "Floki",
+      from: 1697648158,
+      // Optional parameters:
+      blockchain: "BLOCKCHAIN_NAME",
+      to: "JS_TIMESTAMP"
+    })
+    .then(response => console.log(response))
+    .catch(error => console.log(error));
+    ```
+
+  </Step>
+
+  <Step title="Review the Response">
+    The API will return a detailed history of the asset's price, including timestamps and price values:
+
+    ```json
+    {
+      "data": {
+        "price_history": [
+          [1624623325000, 1.113340820039224e-9],
+          [1624626986000, 2.2957561345049817e-10],
+          // Additional data points...
+          [1683309600000, 1.7181969777003686e-7]
+        ]
+      }
+    }
+    ```
+
+  </Step>
+</Steps>
+
+### Extending Your Insights
+
+With the historical price data, you can:
+
+- **Analyze Market Trends**: Track the asset's price fluctuations over time.
+- **Assess Investment Opportunities**: Gain insights into potential investment decisions based on past price movements.
+- **Enhance Financial Models**: Integrate this data into financial models for more comprehensive analysis.
+
+### Need Assistance?
+
+Our support team is ready to assist with any queries or integration challenges.
+
+<CardGroup>
+
+<Card
+  title="Telegram Support"
+  icon="Telegram"
+  href="https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Key"
+>
+  Telegram
+</Card>
+
+<Card
+  title="Email Support"
+  icon="envelope"
+  href="mailto:contact@mobulalabs.org"
+>
+  Email
+</Card>
+
+</CardGroup>

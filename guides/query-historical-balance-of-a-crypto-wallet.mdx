@@ -1,0 +1,108 @@
+---
+title: "Get historical balance of any crypto wallet"
+description: "Learn how to retrieve the historical balance data of any EVM-compatible crypto wallet using the Mobula API. This guide provides a comprehensive walkthrough for accessing past balance records, offering insights into wallet value fluctuations over time."
+---
+
+Mobula API enables the retrieval of historical balance data from EVM-compatible crypto wallets. This tutorial will guide you through the process of fetching and analyzing the historical balance of a wallet.
+
+### What you'll need
+
+1. An EVM-compatible wallet address for querying.
+2. An API key from the [Dashboard](https://admin.mobula.fi) (only for production use, you can use the API without an API key in development mode).
+
+### Walkthrough
+
+<Steps>
+  <Step title="Prepare Your Query">
+    Select the wallet address for which you want to query historical balance data. Optionally, decide if you want to filter the data by blockchain or specific time intervals.
+  </Step>
+
+  <Step title="Execute the API Call">
+    Utilize cURL, Axios, or the Mobula SDK to make the API request:
+
+    **Using cURL**:
+    ```bash
+    curl --request GET \
+    --url 'https://api.mobula.io/api/1/wallet/history?wallet=0x77A89C51f106D6cD547542a3A83FE73cB4459135&from=1650788304000&to=1651940430000'
+    ```
+
+    **Using Axios**:
+    ```javascript
+    import axios from "axios";
+    axios.get('https://api.mobula.io/api/1/wallet/history?wallet=0x77A89C51f106D6cD547542a3A83FE73cB4459135&from=1650788304000&to=1651940430000')
+    .then(response => console.log(response.data))
+    .catch(error => console.log(error));
+    ```
+
+    **Using Mobula SDK**:
+    ```typescript
+    import { Mobula } from "mobula-api-sdk";
+    const mobula = new Mobula("YOUR_API_KEY_HERE");
+    mobula.fetchWalletHistoryBalance({
+      wallet: "0x77A89C51f106D6cD547542a3A83FE73cB4459135",
+      // Optional parameters:
+      blockchains: "BLOCKCHAIN_NAMES",
+      from: "1650788304000",
+      to: "1651940430000"
+    })
+    .then(response => console.log(response))
+    .catch(error => console.log(error));
+    ```
+
+  </Step>
+
+  <Step title="Review the Response">
+    The API response will include detailed historical balance data, showing how the wallet's value has changed over time:
+
+    ```json
+    {
+      "data": {
+        "wallet": [
+          "0x77a89c51f106d6cd547542a3a83fe73cb4459135"
+        ],
+        "balance_usd": 241.16725574204617,
+        "balance_history": [
+          [1650788304000, 0],
+          [1650788305000, 0],
+          [1650874705000, 40.94737444508439],
+          // ... other data points ...
+          [1651940430000, 47.36438419453997]
+        ]
+      }
+    }
+    ```
+
+  </Step>
+</Steps>
+
+### Extending Your Insights
+
+With the historical balance data, you can:
+
+- **Track Value Fluctuations**: Observe how the wallet's value has changed over specified periods.
+- **Identify Trends**: Spot patterns or significant events in the wallet's history.
+- **Incorporate Data into Applications**: Use this historical data for financial analysis, trading strategies, or portfolio management tools.
+
+### Need Assistance?
+
+Our support team is ready to help you with any queries or integration challenges.
+
+<CardGroup>
+
+<Card
+  title="Telegram Support"
+  icon="Telegram"
+  href="https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Key"
+>
+  Telegram
+</Card>
+
+<Card
+  title="Email Support"
+  icon="envelope"
+  href="mailto:contact@mobulalabs.org"
+>
+  Email
+</Card>
+
+</CardGroup>

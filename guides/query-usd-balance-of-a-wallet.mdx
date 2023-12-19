@@ -1,0 +1,97 @@
+---
+title: "Get USD total balance of a wallet"
+description: "Discover how to easily retrieve the current USD total balance of any EVM-compatible crypto wallet using the Mobula API. This guide provides step-by-step instructions to access real-time wallet balance information, crucial for portfolio valuation and financial analysis."
+---
+
+Accessing the current USD total balance of an EVM-compatible crypto wallet is straightforward with the Mobula API. This guide will lead you through the steps to fetch this vital information for effective portfolio management and financial decision-making.
+
+### What you'll need
+
+1. An EVM-compatible wallet address for querying.
+2. An API key from the [Mobula Dashboard](https://admin.mobula.fi) (required for production; optional for development mode).
+
+### Walkthrough
+
+<Steps>
+  <Step title="Set Up Your Query">
+    Choose the wallet address for which you seek the USD total balance. You may also decide to filter the data by specific blockchains if needed.
+  </Step>
+
+  <Step title="Make the API Request">
+    Use cURL, Axios, or the Mobula SDK to execute your query:
+
+    **Using cURL**:
+    ```bash
+    curl --request GET \
+    --url 'https://api.mobula.io/api/1/wallet/balance?wallet=0x77A89C51f106D6cD547542a3A83FE73cB4459135'
+    ```
+
+    **Using Axios**:
+    ```javascript
+    import axios from "axios";
+    axios.get('https://api.mobula.io/api/1/wallet/balance?wallet=0x77A89C51f106D6cD547542a3A83FE73cB4459135')
+    .then(response => console.log(response.data))
+    .catch(error => console.log(error));
+    ```
+
+    **Using Mobula SDK**:
+    ```typescript
+    import { Mobula } from "mobula-api-sdk";
+    const mobula = new Mobula("YOUR_API_KEY_HERE");
+    mobula.fetchWalletUSDTotalBalance({
+      wallet: "0x77A89C51f106D6cD547542a3A83FE73cB4459135",
+      // Optional parameters:
+      blockchains: "BLOCKCHAIN_NAMES"
+    })
+    .then(response => console.log(response))
+    .catch(error => console.log(error));
+    ```
+
+  </Step>
+
+  <Step title="Analyze the Balance Data">
+    The API will return the current USD total balance of the wallet, providing a snapshot of its value:
+
+    ```json
+    {
+      "data": {
+        "wallet": "0x77a89c51f106d6cd547542a3a83fe73cb4459135",
+        "total_balance_usd": 241.16725574204617
+      }
+    }
+    ```
+
+  </Step>
+</Steps>
+
+### Utilizing the Balance Data
+
+With this information, you can:
+
+- **Assess Portfolio Value**: Instantly understand the current worth of your crypto holdings in USD.
+- **Make Informed Decisions**: Use real-time balance data to guide trading and investment choices.
+- **Integrate into Financial Tools**: Incorporate wallet balance data into broader financial management or analysis applications.
+
+### Need Help?
+
+Our support team is available to assist you with any questions or challenges in using the API.
+
+<CardGroup>
+
+<Card
+  title="Telegram Support"
+  icon="Telegram"
+  href="https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Key"
+>
+  Telegram
+</Card>
+
+<Card
+  title="Email Support"
+  icon="envelope"
+  href="mailto:contact@mobulalabs.org"
+>
+  Email
+</Card>
+
+</CardGroup>

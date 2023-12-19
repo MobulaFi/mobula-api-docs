@@ -1,0 +1,150 @@
+---
+title: "Get any crypto balance for a wallet"
+description: "Easily access the balance and holdings of any EVM-compatible wallet using the Mobula API, with flexible options for blockchain filtering, caching, and handling stale data"
+---
+
+Mobula API provides a convenient way to access wallet balances and asset distributions for EVM-compatible wallets. This guide details the steps to query wallet holdings.
+
+### What you'll need
+
+1. Basic knowledge of RESTful APIs and JavaScript.
+2. An EVM-compatible wallet address.
+3. Optional: Preferences for specific blockchains, cache settings, and stale data handling.
+
+### Walkthrough
+
+<Steps>
+  <Step title="Prepare Your Query">
+    Decide on the wallet address to query. You can also specify blockchains, cache options, and staleness parameters according to your needs.
+  </Step>
+
+  <Step title="Execute the API Call">
+    Make the API call using cURL, Axios, or the Mobula SDK:
+
+    **Using cURL**:
+    ```bash
+    curl --location --request GET 'https://api.mobula.io/wallet/portfolio?wallet=0x77A89C51f106D6cD547542a3A83FE73cB4459135'
+    ```
+
+    **Using Axios**:
+    ```javascript
+    import axios from "axios";
+    axios.get('https://api.mobula.io/wallet/portfolio?wallet=0x77A89C51f106D6cD547542a3A83FE73cB4459135')
+    .then(response => console.log(response.data))
+    .catch(error => console.log(error));
+    ```
+
+    **Using Mobula SDK**:
+    ```typescript
+    import { Mobula } from "mobula-api-sdk";
+    const mobula = new Mobula("YOUR_API_KEY_HERE");
+    mobula.fetchWalletHoldings({
+      wallet: "0x77A89C51f106D6cD547542a3A83FE73cB4459135",
+      blockchains: "BLOCKCHAIN_NAMES", // Optional
+      cache: true,                     // Optional
+      stale: 300                        // Optional
+    })
+    .then(response => console.log(response))
+    .catch(error => console.log(error));
+    ```
+
+  </Step>
+
+  <Step title="Review the Response">
+    The API will return a comprehensive response including the wallet balance, individual asset details, and blockchain information.
+
+    ```json
+    {
+    "data": {
+        "total_wallet_balance": 241.03441553241606,
+        "wallet": "0x77A89C51f106D6cD547542a3A83FE73cB4459135",
+        "assets": [
+        {
+            "asset": {
+            "name": "StaySAFU",
+            "symbol": "SAFU",
+            "id": 3,
+            "contracts": ["0x890cc7d14948478c98a6cd7f511e1f7f7f99f397"],
+            "logo": "https://metacore.mobula.io/4ed4daf3f124fae650cfab146ae7348cdb62920bc25bf6408698654835192a1b.png"
+            },
+            "price": 2.5182506506214875,
+            "estimated_balance": 0.19400291001132328,
+            "token_balance": 0.077038761,
+            "cross_chain_balances": {
+            "BNB Smart Chain (BEP20)": {
+                "address": "0x890cc7d14948478c98a6cd7f511e1f7f7f99f397",
+                "balance": 0.077038761,
+                "balanceRaw": "77038761",
+                "chainId": 56
+            }
+            }
+        },
+        {
+            "asset": {
+            "name": "Mobula",
+            "symbol": "MOBL",
+            "id": 222,
+            "contracts": [
+                "0x33b3a50c766dd3e61b1e90b251390e7c28aefb7c",
+                "0xae85d5aa526b1ecc5e90e466cbd2bdec22c606ff",
+                "0x5fef39b578deeefa4485a7e5944c7691677d5dd4"
+            ],
+            "logo": "https://mobula.mypinata.cloud/ipfs/QmTn6CLSsURsMfEwQA4o5SwBJKjrHJrtuYcNKd14kdJ77o?pinataGatewayToken=WQn5Yv-xwpvoa6O4Kc6yMwL4kG-UCFSmo0FL2pcIRAdN-V8XYVaL7udtsC7R3_Nm"
+            },
+            "price": 0,
+            "estimated_balance": 0,
+            "token_balance": 7254.324894349606,
+            "cross_chain_balances": {
+            "BNB Smart Chain (BEP20)": {
+                "address": "0x33b3a50c766dd3e61b1e90b251390e7c28aefb7c",
+                "balance": 193,
+                "balanceRaw": "193000000000000000000",
+                "chainId": 56
+            },
+            "Polygon": {
+                "address": "0x5fef39b578deeefa4485a7e5944c7691677d5dd4",
+                "balance": 7061.324894349606,
+                "balanceRaw": "7.061324894349606e+21",
+                "chainId": 137
+            }
+            }
+        }
+        // ... other assets ...
+        ]
+    }
+    }
+    ```
+
+  </Step>
+</Steps>
+
+### Extending Your Insights
+
+With the retrieved data, you can:
+
+- **Analyze Asset Allocation**: Gain insights into how assets are distributed across different blockchains.
+- **Monitor Portfolio Performance**: Track the total wallet balance and individual asset trends.
+- **Develop Financial Applications**: Integrate this data into financial management tools or investment analysis platforms.
+
+### Need Assistance?
+
+Our support team is ready to help you with any questions or integration challenges.
+
+<CardGroup>
+
+<Card
+  title="Telegram Support"
+  icon="Telegram"
+  href="https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Key"
+>
+  Telegram
+</Card>
+
+<Card
+  title="Email Support"
+  icon="envelope"
+  href="mailto:contact@mobulalabs.org"
+>
+  Email
+</Card>
+</CardGroup>
