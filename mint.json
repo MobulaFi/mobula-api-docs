@@ -113,7 +113,8 @@
         "api-reference/endpoint/market-pair",
         "api-reference/endpoint/market-pairs",
         "api-reference/endpoint/market-trades",
-        "api-reference/endpoint/market-history"
+        "api-reference/endpoint/market-history",
+        "api-reference/endpoint/wss-market-data"
       ]
     },
     {
