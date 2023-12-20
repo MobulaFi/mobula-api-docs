@@ -146,6 +146,10 @@
       "pages": ["sdk/methods-index"]
     },
     {
+      "group": "Database",
+      "pages": ["sdk/database"]
+    },
+    {
       "group": "SDK Examples",
       "pages": [
         "sdk/examples/wallet-history",

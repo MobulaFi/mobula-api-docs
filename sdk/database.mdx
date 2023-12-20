@@ -1,0 +1,108 @@
+---
+title: "Crypto Database"
+icon: "database"
+description: "Access to Mobula's crypto database, SQL queries, crypto prices, metadata and social data, allowing you to run SELECT queries on the data, with ORDER, LIMIT, and WHERE clauses."
+---
+
+Mobula SDK uses PostgREST standard, propulsed by the [Supabase SDK](https://supabase.com/docs/reference/javascript/select).
+
+### Example
+
+```js
+const mobula = new Mobula("your-api-key");
+
+mobula.db
+  .from("assets")
+  .select("name,symbol,price,market_cap,volume")
+  .order("volume", { ascending: true })
+  .limit(100)
+  .then((res) => {
+    console.log(res);
+  });
+
+mobula.db
+  .from("assets")
+  .select("investors,name,symbol")
+  .match({ name: "FTT Token" })
+  .then((res) => {
+    console.log(res);
+  });
+```
+
+### Database Schema
+
+Only public table yet is `assets`. It contains all the assets curated by Mobula.
+
+| Column      | Type    | Description                      |
+| ----------- | ------- | -------------------------------- |
+| name        | text    | Name of the asset                |
+| symbol      | text    | Symbol of the asset              |
+| contracts   | text[]  | List of contracts of the asset   |
+| blockchains | text[]  | List of blockchains of the asset |
+| decimals    | numeric | Decimals of the asset            |
+
+Metadata
+
+| Column           | Type    | Description                   |
+| ---------------- | ------- | ----------------------------- |
+| tags             | text[]  | List of tags of the asset     |
+| team             | jsonb   | Team of the asset             |
+| launch           | jsonb   | Launch of the asset           |
+| distribution     | jsonb   | Distribution of the asset     |
+| sales            | jsonb   | Sales of the asset            |
+| fees             | jsonb   | Fees of the asset             |
+| release_schedule | jsonb   | Release schedule of the asset |
+| listing_hash     | text    | Listing hash of the asset     |
+| listing_amount   | numeric | Listing amount of the asset   |
+| ico_price        | numeric | ICO price of the asset        |
+| protocol_id      | numeric | Protocol ID of the asset      |
+| listing_type     | text    | Listing type of the asset     |
+| dropstab_id      | text    | Dropstab ID of the asset      |
+| coingecko_id     | text    | Coingecko ID of the asset     |
+
+Social
+
+| Column                  | Type    | Description                          |
+| ----------------------- | ------- | ------------------------------------ |
+| twitter                 | text    | Twitter of the asset                 |
+| website                 | text    | Website of the asset                 |
+| description             | text    | Description of the asset             |
+| audit                   | text    | Audit of the asset                   |
+| kyc                     | text    | KYC of the asset                     |
+| chat                    | text    | Chat of the asset                    |
+| logo                    | text    | Logo of the asset                    |
+| discord                 | text    | Discord link of the asset            |
+| discord_name            | text    | Discord name of the asset            |
+| github                  | text    | Github of the asset                  |
+| telegram_members        | numeric | Telegram members of the asset        |
+| telegram_online_members | numeric | Telegram online members of the asset |
+| telegram_online_ratio   | numeric | Telegram online ratio of the asset   |
+| discord_members         | numeric | Discord members of the asset         |
+| discord_online_members  | numeric | Discord online members of the asset  |
+| discord_online_ratio    | numeric | Discord online ratio of the asset    |
+
+Metrics
+
+| Column                      | Type    | Description                                      |
+| --------------------------- | ------- | ------------------------------------------------ |
+| price                       | numeric | Price of the asset                               |
+| price_change_1h             | numeric | Price change in 1h of the asset                  |
+| price_change_24h            | numeric | Price change in 24h of the asset                 |
+| price_change_7d             | numeric | Price change in 7d of the asset                  |
+| price_change_1m             | numeric | Price change in 1m of the asset                  |
+| price_change_1y             | numeric | Price change in 1y of the asset                  |
+| market_cap                  | numeric | Market capitalization of the asset               |
+| market_cap_change_24h       | numeric | Market capitalization change in 24h of the asset |
+| market_cap_diluted          | numeric | Diluted market capitalization of the asset       |
+| liquidity                   | numeric | Liquidity of the asset                           |
+| liquidity_market_cap_ratio  | numeric | Liquidity market cap ratio of the asset          |
+| liquidity_change_24h        | numeric | Liquidity change in 24h of the asset             |
+| volume                      | numeric | Volume of the asset                              |
+| off_chain_volume            | numeric | Off-chain volume of the asset                    |
+| volume_change_24h           | numeric | Volume change in 24h of the asset                |
+| off_chain_volume_change_24h | numeric | Off-chain volume change in 24h of the asset      |
+| total_volume                | numeric | Total volume of the asset                        |
+| total_volume_change_24h     | numeric | Total volume change in 24h of the asset          |
+| circulating_supply          | numeric | Circulating supply of the asset                  |
+| total_supply                | numeric | Total supply of the asset                        |
+| max_supply                  | numeric | Max supply of the asset                          |
