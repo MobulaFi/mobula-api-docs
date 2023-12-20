@@ -45,8 +45,8 @@
   },
   "topbarLinks": [
     {
-      "name": "Support",
-      "url": "https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Nav"
+      "name": "Generate free API key",
+      "url": "https://admin.mobula.fi/"
     }
   ],
   "anchors": [
@@ -163,7 +163,8 @@
         "api-reference/endpoint/wallet-history",
         "api-reference/endpoint/wallet-portfolio",
         "api-reference/endpoint/wallet-transactions",
-        "api-reference/endpoint/wss-complete-data"
+        "api-reference/endpoint/wss-complete-data",
+        "api-reference/endpoint/wss-portfolio"
       ]
     },
     {
@@ -182,6 +183,10 @@
     {
       "group": "Resources",
       "pages": ["sdk/methods-index"]
+    },
+    {
+      "group": "Database",
+      "pages": ["sdk/database"]
     },
     {
       "group": "SDK Examples",
