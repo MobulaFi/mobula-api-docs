@@ -5,8 +5,7 @@ openapi: get /market/history
 
 ### Query details
 
-You must input a blockchain IF you send a smart-contract, but it's not mandatory otherwise (blockchain format can be found here) - you can otherwise use the name of the asset if it's listed in our metadata curated assets collection (+15,000 assets, adding tens everyday). In case of a naming collision, we will always take the asset with the highest market cap.
-Also note that if you're querying with a from/to that doesn't have _any_ entry (because too close), we will revert with an empty array.
+You must input a blockchain IF you send a smart-contract, but it's not mandatory otherwise (blockchain format can be found [here](/blockchains/intro-blockchains)) - you can otherwise use the name of the asset if it's listed in our metadata curated assets collection (+15,000 assets, adding tens everyday). In case of a naming collision, we will always take the asset with the highest market cap.
 
 ### Data details
 
@@ -15,6 +14,6 @@ Data granularity is designed as follows:
 
 - 5 minutes for the last 7 days
 - 6 hours for the last 30 days
-- 1 hour for the remaining of history
+- 1 day for the remaining of history
 
 If you need higher granularity or control, please reach out to us [on Telegram](https://t.me/MobulaPartnerBot?start=Mobula_API_History) - we can deliver up to 1min granularity since 2013 for all assets.
