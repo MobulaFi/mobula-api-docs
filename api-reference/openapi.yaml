@@ -1004,6 +1004,32 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Asset"
+  /metadata/listings:
+    get:
+      operationId: fetchLatestListings
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Asset"
+      summary: Fetch latest listings on Mobula curated dataset
+  /metadata/news:
+    get:
+      operationId: fetchLatestNews
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+
+      summary: Fetch latest news on the crypto market
   /quote:
     get:
       operationId: fetchSwapQuote
