@@ -41,19 +41,23 @@ Initiate the SDK as shown below
 
 ```typescript myproject.ts
 import { Mobula } from "mobula-sdk";
+import { Order } from "mobula-sdk/dist/sdk/models/operations";
 
-const mobula = new Mobula("YOUR_API_KEY_HERE");
-
-mobula
-  .fetchWalletHistoryBalance({
-    wallet: "0x77A89C51f106D6cD547542a3A83FE73cB4459135",
-  })
-  .then((response) => {
-    console.log(response);
-  })
-  .catch((error) => {
-    console.error("Error:", error);
+async function run() {
+  const sdk = new Mobula({
+    apiKeyAuth: "<YOUR_API_KEY_HERE>",
   });
+
+  const res = await sdk.fetchWalletTransactions({
+    blockchains: "56,Ethereum",
+    wallet: "0xd99cB89A20822B0448936DF4f36803778CA5a003",
+  });
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+}
+run();
 ```
 
 <Tip>Replace `YOUR_API_KEY_HERE` with your API key</Tip>
