@@ -51,6 +51,11 @@
   ],
   "anchors": [
     {
+      "name": "Slack",
+      "icon": "slack",
+      "url": "https://join.slack.com/t/mobulaapi/shared_invite/zt-29zrrpjnl-I0tyD73sy7zKy8q~KLL3Ug"
+    },
+    {
       "name": "Support",
       "icon": "telegram",
       "url": "https://t.me/MobulaPartnerBot?start=Mobula_API_Support"
