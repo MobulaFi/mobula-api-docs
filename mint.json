@@ -79,45 +79,6 @@
       ]
     },
     {
-      "group": "Blockchains",
-      "pages": [
-        "blockchains/intro-blockchains",
-        {
-          "group": "Blockchains supported",
-          "pages": [
-            "blockchains/ethereum",
-            "blockchains/bsc",
-            "blockchains/avalanche",
-            "blockchains/polygon",
-            "blockchains/fantom",
-            "blockchains/harmony",
-            "blockchains/xdai",
-            "blockchains/cronos",
-            "blockchains/dfk-subnet",
-            "blockchains/smartbch",
-            "blockchains/celo",
-            "blockchains/klaytn",
-            "blockchains/aurora",
-            "blockchains/heco",
-            "blockchains/boba",
-            "blockchains/okex",
-            "blockchains/moonriver",
-            "blockchains/moonbeam",
-            "blockchains/bittorrent-chain",
-            "blockchains/oasis",
-            "blockchains/velas",
-            "blockchains/arbitrum",
-            "blockchains/optimistic",
-            "blockchains/kucoin",
-            "blockchains/base",
-            "blockchains/shibarium",
-            "blockchains/mantle",
-            "blockchains/sui"
-          ]
-        }
-      ]
-    },
-    {
       "group": "Extra",
       "pages": ["pricing"]
     },
@@ -143,7 +104,40 @@
         }
       ]
     },
-
+    {
+      "group": "Blockchains",
+      "pages": [
+        "blockchains/intro-blockchains",
+        "blockchains/ethereum",
+        "blockchains/bsc",
+        "blockchains/avalanche",
+        "blockchains/polygon",
+        "blockchains/fantom",
+        "blockchains/harmony",
+        "blockchains/xdai",
+        "blockchains/cronos",
+        "blockchains/dfk-subnet",
+        "blockchains/smartbch",
+        "blockchains/celo",
+        "blockchains/klaytn",
+        "blockchains/aurora",
+        "blockchains/heco",
+        "blockchains/boba",
+        "blockchains/okex",
+        "blockchains/moonriver",
+        "blockchains/moonbeam",
+        "blockchains/bittorrent-chain",
+        "blockchains/oasis",
+        "blockchains/velas",
+        "blockchains/arbitrum",
+        "blockchains/optimistic",
+        "blockchains/kucoin",
+        "blockchains/base",
+        "blockchains/shibarium",
+        "blockchains/mantle",
+        "blockchains/sui"
+      ]
+    },
     {
       "group": "Octopus - Market API",
       "pages": [
