@@ -146,6 +146,7 @@
     {
       "group": "Octopus - Market API",
       "pages": [
+        { "group": "Docs", "pages": ["api-reference/docs/market-asset-query"] },
         "api-reference/endpoint/market-data",
         "api-reference/endpoint/market-multi-data",
         "api-reference/endpoint/market-pair",

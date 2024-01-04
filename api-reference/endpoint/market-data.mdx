@@ -1,13 +1,12 @@
 ---
 title: Get Market Data
 openapi: get /market/data
+description: Get market data for any crypto token
 ---
 
-### Query details
+### Query quick start
 
-You must input a blockchain IF you send a smart-contract, but it's not mandatory otherwise (blockchain format can be found [here](/blockchains/intro-blockchains)) - you can otherwise use the name of the asset if it's listed in our metadata curated assets collection (+15,000 assets, adding tens everyday). In case of a naming collision, we will always take the asset with the highest market cap.
-
-It is also possible to query using symbol - in that situation mobula sorts all assets with the same symbol and returns the one with the highest market cap - particularly useful if you need to map data coming from CEX trading pairs - if symbol is used, asset isn't mandatory anymore.
+Input in “asset” the name of the asset you want to query, or the contract address while adding the blockchain as a second parameter. The market data asset query pattern is explained [in great details here](/api-reference/docs/market-asset-query), with blockchain format, etc.
 
 ### Data details
 
