@@ -664,7 +664,6 @@ info:
   title: Mobula
   version: v1
 openapi: 3.0.1
-
 paths:
   /search:
     get:
@@ -1003,7 +1002,7 @@ paths:
           schema:
             type: string
             example: desc
-      response:
+      responses:
         "200":
           description: OK
           content:
