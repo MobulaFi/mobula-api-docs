@@ -664,14 +664,15 @@ info:
   title: Mobula
   version: v1
 openapi: 3.0.1
+
 paths:
   /search:
     get:
       operationId: SearchCryptoByName
       parameters:
         - in: query
-          name: name
-          description: Name or symbol (or starting name/symbol) of the asset
+          name: input
+          description: Name, symbol, contract address of the asset / pair / wallet
           schema:
             type: string
             example: bitcoin
@@ -980,6 +981,40 @@ paths:
                 $ref: "#/components/schemas/ErrorResponse"
           description: Bad request (e.g., missing asset parameter)
       summary: Retrieve trade history for a given asset.
+  /market/query:
+    get:
+      operationId: queryMarketData
+      parameters:
+        - description: "List of filters to apply. Available filters include: liquidity, market_cap, volume, price, price_change_24h, price_change_1h, price_change_7d"
+          in: query
+          name: filters
+          schema:
+            type: string
+            example: liquidity:100:1000,market_cap:10000:100000
+        - description: "List of fields to sort by. Available fields include: liquidity, market_cap, volume, price, price_change_24h, price_change_1h, price_change_7d"
+          in: query
+          name: sortBy
+          schema:
+            type: string
+            example: market_cap
+        - description: "Sort order. Available values include: asc, desc"
+          in: query
+          name: sortOrder
+          schema:
+            type: string
+            example: desc
+      response:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/CryptoData"
+                type: object
   /metadata:
     get:
       operationId: fetchAssetMetadata

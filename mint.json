@@ -85,7 +85,8 @@
         "guides/query-any-crypto-transactions-from-a-wallet",
         "guides/query-usd-balance-of-a-wallet",
         "guides/query-historical-balance-of-a-crypto-wallet",
-        "guides/query-all-historical-transactions-of-a-crypto-wallet"
+        "guides/query-all-historical-transactions-of-a-crypto-wallet",
+        "guides/setup-trading-view-chart-with-real-time-crypto-price"
       ]
     },
     {
@@ -158,6 +159,7 @@
         "api-reference/endpoint/market-pairs",
         "api-reference/endpoint/market-trades",
         "api-reference/endpoint/market-history",
+        "api-reference/endpoint/market-query",
         "api-reference/endpoint/wss-market-data"
       ]
     },
