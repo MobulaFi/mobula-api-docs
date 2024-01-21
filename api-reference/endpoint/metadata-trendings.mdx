@@ -1,0 +1,17 @@
+---
+title: Get Meta Trendings
+openapi: get /metadata/trendings
+---
+
+### Query quick start
+
+To access trending data for assets, use the platform parameter to filter results by a specific source: either CoinMarketCap, CoinGecko, or DexTools. This will return assets trending on the specified platform. If no platform is specified, the endpoint will return trendings across all supported platforms.
+
+### Data details
+
+Trending data is sourced from various platforms such as CoinMarketCap, CoinGecko, and DexTools. Assets are ranked based on their popularity and activity on these platforms. Each platform's ranking contributes to the asset's overall trending_score. The weighting mechanism adjusts the influence of each platform on the final score, reflecting the relative importance or reliability of the source (e.g., DexTools rankings are multiplied by 1.2, CoinGecko by 0.8).
+Trendings are updated:
+
+- Every 15 mins
+
+If you need some questions, details or requests, please reach out to us [on Telegram](https://t.me/MobulaPartnerBot?start=Mobula_Meta_Trendings).
