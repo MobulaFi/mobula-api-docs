@@ -1394,3 +1394,65 @@ paths:
                               type: integer
                               format: int64
                               description: Timestamp of the last update.
+  /metadata/trendings:
+    get:
+      summary: Fetch Wallet Transactions
+      description: Retrieve all transactions for a specified wallet within a given timeframe.
+      operationId: fetchWalletTransactions
+      parameters:
+        - name: platform
+          in: query
+          description: the platform to fetch trending assets from
+          required: false
+          schema:
+            type: string
+            example: "dextools"
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          example: "Ethereum"
+                        symbol:
+                          type: string
+                          example: "ETH"
+                        contracts:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              address:
+                                type: string
+                              blockchain:
+                                type: string
+                              decimals:
+                                type: integer
+                        logo:
+                          type: string
+                          format: uri
+                          example: https://metacore.mobula.io/60989b438a473ed77703f7bcd3530fc15542996a6607ae831de8c5e3e10f688d.png
+                        trending_score:
+                          type: number
+                          format: float
+                          example: 22
+                        platforms:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              name:
+                                type: string
+                              rank:
+                                type: integer
+                              weight:
+                                type: number
