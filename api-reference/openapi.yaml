@@ -1407,6 +1407,13 @@ paths:
           schema:
             type: string
             example: "dextools"
+        - name: blockchain
+          in: query
+          description: the blockchain to fetch trending assets from
+          required: false
+          schema:
+            type: string
+            example: "ethereum"
       responses:
         "200":
           description: Successful response
