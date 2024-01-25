@@ -23,13 +23,13 @@ The Mobula API allows for an in-depth exploration of all historical transactions
 
     **Using cURL**:
     ```bash
-    curl --location --request GET 'https://api.mobula.io/wallet/transactions?wallet=0x77A89C51f106D6cD547542a3A83FE73cB4459135'
+    curl --location --request GET 'https://api.mobula.io/api/1/wallet/transactions?wallet=0x77A89C51f106D6cD547542a3A83FE73cB4459135'
     ```
 
     **Using Axios**:
     ```javascript
     import axios from "axios";
-    axios.get('https://api.mobula.io/wallet/transactions?wallet=0x77A89C51f106D6cD547542a3A83FE73cB4459135')
+    axios.get('https://api.mobula.io/api/1/wallet/transactions?wallet=0x77A89C51f106D6cD547542a3A83FE73cB4459135')
     .then(response => console.log(response.data))
     .catch(error => console.log(error));
     ```

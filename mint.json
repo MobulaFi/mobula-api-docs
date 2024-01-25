@@ -180,7 +180,8 @@
       "pages": [
         "api-reference/endpoint/all",
         "api-reference/endpoint/search",
-        "api-reference/endpoint/metadata"
+        "api-reference/endpoint/metadata",
+        "api-reference/endpoint/metadata-trendings"
       ]
     },
 
