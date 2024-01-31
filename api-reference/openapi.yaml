@@ -180,6 +180,25 @@ components:
               type: array
               items:
                 additionalProperties: true
+    MarketHistoryPairResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            properties:
+              volume:
+                type: number
+              open:
+                type: number
+              close:
+                type: number
+              high:
+                type: number
+              low:
+                type: number
+              time:
+                type: integer
     MarketMetrics:
       type: object
       properties:
@@ -257,44 +276,35 @@ components:
           type: object
           additionalProperties:
             $ref: "#/components/schemas/MarketMetrics"
-    MarketTradesResponse:
+    MarketTradesPairResponse:
+      type: object
       properties:
-        trades:
+        data:
+          type: array
           items:
             properties:
-              amount:
+              token_amount:
                 description: The amount of asset in the trade.
                 type: number
-              amount_usd:
+              token_amount_usd:
                 description: The amount in USD of the trade.
                 type: number
-              asset:
-                properties:
-                  id:
-                    description: The id of the asset.
-                    type: integer
-                  name:
-                    description: The name of the asset.
-                    type: string
-                  symbol:
-                    description: The symbol of the asset.
-                    type: string
-                type: object
+              token_price:
+                description: The price (usd) of the asset in the trade.
+                type: number
+              token_price_vs:
+                description: The price (usd) of the asset in the trade.
+                type: number
               blockchain:
                 description: The blockchain used for the trade.
                 type: string
-              from:
-                description: The from address of the trade.
+              hash:
+                description: The transaction hash of the trade.
                 type: string
-              timestamp:
+              date:
                 description: The timestamp of the trade.
                 type: integer
-              to:
-                description: The to address of the trade.
-                type: string
             type: object
-          type: array
-      type: object
     NFTTransaction:
       properties:
         collection:
@@ -824,6 +834,13 @@ paths:
           required: false
           schema:
             example: Tether
+        - description: If market stats should be included
+          in: query
+          name: stats
+          required: false
+          schema:
+            example: true
+            type: boolean
       responses:
         "200":
           content:
@@ -834,6 +851,69 @@ paths:
                     $ref: "#/components/schemas/Pair"
           description: OK
       summary: Get the market metrics for any DEX pair
+  /market/history/pair:
+    get:
+      operationId: fetchPairMarketHistory
+      parameters:
+        - description: Address of the pair to retrieve market history for.
+          in: query
+          name: address
+          required: true
+          schema:
+            type: string
+        - description: Maximum number of results to return.
+          in: query
+          name: amount
+          required: false
+          schema:
+            example: 20
+            type: integer
+        - description: The Asset you want to target - asset name only works for assets listed on Mobula.
+          in: query
+          name: asset
+          required: false
+          schema:
+            type: string
+        - description: The blockchain of the asset (only mandatory if asset is sent as smart-contract).
+          in: query
+          name: blockchain
+          required: false
+          schema:
+            type: string
+        - description: The resolution of the market history
+          in: query
+          name: period
+          required: false
+          schema:
+            type: string
+            enum:
+              - 1min
+              - 5min
+              - 15min
+              - 1h
+              - 2h
+              - 4h
+              - 1d
+              - 1w
+            example: 1min
+        - description: JS Timestamp (milliseconds) of the beginning of the timeframe (if not provided, genesis)
+          in: query
+          name: from
+          schema:
+            type: integer
+        - description: JS Timestamp (milliseconds) of the end of the timeframe (if not provided, end)
+          in: query
+          name: to
+          schema:
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MarketHistoryPairResponse"
+          description: OK
+      summary: Get the market metrics of a DEX pair over a given timeframe
   /market/pairs:
     get:
       operationId: fetchPairsMarketData
@@ -948,6 +1028,49 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorResponse"
+  /market/trades/pair:
+    get:
+      operationId: fetchPairTradeHistory
+      parameters:
+        - description: Address of the pair to retrieve trade history for.
+          in: query
+          name: address
+          required: true
+          schema:
+            type: string
+        - description: Maximum number of results to return.
+          in: query
+          name: amount
+          required: false
+          schema:
+            default: 20
+            example: 20
+            type: integer
+        - description: The Asset you want to target - asset name only works for assets listed on Mobula.
+          in: query
+          name: asset
+          required: false
+          schema:
+            type: string
+        - description: The blockchain of the asset (only mandatory if asset is sent as smart-contract).
+          in: query
+          name: blockchain
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MarketTradesPairResponse"
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Bad request (e.g., missing asset parameter)
   /market/trades:
     get:
       operationId: fetchAssetTradeHistory
@@ -960,7 +1083,7 @@ paths:
             type: string
         - description: Maximum number of results to return.
           in: query
-          name: maxResults
+          name: amount
           required: false
           schema:
             default: 20
@@ -1062,7 +1185,8 @@ paths:
                 properties:
                   data:
                     type: array
-
+                    items:
+                      additionalProperties: true
       summary: Fetch latest news on the crypto market
   /quote:
     get:
@@ -1396,9 +1520,9 @@ paths:
                               description: Timestamp of the last update.
   /metadata/trendings:
     get:
-      summary: Fetch Wallet Transactions
-      description: Retrieve all transactions for a specified wallet within a given timeframe.
-      operationId: fetchWalletTransactions
+      summary: Fetch Meta Trendings
+      description: Retrieve all tokens trending on all platforms
+      operationId: fetchMetaTrendings
       parameters:
         - name: platform
           in: query

@@ -1,0 +1,23 @@
+---
+title: Get Historical Pair Data
+openapi: get /market/history/pair
+---
+
+### Query quick start
+
+Input in "address" field the contract address of the pair/pool you want to query. You can also query via asset explained [in great details here](/api-reference/docs/market-asset-query) and it will return the largest pair's data for this asset.
+By default, MEV data is not included in the response.
+
+### Data details
+
+Available resolutions:
+
+- 1min
+- 5min
+- 15min
+- 1h
+- 2h
+- 4h
+- 1d
+- 7d
+- 30d
