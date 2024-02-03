@@ -1294,10 +1294,17 @@ paths:
         - description: The user wallet queried
           in: query
           name: wallet
-          required: true
+          required: false
           schema:
             example: "0xf23b38099188fd5892346104bBEF2F1c11D10244"
             type: string
+        - description: The user wallets queried
+          name: wallets
+          in: query
+          required: false
+          schema:
+            type: string
+            example: "0xf23b38099188fd5892346104bBEF2F1c11D10244,0x554efD74C693999bABf7CC0f5646D465A31b32CB"
         - description:
             JS Timestamp (miliseconds) of the beginning of the timeframe (if
             not provided, genesis)
@@ -1335,10 +1342,17 @@ paths:
         - name: wallet
           in: query
           description: The user wallet queried
-          required: true
+          required: false
           schema:
             type: string
             example: "0xf23b38099188fd5892346104bBEF2F1c11D10244"
+        - name: wallets
+          in: query
+          description: The user wallets queried
+          required: false
+          schema:
+            type: string
+            example: "0xf23b38099188fd5892346104bBEF2F1c11D10244,0x554efD74C693999bABf7CC0f5646D465A31b32CB"
         - name: blockchains
           in: query
           description: Blockchains to fetch holdings from (by default, all) - comma separated, chain ID or chain name
@@ -1428,10 +1442,17 @@ paths:
         - name: wallet
           in: query
           description: The user wallet queried
-          required: true
+          required: false
           schema:
             type: string
             example: "0xd99cB89A20822B0448936DF4f36803778CA5a003"
+        - name: wallets
+          in: query
+          description: The user wallets queried
+          required: false
+          schema:
+            type: string
+            example: "0xf23b38099188fd5892346104bBEF2F1c11D10244,0x554efD74C693999bABf7CC0f5646D465A31b32CB"
         - name: from
           in: query
           description: Start of the timeframe for transactions (timestamp)
