@@ -906,6 +906,13 @@ paths:
           name: to
           schema:
             type: integer
+        - description: Whether to return in USD or native token
+          in: query
+          name: usd
+          required: false
+          schema:
+            type: boolean
+            default: false
       responses:
         "200":
           content:
