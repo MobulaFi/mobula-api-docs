@@ -1,0 +1,87 @@
+---
+title: "Websocket Pair Feed"
+icon: "wave-pulse"
+description: "Get WSS streams for pairs real time market data & trades."
+---
+
+<Tip> This endpoint is only available to Growth and Enterprise plans. </Tip>
+
+### Endpoint details
+
+- URL: wss://general-api-wss-fgpupeioaa-uc.a.run.app
+- Message (string):
+
+```json
+{
+  "type": "pair",
+  "authorization": "YOUR-API-KEY",
+  "payload": {
+        "address": "0x059fd118aa8988f5e97b66fcd489765111e069c9",
+        "blockchain": "1"
+    }
+  }
+}
+```
+
+Parameters:
+
+- `address`: the address of the pair
+- `blockchain`: the blockchain of the pair (blockchain ID or name)
+- `asset`: you can also query via the asset pattern (asset name or contract) instead of the address - it will use the largest trading pair of the asset (by volume & liquidity)
+
+### Data model
+
+Data reponses includes:
+
+- Pairs updates:
+
+```json
+{
+    data: {
+      price: number,
+      priceUSD: number,
+      pair: string,
+    }
+}
+```
+
+- Trades updates:
+
+```json
+{
+    {
+      blockchain: string,
+      date: number // timestamp MS,
+      hash: string,
+      token_amount: number,
+      token_amount_usd: number,
+      token_price: number,
+      token_price_vs: number,
+      type: 'buy' | 'sell',
+    }
+}
+```
+
+<CardGroup>
+
+<Card
+  title="Support"
+  icon="Telegram"
+  href="https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Key"
+>
+  Telegram
+</Card>
+
+<Card
+  title="Support"
+  icon="Slack"
+  href="https://join.slack.com/t/mobulaapi/shared_invite/zt-29zrrpjnl-I0tyD73sy7zKy8q~KLL3Ug"
+>
+  Slack
+</Card>
+
+<Card title="Need help?" icon="envelope" href="mailto:contact@mobulalabs.org">
+  Email
+</Card>
+
+</CardGroup>
