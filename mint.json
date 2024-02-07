@@ -146,7 +146,8 @@
         "blockchains/base",
         "blockchains/shibarium",
         "blockchains/mantle",
-        "blockchains/sui"
+        "blockchains/sui",
+        "blockchains/zetachain"
       ]
     },
     {
