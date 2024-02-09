@@ -1144,6 +1144,40 @@ paths:
                     items:
                       $ref: "#/components/schemas/CryptoData"
                 type: object
+  /market/query/token:
+    get:
+      operationId: queryMarketTokens
+      parameters:
+        - description: "List of filters to apply. Available filters include: volume_24h"
+          in: query
+          name: filters
+          schema:
+            type: string
+            example: volume_24h:100:1000
+        - description: "List of fields to sort by. Available fields include: volume_24h, listed_at"
+          in: query
+          name: sortBy
+          schema:
+            type: string
+            example: volume_24h
+        - description: "Sort order. Available values include: asc, desc"
+          in: query
+          name: sortOrder
+          schema:
+            type: string
+            example: desc
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/CryptoData"
+                type: object
   /metadata:
     get:
       operationId: fetchAssetMetadata
@@ -1305,7 +1339,7 @@ paths:
           schema:
             example: "0xf23b38099188fd5892346104bBEF2F1c11D10244"
             type: string
-        - description: The user wallets queried
+        - description: The user wallets queried (comma separated)
           name: wallets
           in: query
           required: false
@@ -1355,7 +1389,7 @@ paths:
             example: "0xf23b38099188fd5892346104bBEF2F1c11D10244"
         - name: wallets
           in: query
-          description: The user wallets queried
+          description: The user wallets queried (comma separated)
           required: false
           schema:
             type: string
@@ -1455,7 +1489,7 @@ paths:
             example: "0xd99cB89A20822B0448936DF4f36803778CA5a003"
         - name: wallets
           in: query
-          description: The user wallets queried
+          description: The user wallets queried (comma separated)
           required: false
           schema:
             type: string

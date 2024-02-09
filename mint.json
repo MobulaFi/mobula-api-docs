@@ -163,6 +163,7 @@
         "api-reference/endpoint/market-history",
         "api-reference/endpoint/market-history-pair",
         "api-reference/endpoint/market-query",
+        "api-reference/endpoint/market-query-token",
         "api-reference/endpoint/quote",
         "api-reference/endpoint/wss-market-data",
         "api-reference/endpoint/wss-market-pair"
