@@ -147,7 +147,8 @@
         "blockchains/shibarium",
         "blockchains/mantle",
         "blockchains/sui",
-        "blockchains/zetachain"
+        "blockchains/zetachain",
+        "blockchains/alephium"
       ]
     },
     {
