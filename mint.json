@@ -167,7 +167,8 @@
         "api-reference/endpoint/market-query-token",
         "api-reference/endpoint/quote",
         "api-reference/endpoint/wss-market-data",
-        "api-reference/endpoint/wss-market-pair"
+        "api-reference/endpoint/wss-market-pair",
+        "api-reference/endpoint/wss-market-trades"
       ]
     },
     {
