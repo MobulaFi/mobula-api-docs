@@ -159,7 +159,6 @@
         "api-reference/endpoint/market-multi-data",
         "api-reference/endpoint/market-pair",
         "api-reference/endpoint/market-pairs",
-        "api-reference/endpoint/market-trades",
         "api-reference/endpoint/market-trades-pair",
         "api-reference/endpoint/market-history",
         "api-reference/endpoint/market-history-pair",

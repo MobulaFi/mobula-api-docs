@@ -1078,38 +1078,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/ErrorResponse"
           description: Bad request (e.g., missing asset parameter)
-  /market/trades:
-    get:
-      operationId: fetchAssetTradeHistory
-      parameters:
-        - description: Asset name or contract address to retrieve trade history for.
-          in: query
-          name: asset
-          required: true
-          schema:
-            type: string
-        - description: Maximum number of results to return.
-          in: query
-          name: amount
-          required: false
-          schema:
-            default: 20
-            example: 20
-            type: integer
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/TradeHistoryResponse"
-          description: Successful response
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-          description: Bad request (e.g., missing asset parameter)
-      summary: Retrieve trade history for a given asset.
   /market/query:
     get:
       operationId: queryMarketData
