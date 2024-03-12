@@ -180,6 +180,20 @@ components:
               type: array
               items:
                 additionalProperties: true
+    MarketMultiHistoryResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              price_history:
+                type: array
+                items:
+                  additionalProperties: true
     MarketHistoryPairResponse:
       type: object
       properties:
@@ -1000,6 +1014,43 @@ paths:
               schema:
                 $ref: "#/components/schemas/MarketHistoryResponse"
       summary: Get the market metrics of an asset over a given timeframe
+  /market/multi-history:
+    get:
+      operationId: fetchMultipleAssetMarketHistory
+      parameters:
+        - description: Comma separated list of asset names or Ethereum addresses (max 500)
+          in: query
+          name: assets
+          required: true
+          schema:
+            type: string
+        - description: JS Timestamp (milliseconds) of the beginning of the timeframe (if not provided, genesis)
+          in: query
+          name: from
+          schema:
+            type: integer
+        - description: JS Timestamp (milliseconds) of the end of the timeframe (if not provided, end)
+          in: query
+          name: to
+          schema:
+            type: integer
+        - description: Comma separated list of from timestamps (if not provided, genesis)
+          in: query
+          name: froms
+          schema:
+            type: integer
+        - description: Comma separated list of to timestamps (if not provided, end)
+          in: query
+          name: tos
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MarketMultiHistoryResponse"
   /market/multi-data:
     get:
       operationId: fetchMultipleAssetMarketData

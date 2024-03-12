@@ -1,0 +1,38 @@
+---
+title: Get Historical Market Data (batch)
+openapi: get /market/multi-history
+---
+
+<Tip> Timestamps are in MS, it's JS timestamps. </Tip>
+
+### Query details
+
+You can query up to 500 assets as the same time (even tho if you are facing this you might want to use [our data streams](/api-reference/beta/introduction_highlevel)).
+
+The market data asset query pattern is explained [in great details here](/api-reference/docs/market-asset-query), with blockchain format, etc.
+For example, you can query with parameters:
+
+```json
+{
+  "assets": "Bitcoin,0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0,Hedera,0x23d29d30e35c5e8d321e1dc9a8a61bfd846d4c5c"
+  "blockchains": "1,137"
+}
+```
+
+We will map the first blockchain with the first contract address found, and so on.
+
+<Tip>
+  Need more than 500 assets? You can use the [/all](/api-reference/endpoint/all)
+  endpoint to get all assets listed on Mobula (curated, not all DeFi tokens)
+</Tip>
+
+### Data details
+
+Price data is computed using Octopus, Mobula's market data engine. You can have a high-level overview of how it's computing DeFi prices [here](https://mirror.xyz/0x6483Ca5ac1EbC6eB08d36979d217db2572CbAad2/Lw8NSSjqR4JSzthKZQCfHLwD3NPGsuaAfHGMY1zi-WI).
+Data granularity is designed as follows:
+
+- 5 minutes for the last 7 days
+- 6 hours for the last 30 days
+- 1 day for the remaining of history
+
+If you need higher granularity or control, please reach out to us [on Telegram](https://t.me/MobulaPartnerBot?start=Mobula_API_History) - we can deliver up to 1min granularity since 2013 for all assets.

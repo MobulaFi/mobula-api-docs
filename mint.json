@@ -161,6 +161,7 @@
         "api-reference/endpoint/market-pairs",
         "api-reference/endpoint/market-trades-pair",
         "api-reference/endpoint/market-history",
+        "api-reference/endpoint/market-multi-history",
         "api-reference/endpoint/market-history-pair",
         "api-reference/endpoint/market-query",
         "api-reference/endpoint/market-query-token",
