@@ -14,3 +14,27 @@ Begin your journey with Mobula API at no cost! Enjoy a generous allowance of 10,
 | **Start-up**   | 500,000       | Support on Discord                                                                   | $50         | [Upgrade now](https://admin.mobula.fi)                       |
 | **Growth**     | 5,000,000     | WSS feeds, 24/7 support on Telegram, Discord, and Slack                              | $400        | [Upgrade now](https://admin.mobula.fi)                       |
 | **Enterprise** | Unlimited     | WSS feeds, 24/7 support on Telegram, Discord, and Slack, custom endpoints, 99.9% SLA | from $750   | [Contact us](https://t.me/MobulaPartnerBot?start=Enterprise) |
+
+## Endpoints credits
+
+All the endpoints not specified in this list are 1 call = 1 credit.
+
+| Endpoint                   | Credits                 | Link                                                      |
+| -------------------------- | ----------------------- | --------------------------------------------------------- |
+| /market/multi-data         | 1 per asset             | [Open Docs](/api-reference/endpoint/market-multi-data)    |
+| /market/history            | 5                       | [Open Docs](/api-reference/endpoint/market-history)       |
+| /market/multi-history      | 5 per asset             | [Open Docs](/api-reference/endpoint/market-multi-history) |
+| /market/history/pair       | 5                       | [Open Docs](/api-reference/endpoint/market-history-pair)  |
+| /market/query              | 10                      | [Open Docs](/api-reference/endpoint/market-query)         |
+| /market/query/token        | 10                      | [Open Docs](/api-reference/endpoint/market-ohlcv)         |
+| /wallet/portfolio          | 1 per EVM, 2 per Solana | [Open Docs](/api-reference/endpoint/wallet-portfolio)     |
+| /wallet/portfolio?pnl=true | 2 per EVM, 4 per Solana | [Open Docs](/api-reference/endpoint/wallet-portfolio)     |
+| /wallet/transactions       | 1 per EVM, 2 per Solana | [Open Docs](/api-reference/endpoint/wallet-transactions)  |
+| /wallet/history            | 2 per EVM, 4 per Solana | [Open Docs](/api-reference/endpoint/wallet-history)       |
+| /search                    | 5                       | [Open Docs](/api-reference/endpoint/search)               |
+| /all                       | 5                       | [Open Docs](/api-reference/endpoint/all)                  |
+
+## Websockets credits
+
+Websockets are 1 credit / minute open, and usually endpoint consumption under-the-hood. For instance, you're subscribing to market/data for 5 assets with interval 30s for refresh,
+you will consume 5 \* 2 \* 60 + 60 \* 1 = 660 credits per hour.
