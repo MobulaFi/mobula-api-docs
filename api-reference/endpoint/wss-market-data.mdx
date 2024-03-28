@@ -35,7 +35,41 @@ Parameters:
 
 ### Data model
 
-Data reponse is the same as [market/multi-data](/api-reference/endpoint/market-multi-data)
+Data reponses includes:
+
+- Asset updates:
+
+```json
+{
+    {
+      ath: number,
+      atl: number,
+      contracts: {
+        address: string,
+        blockchain: string,
+        blockchainId: string,
+        decimals: number
+      },
+      is_listed: boolean,
+      liquidity: number,
+      market_cap: number,
+      market_cap_diluted: number,
+      name: string,
+      off_chain_volume: number,
+      price: number,
+      price_change_1h: number,
+      price_change_1m: number,
+      price_change_1y: number,
+      price_change_7d: number,
+      price_change_24h: number,
+      rank: number,
+      symbol: string,
+      volume: number,
+      volume_7d: number,
+      volume_change_24h: number
+    }
+}
+```
 
 Can’t find what you’re looking for? Reach out to us, response times < 1h.
 
