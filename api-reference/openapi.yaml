@@ -1163,6 +1163,11 @@ paths:
           schema:
             type: integer
             default: 20
+        - name: blockchain
+          in: query
+          schema:
+            type: string
+            example: Ethereum
       responses:
         "200":
           description: OK
