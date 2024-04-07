@@ -443,7 +443,7 @@ components:
           nullable: true
       example:
         blockchains: [Ethereum]
-        contracts: ["0x2260fac5e5542a773aa44fbcfedf7c193bc2c599", null] # Example includes a null value
+        contracts: ["0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"]
         id: 100001656
         liquidity: 626115369
         logo: https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579
@@ -1209,6 +1209,21 @@ paths:
           schema:
             type: integer
             default: 20
+        - name: unlistedAssets
+          in: query
+          schema:
+            default: true
+            type: boolean
+        - name: blockchain
+          in: query
+          schema:
+            type: string
+            example: Ethereum
+        - name: blockchains
+          in: query
+          schema:
+            type: string
+            example: Ethereum,56
       responses:
         "200":
           description: OK
@@ -1578,6 +1593,11 @@ paths:
               - asc
               - desc
             type: string
+        - name: unlistedAssets
+          in: query
+          schema:
+            default: false
+            type: boolean
       responses:
         "200":
           description: Successful response
