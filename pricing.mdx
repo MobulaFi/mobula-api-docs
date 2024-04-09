@@ -38,3 +38,7 @@ All the endpoints not specified in this list are 1 call = 1 credit.
 
 Websockets are 1 credit / minute open, and usually endpoint consumption under-the-hood. For instance, you're subscribing to market/data for 5 assets with interval 30s for refresh,
 you will consume 5 \* 2 \* 60 + 60 \* 1 = 660 credits per hour.
+
+## Indexing credits
+
+One worker hour is 500 credits - which means having one always-on pipeline / subgraph running for a month will consume 360,000 credits.
