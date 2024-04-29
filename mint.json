@@ -34,6 +34,10 @@
       "url": "api-reference"
     },
     {
+      "name": "Indexing & Subgraphs",
+      "url": "indexing"
+    },
+    {
       "name": "SDK",
       "url": "sdk"
     }
@@ -217,6 +221,16 @@
 
     {
       "group": "Introduction",
+      "pages": ["indexing/introduction", "indexing/authentification"]
+    },
+
+    {
+      "group": "Frameworks",
+      "pages": ["indexing/subgraph", "indexing/octoflow", "indexing/ponder"]
+    },
+
+    {
+      "group": "",
       "pages": ["sdk/introduction", "sdk/authentification"]
     },
     {
