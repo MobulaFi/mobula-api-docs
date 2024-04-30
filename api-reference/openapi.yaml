@@ -1436,11 +1436,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/WalletHistoryResponse"
           description: OK
-      summary: Get the historical balance of any EVM-compatible wallets, at any time
+      summary: Get the historical balance of any wallets
+
   /wallet/portfolio:
     get:
       summary: Fetch Wallet Portfolio
-      description: Get the portfolio of holdings from any EVM-compatible wallets, at any time
+      description: Get the portfolio of holdings from any wallets
       operationId: fetchWalletHoldings
       parameters:
         - name: wallet
@@ -1537,6 +1538,85 @@ paths:
                           type: integer
                           format: int64
                           description: Timestamp of the last update
+
+  /wallet/multi-portfolio:
+    get:
+      summary: Fetch Multiple Wallet Portfolio
+      description: Get the portfolio of holdings from multiple wallets
+      operationId: fetchMultiWalletHoldings
+      parameters:
+        - name: wallets
+          in: query
+          description: The user wallets queried (comma separated)
+          required: false
+          schema:
+            type: string
+            example: "0xf23b38099188fd5892346104bBEF2F1c11D10244,0x554efD74C693999bABf7CC0f5646D465A31b32CB"
+        - name: blockchains
+          in: query
+          description: Blockchains to fetch holdings from (by default, all) - comma separated, chain ID or chain name
+          schema:
+            type: string
+            example: 56,Ethereum
+        - name: cache
+          in: query
+          description: Will use cached data if available
+          schema:
+            type: boolean
+        - name: stale
+          in: query
+          description: Amount of seconds after which the cache is considered stale (default 5min)
+          schema:
+            type: number
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        total_wallet_balance:
+                          type: number
+                          description: Total balance of the wallet in USD.
+                        wallet:
+                          type: string
+                          description: Wallet address queried.
+                        assets:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              asset:
+                                $ref: "#/components/schemas/Asset"
+                              price:
+                                type: number
+                                description: Current price of the asset.
+                              estimated_balance:
+                                type: number
+                                description: Estimated balance of the asset in the wallet.
+                              token_balance:
+                                type: number
+                                description: Token balance of the asset in the wallet.
+                              cross_chain_balances:
+                                type: object
+                                additionalProperties:
+                                  type: object
+                                  properties:
+                                    address:
+                                      type: string
+                                    balance:
+                                      type: number
+                                    balanceRaw:
+                                      type: string
+                                    chainId:
+                                      type: integer
+
   /wallet/transactions:
     get:
       summary: Fetch Wallet Transactions
@@ -1717,3 +1797,46 @@ paths:
                                 type: integer
                               weight:
                                 type: number
+  /blockchains:
+    get:
+      summary: Fetch Blockchains
+      description: Retrieve all blockchains available on Mobula
+      operationId: fetchBlockchains
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+  /blockchain/query:
+    post:
+      summary: Query Blockchain
+      description: Query a blockchain with SQL
+      operationId: queryBlockchain
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sql:
+                  type: string
+                  example: "SELECT * FROM assets WHERE symbol = 'ETH'"
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object

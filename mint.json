@@ -204,18 +204,21 @@
         "api-reference/endpoint/wallet-nfts",
         "api-reference/endpoint/wallet-history",
         "api-reference/endpoint/wallet-portfolio",
+        "api-reference/endpoint/wallet-multi-portfolio",
         "api-reference/endpoint/wallet-transactions",
         "api-reference/endpoint/wss-complete-data",
         "api-reference/endpoint/wss-portfolio"
       ]
     },
     {
-      "group": "Metacore - Metadata API",
+      "group": "Metacore",
       "pages": [
         "api-reference/endpoint/all",
         "api-reference/endpoint/search",
         "api-reference/endpoint/metadata",
-        "api-reference/endpoint/metadata-trendings"
+        "api-reference/endpoint/metadata-trendings",
+        "api-reference/endpoint/blockchains",
+        "api-reference/endpoints/blockchain-query"
       ]
     },
 

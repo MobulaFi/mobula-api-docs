@@ -1,0 +1,14 @@
+---
+title: Query Blockchain Tables
+openapi: post /blockchain/query
+---
+
+### Query quick start
+
+Pass SQL payload to the SQL body parameter.
+
+Available tables:
+
+- "PairTick": tick-level price data for all DeFi pairs (pair_id, date, price, price_usd, volume, is_mev)
+- "Pair": all pairs curated on Mobula (id, address, blockchain, base, quote)
+- "Trade": all trades curated on Mobula (id, pair_id, date, token_in, token_out, token_in_amount, token_out_amount, hash, blockchain, amount_usd)
