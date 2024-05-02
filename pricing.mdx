@@ -34,10 +34,12 @@ All the endpoints not specified in this list are 1 call = 1 credit.
 | /search                    | 5                       | [Open Docs](/api-reference/endpoint/search)               |
 | /all                       | 5                       | [Open Docs](/api-reference/endpoint/all)                  |
 
-## Websockets credits
+## Websockets & Webhooks cost
 
 Websockets are 1 credit / minute open, and usually endpoint consumption under-the-hood. For instance, you're subscribing to market/data for 5 assets with interval 30s for refresh,
 you will consume 5 \* 2 \* 60 + 60 \* 1 = 660 credits per hour.
+
+Webhooks are 1 credit per trigger.
 
 ## Indexing credits
 
