@@ -1474,6 +1474,11 @@ paths:
           description: Amount of seconds after which the cache is considered stale (default 5min)
           schema:
             type: number
+        - name: unlistedAssets
+          in: query
+          schema:
+            type: boolean
+          description: Include unlisted assets in the response
       responses:
         "200":
           description: Successful response
