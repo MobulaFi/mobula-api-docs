@@ -1006,6 +1006,16 @@ paths:
           name: to
           schema:
             type: integer
+        - description: The resolution of the market history
+          in: query
+          name: period
+          schema:
+            type: string
+            enum:
+              - 5min
+              - 15min
+              - 1h
+            example: 5min
       responses:
         "200":
           description: OK
