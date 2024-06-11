@@ -216,6 +216,7 @@
         "api-reference/endpoint/all",
         "api-reference/endpoint/search",
         "api-reference/endpoint/metadata",
+        "api-reference/endpoint/multi-metadata",
         "api-reference/endpoint/metadata-trendings",
         "api-reference/endpoint/blockchains",
         "api-reference/endpoint/blockchain-query",

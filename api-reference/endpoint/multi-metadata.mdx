@@ -1,0 +1,25 @@
+---
+title: Get Metadata (batch)
+openapi: get /multi-metadata
+---
+
+### Query details
+
+You can query metadata for multiple assets at the same time. Input the names of the assets or the contract addresses with the respective blockchains as parameters. The market data asset query pattern is explained [in great details here](/api-reference/docs/market-asset-query), with blockchain format, etc.
+
+For example, you can query with parameters:
+
+```json
+{
+  "assets": "Avalanche,0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0,Polkadot,0x23d29d30e35c5e8d321e1dc9a8a61bfd846d4c5c",
+  "blockchains": "43114,137,1"
+}
+```
+
+We will map the first blockchain with the first contract address found, and so on.
+
+It is also possible to query using symbols - in that situation mobula sorts all assets with the same symbol and returns the one with the highest market cap - particularly useful if you need to map data coming from CEX trading pairs - if symbol is used, asset isn't mandatory anymore.
+
+### Data details
+
+Some assets have enriched data about fundraising, tokenomics, investors, etc., which you can explore on mobula.io. Note that some assets may not have the id field due to them not being listed on Mobula.
