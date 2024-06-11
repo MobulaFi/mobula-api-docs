@@ -43,7 +43,6 @@
     }
   ],
   "topbarCtaButton": {
-    "type": "link",
     "url": "https://admin.mobula.fi/",
     "name": "Dashboard"
   },
