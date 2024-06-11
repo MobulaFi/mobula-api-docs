@@ -71,28 +71,35 @@ Here's a list of available methods:
      Retrieve metadata for a specific asset. Asset parameter is optional.
    </Info>
 
-10. `fetchWalletHistoryBalance(options: { wallet: string; from?: number; to?: number; blockchains?: string; requestOptions?: RequestOptions; })`
+10. `fetchAssetsMetadata(options: { assets?: string; requestOptions?: RequestOptions; })`
+
+    <Info>
+      Retrieve metadata for multiple assets simultaneously. Blockchains
+      parameter is optional.
+    </Info>
+
+11. `fetchWalletHistoryBalance(options: { wallet: string; from?: number; to?: number; blockchains?: string; requestOptions?: RequestOptions; })`
 
     <Info>
       Retrieve historical balance information for a wallet. Allows filtering by
       time range and blockchain.
     </Info>
 
-11. `fetchWalletTransactions(options: { wallet: string; from?: number; to?: number; asset?: string; blockchain?: string; limit?: number; offset?: number; order?: OrderEnum; requestOptions?: RequestOptions; })`
+12. `fetchWalletTransactions(options: { wallet: string; from?: number; to?: number; asset?: string; blockchain?: string; limit?: number; offset?: number; order?: OrderEnum; requestOptions?: RequestOptions; })`
 
     <Info>
       Fetch transaction history for a wallet. Supports various filters like
       asset, blockchain, and time range.
     </Info>
 
-12. `fetchMultipleAssetMarketData(options: { assets: string; blockchains?: symbol?: string; string; requestOptions?: RequestOptions; })`
+13. `fetchMultipleAssetMarketData(options: { assets: string; blockchains?: symbol?: string; string; requestOptions?: RequestOptions; })`
 
     <Info>
       Retrieve market data for multiple assets simultaneously. Supports
       specifying a list of assets and blockchains.
     </Info>
 
-13. `fetchWalletHoldings(options: { wallet: string; blockchains?: string; cache?: boolean; stale?: number; requestOptions?: RequestOptions; })`
+14. `fetchWalletHoldings(options: { wallet: string; blockchains?: string; cache?: boolean; stale?: number; requestOptions?: RequestOptions; })`
 
     <Info>
       Query current holdings in a specified wallet, with options for caching and

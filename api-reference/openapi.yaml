@@ -1253,7 +1253,7 @@ paths:
                 type: object
   /multi-metadata:
     get:
-      operationId: fetchAssetMetadata
+      operationId: fetchAssetsMetadata
       parameters:
         - description: Name or contract address of the assets
           example: Bitcoin
