@@ -1251,6 +1251,30 @@ paths:
                     items:
                       $ref: "#/components/schemas/CryptoData"
                 type: object
+  /multi-metadata:
+    get:
+      operationId: fetchAssetMetadata
+      parameters:
+        - description: Name or contract address of the assets
+          example: Bitcoin
+          in: query
+          name: assets
+          schema:
+            type: string
+          required: true
+        - description: Blockchains of the assets
+          example: Ethereum
+          in: query
+          name: blockchains
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Asset"
   /metadata:
     get:
       operationId: fetchAssetMetadata
