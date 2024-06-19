@@ -1,0 +1,146 @@
+---
+title: "How to build your Telegram buy bot"
+description: "Buy Bot bots on Telegram are essential for keeping communities informed about project token transactions in real time. These bots enhance users' ability to react quickly to market changes, making them a valuable asset for any cryptocurrency-focused Telegram group."
+---
+
+Mobula API enables the development of efficient and reliable Buy Bots on Telegram, focusing on the integration of transaction data. This guide will take you through the essential steps to build such a bot.
+
+### What you’ll need
+
+1. Knowledge in Python or Node.js programming languages.
+2. Knowledge of the [Telegram API](https://core.telegram.org/).
+3. A database like MySQL, PostgreSQL, or MongoDB to store user data and transaction histories.
+4. A web cloud server to host the bot, ensuring its availability and responsiveness.
+5. An API key from the [Dashboard](https://admin.mobula.fi) (required for production; optional in development mode).
+
+### Walkthrough
+
+<Steps>
+  <Step title="Set Up Telegram Bot">
+    - **Start a chat with BotFather**: Launch [BotFather](https://telegram.me/BotFather), start a conversation, and type /newbot.
+    - **Follow instructions**: BotFather will ask for a name for your bot and then a username. The username must end in _bot_ (e.g., buy_alert_bot).
+    - **Receive API token**: After setup, BotFather will give you a token. This is crucial as it will allow your software to communicate with Telegram API.
+  </Step>
+
+  <Step title="Develop the Bot">
+    - **Choose a programming environment**: Python is recommended due to its simplicity and powerful libraries. Install Python and then set up a virtual environment.
+    - **Install necessary libraries**: Use pip to install [python-telegram-bot](https://python-telegram-bot.org/) and any other needed libraries.
+    - **Write basic bot code**: Initialize the bot with the token you received and write basic functions to respond to messages.
+  </Step>
+
+  <Step title="Blockchain Monitoring and Telegram alerts">
+    - Subscribe to [Mobula WSS trades API](https://docs.mobula.io/api-reference/endpoint/wss-market-trades)
+    - Install the websocket-client package and python-telegram-bot if it's not already installed:
+
+    ```bash
+    pip install websocket-client
+    pip install python-telegram-bot
+    ```
+
+    - Fetch recent transactions and filter them by token address, amount, or sending/receiving addresses.
+
+    ```python
+    import websocket
+    import json
+    import threading
+    from telegram import Bot
+
+    # Initialize your Telegram Bot
+    TOKEN = 'YOUR_TELEGRAM_BOT_TOKEN'
+    CHAT_ID = 'YOUR_CHAT_ID'
+    bot = Bot(TOKEN)
+
+    def send_telegram_message(message):
+        bot.send_message(chat_id=CHAT_ID, text=message)
+
+    def on_message(ws, message):
+        data = json.loads(message)
+        if data.get("type") == "trade_update":
+            trades = data.get("data", [])
+            for trade in trades:
+                if trade['token_amount_usd'] >= 1 and trade.get('contract_address') == 'THE-TOKEN_CONTRACT_ADDRESS':
+                    alert_message = f"Trade Alert - Blockchain: {trade['blockchain']}, Hash: {trade['hash']}, " \
+                                    f"Token: {trade.get('token_name', 'Unknown Token')}, " \
+                                    f"Amount: {trade['token_amount']}, Value in USD: {trade['token_amount_usd']}"
+                    send_telegram_message(alert_message)
+
+    def on_error(ws, error):
+        print("Error:", error)
+
+    def on_close(ws, close_status_code, close_msg):
+        print("### closed ###")
+
+    def on_open(ws):
+        def run(*args):
+            message = {
+                "type": "pair",
+                "authorization": "YOUR-API-KEY",
+                "payload": {
+                    "blockchain": "1",
+                    "filters": {
+                        "amount_usd": {
+                            "operator": ">=",
+                            "value": 1
+                        },
+                        "contract_address": "THE-TOKEN_CONTRACT_ADDRESS"  # Ensure this key is supported by your API
+                    }
+                }
+            }
+            ws.send(json.dumps(message))
+            print("Message sent, listening for The-Token trades...")
+        thread = threading.Thread(target=run)
+        thread.start()
+
+    if __name__ == "__main__":
+        websocket.enableTrace(True)
+        ws = websocket.WebSocketApp("wss://general-api-wss-fgpupeioaa-uc.a.run.app",
+                                    on_open=on_open,
+                                    on_message=on_message,
+                                    on_error=on_error,
+                                    on_close=on_close)
+
+        ws.run_forever()
+    ```
+
+    - Replace _your_api_key_ with your actual API key.
+    - Replace _your_telegram_bot_toekn_ with your actual bot token.
+    - Replace _your_chat_id_ with the chat ID where you want alerts to be sent.
+    - Determine the contract address of _The-Token_ on the blockchain you are monitoring. Replace 'the_token_contract_address_' with the actual contract address of _The-Token_.
+
+    This script will continuously run and print updates about relevant trades as they occur, based on your provided criteria and connection setup.
+  </Step>
+
+  <Step title="Deploy the Bot">
+    - **Choose a hosting service**: Deploy your bot on a cloud platform like AWS, Heroku, or a dedicated VPS to ensure it runs 24/7.
+    - **Set environment variables**: Store sensitive information like your API keys and bot token in environment variables to keep them secure.
+  </Step>
+
+  <Step title="Test and Refine">
+    - **Perform functional testing**: Test all components of your bot in a controlled environment to ensure they work as expected.
+    - **Monitor and optimize**: After deployment, monitor the bot’s performance and optimize the code, API usage, or server configuration if necessary.
+  </Step>
+
+  <Step title="Launch and Monitor">
+    - **User instructions**: Provide clear instructions for users on how to interact with your bot.
+    - **Continuous monitoring**: Regularly check the bot's operation, update its functionalities as needed, and ensure it remains compliant with any changes in the Telegram or Mobula APIs.
+  </Step>
+</Steps>
+
+### Need Assistance?
+
+Having issue integrating your API key? Reach out to us, response times < 1h.
+
+<CardGroup>
+  <Card title="Support" icon="Telegram" href="https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Key">
+    Telegram
+  </Card>
+  <Card title="Support" icon="Slack" href="https://join.slack.com/t/mobulaapi/shared_invite/zt-29zrrpjnl-I0tyD73sy7zKy8q~KLL3Ug">
+    Slack
+  </Card>
+  <Card title="Support" icon="Discord" href="https://discord.gg/JVT7xKm3AD">
+    Discord
+  </Card>
+  <Card title="Email Support" icon="envelope" href="mailto:contact@mobulalabs.org">
+    Email
+  </Card>
+</CardGroup>

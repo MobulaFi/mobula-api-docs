@@ -1,0 +1,183 @@
+---
+title: "Get token price changes"
+description: "In the rapidly shifting landscape of cryptocurrency markets, timely and accurate information about token price changes is crucial for investors, traders, and financial analysts."
+---
+
+Using Mobula API to track price fluctuations can significantly enhance trading strategies and market analysis by providing real-time data. This guide will explain how to access and use this information effectively.
+
+### What you’ll need
+
+1. Basic knowledge of RESTful APIs and JavaScript.
+2. Optional: Preferences for specific token(s), cache settings, and stale data handling.
+3. An API key from the [Dashboard](https://admin.mobula.fi) (required for production; optional in development mode).
+
+### Walkthrough
+
+<Steps>
+  <Step title="Execute the API Call">
+    You can call Mobula API directly from your terminal using cURL or any HTTP client.
+
+    **Using cURL**:
+    ```bash
+    curl --request GET \
+    --url 'https://api.mobula.io/api/1/market/data?asset=bitcoin'
+    ```
+
+    **Using Axios**:
+    ```javascript
+    import axios from "axios";
+
+    axios.get('https://api.mobula.io/api/1/market/data?asset=bitcoin')
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+    ```
+  </Step>
+
+  <Step title="Review the Response">
+    The API delivers a comprehensive response, focusing on token price changes across hourly to yearly intervals, current market metrics, and historical price data.
+
+    ```json
+    {
+      "data": {
+        "market_cap": 1332598551562,
+        "market_cap_diluted": 1426286125338,
+        "liquidity": 331170689,
+        "price": 67918.38692085192,
+        "off_chain_volume": 30012823459,
+        "volume": 293405600,
+        "volume_change_24h": 3.023076057434082,
+        "volume_7d": 293405600,
+        "is_listed": true,
+        "price_change_24h": -2.7412374,
+        "price_change_1h": -0.4397816,
+        "price_change_7d": 1.4587651,
+        "price_change_1m": 6.463008,
+        "price_change_1y": 144.61313,
+        "ath": 73426.18983181914,
+        "atl": 67.809,
+        "name": "Bitcoin",
+        "symbol": "BTC",
+        "logo": "https://metacore.mobula.io/ea67a92c8e0a9b951d6fafed56e8ee714180e9ccbadb7d0555b9cb1b1224dba7.png",
+        "rank": 1,
+        "contracts": [
+          {
+            "address": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+            "blockchain": "Ethereum",
+            "blockchainId": "1",
+            "decimals": 8
+          },
+          {
+            "address": "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c",
+            "blockchain": "BNB Smart Chain (BEP20)",
+            "blockchainId": "56",
+            "decimals": 18
+          },
+          {
+            "address": "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6",
+            "blockchain": "Polygon",
+            "blockchainId": "137",
+            "decimals": 8
+          },
+          {
+            "address": "0x50b7545627a5162f82a992c33b87adc75187b218",
+            "blockchain": "Avalanche C-Chain",
+            "blockchainId": "43114",
+            "decimals": 8
+          },
+          {
+            "address": "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f",
+            "blockchain": "Arbitrum",
+            "blockchainId": "42161",
+            "decimals": 8
+          },
+          {
+            "address": "0x6ab6d61428fde76768d7b45d8bfeec19c6ef91a8",
+            "blockchain": "Moonriver",
+            "blockchainId": "1285",
+            "decimals": 8
+          },
+          {
+            "address": "0xd629eb00deced2a080b7ec630ef6ac117e614f1b",
+            "blockchain": "Celo",
+            "blockchainId": "42220",
+            "decimals": 18
+          },
+          {
+            "address": "0xdc0486f8bf31df57a952bcd3c1d3e166e3d9ec8b",
+            "blockchain": "Boba",
+            "blockchainId": "288",
+            "decimals": 8
+          },
+          {
+            "address": "0x062e66477faf219f25d27dced647bf57c3107d52",
+            "blockchain": "Cronos",
+            "blockchainId": "25",
+            "decimals": 8
+          },
+          {
+            "address": "0xf4eb217ba2454613b15dbdea6e5f22276410e89e",
+            "blockchain": "Aurora",
+            "blockchainId": "1313161554",
+            "decimals": 8
+          },
+          {
+            "address": "0x68f180fcce6836688e9084f035309e29bf0a2095",
+            "blockchain": "Optimistic",
+            "blockchainId": "10",
+            "decimals": 8
+          },
+          {
+            "address": "0x8e5bbbb09ed1ebde8674cda39a0c169401db4252",
+            "blockchain": "XDAI",
+            "blockchainId": "100",
+            "decimals": 8
+          },
+          {
+            "address": "0x922d641a426dcffaef11680e5358f34d97d112e1",
+            "blockchain": "Moonbeam",
+            "blockchainId": "1284",
+            "decimals": 8
+          },
+          {
+            "address": "xUTp3RXGJ1fJpCGqsAY6GgyfRQ3WQ1MdcYR1SiwndAbR",
+            "blockchain": "Alephium",
+            "blockchainId": "alephium-0",
+            "decimals": 8
+          }
+        ],
+        "total_supply": "21000000",
+        "circulating_supply": "19620586"
+      }
+    }
+    ```
+  </Step>
+</Steps>
+
+**With this information, you can:**
+
+- **Analytic Integration**: Use token price change data to power tools that deliver insights on token performance.
+- **Analyze Market Trends**: Track asset price fluctuations over time.
+- **Assess Investment Opportunities**: Gain insights into potential investment decisions based on past price movements.
+
+### Need help?
+
+Can’t find what you’re looking for? Reach out to us, response times < 1h.
+
+<CardGroup>
+  <Card title="Support" icon="Telegram" href="https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Key">
+    Telegram
+  </Card>
+  <Card title="Support" icon="Slack" href="https://join.slack.com/t/mobulaapi/shared_invite/zt-29zrrpjnl-I0tyD73sy7zKy8q~KLL3Ug">
+    Slack
+  </Card>
+  <Card title="Support" icon="Discord" href="https://discord.gg/JVT7xKm3AD">
+    Discord
+  </Card>
+  <Card title="Email Support" icon="envelope" href="mailto:contact@mobulalabs.org">
+    Email
+  </Card>
+</CardGroup>
