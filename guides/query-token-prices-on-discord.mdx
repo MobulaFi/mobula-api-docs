@@ -1,0 +1,145 @@
+---
+title: "How to get token prices on Discord"
+description: "Discord has become a central hub for crypto communities to gather, share information, and manage projects. By incorporating live token prices directly into these communities, members can access timely market data without leaving their community environment."
+---
+
+Mobula API enables the integration of real-time token prices into a Discord server, enhancing engagement and providing immediate value to its members. This guide will detail how to set up a Discord bot using Mobula API to display token prices.
+
+### What you’ll need
+
+1. Knowledge in Python and Node.js programming languages.
+2. Knowledge of the [Discord API](https://discord.com/developers/docs/intro).
+3. A database like MySQL, PostgreSQL, or MongoDB to store user data and transaction histories.
+4. A web cloud server to host the bot, ensuring its availability and responsiveness.
+5. An API key from the [Dashboard](https://admin.mobula.fi) (required for production; optional in development mode).
+
+### Walkthrough
+
+<Steps>
+  <Step title="Set up your bot on Discord">
+    - Go to the [Discord Developer Portal](https://discord.com/developers/applications)
+    - Click _New Application_, name your bot, and create it
+    - In the _Bot_ tab, click _Add Bot_ and confirm by clicking _Yes, do it!_
+    - Save the token provided for later use
+  </Step>
+
+  <Step title="Invite Your Bot to Your Server">
+    - In the _OAuth2_ tab, under _Scopes_, check _bot_
+    - Under _Bot Permissions_, select permissions like _Send Messages_ and _Read Message History_
+    - Open the generated URL in your browser to invite the bot to your server
+  </Step>
+
+  <Step title="Set Up Your Development Environment">
+    - Install [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) if not already installed
+    - Create a new directory for your bot and navigate into it.
+    - Run `npm init -y` to create a _package.json_ file.
+    - Install necessary packages:
+
+    ```bash
+    npm install discord.js axios dotenv
+    ```
+  </Step>
+
+  <Step title="Create the Bot Script">
+    - Create a file named _bot.js_.
+    - Use the following script, replacing _your_bot_token_here_ with your Discord bot token and _your_api_key_here_ with your Mobula API key:
+
+    ```javascript
+    require('dotenv').config();
+    const { Client, Intents } = require('discord.js');
+    const axios = require('axios');
+
+    const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
+
+    client.once('ready', () => {
+        console.log('Ready!');
+    });
+
+    client.on('messageCreate', async message => {
+        if (!message.content.startsWith('!price') || message.author.bot) return;
+        
+        const asset = message.content.split(' ')[1]; // Assumes command format is "!price Bitcoin"
+        if (!asset) {
+            message.channel.send('Please specify an asset.');
+            return;
+        }
+
+        try {
+            const response = await axios.get(`https://api.mobula.io/api/1/market/data?asset=${asset}`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'YOUR_API_KEY_HERE'
+                }
+            });
+            const price = response.data.data.market_data.price_usd; // Adjust according to your API response structure
+            message.channel.send(`The current price of ${asset} is $${price}`);
+        } catch (error) {
+            console.error(error);
+            message.channel.send('Failed to fetch price.');
+        }
+    });
+
+    client.login('YOUR_BOT_TOKEN_HERE');
+    ```
+  </Step>
+
+  <Step title="Run Your Bot">
+    - Create a `.env` file in the same directory with your bot token and API key:
+
+    ```makefile
+    DISCORD_TOKEN=YOUR_BOT_TOKEN_HERE
+    MOBULA_API_KEY=YOUR_API_KEY_HERE
+    ```
+
+    - Start your bot by running:
+
+    ```bash
+    node bot.js
+    ```
+  </Step>
+
+  <Step title="Deploy the Bot">
+    Choose a hosting service such as Heroku for easy setup and a free tier suitable for small projects, AWS (Amazon Web Services) for robust services like EC2 or Elastic Beanstalk that are scalable, or DigitalOcean for affordable and scalable Droplets for larger deployments.
+
+    **Deployment Process**
+
+    - For Heroku:
+        1. Install Heroku CLI: [https://devcenter.heroku.com/articles/heroku-cli](https://devcenter.heroku.com/articles/heroku-cli)
+        2. Login to your Heroku account in the terminal: `heroku login`
+        3. Create a new Heroku app: `heroku create`
+        4. Push your code to Heroku: `git push heroku master`
+        5. Scale your dyno: `heroku ps:scale web=0 worker=1`
+    - Ensure you have a `Procfile` in your project root that looks like this: `worker: node bot.js`
+  </Step>
+
+  <Step title="Perform Functional Testing">
+    - **Local Testing**: Before deploying, test the bot locally by running it and using commands in Discord to ensure it responds correctly.
+    - **Staging Environment**: If possible, use a staging environment on your hosting service to mimic production conditions.
+  </Step>
+
+  <Step title="Continuous Monitoring and Maintenance">
+    - **Logging**: Implement logging in your bot's code to track errors and unusual behaviors. Tools like Winston or Morgan can be useful.
+    - **Error Handling**: Make sure your bot has error handling for failed API calls or unexpected inputs.
+    - **Performance Monitoring**: Use tools provided by your hosting service or third-party services like Datadog or New Relic to monitor your application’s performance.
+    - **Updates**: Regularly update your bot’s dependencies and adjust to changes in the Discord API or Mobula API.
+  </Step>
+</Steps>
+
+### Need help?
+
+Having issue integrating your API key? Reach out to us, response times < 1h.
+
+<CardGroup>
+  <Card title="Support" icon="Telegram" href="https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Key">
+    Telegram
+  </Card>
+  <Card title="Support" icon="Slack" href="https://join.slack.com/t/mobulaapi/shared_invite/zt-29zrrpjnl-I0tyD73sy7zKy8q~KLL3Ug">
+    Slack
+  </Card>
+  <Card title="Support" icon="Discord" href="https://discord.gg/JVT7xKm3AD">
+    Discord
+  </Card>
+  <Card title="Email Support" icon="envelope" href="mailto:contact@mobulalabs.org">
+    Email
+  </Card>
+</CardGroup>

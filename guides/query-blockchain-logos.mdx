@@ -1,0 +1,144 @@
+---
+title: "Get the blockchain logo"
+description: "It is crucial for applications and websites displaying information on blockchains to show the most accurate information possible."
+---
+
+Mobula API simplifies blockchain logo retrieval, helping developers and content creators save time.
+
+### What you'll need
+
+Basic knowledge of RESTful APIs and JavaScript.
+
+### Walkthrough
+
+<Steps>
+  <Step title="Execute the API Call">
+    Retrieve logos directly using cURL or any HTTP client:
+
+    **Using cURL**:
+    ```bash
+    curl --request GET \
+      --url https://api.mobula.io/api/1/blockchains
+    ```
+
+    **Using Axios**:
+    ```javascript
+    import axios from "axios";
+    axios.get('https://api.mobula.io/api/1/blockchains')
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+    ```
+
+  </Step>
+
+  <Step title="Review the Response">
+    To access the blockchain logo, use the URL specified under the _logo_ key in the data. For additional details such as RPC endpoints, explorer links, and information on specific tokens, refer to the corresponding keys.
+
+    ```json
+    {
+      "data": [
+        {
+          "name": "Base",
+          "chainId": "8453",
+          "evmChainId": 8453,
+          "rpcs": ["https://developer-access-mainnet.base.org"],
+          "explorer": "https://basescan.org",
+          "logo": "https://dd.dexscreener.com/ds-data/chains/base.png",
+          "eth": {
+            "name": "Ethereum",
+            "symbol": "ETH",
+            "decimals": 18,
+            "address": "0x4200000000000000000000000000000000000006",
+            "type": "eth",
+            "logo": "https://metacore.mobula.io/60989b438a473ed77703f7bcd3530fc15542996a6607ae831de8c5e3e10f688d.png",
+            "id": 100004304
+          },
+          "stable": {
+            "symbol": "AXLUSDC",
+            "name": "axlUSDC",
+            "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+            "contracts": [
+              "0x1b6382dbdea11d97f24495c9a90b7c88469134a4",
+              "0xfab550568c688d5d8a52c7d794cb93edc26ec0ec",
+              "0x750e4c4984a9e0f12978ea6742bc1c5d248f40ed",
+              "0xca01a1d0993565291051daff390892518acfad3a",
+              "0xeb466342c4d449bc9f53a865d5cb90586f405215"
+            ],
+            "blockchains": ["Fantom", "Avalanche C-Chain", "Polygon", "Moonbeam", "Base"],
+            "blockchain": "Base",
+            "address": "0xeb466342c4d449bc9f53a865d5cb90586f405215",
+            "decimals": 6,
+            "type": "stable"
+          },
+          "routers": [
+            {
+              "name": "RocketSwap",
+              "address": "0x4cf76043b3f97ba06917cbd90f9e3a2aac1b306e",
+              "factory": "0x1b8128c3a1b7d20053d10763ff02466ca7ff99fc",
+              "fee": 9970
+            }
+          ],
+          "tokens": [
+            {
+              "name": "Ethereum",
+              "symbol": "ETH",
+              "address": "0x4200000000000000000000000000000000000006",
+              "decimals": 18,
+              "type": "eth"
+            },
+            {
+              "name": "axlUSDC",
+              "symbol": "AXLUSDC",
+              "address": "0xeb466342c4d449bc9f53a865d5cb90586f405215",
+              "decimals": 6,
+              "type": "stable"
+            }
+          ],
+          "supportedProtocols": ["forkV2"],
+          "color": "#0052FE",
+          "dexscreenerChain": "base",
+          "coingeckoChain": "base",
+          "isLayer2": true,
+          "coverage": ["metadata", "market", "explorer"]
+        }
+      ]
+    }
+    ```
+
+  </Step>
+
+  <Step title="Get Your Data">
+    To access the blockchain logo, refer to the URL specified in the 'logo' key.
+  </Step>
+</Steps>
+
+### Extending Your Insights
+
+    With the retrieved data, you can:
+
+    - **Branding and User Interface Design**: Use blockchain and token logos in your app's interface.
+    - **Marketing Materials**: Use logos in marketing materials to visually represent supported blockchains and tokens.
+    - **Comparison and Analytics Tools**: Display logos with financial data in analytics tools for clear visual references.
+
+### Need Help?
+
+Our support team is available to assist you with any questions or challenges in using the API.
+
+<CardGroup>
+  <Card title="Support" icon="Telegram" href="https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Key">
+    Telegram
+  </Card>
+  <Card title="Support" icon="Slack" href="https://join.slack.com/t/mobulaapi/shared_invite/zt-29zrrpjnl-I0tyD73sy7zKy8q~KLL3Ug">
+    Slack
+  </Card>
+  <Card title="Support" icon="Discord" href="https://discord.gg/JVT7xKm3AD">
+    Discord
+  </Card>
+  <Card title="Email Support" icon="envelope" href="mailto:contact@mobulalabs.org">
+    Email
+  </Card>
+</CardGroup>

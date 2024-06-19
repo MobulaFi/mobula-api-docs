@@ -1,0 +1,163 @@
+---
+title: "Get newly listed tokens onchain"
+description: "The rapidly changing cryptocurrency market makes monitoring newly listed tokens crucial."
+---
+
+Mobula API offers a direct way to obtain real-time, detailed information about tokens immediately upon their market introduction. This guide outlines how to access data on newly listed tokens.
+
+### What you’ll need
+
+1. Basic knowledge of RESTful APIs and JavaScript.
+2. Optional: Preferences for specific blockchains, cache settings, and stale data handling.
+3. An API key from the [Dashboard](https://admin.mobula.fi) (required for production; optional in development mode).
+
+### Walkthrough
+
+<Steps>
+  <Step title="Execute the API call">
+    You can call Mobula API directly from your terminal using cURL or any HTTP client.
+
+    **Using cURL**:
+    ```bash
+    curl --request GET \
+    --url 'https://api.mobula.io/api/1/market/query/token?sortBy=listed_at&sortOrder=desc&blockchain=Base'
+    ```
+
+    **Using Axios**:
+    ```javascript
+    import axios from "axios";
+
+    axios.get('https://api.mobula.io/api/1/market/query/token?sortBy=listed_at&sortOrder=desc&blockchain=Base')
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+    ```
+  </Step>
+
+  <Step title="Get your data">
+    The API will return a comprehensive response including the token's blockchain, address, creation date, pair type, transaction statistics, and details of the tokens forming trading pairs.
+
+    ```json
+    {
+      "data": [
+        {
+          "name": "USDe",
+          "symbol": "USDe",
+          "address": "0xf290be4044bfbe8150eff82c2d33b9cdfd342b35",
+          "blockchain": "Base",
+          "decimals": 18,
+          "volume_24h": 0,
+          "listed_at": "2024-05-28T14:47:19+00:00",
+          "pairs": [
+            {
+              "token0": {
+                "address": "0x4200000000000000000000000000000000000006",
+                "price": 3847.361963243166,
+                "priceToken": 367771.4257120958,
+                "priceTokenString": "367771.42571209580637514591217041015625",
+                "logo": "https://metacore.mobula.io/60989b438a473ed77703f7bcd3530fc15542996a6607ae831de8c5e3e10f688d.png",
+                "approximateReserveUSD": 10108.570360463622,
+                "approximateReserveTokenRaw": "2627402999000000000",
+                "approximateReserveToken": 2.6274,
+                "symbol": "ETH",
+                "name": "Ethereum",
+                "id": 100004304,
+                "decimals": 18,
+                "totalSupply": 120129946,
+                "circulatingSupply": 120364095
+              },
+              "token1": {
+                "address": "0xf290be4044bfbe8150eff82c2d33b9cdfd342b35",
+                "price": 0.010461285717871442,
+                "priceToken": 0.0000027190801951613134,
+                "priceTokenString": "0.00000271908019516131338716002225",
+                "approximateReserveUSD": 0,
+                "approximateReserveTokenRaw": "966283746862466389448279",
+                "approximateReserveToken": 966283.7468,
+                "decimals": 18,
+                "symbol": "USDe",
+                "name": "USDe",
+                "totalSupply": 1000000,
+                "circulatingSupply": 1000000
+              },
+              "volume24h": 0,
+              "liquidity": 10108.570360463622,
+              "blockchain": "Base",
+              "address": "0x8662e57fc31dab9e256187728ab085a4fa3917b6",
+              "createdAt": "2024-05-28T14:47:19.000Z",
+              "type": "univ2",
+              "baseToken": "token1",
+              "factory": "0x8909dc15e40173ff4699343b6eb8132c65e18ec6",
+              "quoteToken": "token0",
+              "price_change_5min": 0,
+              "price_change_1h": 0,
+              "price_change_4h": 0,
+              "price_change_12h": 0,
+              "price_change_24h": 0,
+              "trades_5min": 0,
+              "buys_5min": 0,
+              "sells_5min": 0,
+              "volume_5min": 0,
+              "buy_volume_5min": 0,
+              "sell_volume_5min": 0,
+              "trades_1h": 0,
+              "buys_1h": 0,
+              "sells_1h": 0,
+              "volume_1h": 0,
+              "buy_volume_1h": 0,
+              "sell_volume_1h": 0,
+              "trades_4h": 0,
+              "buys_4h": 0,
+              "sells_4h": 0,
+              "volume_4h": 0,
+              "buy_volume_4h": 0,
+              "sell_volume_4h": 0,
+              "trades_12h": 0,
+              "buys_12h": 0,
+              "sells_12h": 0,
+              "volume_12h": 0,
+              "buy_volume_12h": 0,
+              "sell_volume_12h": 0,
+              "trades_24h": 0,
+              "buys_24h": 0,
+              "sells_24h": 0,
+              "volume_24h": 0,
+              "buy_volume_24h": 0,
+              "sell_volume_24h": 0
+            }
+          ]
+        }
+      ]
+    }
+    ```
+  </Step>
+</Steps>
+
+### Extending Your Insights
+
+    With this information, you can:
+
+    - **Reverse Discovery**: Actively monitor blockchains to spot newly listed tokens, then perform due diligence before investing.
+    - **Analytic Integration**: Use blockchain activity data to power a tool that delivers statistical insights on blockchain performance.
+
+### Need Help?
+
+Our support team is available to assist you with any questions or challenges in using the API.
+
+<CardGroup>
+  <Card title="Support" icon="Telegram" href="https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Key">
+    Telegram
+  </Card>
+  <Card title="Support" icon="Slack" href="https://join.slack.com/t/mobulaapi/shared_invite/zt-29zrrpjnl-I0tyD73sy7zKy8q~KLL3Ug">
+    Slack
+  </Card>
+  <Card title="Support" icon="Discord" href="https://discord.gg/JVT7xKm3AD">
+    Discord
+  </Card>
+  <Card title="Email Support" icon="envelope" href="mailto:contact@mobulalabs.org">
+    Email
+  </Card>
+</CardGroup>

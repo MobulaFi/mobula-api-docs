@@ -1,0 +1,97 @@
+---
+title: "Get a token price history from first block"
+description: "Understanding the full price history of a cryptocurrency token can provide invaluable insights into its market behavior, investor interest, and overall volatility."
+---
+
+Mobula API provides comprehensive historical price data from the first block a token was transacted on, offering a crucial tool for in-depth financial analysis and historical performance review.
+
+### What you’ll need
+
+1. Basic knowledge of RESTful APIs and JavaScript.
+2. Optional: Preferences for specific token(s), cache settings, and stale data handling.
+3. An API key from the [Dashboard](https://admin.mobula.fi) (required for production; optional in development mode).
+
+### Walkthrough
+
+<Steps>
+  <Step title="Execute the API Call">
+    You can call Mobula API directly from your terminal using cURL or any HTTP client.
+
+    **Using cURL**:
+    ```bash
+    curl --request GET \
+    --url 'https://api.mobula.io/api/1/market/history?asset=base&blockchain=base'
+    ```
+
+    **Using Axios**:
+    ```javascript
+    import axios from "axios";
+
+    axios.get('https://api.mobula.io/api/1/market/history?asset=base&blockchain=base')
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+    ```
+  </Step>
+
+  <Step title="Review the Response">
+    You will get a response with the following format:
+
+    ```json
+    {
+      "data": {
+        "price_history": [
+          [
+            1690848000000,
+            6.591077336435656e-7
+          ],
+          [
+            1690869600000,
+            0.00000195159542182393
+          ],
+          [
+            1690891200000,
+            0.0000016428397923859638
+          ],
+          [
+            1690912800000,
+            0.0000019099557143586473
+          ],
+          [
+            "...",
+            "..."
+          ]
+        ]
+      }
+    }
+    ```
+  </Step>
+</Steps>
+
+**With this information, you can:**
+
+- **Analytic Integration**: Use token price change data to power tools that deliver insights on token performance.
+- **Analyze Market Trends**: Track asset price fluctuations over time.
+- **Assess Investment Opportunities**: Gain insights into potential investment decisions based on past price movements.
+
+### Need help?
+
+Can’t find what you’re looking for? Reach out to us, response times < 1h.
+
+<CardGroup>
+  <Card title="Support" icon="Telegram" href="https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Key">
+    Telegram
+  </Card>
+  <Card title="Support" icon="Slack" href="https://join.slack.com/t/mobulaapi/shared_invite/zt-29zrrpjnl-I0tyD73sy7zKy8q~KLL3Ug">
+    Slack
+  </Card>
+  <Card title="Support" icon="Discord" href="https://discord.gg/JVT7xKm3AD">
+    Discord
+  </Card>
+  <Card title="Email Support" icon="envelope" href="mailto:contact@mobulalabs.org">
+    Email
+  </Card>
+</CardGroup>

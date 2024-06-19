@@ -1,0 +1,97 @@
+---
+title: "Get OHLCV prices for crypto tokens"
+description: "OHLCV (Open, High, Low, Close, Volume) data is indispensable for conducting thorough market analysis."
+---
+
+Mobula API provides access to real-time and historical OHLCV data for a wide range of assets. This guide will detail how to retrieve this data effectively.
+
+### What you’ll need
+
+1. Basic knowledge of RESTful APIs and JavaScript.
+2. Optional: Preferences for specific token(s), cache settings, and stale data handling.
+3. An API key from the [Dashboard](https://admin.mobula.fi) (required for production; optional in development mode).
+
+### Walkthrough
+
+<Steps>
+  <Step title="Execute the API Call">
+    You can call Mobula API using cURL or any HTTP client.
+
+    **Using cURL**:
+    ```bash
+    curl --request GET \
+    --url 'https://api.mobula.io/api/1/market/history?asset=base&blockchain=base'
+    ```
+
+    **Using Axios**:
+    ```javascript
+    import axios from "axios";
+
+    axios.get('https://api.mobula.io/api/1/market/history?asset=base&blockchain=base')
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+    ```
+  </Step>
+
+  <Step title="Review the Response">
+    The API will return a comprehensive response including historical price data with timestamps and corresponding values.
+
+    ```json
+    {
+      "data": {
+        "price_history": [
+          [
+            1690848000000,
+            6.591077336435656e-7
+          ],
+          [
+            1690869600000,
+            0.00000195159542182393
+          ],
+          [
+            1690891200000,
+            0.0000016428397923859638
+          ],
+          [
+            1690912800000,
+            0.0000019099557143586473
+          ],
+          [
+            "...",
+            "..."
+          ]
+        ]
+      }
+    }
+    ```
+  </Step>
+</Steps>
+
+**With this information, you can:**
+
+- **Analytic Integration**: Using volume change data to power a tool that delivers insights on such asset performance.
+- **Analyze Market Trends**: Track the asset’s volume fluctuations over time.
+- **Assess Investment Opportunities**: Gain insights into potential investment decisions based on the volume.
+
+### Need help?
+
+Can’t find what you’re looking for? Reach out to us, response times < 1h.
+
+<CardGroup>
+  <Card title="Support" icon="Telegram" href="https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Key">
+    Telegram
+  </Card>
+  <Card title="Support" icon="Slack" href="https://join.slack.com/t/mobulaapi/shared_invite/zt-29zrrpjnl-I0tyD73sy7zKy8q~KLL3Ug">
+    Slack
+  </Card>
+  <Card title="Support" icon="Discord" href="https://discord.gg/JVT7xKm3AD">
+    Discord
+  </Card>
+  <Card title="Email Support" icon="envelope" href="mailto:contact@mobulalabs.org">
+    Email
+  </Card>
+</CardGroup>
