@@ -699,6 +699,19 @@ paths:
           schema:
             type: string
             example: bitcoin
+        - in: query
+          name: blockchain
+          description: Blockchain to search on
+          schema:
+            type: string
+            example: Ethereum
+        - in: query
+          name: blockchains
+          description: Blockchains to search on
+          schema:
+            type: string
+            example: Ethereum,56
+
       responses:
         "200":
           description: OK
@@ -872,7 +885,7 @@ paths:
         - description: Address of the pair to retrieve market history for.
           in: query
           name: address
-          required: true
+          required: false
           schema:
             type: string
         - description: Maximum number of results to return.
@@ -882,6 +895,7 @@ paths:
           schema:
             example: 20
             type: integer
+            default: 1000
         - description: The Asset you want to target - asset name only works for assets listed on Mobula.
           in: query
           name: asset
@@ -1054,6 +1068,11 @@ paths:
           name: tos
           schema:
             type: integer
+        - description: Comma separated list of symbols
+          in: query
+          name: symbols
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -1178,6 +1197,11 @@ paths:
           schema:
             type: string
             example: Ethereum
+        - name: category
+          in: query
+          schema:
+            type: string
+            example: DeFi
       responses:
         "200":
           description: OK

@@ -21,3 +21,7 @@ Available resolutions:
 - 1d
 - 7d
 - 30d
+
+### Troubleshoot
+
+By default, the amount param is set to 1000, and has priority over from/to params - which means if you set a very large timeframe, which low granularity, and don't adapt the amount parameter, it will be capped at 1000 entries. You can increase the amount parameter to get more data points.

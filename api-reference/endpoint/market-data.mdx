@@ -11,3 +11,7 @@ Input in “asset” the name of the asset you want to query, or the contract ad
 ### Data details
 
 Price data is computed using Octopus, Mobula's market data engine. You can have a high-level overview of how it's computing DeFi prices [here](https://mirror.xyz/0x6483Ca5ac1EbC6eB08d36979d217db2572CbAad2/Lw8NSSjqR4JSzthKZQCfHLwD3NPGsuaAfHGMY1zi-WI). `volume` is on-chain volume, and `off_chain_volume` is - as name implies, the off-chain volume.
+
+### On some long tail assets, price is diffrent than on CoinGecko or CoinMarketCap. Why?
+
+Mobula uses market-depth-weighted average price, which is more accurate than the simple average price. This is especially important for assets with low / zero volume in the long tail.
