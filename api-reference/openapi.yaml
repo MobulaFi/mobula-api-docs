@@ -1201,7 +1201,7 @@ paths:
           in: query
           schema:
             type: string
-            example: DeFi
+            example: Cryptocurrency
       responses:
         "200":
           description: OK
