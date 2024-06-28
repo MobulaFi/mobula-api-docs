@@ -94,6 +94,7 @@
         "guides/query-token-price-changes",
         "guides/query-token-price-history-from-first-block",
         "guides/query-ohlcv-prices-for-crypto-tokens",
+        "guides/query-token-vesting-and-unlocks-details",
         "guides/query-blockchain-logos",
         "guides/query-token-prices-on-discord",
         "guides/build-telegram-buy-bot",

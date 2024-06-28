@@ -1,0 +1,164 @@
+---
+title: "Get token vesting and unlocks details via API"
+description: "Accessing detailed token vesting schedules and unlock events is crucial for investors and developers monitoring token economics and market dynamics."
+---
+
+Mobula API provides accurate information on token vesting and unlock details, empowering users to make informed decisions based on the timing and quantity of token releases. This guide will demonstrate how to retrieve comprehensive data on token vesting and unlocks via the API.
+
+### What you’ll need
+
+1. Basic knowledge of RESTful APIs and JavaScript.
+2. Optional: Preferences for specific blockchains, cache settings, and stale data handling.
+3. An API key from the [**Dashboard**](https://admin.mobula.fi/) (required for production; optional in development mode).
+
+<Steps>
+### Walkthrough
+
+  <Step title="Execute the API call">
+    You can call Mobula API directly from your terminal using cURL or any HTTP client.
+
+    **Using cURL**:
+    ```bash
+    curl --request GET \
+    --url 'https://api.mobula.io/api/1/metadata?asset=avalanche'
+    ```
+
+    **Using Axios**:
+    ```javascript
+    import axios from "axios";
+    axios.get('https://api.mobula.io/api/1/metadata?asset=avalanche')
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+    ```
+
+  </Step>
+
+  <Step title="Get your data">
+    The API will deliver comprehensive data on token vesting and unlocks, offering insights into distribution schedules and strategic investment timings.
+
+    ```json
+    {
+      "data": {
+        "id": 100001119,
+        "name": "Avalanche",
+        "symbol": "AVAX",
+        "contracts": [
+          "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+          "0x511d35c52a3c244e7b8bd92c0c297755fbd89212",
+          "one14tvk6p8spdcch8k58cuahrnnmesua79he3xzld",
+          "0x14a0243c333a5b238143068dc3a7323ba4c30ecb",
+          "0x5471ea8f739dd37e9b81be9c5c77754d8aa953e4",
+          "0xb57b60debdb0b8172bb6316a9164bd3c695f133a",
+          "0x2c89bbc92bd86f8075d1decc58c7f4e0107f286b",
+          "0x332730a4f6e03d9c55829435f10360e13cfa41ff"
+        ],
+        "blockchains": [
+          "Avalanche C-Chain",
+          "Fantom",
+          "Harmony",
+          "Moonriver",
+          "Linea",
+          "DFK Subnet",
+          "Polygon",
+          "Velas"
+        ],
+        "twitter": "https://twitter.com/avax",
+        "website": "https://www.avax.network",
+        "logo": "https://metacore.mobula.io/a4706cd9b09a74be152a23424d0ecf9fa6a18180b8b4474a2d18e1328178f5d8.png",
+        "price": 24.943318238444782,
+        "market_cap": 9821350590,
+        "liquidity": 21612860,
+        "volume": 32398336,
+        "description": "Avalanche is a high throughput smart contract blockchain platform. Validators secure the network through a proof-of-stake consensus protocol. Since mainnet was launched the platform has grown to secure over 100+ individual projects.",
+        "kyc": null,
+        "audit": "https://quantstamp.com/blog/quantstamp-enhancing-the-security-of-avalanche",
+        "total_supply_contracts": [],
+        "total_supply": 443093108,
+        "circulating_supply": 393746754,
+        "circulating_supply_addresses": [],
+        "discord": "https://www.avax.network/",
+        "max_supply": 443093108,
+        "chat": "https://t.me/avalancheavax",
+        "tags": [
+          "Galaxy Digital Portfolio",
+          "GMCI 30 Index",
+          "GMCI Layer 1 Index",
+          "Andreessen Horowitz (a16z) Portfolio",
+          "DeFiance Capital Portfolio",
+          "DragonFly Capital Portfolio",
+          "Proof of Stake (PoS)",
+          "Smart Contract Platform",
+          "Layer 1 (L1)",
+          "Avalanche Ecosystem"
+        ],
+        "distribution": [
+          {
+            "percentage": 9.26,
+            "name": "Foundation"
+          },
+          {
+            "percentage": 2.5,
+            "name": "Airdrop"
+          },
+          {
+            "percentage": 10,
+            "name": "Team"
+          },
+          {
+            "percentage": 1,
+            "name": "Public Sale Option A1"
+          },
+          {
+            "percentage": 8.3,
+            "name": "Public Sale Option A2"
+          },
+          {
+            "percentage": 0.67,
+            "name": "Public Sale Option B"
+          },
+          {
+            "percentage": 7,
+            "name": "Community and Development Endowment"
+          },
+          {
+            "percentage": 0.31,
+            "name": "Testnet Incentive Program"
+          },
+          {
+            "percentage": 5,
+            "name": "Strategic Partners"
+          },
+          {
+            "percentage": 50,
+            "name": "Staking Rewards"
+          },
+          {
+            "percentage": 3.46,
+            "name": "Private Sale"
+          },
+          {
+            "percentage": 2.5,
+            "name": "Seed Sale"
+          }
+        ]
+      }
+    }
+    ```
+  </Step>
+</Steps>
+
+### Data Source
+
+We source data from multiple curated sources. If you notice any assets that are lacking information and know of relevant data sources, feel free to contact us so we can include them.
+
+### Extending Your Insights
+
+With this information, you can:
+
+- **Optimize Portfolio Management Tools**: Integrate vesting and unlock details into portfolio apps to help users track investments, manage token liquidity, and make informed decisions based on availability timelines.
+- **Plan long term Investments**: Analyze token release schedules to plan investment strategies around major unlocking events.
+- **Mitigate Market Impact**: Forecast potential market supply increases and adjust your trading strategies accordingly to minimize risk.
