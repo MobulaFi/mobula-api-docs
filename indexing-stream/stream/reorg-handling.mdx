@@ -1,0 +1,74 @@
+---
+title: "Reog handling"
+---
+
+Mobula will handle reorgs and will send a message to the client with the status `reorg`, with the block_number, block_hash, chainId and date. Example of a reorg message:
+
+```json
+{
+  "status": "reorg",
+  "data": {
+    "block_number": 46924501,
+    "block_hash": "0xu8765fyv6756127893187gygzfevz652bzef672",
+    "chainId": "evm:1",
+    "date": "2023-08-30T05:40:57Z"
+  },
+  "websocket_name": "MyWalletTransactions",
+  "websocket_id": 109389723
+}
+```
+
+After the reorg message if the new block has an event the stream is looking for, Mobula will send a message with the status `updated` and the new data. Example of an updated message after a reorg message:
+
+```json
+{
+  "status": "updated",
+  "data": {
+    "address": "0xu8765fyv6756127893187gygzfevz652bzef672",
+    "block_hash": "0xu8765fyv6756127893187gygzfevz652bzef672",
+    "block_number": 46924501,
+    "block_timestamp": 1693374057,
+    "data": "0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001",
+    "item_id": "log_0x11876578YGVBNNJBVFCTGYHUGVFC678765678U8789_470",
+    "item_timestamp": "2023-08-30T05:40:57Z",
+    "log_index": 470,
+    "topics": [
+      "0xc3d58168c5ae7397731d063d5bbf3d657854427343f4c083240f7aacaa2d0f62",
+      "0x0000000000004567876546756656567VGTFctrc567767666669fcb0534943956",
+      "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "0x0000000000000876567876567YTFGVBHGVFCT67Y8765678UYGHGfd60215ffcb5"
+    ],
+    "transaction_hash": "ethers",
+    "transaction_index": 27,
+    "type": "log"
+  },
+  "websocket_name": "MyWalletTransactions",
+  "websocket_id": 109389723
+}
+```
+
+Can’t find what you’re looking for? Reach out to us, response times < 1h.
+
+<CardGroup>
+
+<Card
+  title="Support"
+  icon="Telegram"
+  href="https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Key"
+>
+  Telegram
+</Card>
+
+<Card
+  title="Support"
+  icon="Slack"
+  href="https://join.slack.com/t/mobulaapi/shared_invite/zt-29zrrpjnl-I0tyD73sy7zKy8q~KLL3Ug"
+>
+  Slack
+</Card>
+
+<Card title="Need help?" icon="envelope" href="mailto:contact@mobulalabs.org">
+  Email
+</Card>
+
+</CardGroup>
