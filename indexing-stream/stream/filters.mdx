@@ -1,0 +1,83 @@
+---
+title: "Filters"
+---
+
+## Filters model
+
+The filters model is used to filter the data you want to receive from the stream. The filters are applied to the data before it is sent to the client.
+
+```json
+{
+  "name": "MyWalletTransactions",
+  "chainId": ["evm:1", "evm:56"],
+  "raw": ["transactions", "traces", "logs"],
+  "abstract": ["swaps", "liquidity", "poolsCreated"],
+  "filters": {
+    "and": [
+      { "eq": ["token_out", "0x123456789"] },
+      { "gte": ["value", "10000000000"] }
+    ]
+  }
+}
+```
+
+### Multiple filters
+
+You can use multiple filters to get the data you need. The filters are applied in the order they are defined.
+
+```json
+{
+  "or": [
+    {
+      "and": [
+        { "eq": ["from", "0x0000000000000000003456000000008766600000"] },
+        { "gte": ["value", "0x0000000000000000003456000000008766600000"] },
+      ],
+    },
+    {
+      "and": [
+        { "eq": ["to", "0x0000000000000000003456000000008766600000"] },
+        { "gte": ["value", "10000000000"] },
+      ],
+    },
+  ],
+};
+```
+
+### More example
+
+```json
+{
+  "eq": [
+    "topic0",
+    "0x830d2d700a97af574b186c80d40429385d24241565b08a7c559ba283a964d9b1"
+  ]
+}
+```
+
+Can’t find what you’re looking for? Reach out to us, response times < 1h.
+
+<CardGroup>
+
+<Card
+  title="Support"
+  icon="Telegram"
+  href="https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Key"
+>
+  Telegram
+</Card>
+
+<Card
+  title="Support"
+  icon="Slack"
+  href="https://join.slack.com/t/mobulaapi/shared_invite/zt-29zrrpjnl-I0tyD73sy7zKy8q~KLL3Ug"
+>
+  Slack
+</Card>
+
+<Card title="Need help?" icon="envelope" href="mailto:contact@mobulalabs.org">
+  Email
+</Card>
+
+</CardGroup>
+````
