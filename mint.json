@@ -223,10 +223,6 @@
       ]
     },
     {
-      "group": "Events",
-      "pages": ["api-reference/endpoint/wss-events"]
-    },
-    {
       "group": "Introduction",
       "pages": [
         "indexing-stream/introduction",
@@ -245,7 +241,7 @@
       "group": "Stream",
       "pages": [
         "indexing-stream/stream/getting-started",
-        "indexing-stream/stream/events-data",
+        "indexing-stream/stream/data-model",
         "indexing-stream/stream/reorg-handling",
         "indexing-stream/stream/filters"
       ]

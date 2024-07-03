@@ -1,12 +1,8 @@
 ---
-title: "Events data"
+title: "Data model"
 ---
 
-## Data model
-
 ### Logs model
-
-For a simple transfer ERC20 you will get a response with the following format:
 
 ```json
 {
@@ -38,8 +34,6 @@ For a simple transfer ERC20 you will get a response with the following format:
 ```
 
 ### Trace model
-
-For an EVM trace you will get a response with the following format:
 
 ```json
 
@@ -76,7 +70,7 @@ For an EVM trace you will get a response with the following format:
         "from": "0x5678567856785678567856785678567856785678",
         "to": "0x9abcdef9abcdef9abcdef9abcdef9abcdef9abcdef",
         "gas": "60000",
-        "input": "0x70a08231000000000000000000000000abcdefabcdefabcdefabcdefabcdefabcdefabcdef", // balanceOf(address)
+        "input": "0x70a08231000000000000000000000000abcdefabcdefabcdefabcdefabcdefabcdefabcdef",
         "value": "0"
       },
       "result": {
@@ -102,8 +96,6 @@ For an EVM trace you will get a response with the following format:
 
 ### Transaction model
 
-For a simple transaction you will get a response with the following format:
-
 ```json
 {
     {
@@ -127,8 +119,6 @@ For a simple transaction you will get a response with the following format:
 
 ### Swap model
 
-For a curated Swap event you will get a response with the following format:
-
 ```json
 {
     {
@@ -141,10 +131,10 @@ For a curated Swap event you will get a response with the following format:
         "token_out_amount": 78.7655678,
         "token_in_amount": 1000.1626217,
         "date": "2023-08-30T05:40:57Z",
-        "chainId": "evm:1",
+        "chain_id": "evm:1",
         "pair": "0x07e6d1a3839c5d037d66dabe4ffc59a1dab77631",
-        "token0Price": 1500.912313,
-        "token1Price": 227.123123,
+        "token_0_price": 1500.912313,
+        "token_1_price": 227.123123,
         "index": 1,
         "buyer_address": "0x55d50a035bc5830dac9f1a42b71c48cbad568d60",
         "is_mev": false,

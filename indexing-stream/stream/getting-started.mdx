@@ -46,16 +46,6 @@ socket.addEventListener("open", () => {
 });
 
 socket.addEventListener("message", (event) => {
-  if (event.data === "Goodbye.") {
-    // We're done here. Can stop loader, etc.
-    return;
-  }
-
-  if (event.data === "Hello.") {
-    // Start loader, etc.
-    return;
-  }
-
   const data = JSON.parse(event.data);
 
   if (event.status === "reorg") {
