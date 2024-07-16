@@ -1,8 +1,8 @@
 {
   "name": "Mobula API",
   "logo": {
-    "dark": "/images/logo/light-logo.png",
-    "light": "/images/logo/dark-logo.png"
+    "dark": "/images/logo/dark-logo.svg",
+    "light": "/images/logo/light-logo.svg"
   },
   "analytics": {
     "mixpanel": {
