@@ -34,8 +34,8 @@
 			"url": "api-reference"
 		},
 		{
-			"name": "Indexing & Subgraphs",
-			"url": "indexing"
+			"name": "Indexing & Stream",
+			"url": "indexing-stream"
 		},
 		{
 			"name": "SDK",
@@ -94,6 +94,7 @@
 				"guides/query-token-price-changes",
 				"guides/query-token-price-history-from-first-block",
 				"guides/query-ohlcv-prices-for-crypto-tokens",
+				"guides/query-token-vesting-and-unlocks-details",
 				"guides/query-blockchain-logos",
 				"guides/query-token-prices-on-discord",
 				"guides/build-telegram-buy-bot",
@@ -177,7 +178,7 @@
 				"blockchains/wemix",
 				"blockchains/astar",
 				"blockchains/solana",
-				"blockchains/Starknet",
+				"blockchains/starknet",
 				"blockchains/secret-network",
 				"blockchains/celestia",
 				"blockchains/arthera",
@@ -231,17 +232,30 @@
 				"api-reference/endpoint/blockchain-decode"
 			]
 		},
-
 		{
 			"group": "Introduction",
-			"pages": ["indexing/introduction", "indexing/authentification"]
+			"pages": [
+				"indexing-stream/introduction",
+				"indexing-stream/authentification"
+			]
 		},
-
 		{
 			"group": "Frameworks",
-			"pages": ["indexing/subgraph", "indexing/octoflow", "indexing/ponder"]
+			"pages": [
+				"indexing-stream/subgraph",
+				"indexing-stream/octoflow",
+				"indexing-stream/ponder"
+			]
 		},
-
+		{
+			"group": "Stream",
+			"pages": [
+				"indexing-stream/stream/getting-started",
+				"indexing-stream/stream/data-model",
+				"indexing-stream/stream/reorg-handling",
+				"indexing-stream/stream/filters"
+			]
+		},
 		{
 			"group": "",
 			"pages": ["sdk/introduction", "sdk/authentification"]
