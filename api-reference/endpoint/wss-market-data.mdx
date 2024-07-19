@@ -1,5 +1,5 @@
 ---
-title: "Websocket Price Feed"
+title: "Websocket Market Feed"
 icon: "wave-pulse"
 description: "Get WSS streams for up to 100 assets at the same time with real time price, volume, price change & other market metrics updates."
 ---
@@ -28,10 +28,8 @@ description: "Get WSS streams for up to 100 assets at the same time with real ti
 }
 ```
 
-Parameters:
-
-- `assets`: array of assets to track - can be queried by name, symbol, or address + blockchain
-- `interval`: interval in seconds between updates (min 5s, default 30s)
+This websocket sends at the end of each block on every chain we track, an update of multichain weighted average prices & weights for the assets tracked in the Oracle Feed program. 
+Any asset that has onchain contracts can be tracked this way, on demand.
 
 ### Data model
 
@@ -40,34 +38,63 @@ Data reponses includes:
 - Asset updates:
 
 ```json
+[
+	{
+		"timestamp": 1721296005026,
+		"price": 1.0909899899659965,
+		"marketDepthUSDUp": 924925.3576342536,
+		"marketDepthUSDDown": 688612.6710491518,
+		"volume24h": 1056032.4915289644,
+		"baseSymbol": "EURA",
+		"quoteSymbol": "USD"
+	},
+	{
+		"timestamp": 1721296005026,
+		"price": 0.9982620844534368,
+		"marketDepthUSDUp": 3027549.9580928273,
+		"marketDepthUSDDown": 2280808.1570687457,
+		"volume24h": 1052302.1653788893,
+		"baseSymbol": "LUSD",
+		"quoteSymbol": "USD"
+	},
+	{
+		"timestamp": 1721296005026,
+		"price": 0.9962086808597617,
+		"marketDepthUSDUp": 16386.051460857914,
+		"marketDepthUSDDown": 10762.452628963154,
+		"volume24h": 90085.31844922765,
+		"baseSymbol": "MIM",
+		"quoteSymbol": "USD"
+	},
+	{
+		"timestamp": 1721296005026,
+		"price": 0.9961086545945838,
+		"marketDepthUSDUp": 6000961.186934919,
+		"marketDepthUSDDown": 21330193.86604397,
+		"volume24h": 6903342.049632488,
+		"baseSymbol": "CRVUSD",
+		"quoteSymbol": "USD"
+	},
+	{
+		"timestamp": 1721296005026,
+		"price": 1.172859348009492,
+		"marketDepthUSDUp": 58893031.62029558,
+		"marketDepthUSDDown": 119975288.5409638,
+		"volume24h": 95642516.18313012,
+		"baseSymbol": "WSTETH",
+		"quoteSymbol": "ETH"
+	}
+]
+    
+```
+
+Also, Mobula keeps an audit trail of all the pairs used in the computation, accessible via this endpoint: 
+
+Endpoint: https://general-api-preprod-fgpupeioaa-uc.a.run.app/blockchain/query (POST)
+
+```json
 {
-    {
-      ath: number,
-      atl: number,
-      contracts: {
-        address: string,
-        blockchain: string,
-        blockchainId: string,
-        decimals: number
-      },
-      is_listed: boolean,
-      liquidity: number,
-      market_cap: number,
-      market_cap_diluted: number,
-      name: string,
-      off_chain_volume: number,
-      price: number,
-      price_change_1h: number,
-      price_change_1m: number,
-      price_change_1y: number,
-      price_change_7d: number,
-      price_change_24h: number,
-      rank: number,
-      symbol: string,
-      volume: number,
-      volume_7d: number,
-      volume_change_24h: number
-    }
+  "sql": "SELECT * from \"PriceFeedDetails\" order by timestamp desc limit 100"
 }
 ```
 

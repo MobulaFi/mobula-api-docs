@@ -1,289 +1,290 @@
 {
-  "name": "Mobula API",
-  "logo": {
-    "dark": "/images/logo/dark-logo.svg",
-    "light": "/images/logo/light-logo.svg"
-  },
-  "analytics": {
-    "mixpanel": {
-      "projectToken": "792afbf66aa630430016bdbd59c52ba7"
-    }
-  },
-  "feedback.thumbsRating": true,
-  "openapi": ["api-reference/openapi.yaml"],
-  "favicon": "/favicon.png",
-  "colors": {
-    "background": {
-      "light": "#f5f5f5",
-      "dark": "#111524"
-    },
-    "primary": "#5C7DF9",
-    "light": "#5C7DF9",
-    "dark": "#000000",
-    "anchors": {
-      "from": "#5C7DF9",
-      "to": "#5C7DF9"
-    }
-  },
-  "primaryTab": {
-    "name": "Documentation"
-  },
-  "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    },
-    {
-      "name": "Indexing & Stream",
-      "url": "indexing-stream"
-    },
-    {
-      "name": "SDK",
-      "url": "sdk"
-    }
-  ],
-  "topbarCtaButton": {
-    "url": "https://admin.mobula.fi/",
-    "name": "Dashboard"
-  },
-  "topbarLinks": [
-    {
-      "name": "Generate free API key",
-      "url": "https://admin.mobula.fi/"
-    }
-  ],
-  "anchors": [
-    {
-      "name": "Discord",
-      "icon": "discord",
-      "url": "https://discord.gg/JVT7xKm3AD"
-    },
-    {
-      "name": "Slack",
-      "icon": "slack",
-      "url": "https://join.slack.com/t/mobulaapi/shared_invite/zt-29zrrpjnl-I0tyD73sy7zKy8q~KLL3Ug"
-    },
-    {
-      "name": "Telegram",
-      "icon": "telegram",
-      "url": "https://t.me/MobulaPartnerBot?start=Mobula_API_Support"
-    },
-    {
-      "name": "Email",
-      "icon": "envelope",
-      "url": "mailto:contact@mobulalabs.org"
-    }
-  ],
-  "navigation": [
-    {
-      "group": "Overview",
-      "pages": ["introduction", "benefits"]
-    },
-    {
-      "group": "Guides",
-      "pages": [
-        "guides/query-any-crypto-price",
-        "guides/query-historical-price-of-any-crypto",
-        "guides/query-any-crypto-balance-from-a-wallet",
-        "guides/query-any-crypto-transactions-from-a-wallet",
-        "guides/query-usd-balance-of-a-wallet",
-        "guides/query-historical-balance-of-a-crypto-wallet",
-        "guides/query-all-historical-transactions-of-a-crypto-wallet",
-        "guides/query-newly-listed-tokens-onchain",
-        "guides/query-latest-created-pairs",
-        "guides/query-token-price-changes",
-        "guides/query-token-price-history-from-first-block",
-        "guides/query-ohlcv-prices-for-crypto-tokens",
-        "guides/query-token-vesting-and-unlocks-details",
-        "guides/query-blockchain-logos",
-        "guides/query-token-prices-on-discord",
-        "guides/build-telegram-buy-bot",
-        "guides/setup-trading-view-chart-with-real-time-crypto-price"
-      ]
-    },
-    {
-      "group": "Extra",
-      "pages": ["pricing"]
-    },
-    {
-      "group": "Introduction",
-      "pages": ["api-reference/introduction", "api-reference/authentification"]
-    },
-    {
-      "group": "Custom needs",
-      "pages": [
-        "custom/blockchain",
-        "custom/endpoint",
-        {
-          "group": "Early Access",
-          "pages": [
-            "beta/cex-data",
-            "beta/curated-streams",
-            "beta/explorer-sql-api",
-            "beta/trades-sql-api",
-            "beta/multi-chain-nodes",
-            "beta/stablecoins"
-          ]
-        }
-      ]
-    },
-    {
-      "group": "Blockchains",
-      "pages": [
-        "blockchains/intro-blockchains",
-        "blockchains/ethereum",
-        "blockchains/bsc",
-        "blockchains/avalanche",
-        "blockchains/polygon",
-        "blockchains/fantom",
-        "blockchains/harmony",
-        "blockchains/xdai",
-        "blockchains/cronos",
-        "blockchains/dfk-subnet",
-        "blockchains/smartbch",
-        "blockchains/celo",
-        "blockchains/klaytn",
-        "blockchains/aurora",
-        "blockchains/heco",
-        "blockchains/boba",
-        "blockchains/okex",
-        "blockchains/moonriver",
-        "blockchains/moonbeam",
-        "blockchains/bittorrent-chain",
-        "blockchains/oasis",
-        "blockchains/velas",
-        "blockchains/arbitrum",
-        "blockchains/optimistic",
-        "blockchains/kucoin",
-        "blockchains/base",
-        "blockchains/shibarium",
-        "blockchains/mantle",
-        "blockchains/sui",
-        "blockchains/zetachain",
-        "blockchains/alephium",
-        "blockchains/vanar-testnet",
-        "blockchains/canto",
-        "blockchains/zksync",
-        "blockchains/linea",
-        "blockchains/metis",
-        "blockchains/manta",
-        "blockchains/polygon-zkevm",
-        "blockchains/arbitrum-nova",
-        "blockchains/scroll",
-        "blockchains/shimmer-evm",
-        "blockchains/oasis-saphire",
-        "blockchains/hedera",
-        "blockchains/zora",
-        "blockchains/blast",
-        "blockchains/wemix",
-        "blockchains/astar",
-        "blockchains/solana",
-        "blockchains/starknet",
-        "blockchains/secret-network",
-        "blockchains/celestia",
-        "blockchains/arthera",
-        "blockchains/arthera-testnet",
-        "blockchains/graphlinq"
-      ]
-    },
-    {
-      "group": "Octopus - Market API",
-      "pages": [
-        { "group": "Docs", "pages": ["api-reference/docs/market-asset-query"] },
-        "api-reference/endpoint/market-data",
-        "api-reference/endpoint/market-multi-data",
-        "api-reference/endpoint/market-pair",
-        "api-reference/endpoint/market-pairs",
-        "api-reference/endpoint/market-trades-pair",
-        "api-reference/endpoint/market-history",
-        "api-reference/endpoint/market-multi-history",
-        "api-reference/endpoint/market-history-pair",
-        "api-reference/endpoint/market-query",
-        "api-reference/endpoint/market-query-token",
-        "api-reference/endpoint/quote",
-        "api-reference/endpoint/wss-market-data",
-        "api-reference/endpoint/wss-market-pair",
-        "api-reference/endpoint/wss-market-trades"
-      ]
-    },
-    {
-      "group": "[BETA] Wallet Explorer API",
-      "pages": [
-        "api-reference/endpoint/wallet-nfts",
-        "api-reference/endpoint/wallet-history",
-        "api-reference/endpoint/wallet-portfolio",
-        "api-reference/endpoint/wallet-multi-portfolio",
-        "api-reference/endpoint/wallet-transactions",
-        "api-reference/endpoint/wss-complete-data",
-        "api-reference/endpoint/wss-portfolio"
-      ]
-    },
-    {
-      "group": "Metacore",
-      "pages": [
-        "api-reference/endpoint/all",
-        "api-reference/endpoint/search",
-        "api-reference/endpoint/metadata",
-        "api-reference/endpoint/multi-metadata",
-        "api-reference/endpoint/metadata-trendings",
-        "api-reference/endpoint/blockchains",
-        "api-reference/endpoint/blockchain-query",
-        "api-reference/endpoint/blockchain-decode"
-      ]
-    },
-    {
-      "group": "Introduction",
-      "pages": [
-        "indexing-stream/introduction",
-        "indexing-stream/authentification"
-      ]
-    },
-    {
-      "group": "Frameworks",
-      "pages": [
-        "indexing-stream/subgraph",
-        "indexing-stream/octoflow",
-        "indexing-stream/ponder"
-      ]
-    },
-    {
-      "group": "Stream",
-      "pages": [
-        "indexing-stream/stream/getting-started",
-        "indexing-stream/stream/data-model",
-        "indexing-stream/stream/reorg-handling",
-        "indexing-stream/stream/filters"
-      ]
-    },
-    {
-      "group": "",
-      "pages": ["sdk/introduction", "sdk/authentification"]
-    },
-    {
-      "group": "Resources",
-      "pages": ["sdk/methods-index"]
-    },
-    {
-      "group": "Database",
-      "pages": ["sdk/database"]
-    },
-    {
-      "group": "SDK Examples",
-      "pages": [
-        "sdk/examples/wallet-history",
-        "sdk/examples/metadata",
-        "sdk/examples/wallet-nfts",
-        "sdk/examples/market-data",
-        "sdk/examples/wallet-transactions"
-      ]
-    },
-    {
-      "group": "Troubleshooting",
-      "pages": ["sdk/issues/troubleshooting"]
-    }
-  ],
-  "footerSocials": {
-    "twitter": "https://twitter.com/MobulaFi",
-    "telegram": "https://t.me/MobulaFi"
-  }
+	"name": "Mobula API",
+	"logo": {
+		"dark": "/images/logo/dark-logo.svg",
+		"light": "/images/logo/light-logo.svg"
+	},
+	"analytics": {
+		"mixpanel": {
+			"projectToken": "792afbf66aa630430016bdbd59c52ba7"
+		}
+	},
+	"feedback.thumbsRating": true,
+	"openapi": ["api-reference/openapi.yaml"],
+	"favicon": "/favicon.png",
+	"colors": {
+		"background": {
+			"light": "#f5f5f5",
+			"dark": "#111524"
+		},
+		"primary": "#5C7DF9",
+		"light": "#5C7DF9",
+		"dark": "#000000",
+		"anchors": {
+			"from": "#5C7DF9",
+			"to": "#5C7DF9"
+		}
+	},
+	"primaryTab": {
+		"name": "Documentation"
+	},
+	"tabs": [
+		{
+			"name": "API Reference",
+			"url": "api-reference"
+		},
+		{
+			"name": "Indexing & Stream",
+			"url": "indexing-stream"
+		},
+		{
+			"name": "SDK",
+			"url": "sdk"
+		}
+	],
+	"topbarCtaButton": {
+		"url": "https://admin.mobula.fi/",
+		"name": "Dashboard"
+	},
+	"topbarLinks": [
+		{
+			"name": "Generate free API key",
+			"url": "https://admin.mobula.fi/"
+		}
+	],
+	"anchors": [
+		{
+			"name": "Discord",
+			"icon": "discord",
+			"url": "https://discord.gg/JVT7xKm3AD"
+		},
+		{
+			"name": "Slack",
+			"icon": "slack",
+			"url": "https://join.slack.com/t/mobulaapi/shared_invite/zt-29zrrpjnl-I0tyD73sy7zKy8q~KLL3Ug"
+		},
+		{
+			"name": "Telegram",
+			"icon": "telegram",
+			"url": "https://t.me/MobulaPartnerBot?start=Mobula_API_Support"
+		},
+		{
+			"name": "Email",
+			"icon": "envelope",
+			"url": "mailto:contact@mobulalabs.org"
+		}
+	],
+	"navigation": [
+		{
+			"group": "Overview",
+			"pages": ["introduction", "benefits"]
+		},
+		{
+			"group": "Guides",
+			"pages": [
+				"guides/query-any-crypto-price",
+				"guides/query-historical-price-of-any-crypto",
+				"guides/query-any-crypto-balance-from-a-wallet",
+				"guides/query-any-crypto-transactions-from-a-wallet",
+				"guides/query-usd-balance-of-a-wallet",
+				"guides/query-historical-balance-of-a-crypto-wallet",
+				"guides/query-all-historical-transactions-of-a-crypto-wallet",
+				"guides/query-newly-listed-tokens-onchain",
+				"guides/query-latest-created-pairs",
+				"guides/query-token-price-changes",
+				"guides/query-token-price-history-from-first-block",
+				"guides/query-ohlcv-prices-for-crypto-tokens",
+				"guides/query-token-vesting-and-unlocks-details",
+				"guides/query-blockchain-logos",
+				"guides/query-token-prices-on-discord",
+				"guides/build-telegram-buy-bot",
+				"guides/setup-trading-view-chart-with-real-time-crypto-price"
+			]
+		},
+		{
+			"group": "Extra",
+			"pages": ["pricing"]
+		},
+		{
+			"group": "Introduction",
+			"pages": ["api-reference/introduction", "api-reference/authentification"]
+		},
+		{
+			"group": "Custom needs",
+			"pages": [
+				"custom/blockchain",
+				"custom/endpoint",
+				{
+					"group": "Early Access",
+					"pages": [
+						"beta/cex-data",
+						"beta/curated-streams",
+						"beta/explorer-sql-api",
+						"beta/trades-sql-api",
+						"beta/multi-chain-nodes",
+						"beta/stablecoins"
+					]
+				}
+			]
+		},
+		{
+			"group": "Blockchains",
+			"pages": [
+				"blockchains/intro-blockchains",
+				"blockchains/ethereum",
+				"blockchains/bsc",
+				"blockchains/avalanche",
+				"blockchains/polygon",
+				"blockchains/fantom",
+				"blockchains/harmony",
+				"blockchains/xdai",
+				"blockchains/cronos",
+				"blockchains/dfk-subnet",
+				"blockchains/smartbch",
+				"blockchains/celo",
+				"blockchains/klaytn",
+				"blockchains/aurora",
+				"blockchains/heco",
+				"blockchains/boba",
+				"blockchains/okex",
+				"blockchains/moonriver",
+				"blockchains/moonbeam",
+				"blockchains/bittorrent-chain",
+				"blockchains/oasis",
+				"blockchains/velas",
+				"blockchains/arbitrum",
+				"blockchains/optimistic",
+				"blockchains/kucoin",
+				"blockchains/base",
+				"blockchains/shibarium",
+				"blockchains/mantle",
+				"blockchains/sui",
+				"blockchains/zetachain",
+				"blockchains/alephium",
+				"blockchains/vanar-testnet",
+				"blockchains/canto",
+				"blockchains/zksync",
+				"blockchains/linea",
+				"blockchains/metis",
+				"blockchains/manta",
+				"blockchains/polygon-zkevm",
+				"blockchains/arbitrum-nova",
+				"blockchains/scroll",
+				"blockchains/shimmer-evm",
+				"blockchains/oasis-saphire",
+				"blockchains/hedera",
+				"blockchains/zora",
+				"blockchains/blast",
+				"blockchains/wemix",
+				"blockchains/astar",
+				"blockchains/solana",
+				"blockchains/starknet",
+				"blockchains/secret-network",
+				"blockchains/celestia",
+				"blockchains/arthera",
+				"blockchains/arthera-testnet",
+				"blockchains/graphlinq"
+			]
+		},
+		{
+			"group": "Octopus - Market API",
+			"pages": [
+				{ "group": "Docs", "pages": ["api-reference/docs/market-asset-query"] },
+				"api-reference/endpoint/market-data",
+				"api-reference/endpoint/market-multi-data",
+				"api-reference/endpoint/market-pair",
+				"api-reference/endpoint/market-pairs",
+				"api-reference/endpoint/market-trades-pair",
+				"api-reference/endpoint/market-history",
+				"api-reference/endpoint/market-multi-history",
+				"api-reference/endpoint/market-history-pair",
+				"api-reference/endpoint/market-query",
+				"api-reference/endpoint/market-query-token",
+				"api-reference/endpoint/quote",
+				"api-reference/endpoint/wss-price-feed",
+				"api-reference/endpoint/wss-market-data",
+				"api-reference/endpoint/wss-market-pair",
+				"api-reference/endpoint/wss-market-trades"
+			]
+		},
+		{
+			"group": "[BETA] Wallet Explorer API",
+			"pages": [
+				"api-reference/endpoint/wallet-nfts",
+				"api-reference/endpoint/wallet-history",
+				"api-reference/endpoint/wallet-portfolio",
+				"api-reference/endpoint/wallet-multi-portfolio",
+				"api-reference/endpoint/wallet-transactions",
+				"api-reference/endpoint/wss-complete-data",
+				"api-reference/endpoint/wss-portfolio"
+			]
+		},
+		{
+			"group": "Metacore",
+			"pages": [
+				"api-reference/endpoint/all",
+				"api-reference/endpoint/search",
+				"api-reference/endpoint/metadata",
+				"api-reference/endpoint/multi-metadata",
+				"api-reference/endpoint/metadata-trendings",
+				"api-reference/endpoint/blockchains",
+				"api-reference/endpoint/blockchain-query",
+				"api-reference/endpoint/blockchain-decode"
+			]
+		},
+		{
+			"group": "Introduction",
+			"pages": [
+				"indexing-stream/introduction",
+				"indexing-stream/authentification"
+			]
+		},
+		{
+			"group": "Frameworks",
+			"pages": [
+				"indexing-stream/subgraph",
+				"indexing-stream/octoflow",
+				"indexing-stream/ponder"
+			]
+		},
+		{
+			"group": "Stream",
+			"pages": [
+				"indexing-stream/stream/getting-started",
+				"indexing-stream/stream/data-model",
+				"indexing-stream/stream/reorg-handling",
+				"indexing-stream/stream/filters"
+			]
+		},
+		{
+			"group": "",
+			"pages": ["sdk/introduction", "sdk/authentification"]
+		},
+		{
+			"group": "Resources",
+			"pages": ["sdk/methods-index"]
+		},
+		{
+			"group": "Database",
+			"pages": ["sdk/database"]
+		},
+		{
+			"group": "SDK Examples",
+			"pages": [
+				"sdk/examples/wallet-history",
+				"sdk/examples/metadata",
+				"sdk/examples/wallet-nfts",
+				"sdk/examples/market-data",
+				"sdk/examples/wallet-transactions"
+			]
+		},
+		{
+			"group": "Troubleshooting",
+			"pages": ["sdk/issues/troubleshooting"]
+		}
+	],
+	"footerSocials": {
+		"twitter": "https://twitter.com/MobulaFi",
+		"telegram": "https://t.me/MobulaFi"
+	}
 }
