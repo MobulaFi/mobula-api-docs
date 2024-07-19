@@ -10,12 +10,11 @@ The filters model is used to filter the data you want to receive from the stream
 {
   "name": "MyWalletTransactions",
   "chainId": ["evm:1", "evm:56"],
-  "raw": ["transactions", "traces", "logs"],
-  "abstract": ["swaps", "liquidity", "poolsCreated"],
+  "events": ["trace", "log", "trasaction", "block", "swap"],
   "filters": {
     "and": [
-      { "eq": ["token_out", "0x123456789"] },
-      { "gte": ["value", "10000000000"] }
+      { "eq": ["action.from", "0x123456789"] },
+      { "gte": ["transaction.receipt.status", "10000000000"] }
     ]
   }
 }
@@ -30,14 +29,13 @@ You can use multiple filters to get the data you need. The filters are applied i
   "or": [
     {
       "and": [
-        { "eq": ["from", "0x0000000000000000003456000000008766600000"] },
-        { "gte": ["value", "0x0000000000000000003456000000008766600000"] },
+        { "eq": ["log.address", "0x0000000000000000003456000000008766600000"] },
+        { "gte": ["log.logIndex", "1"] },
       ],
     },
     {
       "and": [
-        { "eq": ["to", "0x0000000000000000003456000000008766600000"] },
-        { "gte": ["value", "10000000000"] },
+        { "eq": ["transaction.transaction.to", "0x0000000000000000003456000000008766600000"] },
       ],
     },
   ],
@@ -49,7 +47,7 @@ You can use multiple filters to get the data you need. The filters are applied i
 ```json
 {
   "eq": [
-    "topic0",
+    "topics.0",
     "0x830d2d700a97af574b186c80d40429385d24241565b08a7c559ba283a964d9b1"
   ]
 }
