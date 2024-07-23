@@ -14,7 +14,7 @@ The filters model is used to filter the data you want to receive from the stream
   "filters": {
     "and": [
       { "eq": ["action.from", "0x123456789"] },
-      { "gte": ["transaction.receipt.status", "10000000000"] }
+      { "eq": ["transaction.receipt.status", "0x1"] }
     ]
   }
 }
@@ -51,6 +51,11 @@ You can use multiple filters to get the data you need. The filters are applied i
     "0x830d2d700a97af574b186c80d40429385d24241565b08a7c559ba283a964d9b1"
   ]
 }
+
+{
+  "eq": ["action.input", "0xd55ec697"]
+},
+
 ```
 
 Can’t find what you’re looking for? Reach out to us, response times < 1h.

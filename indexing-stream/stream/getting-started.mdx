@@ -5,6 +5,8 @@ description: "Mobula provides WSS support for retrieving any raw events and cura
 
 <Tip> This endpoint is only available to Growth and Enterprise plans. </Tip>
 
+## WebSocket
+
 Mobula provides WSS support for retrieving any raw events and curated events like Swaps or Liquidity.
 
 ### Product demo
@@ -13,23 +15,22 @@ Coming soon.
 
 ### Endpoint details
 
-- URL: wss://portfolio-api-wss-fgpupeioaa-uc.a.run.app
+- URL: wss://mobula-api-wss-fgpupeioaa-uc.a.run.app
 - Message (string):
 
 ```json
 {
     "name": "MyWalletTransactions",
-    "chainId": ["evm:1", "evm:56"],
-    "raw": ["transactions", "traces", "logs" ],
-    "abstract": ["swaps", "liquidity", "poolsCreated"],
+    "chainIds": ["evm:1", "evm:56"],
+    "events": ["trace", "log", "trasaction", "block", "swap"],
 };
 ```
 
-### Data available
+### Parameters
 
-- ChainId: [details here](/blockchains/intro-blockchains)
-- Raw events: transactions, traces, logs, blocks, contracts
-- Abstract events: swaps, liquidityUpdate, poolsCreated
+- chainIds: [details here](/blockchains/intro-blockchains)
+- events: transactions, traces, logs, blocks, swaps
+- filters: [details here](/indexing-stream/stream/filters)
 
 ### Implementation example
 
@@ -44,17 +45,18 @@ const socket = new WebSocket("wss://portfolio-api-wss-fgpupeioaa-uc.a.run.app");
 
 socket.addEventListener("open", () => {
   socket.send(`{
-    "name": "MyWalletTransactions",
-    "chainId": ["evm:1", "evm:56"],
-    "raw": ["transactions", "traces", "logs" ],
-    "abstract": ["swaps", "liquidity", "poolsCreated"],
+    "type": "stream",
+    "payload": {
+      "chainIds": ["evm:1", "evm:56"],
+      "events": ["trace", "log", "trasaction", "block", "swap"],
+    }
 }`);
 });
 
 socket.addEventListener("message", (event) => {
   const data = JSON.parse(event.data);
 
-  if (event.status === "reorg") {
+  if (event.reorg) {
     // Handle reorg
     return;
   }
@@ -62,6 +64,87 @@ socket.addEventListener("message", (event) => {
 
 // No need to close the socket, it will close automatically.
 ```
+
+## Webhook
+
+Mobula provides Webhook support for retrieving any raw events and curated events like Swaps or Liquidity.
+
+### Product demo
+
+Coming soon.
+
+### Endpoint details
+
+- URL: wss://stream.zobula.xyz
+- Message (string):
+
+```json
+{
+    "name": "MyFirstWebhook",
+    "chainIds": ["evm:1", "evm:56"],
+    "events": ["trace", "log", "trasaction", "block", "swap"],
+    "apiKey": "xxxxxxxxxx",
+    "url": "https://webhook.com/xxxxxxxxxxx",
+};
+```
+
+### Parameters
+
+- chainIds: [details here](/blockchains/intro-blockchains)
+- events: transactions, traces, logs, blocks, swaps
+- filters: [details here](/indexing-stream/stream/filters)
+- webhookUrl: URL to send the data
+
+### Create a webhook
+
+First we need to create a webhook:
+
+```typescript
+await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: {
+  "name": "FirstWebhook",
+  "chainIds": ["evm:1"],
+  "events": ["trace"],
+  "apiKey": "xxxxx",
+  "filters": {
+    "eq": ["action.input", "0xd55ec697"]
+  },
+  "url": "https://webhook.com/xxxxx"
+  }
+});
+```
+
+<Tip> The API key is mandatory to create a webhook. </Tip>
+
+If you receive data from your webhook in response, then your webhook is functional and will start receiving events.
+
+### Delete a webhook
+
+To delete a webhook:
+
+```typescript
+await fetch(url + `/${webhook_id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+```
+
+If you receive: 
+
+```json
+{
+    "message": "Stream deleted successfully"
+}
+```
+
+Then your webhook is deleted.
+
 
 Can’t find what you’re looking for? Reach out to us, response times < 1h.
 
