@@ -257,6 +257,15 @@
 			]
 		},
 		{
+			"group": "Guides",
+			"pages": [
+				{
+					"group": "Deploying Subgraphs",
+					"pages": ["indexing-stream/guide/deploying-subgraph-on-zklink"]
+				}
+			]
+		},
+		{
 			"group": "",
 			"pages": ["sdk/introduction", "sdk/authentification"]
 		},
