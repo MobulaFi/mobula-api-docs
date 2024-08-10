@@ -1,0 +1,82 @@
+---
+title: "Generate API key"
+icon: "key-skeleton"
+description: "To generate an API key, click on the **Create API Key** button on your [Dashboard](https://admin.mobula.fi) and assign a name to your key. This will enable you to enjoy enhanced rate limits."
+---
+
+<Steps>
+  <Step title="First Step">
+    Sign-in to the [Dashboard](https://admin.mobula.fi)
+    <Frame>
+      <img src="https://i.imgur.com/6k9DBZM.png" />
+    </Frame>
+  </Step>
+  <Step title="Second Step">
+    Create your API key
+    <Frame>
+      <img src="https://i.imgur.com/gtr12UF.png" />
+    </Frame>
+  </Step>
+  <Step title="Third Step">
+    To make your first call add your API key in the `header` parameter like this `Authorization: YOUR_API_KEY`
+
+    ```cURL
+    curl --request GET \
+
+        --url 'https://api.mobula.io/api/1/wallet/nfts?wallet=0xCe90a7949bb78892F159F428D0dC23a8E3584d75&force=true' \
+        --header 'Authorization: YOUR_API_KEY'
+
+    ```
+
+</Step>
+  <Step title="Fourth Step">
+    You can also use the SDK, [learn more](../sdk/introduction).
+   
+    ```typescript
+   import { Mobula } from "mobula-sdk";
+
+    const mobula = new Mobula("YOUR_API_KEY_HERE");
+
+    mobula
+    .fetchWalletNFTs({
+    wallet: "0xCe90a7949bb78892F159F428D0dC23a8E3584d75",
+    })
+    .then((response) => {
+    console.log(response);
+    })
+    .catch((error) => {
+    console.error("Error:", error);
+    });
+
+    ```
+
+</Step>
+</Steps>
+
+<CardGroup>
+
+<Card
+  title="Support"
+  icon="Telegram"
+  href="https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Key"
+>
+  Telegram
+</Card>
+
+<Card
+  title="Support"
+  icon="Slack"
+  href="https://join.slack.com/t/mobulaapi/shared_invite/zt-29zrrpjnl-I0tyD73sy7zKy8q~KLL3Ug"
+>
+  Slack
+</Card>
+
+<Card title="Support" icon="Discord" href="https://discord.gg/JVT7xKm3AD">
+  Discord
+</Card>
+
+<Card title="Need help?" icon="envelope" href="mailto:contact@mobulalabs.org">
+  Email
+</Card>
+
+</CardGroup>

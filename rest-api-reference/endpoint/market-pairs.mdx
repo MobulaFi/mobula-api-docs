@@ -1,0 +1,16 @@
+---
+title: Get All Pairs
+openapi: get /market/pairs
+---
+
+### Query quick start
+
+Input in “asset” the name of the asset you want to query, or the contract address while adding the blockchain as a second parameter. The market data asset query pattern is explained [in great details here](/api-reference/docs/market-asset-query), with blockchain format, etc.
+
+### Data details
+
+Price data is computed using Octopus, Mobula's market data engine. You can have a high-level overview of how it's computing DeFi prices [here](https://mirror.xyz/0x6483Ca5ac1EbC6eB08d36979d217db2572CbAad2/Lw8NSSjqR4JSzthKZQCfHLwD3NPGsuaAfHGMY1zi-WI).
+
+Protocols covered right now includes: Uniswap V2 and all +800 forks, Uniswap V3 and all +30 forks, Balancer V2/V3 (and forks), TraderJoe 2.1, Camelot stableswaps & all SUI DEXes.
+
+Pairs are sorted by volume, then by liquidity - sent 25 by 25, use offset parameter to iterate over them (contact us if you need a higher limit).

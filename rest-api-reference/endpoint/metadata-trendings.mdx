@@ -1,0 +1,83 @@
+---
+title: Get Meta Trendings
+openapi: get /metadata/trendings
+---
+
+### Query quick start
+
+To access trending data for assets, use the platform parameter to filter results by a specific source: either CoinMarketCap, CoinGecko or LamboTrendings. This will return assets trending on the specified platform. If no platform is specified, the endpoint will return trendings across all supported platforms.
+
+Additionally, you can now use the blockchain parameter to filter trendings by a particular blockchain, such as ?blockchain=ethereum. This new feature narrows down the results to only include assets trending on the specified blockchain.
+
+### Data details
+
+Our meta-trendings are a grouping of trendings from several asset aggregation platforms:
+
+- CoinMarketCap: https://coinmarketcap.com/trending-cryptocurrencies/
+- CoinGecko: https://api.coingecko.com/api/v3/search/trending
+- LamboTrendings (Mobula Trendings): Setup based on the usage on our [buy bot](https://t.me/LamborghiniBuyBot)
+
+The trendings are updated:
+
+- Every 15 mins
+
+We retrieve the top 15 of each platform and calculate a “trending score” based on the ranking and platform of each asset.
+
+Rank 1 = 15 points
+
+Rank 2 = 14 points
+
+Rank 3 = 13 points
+
+Rank 4 = 12 points
+
+…
+
+We add a special multiplier (weight in the endpoint response) according to the platform on which the asset is located:
+
+- LamboTrendings: x1.2
+- CoinMarketCap: x1
+- CoinGecko: x0.8
+
+So for example:
+
+Rank 1 CoinGecko = 15 \* 0.8 = 12
+
+Rank 1 CoinMarketCap = 15 \* 1 = 15
+
+Rank 1 LamboTrendings = 15 \* 1.2 = 18
+
+And finally, if an asset is ranked on several platforms, we add up the score of each platform together, for example:
+
+```json
+  {
+    "id": 100005597,
+    "name": "Hedera",
+    "symbol": "HBAR",
+    "contracts": [
+      {
+        "address": "0x0000000000000000000000000000000000163b5a",
+        "blockchain": "Hedera",
+        "decimals": 8
+      }
+    ],
+    "logo": "https://metacore.mobula.io/66cb844bf3f59d5593f48ef2954b8a439455a629c23d00faf38813820bac2119.png",
+    "trending_score": 25.4,
+    "platforms": [
+      { "name": "CoinMarketCap", "rank": 1, "weight": 1 },
+      { "name": "CoinGecko", "rank": 3, "weight": 0.8 }
+    ],
+    "price_change_24h": -6.780622,
+    "pair": "0xc5b707348da504e9be1bd4e21525459830e7b11d"
+  },
+```
+
+Here for Hedera
+
+Rank 1 CoinMarketCap = 15 \* 1 = 15
+
+Rank 3 CoinGecko = 13 \* 0.8 = 10.4
+
+so,
+
+trending_score = 15 + 10.4 = 25.4
