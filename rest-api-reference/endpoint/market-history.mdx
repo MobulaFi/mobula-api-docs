@@ -1,0 +1,21 @@
+---
+title: Get Historical Market Data
+openapi: get /market/history
+---
+
+<Tip> Timestamps are in MS, it's JS timestamps. </Tip>
+
+### Query quick start
+
+Input in “asset” the name of the asset you want to query, or the contract address while adding the blockchain as a second parameter. The market data asset query pattern is explained [in great details here](/api-reference/docs/market-asset-query), with blockchain format, etc.
+
+### Data details
+
+Price data is computed using Octopus, Mobula's market data engine. You can have a high-level overview of how it's computing DeFi prices [here](https://mirror.xyz/0x6483Ca5ac1EbC6eB08d36979d217db2572CbAad2/Lw8NSSjqR4JSzthKZQCfHLwD3NPGsuaAfHGMY1zi-WI).
+Data granularity is designed as follows:
+
+- 5 minutes for the last 7 days
+- 6 hours for the last 30 days
+- 1 day for the remaining of history
+
+If you need higher granularity or control, please reach out to us [on Telegram](https://t.me/MobulaPartnerBot?start=Mobula_API_History) - we can deliver up to 1min granularity since 2013 for all assets.

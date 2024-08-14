@@ -10,7 +10,7 @@
 		}
 	},
 	"feedback.thumbsRating": true,
-	"openapi": ["api-reference/openapi.yaml"],
+	"openapi": ["rest-api-reference/openapi.yaml"],
 	"favicon": "/favicon.png",
 	"colors": {
 		"background": {
@@ -30,8 +30,12 @@
 	},
 	"tabs": [
 		{
-			"name": "API Reference",
-			"url": "api-reference"
+			"name": "REST API Reference",
+			"url": "rest-api-reference"
+		},
+		{
+			"name": "GraphQL API Reference",
+			"url": "graphql-api-reference"
 		},
 		{
 			"name": "Indexing & Stream",
@@ -107,7 +111,7 @@
 		},
 		{
 			"group": "Introduction",
-			"pages": ["api-reference/introduction", "api-reference/authentification"]
+			"pages": ["rest-api-reference/introduction", "rest-api-reference/authentification"]
 		},
 		{
 			"group": "Custom needs",
@@ -189,47 +193,47 @@
 		{
 			"group": "Octopus - Market API",
 			"pages": [
-				{ "group": "Docs", "pages": ["api-reference/docs/market-asset-query"] },
-				"api-reference/endpoint/market-data",
-				"api-reference/endpoint/market-multi-data",
-				"api-reference/endpoint/market-pair",
-				"api-reference/endpoint/market-pairs",
-				"api-reference/endpoint/market-trades-pair",
-				"api-reference/endpoint/market-history",
-				"api-reference/endpoint/market-multi-history",
-				"api-reference/endpoint/market-history-pair",
-				"api-reference/endpoint/market-query",
-				"api-reference/endpoint/market-query-token",
-				"api-reference/endpoint/quote",
-				"api-reference/endpoint/wss-price-feed",
-				"api-reference/endpoint/wss-market-data",
-				"api-reference/endpoint/wss-market-pair",
-				"api-reference/endpoint/wss-market-trades"
+				{ "group": "Docs", "pages": ["rest-api-reference/docs/market-asset-query"] },
+				"rest-api-reference/endpoint/market-data",
+				"rest-api-reference/endpoint/market-multi-data",
+				"rest-api-reference/endpoint/market-pair",
+				"rest-api-reference/endpoint/market-pairs",
+				"rest-api-reference/endpoint/market-trades-pair",
+				"rest-api-reference/endpoint/market-history",
+				"rest-api-reference/endpoint/market-multi-history",
+				"rest-api-reference/endpoint/market-history-pair",
+				"rest-api-reference/endpoint/market-query",
+				"rest-api-reference/endpoint/market-query-token",
+				"rest-api-reference/endpoint/quote",
+				"rest-api-reference/endpoint/wss-price-feed",
+				"rest-api-reference/endpoint/wss-market-data",
+				"rest-api-reference/endpoint/wss-market-pair",
+				"rest-api-reference/endpoint/wss-market-trades"
 			]
 		},
 		{
 			"group": "[BETA] Wallet Explorer API",
 			"pages": [
-				"api-reference/endpoint/wallet-nfts",
-				"api-reference/endpoint/wallet-history",
-				"api-reference/endpoint/wallet-portfolio",
-				"api-reference/endpoint/wallet-multi-portfolio",
-				"api-reference/endpoint/wallet-transactions",
-				"api-reference/endpoint/wss-complete-data",
-				"api-reference/endpoint/wss-portfolio"
+				"rest-api-reference/endpoint/wallet-nfts",
+				"rest-api-reference/endpoint/wallet-history",
+				"rest-api-reference/endpoint/wallet-portfolio",
+				"rest-api-reference/endpoint/wallet-multi-portfolio",
+				"rest-api-reference/endpoint/wallet-transactions",
+				"rest-api-reference/endpoint/wss-complete-data",
+				"rest-api-reference/endpoint/wss-portfolio"
 			]
 		},
 		{
 			"group": "Metacore",
 			"pages": [
-				"api-reference/endpoint/all",
-				"api-reference/endpoint/search",
-				"api-reference/endpoint/metadata",
-				"api-reference/endpoint/multi-metadata",
-				"api-reference/endpoint/metadata-trendings",
-				"api-reference/endpoint/blockchains",
-				"api-reference/endpoint/blockchain-query",
-				"api-reference/endpoint/blockchain-decode"
+				"rest-api-reference/endpoint/all",
+				"rest-api-reference/endpoint/search",
+				"rest-api-reference/endpoint/metadata",
+				"rest-api-reference/endpoint/multi-metadata",
+				"rest-api-reference/endpoint/metadata-trendings",
+				"rest-api-reference/endpoint/blockchains",
+				"rest-api-reference/endpoint/blockchain-query",
+				"rest-api-reference/endpoint/blockchain-decode"
 			]
 		},
 		{
@@ -244,7 +248,8 @@
 			"pages": [
 				"indexing-stream/subgraph",
 				"indexing-stream/octoflow",
-				"indexing-stream/ponder"
+				"indexing-stream/ponder",
+				"indexing-stream/graphql"
 			]
 		},
 		{
