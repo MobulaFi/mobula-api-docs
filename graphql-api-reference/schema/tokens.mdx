@@ -4,22 +4,25 @@ title: "Tokens"
 
 The `tokens` table contains information about tokens: address, total_supply, reserve, metadata and more. 
 
-- `address`: (String!) - The address of the token on the blockchain.
-- `asset`: (assets) - An object relationship representing the associated asset. This links the token to its corresponding asset.
-- `asset_id`: (Int) - The ID of the associated asset, linking this token to a specific asset in the `assets` table.
-- `chain_id`: (String!) - The ID of the blockchain network where the token exists.
-- `circulating_supply`: (numeric!) - The circulating supply of the token, representing the total amount currently in circulation.
-- `created_at`: (timestamp!) - The timestamp when the token was created.
-- `decimals`: (Int!) - The number of decimal places the token can be divided into, typically used for calculations.
-- `listed_at`: (timestamp) - The timestamp when the token was listed on an exchange, indicating its availability for trading.
-- `name`: (String!) - The name of the token, used to identify it.
-- `price_usd`: (float8) - The current price of the token in USD, reflecting its market value.
-- `reserve_usd`: (float8!) - The reserve value of the token in USD, representing the backing or reserve for the token.
-- `symbol`: (String!) - The symbol of the token, such as ETH for Ethereum, used for trading and identification.
-- `total_supply`: (numeric!) - The total supply of the token, representing the maximum amount that can exist.
-- `total_supply_enabled`: (Boolean!) - Indicates if the total supply of the token is enabled or fixed, controlling its issuance.
-- `updated_at`: (timestamp!) - The timestamp when the token's information was last updated.
-- `volume_24h_usd`: (float8!) - The trading volume of the token over the last 24 hours in USD, indicating market activity.
+| Field Name                     | Type         | Description                                                                                   |
+| -------------------------------| ------------ | --------------------------------------------------------------------------------------------- |
+| `address`                       | String!      | The address of the token on the blockchain.                                                   |
+| `asset`                         | assets       | An object relationship representing the associated asset. This links the token to its corresponding asset. |
+| `asset_id`                      | Int          | The ID of the associated asset, linking this token to a specific asset in the `assets` table. |
+| `chain_id`                      | String!      | The ID of the blockchain network where the token exists.                                      |
+| `circulating_supply`            | numeric!     | The circulating supply of the token, representing the total amount currently in circulation.  |
+| `created_at`                    | timestamp!   | The timestamp when the token was created.                                                     |
+| `decimals`                      | Int!         | The number of decimal places the token can be divided into, typically used for calculations.  |
+| `listed_at`                     | timestamp    | The timestamp when the token was listed on an exchange, indicating its availability for trading. |
+| `name`                          | String!      | The name of the token, used to identify it.                                                   |
+| `price_usd`                     | float8       | The current price of the token in USD, reflecting its market value.                           |
+| `reserve_usd`                   | float8!      | The reserve value of the token in USD, representing the backing or reserve for the token.     |
+| `symbol`                        | String!      | The symbol of the token, such as ETH for Ethereum, used for trading and identification.       |
+| `total_supply`                  | numeric!     | The total supply of the token, representing the maximum amount that can exist.               |
+| `total_supply_enabled`          | Boolean!     | Indicates if the total supply of the token is enabled or fixed, controlling its issuance.     |
+| `updated_at`                    | timestamp!   | The timestamp when the token's information was last updated.                                  |
+| `volume_24h_usd`                | float8!      | The trading volume of the token over the last 24 hours in USD, indicating market activity.    |
+
 
 
 # Query examples
