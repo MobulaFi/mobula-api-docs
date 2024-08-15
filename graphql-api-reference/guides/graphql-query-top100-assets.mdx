@@ -1,0 +1,183 @@
+---
+title: "GraphQL Query Top 100 Assets"
+description: "Get the top 100 assets by market capitalization."
+---
+
+The Mobula API provides a powerful GraphQL endpoint that allows you to query and explore data for various assets. This guide will show you how to retrieve the top 100 assets filtered by rank using GraphQL.
+
+### What you'll need
+
+1. Access to the Mobula GraphQL endpoint.
+2. No API key is required for development purposes.
+
+### Walkthrough
+
+<Steps>
+  <Step title="Set Up Your Query Parameters">
+    You will be querying the `assets` table, ordering the results by rank in ascending order, and limiting the results to the top 100 assets.
+  </Step>
+
+  <Step title="Perform the GraphQL Request">
+    Execute the GraphQL query using cURL, Axios, or any GraphQL client:
+
+    **Using cURL**:
+    ```bash
+    curl -X POST https://gql.mobula.io/v1/graphql \
+    -H "Content-Type: application/json" \
+    --data '{
+      "query": "query Top100Assets { assets(limit: 100, order_by: { rank: asc }) { id name symbol price_usd market_cap_usd rank volume_24h_usd logo } }"
+    }'
+    ```
+
+    **Using Axios**:
+    ```javascript
+    import axios from "axios";
+
+    const query = `
+      query Top100Assets {
+        assets(limit: 100, order_by: { rank: asc }) {
+          id
+          name
+          symbol
+          price_usd
+          market_cap_usd
+          rank
+          volume_24h_usd
+          logo
+        }
+      }
+    `;
+
+    axios.post('https://gql.mobula.io/v1/graphql', {
+      query: query
+    }, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(response => {
+      console.log(response.data);
+    }).catch(error => {
+      console.error(error);
+    });
+    ```
+
+    **Using a GraphQL Client (e.g., Apollo Client)**:
+    ```javascript
+    import { gql, ApolloClient, InMemoryCache } from '@apollo/client';
+
+    const client = new ApolloClient({
+      uri: 'https://gql.mobula.io/v1/graphql',
+      cache: new InMemoryCache()
+    });
+
+    const GET_TOP_100_ASSETS = gql`
+      query Top100Assets {
+        assets(limit: 100, order_by: { rank: asc }) {
+          id
+          name
+          symbol
+          price_usd
+          market_cap_usd
+          rank
+          volume_24h_usd
+          logo
+        }
+      }
+    `;
+
+    client.query({ query: GET_TOP_100_ASSETS })
+      .then(response => console.log(response.data))
+      .catch(error => console.error(error));
+    ```
+
+  </Step>
+
+  <Step title="Analyze the Asset Data">
+    The API response will include detailed information about each asset, such as their name, symbol, rank, price in USD, market capitalization, 24-hour trading volume, and logo.
+
+    **Sample Response**:
+    ```json
+  {
+    "data": {
+      "assets": [
+        {
+          "id": 100001656,
+          "name": "Bitcoin",
+          "symbol": "BTC",
+          "price_usd": 59549.226759224744,
+          "market_cap_usd": 1101519810449,
+          "rank": 1,
+          "volume_24h_usd": 517988896,
+          "logo": "https://metacore.mobula.io/ea67a92c8e0a9b951d6fafed56e8ee714180e9ccbadb7d0555b9cb1b1224dba7.png"
+        },
+        {
+          "id": 100004304,
+          "name": "Ethereum",
+          "symbol": "ETH",
+          "price_usd": 2657.2061998582044,
+          "market_cap_usd": 358897941530,
+          "rank": 2,
+          "volume_24h_usd": 3081884672,
+          "logo": "https://metacore.mobula.io/60989b438a473ed77703f7bcd3530fc15542996a6607ae831de8c5e3e10f688d.png"
+        },
+        {
+          "id": 100011613,
+          "name": "Tether",
+          "symbol": "USDT",
+          "price_usd": 0.986525171452164,
+          "market_cap_usd": 112156442858,
+          "rank": 3,
+          "volume_24h_usd": 1158409216,
+          "logo": "https://metacore.mobula.io/9372980b0ad7216a726ff3ec3b2e9337bd3fd49f5de696fd4c4e088f0f59fbee.png"
+        },
+          // More assets...
+        ]
+      }
+    }
+    ```
+
+  </Step>
+</Steps>
+
+### Leveraging Asset Data
+
+With this data, you can:
+
+- **Display Top Assets**: Show the top 100 assets by market capitalization in your app or dashboard.
+- **Track Market Performance**: Monitor the market trends of top assets by observing changes in price, market cap, and volume.
+- **Build Leaderboards**: Create ranked lists of assets for various use cases, such as portfolio tracking or market analysis.
+
+### Need Help?
+
+Our support team is available to assist with your queries or integration issues.
+
+<CardGroup>
+
+<Card
+  title="Support"
+  icon="Telegram"
+  href="https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Key"
+>
+  Telegram
+</Card>
+
+<Card
+  title="Support"
+  icon="Slack"
+  href="https://join.slack.com/t/mobulaapi/shared_invite/zt-29zrrpjnl-I0tyD73sy7zKy8q~KLL3Ug"
+>
+  Slack
+</Card>
+
+<Card title="Support" icon="Discord" href="https://discord.gg/JVT7xKm3AD">
+  Discord
+</Card>
+
+<Card
+  title="Email Support"
+  icon="envelope"
+  href="mailto:contact@mobulalabs.org"
+>
+  Email
+</Card>
+</CardGroup>

@@ -122,19 +122,6 @@ query {
 }
 ```
 
-```graphql
-query {
-  assets(where: { rank: { _lt: 101 } }, order_by: { rank: asc }) {
-    id
-    name
-    symbol
-    price_usd
-    market_cap_usd
-    total_supply
-    rank
-  }
-}
-```
 
 #### Query assets with related tokens
 

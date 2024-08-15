@@ -115,7 +115,11 @@
 		},
 		{
 			"group": "Schemas",
-			"pages": ["graphql-api-reference/schema/assets", "graphql-api-reference/schema/tokens"]
+			"pages": ["graphql-api-reference/schemas/assets", "graphql-api-reference/schemas/tokens"]
+		},
+		{
+			"group": "Guides",
+			"pages": ["graphql-api-reference/guides/graphql-query-top100-assets"]
 		},
 		{
 			"group": "Introduction",
