@@ -119,7 +119,7 @@
 		},
 		{
 			"group": "Guides",
-			"pages": ["graphql-api-reference/guides/graphql-query-top100-assets"]
+			"pages": ["graphql-api-reference/guides/graphql-query-top100-assets", "graphql-api-reference/guides/graphql-query-top-tokens-per-chains"]
 		},
 		{
 			"group": "Introduction",
