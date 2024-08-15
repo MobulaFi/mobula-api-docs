@@ -7,9 +7,9 @@ openapi: get /market/multi-history
 
 ### Query details
 
-You can query up to 500 assets as the same time (even tho if you are facing this you might want to use [our data streams](/api-reference/beta/introduction_highlevel)).
+You can query up to 500 assets as the same time (even tho if you are facing this you might want to use [our data streams](/rest-api-reference/beta/introduction_highlevel)).
 
-The market data asset query pattern is explained [in great details here](/api-reference/docs/market-asset-query), with blockchain format, etc.
+The market data asset query pattern is explained [in great details here](/rest-api-reference/docs/market-asset-query), with blockchain format, etc.
 For example, you can query with parameters:
 
 ```json
@@ -22,7 +22,7 @@ For example, you can query with parameters:
 We will map the first blockchain with the first contract address found, and so on.
 
 <Tip>
-  Need more than 500 assets? You can use the [/all](/api-reference/endpoint/all)
+  Need more than 500 assets? You can use the [/all](/rest-api-reference/endpoint/all)
   endpoint to get all assets listed on Mobula (curated, not all DeFi tokens)
 </Tip>
 

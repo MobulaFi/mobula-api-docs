@@ -1,0 +1,118 @@
+---
+title: "Tokens"
+---
+
+The `tokens` table contains information about tokens: address, total_supply, reserve, metadata and more. 
+
+- `address`: (String!) - The address of the token on the blockchain.
+- `asset`: (assets) - An object relationship representing the associated asset. This links the token to its corresponding asset.
+- `asset_id`: (Int) - The ID of the associated asset, linking this token to a specific asset in the `assets` table.
+- `chain_id`: (String!) - The ID of the blockchain network where the token exists.
+- `circulating_supply`: (numeric!) - The circulating supply of the token, representing the total amount currently in circulation.
+- `created_at`: (timestamp!) - The timestamp when the token was created.
+- `decimals`: (Int!) - The number of decimal places the token can be divided into, typically used for calculations.
+- `listed_at`: (timestamp) - The timestamp when the token was listed on an exchange, indicating its availability for trading.
+- `name`: (String!) - The name of the token, used to identify it.
+- `price_usd`: (float8) - The current price of the token in USD, reflecting its market value.
+- `reserve_usd`: (float8!) - The reserve value of the token in USD, representing the backing or reserve for the token.
+- `symbol`: (String!) - The symbol of the token, such as ETH for Ethereum, used for trading and identification.
+- `total_supply`: (numeric!) - The total supply of the token, representing the maximum amount that can exist.
+- `total_supply_enabled`: (Boolean!) - Indicates if the total supply of the token is enabled or fixed, controlling its issuance.
+- `updated_at`: (timestamp!) - The timestamp when the token's information was last updated.
+- `volume_24h_usd`: (float8!) - The trading volume of the token over the last 24 hours in USD, indicating market activity.
+
+
+# Query examples
+
+#### Query all tokens
+
+```graphql
+query {
+  tokens {
+    address
+    name
+    symbol
+    price_usd
+    total_supply
+  }
+}
+```
+
+#### Query a specific token
+
+```graphql
+query {
+  tokens(where: { symbol: { _eq: "ETH" } }) {
+    address
+    name
+    symbol
+    price_usd
+    total_supply
+  }
+}
+```
+
+#### Query tokens with pagination
+
+```graphql
+query {
+  tokens(limit: 10, offset: 10) {
+    address
+    name
+    symbol
+    price_usd
+    total_supply
+  }
+}
+```
+
+#### Query tokens with ordering
+
+```graphql
+query {
+  tokens(order_by: { price_usd: desc }) {
+    address
+    name
+    symbol
+    price_usd
+    total_supply
+  }
+}
+```
+
+#### Query tokens with filtering
+
+```graphql
+query {
+  tokens(where: { total_supply: { _gt: 1000000 } }) {
+    address
+    name
+    symbol
+    price_usd
+    total_supply
+  }
+}
+```
+
+#### Query tokens with related assets
+
+```graphql
+query {
+  tokens {
+    address
+    name
+    symbol
+    price_usd
+    total_supply
+    asset {
+      name
+      symbol
+      price_usd
+      market_cap_usd
+    }
+  }
+}
+```
+
+
+

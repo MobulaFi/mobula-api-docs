@@ -1,0 +1,143 @@
+---
+title: "Assets"
+---
+
+The `assets` table contains information about assets: price, market cap, liquidity, metadata and more. 
+
+- `id`: (Int!) - The unique identifier of the cryptocurrency.
+- `is_stablecoin`: (Boolean!) - Indicates if the cryptocurrency is a stablecoin.
+- `liquidity_change_24h_percent`: (float8!) - The percentage change in liquidity over the last 24 hours.
+- `liquidity_usd`: (float8!) - The current liquidity in USD.
+- `listed_at`: (timestamp) - The date when the cryptocurrency was listed on an exchange.
+- `listing_amount`: (bigint) - The amount of cryptocurrency during its initial listing.
+- `listing_hash`: (String) - The hash of the transaction during the initial listing.
+- `listing_type`: (String) - The type of listing (e.g., ICO, IEO, etc.).
+- `logo`: (String) - The URL of the cryptocurrency's logo.
+- `market_cap_change_24h_percent`: (float8!) - The percentage change in market capitalization over the last 24 hours.
+- `market_cap_diluted_usd`: (float8!) - The diluted market capitalization in USD (considering all potentially issued tokens).
+- `market_cap_usd`: (float8!) - The current market capitalization in USD.
+- `max_supply`: (float8) - The maximum supply of the cryptocurrency.
+- `name`: (String!) - The name of the cryptocurrency.
+- `native_chain_id`: (String) - The native chain ID of the cryptocurrency.
+- `off_chain_volume_change_24h_percent`: (float8!) - The percentage change in off-chain volume over the last 24 hours.
+- `off_chain_volume_usd`: (float8!) - The off-chain volume in USD.
+- `price_change_1h_percent`: (float8!) - The percentage change in price over the last hour.
+- `price_change_1m_percent`: (float8!) - The percentage change in price over the last month.
+- `price_change_1y_percent`: (float8!) - The percentage change in price over the last year.
+- `price_change_24h_percent`: (float8!) - The percentage change in price over the last 24 hours.
+- `price_change_3m_percent`: (float8!) - The percentage change in price over the last three months.
+- `price_change_3y_percent`: (float8!) - The percentage change in price over the last three years.
+- `price_change_6m_percent`: (float8!) - The percentage change in price over the last six months.
+- `price_change_7d_percent`: (float8!) - The percentage change in price over the last seven days.
+- `price_change_ytd_percent`: (float8!) - The percentage change in price year-to-date.
+- `price_usd`: (float8!) - The current price of the cryptocurrency in USD.
+- `protocol_id`: (Int!) - The ID of the protocol associated with the cryptocurrency.
+- `rank`: (Int!) - The rank of the cryptocurrency in terms of market capitalization or other metrics.
+- `symbol`: (String!) - The symbol of the cryptocurrency (e.g., BTC for Bitcoin).
+- `tokens`: An array relationship that contains the tokens associated with the cryptocurrency.
+- `total_supply`: (float8!) - The total supply of the cryptocurrency.
+- `total_volume_change_24h_percent`: (float8!) - The percentage change in total volume over the last 24 hours.
+- `total_volume_usd`: (float8!) - The total volume in USD.
+- `volume_24h_usd`: (float8!) - The volume over the last 24 hours in USD.
+- `volume_7d_usd`: (float8!) - The volume over the last seven days in USD.
+- `volume_change_24h_percent`: (float8!) - The percentage change in volume over the last 24 hours.
+
+# Query examples
+
+#### Query all assets
+
+```graphql
+query {
+  assets {
+    id
+    name
+    symbol
+    price_usd
+    market_cap_usd
+    total_supply
+  }
+}
+```
+
+#### Query a specific asset
+
+```graphql
+query {
+  assets(where: { symbol: { _eq: "BTC" } }) {
+    id
+    name
+    symbol
+    price_usd
+    market_cap_usd
+    total_supply
+  }
+}
+```
+
+#### Query assets with pagination
+
+```graphql
+query {
+  assets(limit: 10, offset: 10) {
+    id
+    name
+    symbol
+    price_usd
+    market_cap_usd
+    total_supply
+  }
+}
+```
+
+#### Query assets with ordering
+
+```graphql
+query {
+  assets(order_by: { market_cap_usd: desc }) {
+    id
+    name
+    symbol
+    price_usd
+    market_cap_usd
+    total_supply
+  }
+}
+```
+
+#### Query assets with filtering
+
+```graphql
+query {
+  assets(where: { price_usd: { _gt: 1000 } }) {
+    id
+    name
+    symbol
+    price_usd
+    market_cap_usd
+    total_supply
+  }
+}
+```
+
+#### Query assets with related tokens
+
+```graphql
+query {
+  assets {
+    id
+    name
+    symbol
+    tokens {
+      id
+      name
+      symbol
+      price_usd
+    }
+  }
+}
+```
+
+
+
+
+
