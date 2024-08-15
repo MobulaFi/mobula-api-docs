@@ -1,0 +1,177 @@
+---
+title: "GraphQL Query Top Tokens by 24-Hour Volume per Blockchain"
+description: "Retrieve the token contracts with the highest 24-hour trading volume on each blockchain."
+---
+
+The Mobula API provides a powerful GraphQL endpoint that allows you to query and explore data for various tokens. This guide will show you how to retrieve the token contracts with the highest 24-hour trading volume per blockchain using GraphQL.
+
+### What you'll need
+
+1. Access to the Mobula GraphQL endpoint.
+2. No API key is required for development purposes.
+
+### Walkthrough
+
+<Steps>
+  <Step title="Set Up Your Query Parameters">
+    You will be querying the `tokens` table, filtering the results by blockchain, and sorting them by 24-hour trading volume in descending order. We will use `distinct_on` to get the top token by trading volume for each blockchain.
+  </Step>
+
+  <Step title="Apply Filters">
+    To ensure you're retrieving the tokens with the most trading activity, you can apply additional filters for 24-hour volume and blockchain. This will help refine your search to ensure you're getting the most relevant tokens on each chain.
+
+    **Filters**:
+    - **24-Hour Volume (volume_24h_usd)**: You may filter tokens to only include those with significant trading activity over the last 24 hours.
+    - **Blockchain (chain_id)**: Separate tokens by blockchain to ensure you're getting the top volume token on each chain.
+
+    Example filters:
+    - Sort by 24-hour volume in descending order: `order_by: { volume_24h_usd: desc }`
+    - Limit the results to the top token on each blockchain with `distinct_on: chain_id`.
+  </Step>
+
+  <Step title="Perform the GraphQL Request">
+    Execute the GraphQL query using cURL, Axios, or any GraphQL client:
+
+    **Using cURL**:
+    ```bash
+    curl -X POST https://gql.mobula.io/v1/graphql \
+    -H "Content-Type: application/json" \
+    --data '{
+      "query": "query TopTokensByVolume { tokens(order_by: { chain_id: asc, volume_24h_usd: desc }, distinct_on: chain_id) { asset_id name symbol address volume_24h_usd chain_id } }"
+    }'
+    ```
+
+    **Using Axios**:
+    ```javascript
+    import axios from "axios";
+
+    const query = `
+      query TopTokensByVolume {
+        tokens(order_by: { chain_id: asc, volume_24h_usd: desc }, distinct_on: chain_id) {
+          asset_id
+          name
+          symbol
+          address
+          volume_24h_usd
+          chain_id
+        }
+      }
+    `;
+
+    axios.post('https://gql.mobula.io/v1/graphql', {
+      query: query
+    }, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(response => {
+      console.log(response.data);
+    }).catch(error => {
+      console.error(error);
+    });
+    ```
+
+    **Using a GraphQL Client (e.g., Apollo Client)**:
+    ```javascript
+    import { gql, ApolloClient, InMemoryCache } from '@apollo/client';
+
+    const client = new ApolloClient({
+      uri: 'https://gql.mobula.io/v1/graphql',
+      cache: new InMemoryCache()
+    });
+
+    const GET_TOP_TOKENS_BY_VOLUME = gql`
+      query TopTokensByVolume {
+        tokens(order_by: { chain_id: asc, volume_24h_usd: desc }, distinct_on: chain_id) {
+          asset_id
+          name
+          symbol
+          address
+          volume_24h_usd
+          chain_id
+        }
+      }
+    `;
+
+    client.query({ query: GET_TOP_TOKENS_BY_VOLUME })
+      .then(response => console.log(response.data))
+      .catch(error => console.error(error));
+    ```
+
+  </Step>
+
+  <Step title="Analyze the Token Data">
+    The API response will include detailed information about each token, such as their name, symbol, contract address, 24-hour trading volume in USD, and the blockchain they are on.
+
+    **Sample Response**:
+    ```json
+  {
+    "data": {
+      "tokens": [
+        {
+          "asset_id": 100000587,
+          "name": "Alephium",
+          "symbol": "ALPH",
+          "address": "tgx7VNFoP9DJiFMFgXXtafQZkUvyEdDHT9ryamHJYrjq",
+          "volume_24h_usd": 256052,
+          "chain_id": "alephium:0"
+        },
+        {
+          "asset_id": 100011613,
+          "name": "Tether USD",
+          "symbol": "USDT",
+          "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+          "volume_24h_usd": 509014379,
+          "chain_id": "evm:1"
+        },
+          // More tokens...
+        ]
+      }
+    }
+    ```
+
+  </Step>
+</Steps>
+
+### Leveraging Token Data
+
+With this data, you can:
+
+- **Display Top Tokens by Chain**: Show the tokens with the highest 24-hour trading volume on each blockchain in your app or dashboard.
+- **Track Market Performance**: Monitor the market trends of top tokens by observing changes in trading volume.
+- **Build Blockchain-Specific Leaderboards**: Create ranked lists of tokens based on trading volume for different blockchains.
+
+### Need Help?
+
+Our support team is available to assist with your queries or integration issues.
+
+<CardGroup>
+
+<Card
+  title="Support"
+  icon="Telegram"
+  href="https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Key"
+>
+  Telegram
+</Card>
+
+<Card
+  title="Support"
+  icon="Slack"
+  href="https://join.slack.com/t/mobulaapi/shared_invite/zt-29zrrpjnl-I0tyD73sy7zKy8q~KLL3Ug"
+>
+  Slack
+</Card>
+
+<Card title="Support" icon="Discord" href="https://discord.gg/JVT7xKm3AD">
+  Discord
+</Card>
+
+<Card
+  title="Email Support"
+  icon="envelope"
+  href="mailto:contact@mobulalabs.org"
+>
+  Email
+</Card>
+</CardGroup>

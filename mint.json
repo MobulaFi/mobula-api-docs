@@ -111,6 +111,18 @@
 		},
 		{
 			"group": "Introduction",
+			"pages": ["graphql-api-reference/introduction"]
+		},
+		{
+			"group": "Schemas",
+			"pages": ["graphql-api-reference/schemas/assets", "graphql-api-reference/schemas/tokens"]
+		},
+		{
+			"group": "Guides",
+			"pages": ["graphql-api-reference/guides/graphql-query-top100-assets", "graphql-api-reference/guides/graphql-query-top-tokens-per-chains"]
+		},
+		{
+			"group": "Introduction",
 			"pages": ["rest-api-reference/introduction", "rest-api-reference/authentification"]
 		},
 		{
@@ -234,6 +246,27 @@
 				"rest-api-reference/endpoint/blockchains",
 				"rest-api-reference/endpoint/blockchain-query",
 				"rest-api-reference/endpoint/blockchain-decode"
+			]
+		},
+		{
+			"group": "Assets ",
+			"pages": [
+				{ "group": "Docs", "pages": ["rest-api-reference/docs/market-asset-query"] },
+				"rest-api-reference/endpoint/market-data",
+				"rest-api-reference/endpoint/market-multi-data",
+				"rest-api-reference/endpoint/market-pair",
+				"rest-api-reference/endpoint/market-pairs",
+				"rest-api-reference/endpoint/market-trades-pair",
+				"rest-api-reference/endpoint/market-history",
+				"rest-api-reference/endpoint/market-multi-history",
+				"rest-api-reference/endpoint/market-history-pair",
+				"rest-api-reference/endpoint/market-query",
+				"rest-api-reference/endpoint/market-query-token",
+				"rest-api-reference/endpoint/quote",
+				"rest-api-reference/endpoint/wss-price-feed",
+				"rest-api-reference/endpoint/wss-market-data",
+				"rest-api-reference/endpoint/wss-market-pair",
+				"rest-api-reference/endpoint/wss-market-trades"
 			]
 		},
 		{

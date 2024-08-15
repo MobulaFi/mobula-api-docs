@@ -3,7 +3,7 @@ title: "Get any crypto price"
 description: "Fetch from symbol, address, name aggregated price, volume, price change of any crypto - from Monero to the latest shitcoin on your favorite L2."
 ---
 
-Mobula API allows you to query market data from any kind of assets in a unified way. You can query any crypto price, volume, price change, and more from any blockchain supported (check [here](/api-reference/blockchains) for the full list) or asset listed on Mobula curated token list (explorable [here](https://mobula.io)).
+Mobula API allows you to query market data from any kind of assets in a unified way. You can query any crypto price, volume, price change, and more from any blockchain supported (check [here](/rest-api-reference/blockchains) for the full list) or asset listed on Mobula curated token list (explorable [here](https://mobula.io)).
 
 ### What you'll need
 
@@ -14,7 +14,7 @@ Mobula API allows you to query market data from any kind of assets in a unified 
 
 <Steps>
   <Step title="Identify your asset">
-    Pick your asset symbol, name or address. If it is a symbol/name, make sure to check case sensitivity and to respect the asset name as listed on Mobula curated token list (explorable [here](https://mobula.io)). If it is an address, make sure to check the blockchain supported (check [here](/api-reference/blockchains) for the full list) and to respect the blockchain ID format.
+    Pick your asset symbol, name or address. If it is a symbol/name, make sure to check case sensitivity and to respect the asset name as listed on Mobula curated token list (explorable [here](https://mobula.io)). If it is an address, make sure to check the blockchain supported (check [here](/rest-api-reference/blockchains) for the full list) and to respect the blockchain ID format.
   </Step>
   <Step title="Call Mobula API">
     You can call Mobula API directly from your terminal using cURL or any HTTP client.
@@ -97,9 +97,9 @@ axios.get('https://api.mobula.io/api/1/market/data?asset=Bitcoin')
 
 Cool! We're done with the basics. Here's a few more things you can do with Mobula API:
 
-- Fetch up to 500 assets at once with `market/multi-data` endpoint (check [here](/api-reference/endpoint/market-multi-data) for more details)
+- Fetch up to 500 assets at once with `market/multi-data` endpoint (check [here](/rest-api-reference/endpoint/market-multi-data) for more details)
 - Subscribe to real-time price updates with WebSockets (contact us on [Telegram](https://t.me/MobulaPartnerBot?start=WSS_Guide) for more details)
-- Fetch historical price data with `market/history` endpoint (check [here](/api-reference/endpoint/market-history) for more details)
+- Fetch historical price data with `market/history` endpoint (check [here](/rest-api-reference/endpoint/market-history) for more details)
 
 
 ### Need help?
