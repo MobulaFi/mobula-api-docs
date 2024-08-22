@@ -1680,6 +1680,145 @@ paths:
                                     chainId:
                                       type: integer
 
+  /wallet/defi-positions:
+    get: 
+      operationId: fetchWalletDefiPositions
+      summary: Get Portfolio
+      parameters:
+        - in: query
+          name: wallet
+          required: true
+          schema:
+            type: string
+            example: "0xC88B2264D3AC0456A4863Bf021dE4E8EE1129A6b"
+          description: Wallet address
+        - in: query
+          name: blockchains
+          schema:
+            type: string
+            example: "Scroll"
+          description: Blockchains to fetch DeFi positions from (by default, all) - comma separated, chain ID or chain name
+        - in: query
+          name: protocol
+          schema:
+            type: string
+            example: "uniswap-v3"
+          description: Protocol to filter DeFi positions from (by default all protocols)
+      responses:
+        '200':
+          description: A list of DeFi positions
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  protocol:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        example: "uniswap_v2"
+                      id:
+                        type: string
+                        example: "uniswap"
+                      url:
+                        type: string
+                        example: "https://uniswap.org/"
+                      logo:
+                        type: string
+                        example: "https://uniswap.org/logo-32x32.png"
+                  positions:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: "pool"
+                        name:
+                          type: string
+                          example: "USDT / DAI"
+                        chain_id:
+                          type: string
+                          example: "evm:10"
+                        contract:
+                          type: string
+                          example: "0x827F0A2a4376Bc26729F398b865f424dC8456841"
+                        created_at:
+                          type: string
+                          format: date-time
+                          example: "2024-08-22T13:33:29.418Z"
+                        tokens:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              name:
+                                type: string
+                                example: "Tether USD"
+                              decimals:
+                                type: string
+                                example: "6"
+                              symbol:
+                                type: string
+                                example: "USDT"
+                              contract:
+                                type: string
+                                example: "0x94b008aa00579c1307b0ef2c499ad98a8ce58e58"
+                              amount:
+                                type: number
+                                format: float
+                                example: 0.213551
+                              amountRaw:
+                                type: number
+                                format: float
+                                example: 213551
+                              amount_usd:
+                                type: string
+                                example: "0"
+                              price_usd:
+                                type: string
+                                example: "0"
+                        rewards:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              name:
+                                type: string
+                                example: "Tether USD"
+                              decimals:
+                                type: string
+                                example: "6"
+                              symbol:
+                                type: string
+                                example: "USDT"
+                              contract:
+                                type: string
+                                example: "0x94b008aa00579c1307b0ef2c499ad98a8ce58e58"
+                              amount:
+                                type: string
+                                example: "0.046682860718250347916"
+                              amountRaw:
+                                type: string
+                                example: "0.046682860718250347916"
+                              amount_usd:
+                                type: string
+                                example: "0"
+                              price_usd:
+                                type: string
+                                example: "0"
+                        extra:
+                          type: object
+                          properties:
+                            lp_token_amount:
+                              type: string
+                              example: "369170221887213"
+                            factory:
+                              type: string
+                              example: "0x1F98431c8aD98523631AE4a59f267346ea31F984"
+
+
   /wallet/transactions:
     get:
       summary: Fetch Wallet Transactions
