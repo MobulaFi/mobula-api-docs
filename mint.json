@@ -292,7 +292,10 @@
 			"pages": [
 				{
 					"group": "Deploying Subgraphs",
-					"pages": ["indexing-stream/guide/deploying-subgraph-on-zklink"]
+					"pages": [
+						"indexing-stream/guide/deploying-subgraph-on-zklink",
+						"indexing-stream/guide/deploying-subgraph-on-bnb"
+					]
 				}
 			]
 		},
