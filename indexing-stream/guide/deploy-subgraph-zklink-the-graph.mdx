@@ -1,9 +1,9 @@
 ---
-title: "Deploy a Subgraph on zkLink"
-description: "Learn how to deploy a subgraph on zkLink using Mobula's infrastructure for efficient blockchain data indexing and querying."
+title: "Deploy an Indexer (Subgraph) on zkLink Nova with The Graph"
+description: "Step-by-step guide on deploying a subgraph on zkLink using using The Graph for optimized blockchain data indexing."
 ---
 
-Deploying a subgraph on zkLink using Mobula's infrastructure is a straightforward process. This guide will walk you through the steps to get your subgraph up and running on the zkLink network.
+Deploying a subgraph on zkLink Nova using Mobula's infrastructure is a straightforward process. This guide will walk you through the steps to get your subgraph up and running on the zkLink network.
 
 ### What you'll need
 
@@ -16,7 +16,8 @@ Deploying a subgraph on zkLink using Mobula's infrastructure is a straightforwar
 
 <Steps>
   <Step title="Prepare Your Subgraph">
-    Ensure your subgraph is configured for zkLink. Update your `subgraph.yaml` file to reference zkLink-specific contracts and events. If you don't have any subgraph, you can clone the Uniswap V2 (Linkswap) subgraph template and modify it for zkLink:
+    Ensure your subgraph is configured for zkLink Nova. Update your `subgraph.yaml` file to reference zkLink-specific contracts and events. If you don't have any subgraph, you can clone the Uniswap V2 (Linkswap) subgraph template and modify it for zkLink:
+    
 ```bash
 git clone https://github.com/MobulaFi/univ2-subgraph-zklink
 ```
@@ -67,16 +68,16 @@ graph deploy --node http://subgraph.mobula.io:8020 --ipfs http://subgraph.mobula
 
 ### Best Practices
 
-Regularly update your subgraph to ensure compatibility with the latest zkLink network changes.
-Test your subgraph thoroughly on a testnet before deploying to mainnet.
-Monitor your subgraph's performance and optimize queries for efficiency.
+- Regularly update your subgraph to ensure compatibility with the latest zkLink Nova network changes.
+- Test your subgraph thoroughly on a testnet before deploying to mainnet.
+- Monitor your subgraph's performance and optimize queries for efficiency.
 
 ### Troubleshooting
 If you encounter issues during deployment:
 
-Double-check your subgraph.yaml configuration.
-Ensure you're using the correct network name and Mobula node URLs.
-Verify your API key is valid and has the necessary permissions.
+- Double-check your `subgraph.yaml` configuration.
+- Ensure you're using the correct network name and Mobula node URLs.
+- Verify your API key is valid and has the necessary permissions.
 
 Need Assistance?
 Our support team is ready to help you with any questions or deployment challenges.

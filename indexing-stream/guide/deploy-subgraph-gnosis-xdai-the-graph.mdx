@@ -1,0 +1,88 @@
+---
+title: "Deploy an Indexer (Subgraph) on Gnosis (xDai) with The Graph"
+description: "Step-by-step guide for deploying a subgraph on Gnosis (xDai) using The Graph for efficient blockchain data indexing and querying."
+---
+
+Deploying a subgraph on Gnosis (xDai) with Mobula’s infrastructure is a simple process. This guide will take you through the steps to get your subgraph running on the Gnosis network.
+
+### What you’ll need
+
+- Fundamental understanding of The Graph and subgraphs.
+- Your subgraph project files ready.
+- The Graph CLI installed
+- A Mobula API key (for authentication)
+
+### Walkthrough
+
+<Steps>
+  <Step title="Prepare Your Subgraph">
+    Make sure your subgraph is configured for Gnosis (xDai). Update your `subgraph.yaml` file to point to Gnosis specific contracts and events. If you don’t have a subgraph, you can clone the Uniswap V2 (SushiSwap) subgraph template and customize it for Gnosis:
+
+    ```bash
+    git clone https://github.com/MobulaFi/univ2-subgraph-gnosis-xdai
+    ```
+  </Step>
+
+  <Step title="Install Dependencies">
+    Make sure you have The Graph CLI installed:
+
+    ```bash
+    npm install -g @graphprotocol/graph-cli
+    ```
+  </Step>
+
+  <Step title="Build Your Subgraph">
+    Compile your subgraph before deployment:
+
+    ```bash
+    graph codegen && graph build
+    ```
+  </Step>
+
+  <Step title="Create the Subgraph">
+    Use the following command to deploy your subgraph:
+
+    ```bash
+    graph create --node http://subgraph.mobula.io:8020
+    ```
+  </Step>
+
+  <Step title="Deploy to Mobula's Gnosis (xDai) Node">
+    Use the following command to deploy your subgraph:
+
+    ```bash
+    graph deploy --node http://subgraph.mobula.io:8020 --ipfs http://subgraph.mobula.io:5001 --network xdai
+    ```
+  </Step>
+
+  <Step title="Authenticate">
+    When asked, enter your Mobula API key for authentication. For further details on acquiring and using your API key, refer to the [authentication section](https://docs.mobula.io/indexing-stream/authentification).
+  </Step>
+
+  <Step title="Monitor Deployment">
+    Following deployment, you’ll be provided with a URL to track your subgraph’s indexing progress and status.
+  </Step>
+</Steps>
+
+### Best Practices
+
+- Keep your subgraph regularly updated to ensure it remains compatible with the latest Gnosis (xDai) network changes.
+- Thoroughly test your subgraph on a testnet before deploying to the mainnet.
+- Continuously monitor its performance and optimize queries for greater efficiency.
+
+### Troubleshooting
+
+If you encounter issues during deployment:
+
+- Review your `subgraph.yaml` configuration.
+- Confirm that you're using the correct network name and Mobula node URLs.
+- Ensure your API key is valid and has the required permissions.
+
+Need help? Our support team is available to assist with any questions or deployment challenges you may face.
+
+<CardGroup>
+  <Card title="Support" icon="Telegram" href="https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Key">Telegram</Card>
+  <Card title="Support" icon="Slack" href="https://join.slack.com/t/mobulaapi/shared_invite/zt-29zrrpjnl-I0tyD73sy7zKy8q~KLL3Ug">Slack</Card>
+  <Card title="Support" icon="Discord" href="https://discord.gg/JVT7xKm3AD">Discord</Card>
+  <Card title="Email Support" icon="envelope" href="mailto:contact@mobulalabs.org">Email</Card>
+</CardGroup>

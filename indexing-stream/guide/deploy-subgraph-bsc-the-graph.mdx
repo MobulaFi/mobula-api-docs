@@ -1,6 +1,6 @@
 ---
-title: "Deploy a Subgraph on BNB Smart Chain"
-description: "Step-by-step guide on deploying a subgraph on BNB Smart Chain using Mobula's infrastructure for optimized blockchain data indexing."
+title: "Deploy an Indexer (Subgraph) on Binance Smart Chain (BSC) with The Graph"
+description: "Step-by-step guide on deploying a subgraph on BNB Smart Chain using using The Graph for optimized blockchain data indexing."
 ---
 
 Deploying a subgraph on BSC with Mobula’s infrastructure is a simple process. This guide will take you through the steps to get your subgraph running on the BNB Smart Chain network.
@@ -16,10 +16,10 @@ Deploying a subgraph on BSC with Mobula’s infrastructure is a simple process. 
 
 <Steps>
   <Step title="Prepare Your Subgraph">
-    Make sure your subgraph is configured for BNB Smart Chain. Update your `subgraph.yaml` file to point to BSC-specific contracts and events. If you don’t have a subgraph, you can clone the Uniswap V2 (Linkswap) subgraph template and customize it for BSC:
+    Make sure your subgraph is configured for BNB Smart Chain. Update your `subgraph.yaml` file to point to BSC-specific contracts and events. If you don’t have a subgraph, you can clone the Uniswap V2 (PancakeSwap) subgraph template and customize it for BSC:
 
     ```bash
-    git clone <https://github.com/ChristianOGB/univ2-subgraph-bnb>
+    git clone https://github.com/MobulaFi/univ2-subgraph-bsc
     ```
   </Step>
 
@@ -66,7 +66,9 @@ Deploying a subgraph on BSC with Mobula’s infrastructure is a simple process. 
 
 ### Best Practices
 
-Keep your subgraph regularly updated to ensure it remains compatible with the latest BNB Smart Chain network changes. Thoroughly test your subgraph on a testnet before deploying to the mainnet. Continuously monitor its performance and optimize queries for greater efficiency.
+- Keep your subgraph regularly updated to ensure it remains compatible with the latest BNB Smart Chain network changes.
+- Thoroughly test your subgraph on a testnet before deploying to the mainnet.
+- Continuously monitor its performance and optimize queries for greater efficiency.
 
 ### Troubleshooting
 

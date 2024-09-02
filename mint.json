@@ -293,8 +293,23 @@
 				{
 					"group": "Deploying Subgraphs",
 					"pages": [
-						"indexing-stream/guide/deploying-subgraph-on-zklink",
-						"indexing-stream/guide/deploying-subgraph-on-bnb"
+						"indexing-stream/guide/deploy-subgraph-arbitrum-nova-the-graph",
+						"indexing-stream/guide/deploy-subgraph-arbitrum-the-graph",
+						"indexing-stream/guide/deploy-subgraph-avalanche-the-graph",
+						"indexing-stream/guide/deploy-subgraph-bahamut-the-graph",
+						"indexing-stream/guide/deploy-subgraph-base-the-graph",
+						"indexing-stream/guide/deploy-subgraph-boba-the-graph",
+						"indexing-stream/guide/deploy-subgraph-bsc-the-graph",
+						"indexing-stream/guide/deploy-subgraph-cronos-the-graph",
+						"indexing-stream/guide/deploy-subgraph-ethereum-the-graph",
+						"indexing-stream/guide/deploy-subgraph-fantom-the-graph",
+						"indexing-stream/guide/deploy-subgraph-gnosis-xdai-the-graph",
+						"indexing-stream/guide/deploy-subgraph-linea-the-graph",
+						"indexing-stream/guide/deploy-subgraph-metis-the-graph",
+						"indexing-stream/guide/deploy-subgraph-polygon-the-graph",
+						"indexing-stream/guide/deploy-subgraph-polygon-zkevm-the-graph",
+						"indexing-stream/guide/deploy-subgraph-zklink-the-graph",
+						"indexing-stream/guide/deploy-subgraph-zksync-the-graph"
 					]
 				}
 			]
