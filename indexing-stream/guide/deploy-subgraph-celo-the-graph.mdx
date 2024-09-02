@@ -1,0 +1,88 @@
+---
+title: "Deploy an Indexer (Subgraph) on Celo with The Graph"
+description: "Step-by-step guide to deploying a subgraph on Celo using The Graph for efficient blockchain data indexing and querying."
+---
+
+Setting up a subgraph on Celo with Mobula's infrastructure is an easy process. This tutorial will guide you through each step to get your subgraph operational on the Celo network.
+
+### What you’ll need
+
+- Basic knowledge of The Graph and subgraphs.
+- Your subgraph project files
+- The Graph CLI installed
+- A Mobula API key (for authentication)
+
+### Walkthrough
+
+<Steps>
+  <Step title="Prepare Your Subgraph">
+    Configure your subgraph for Celo. Adjust your `subgraph.yaml` file to reference Celo-specific contracts and events. If you don't have a subgraph yet, you can clone the Uniswap V2 subgraph template and tailor it for Celo:
+
+    ```bash
+    git clone https://github.com/MobulaFi/univ2-subgraph-celo
+    ```
+  </Step>
+
+  <Step title="Install Dependencies">
+    Make sure you have The Graph CLI installed:
+
+    ```bash
+    npm install -g @graphprotocol/graph-cli
+    ```
+  </Step>
+
+  <Step title="Build Your Subgraph">
+    Compile your subgraph before deployment:
+
+    ```bash
+    graph codegen && graph build
+    ```
+  </Step>
+
+  <Step title="Create the Subgraph">
+    Use the following command to deploy your subgraph:
+
+    ```bash
+    graph create --node http://subgraph.mobula.io:8020
+    ```
+  </Step>
+
+  <Step title="Deploy to Mobula's Celo Node">
+    Use the following command to deploy your subgraph:
+
+    ```bash
+    graph deploy --node http://subgraph.mobula.io:8020 --ipfs http://subgraph.mobula.io:5001 --network celo
+    ```
+  </Step>
+
+  <Step title="Authenticate">
+    When requested, input your Mobula API key for authentication. Check the [authentication section](https://docs.mobula.io/indexing-stream/authentification) for detailed instructions on obtaining and using your API key.
+  </Step>
+
+  <Step title="Monitor Deployment">
+    After deployment, you’ll receive a URL to monitor your subgraph’s indexing progress and status.
+  </Step>
+</Steps>
+
+### Best Practices
+
+- Ensure your subgraph is consistently updated to stay compatible with the latest Celo network changes.
+- Perform thorough testing on a testnet before deploying to the mainnet.
+- Regularly monitor its performance and optimize queries for improved efficiency.
+
+### Troubleshooting
+
+If you face issues during deployment:
+
+- Review your `subgraph.yaml` file carefully.
+- Ensure the network name and Mobula node URLs are correct.
+- Check that your API key is valid and has the appropriate permissions.
+
+Need help? Our support team is here to assist with any questions or deployment difficulties.
+
+<CardGroup>
+  <Card title="Support" icon="Telegram" href="https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Key">Telegram</Card>
+  <Card title="Support" icon="Slack" href="https://join.slack.com/t/mobulaapi/shared_invite/zt-29zrrpjnl-I0tyD73sy7zKy8q~KLL3Ug">Slack</Card>
+  <Card title="Support" icon="Discord" href="https://discord.gg/JVT7xKm3AD">Discord</Card>
+  <Card title="Email Support" icon="envelope" href="mailto:contact@mobulalabs.org">Email</Card>
+</CardGroup>

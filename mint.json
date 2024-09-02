@@ -300,6 +300,7 @@
 						"indexing-stream/guide/deploy-subgraph-base-the-graph",
 						"indexing-stream/guide/deploy-subgraph-boba-the-graph",
 						"indexing-stream/guide/deploy-subgraph-bsc-the-graph",
+						"indexing-stream/guide/deploy-subgraph-celo-the-graph",
 						"indexing-stream/guide/deploy-subgraph-cronos-the-graph",
 						"indexing-stream/guide/deploy-subgraph-ethereum-the-graph",
 						"indexing-stream/guide/deploy-subgraph-fantom-the-graph",
