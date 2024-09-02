@@ -304,6 +304,7 @@
 						"indexing-stream/guide/deploy-subgraph-celo-the-graph",
 						"indexing-stream/guide/deploy-subgraph-cronos-the-graph",
 						"indexing-stream/guide/deploy-subgraph-ethereum-the-graph",
+						"indexing-stream/guide/deploy-subgraph-hedera-the-graph",
 						"indexing-stream/guide/deploy-subgraph-fantom-the-graph",
 						"indexing-stream/guide/deploy-subgraph-gnosis-xdai-the-graph",
 						"indexing-stream/guide/deploy-subgraph-linea-the-graph",
