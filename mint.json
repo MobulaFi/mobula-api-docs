@@ -314,7 +314,8 @@
 						"indexing-stream/guide/deploy-subgraph-polygon-the-graph",
 						"indexing-stream/guide/deploy-subgraph-polygon-zkevm-the-graph",
 						"indexing-stream/guide/deploy-subgraph-zklink-the-graph",
-						"indexing-stream/guide/deploy-subgraph-zksync-the-graph"
+						"indexing-stream/guide/deploy-subgraph-zksync-the-graph",
+						"indexing-stream/guide/deploy-subgraph-zora-the-graph"
 					]
 				}
 			]
