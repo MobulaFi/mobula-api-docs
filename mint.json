@@ -293,6 +293,7 @@
 				{
 					"group": "Deploying Subgraphs",
 					"pages": [
+						"indexing-stream/guide/deploy-subgraph-alveychain-the-graph",
 						"indexing-stream/guide/deploy-subgraph-arbitrum-nova-the-graph",
 						"indexing-stream/guide/deploy-subgraph-arbitrum-the-graph",
 						"indexing-stream/guide/deploy-subgraph-avalanche-the-graph",
