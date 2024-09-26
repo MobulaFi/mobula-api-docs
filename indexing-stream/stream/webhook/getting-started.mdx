@@ -1,0 +1,113 @@
+---
+title: "Get started"
+description: "Mobula provides Webhook support for retrieving any raw events and curated events (i.e. Swaps, Liquidity)."
+---
+
+<Tip> This endpoint is only available to Growth and Enterprise plans. </Tip>
+
+## Webhook
+
+Mobula provides Webhook support for retrieving any raw events and curated events like Swaps or Liquidity.
+
+### Product demo
+
+Coming soon.
+
+### Endpoint details
+
+- URL: https://stream.zobula.xyz/api/1/webhooks
+- Body (json):
+
+```json
+{
+    "name": "MyFirstWebhook",
+    "chainIds": ["evm:1", "evm:56"],
+    "events": ["trace", "log", "trasaction", "block", "swap"],
+    "apiKey": "xxxxxxxxxx",
+    "url": "https://webhook.com/xxxxxxxxxxx",
+};
+```
+
+### Parameters
+
+- chainIds: [details here](/blockchains/intro-blockchains)
+- events: transactions, traces, logs, blocks, swaps
+- filters: [details here](/indexing-stream/stream/filters)
+- webhookUrl: URL to send the data
+
+### Create a webhook
+
+First we need to create a webhook:
+
+```typescript
+await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: {
+  "name": "FirstWebhook",
+  "chainIds": ["evm:1"],
+  "events": ["trace"],
+  "apiKey": "xxxxx",
+  "filters": {
+    "eq": ["action.input", "0xd55ec697"]
+  },
+  "url": "https://webhook.com/xxxxx"
+  }
+});
+```
+
+<Tip> The API key is mandatory to create a webhook. </Tip>
+
+If you receive data from your webhook in response, then your webhook is functional and will start receiving events.
+
+### Delete a webhook
+
+To delete a webhook:
+
+```typescript
+await fetch(url + `/${webhook_id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+```
+
+If you receive: 
+
+```json
+{
+    "message": "Webhook deleted successfully"
+}
+```
+
+Then your webhook is deleted.
+
+
+Can’t find what you’re looking for? Reach out to us, response times < 1h.
+
+<CardGroup>
+
+<Card
+  title="Support"
+  icon="Telegram"
+  href="https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Key"
+>
+  Telegram
+</Card>
+
+<Card
+  title="Support"
+  icon="Slack"
+  href="https://join.slack.com/t/mobulaapi/shared_invite/zt-29zrrpjnl-I0tyD73sy7zKy8q~KLL3Ug"
+>
+  Slack
+</Card>
+
+<Card title="Need help?" icon="envelope" href="mailto:contact@mobulalabs.org">
+  Email
+</Card>
+
+</CardGroup>
