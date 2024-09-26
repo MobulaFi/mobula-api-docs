@@ -1,0 +1,90 @@
+---
+title: "Get started"
+description: "Mobula provides WSS support for retrieving any raw events and curated events (i.e. Swaps, Liquidity)."
+---
+
+<Tip> This endpoint is only available to Growth and Enterprise plans. </Tip>
+
+## WebSocket
+
+Mobula provides WSS support for retrieving any raw events and curated events like Swaps or Liquidity.
+
+### Product demo
+
+Coming soon.
+
+### Endpoint details
+
+- URL: wss://stream.zobula.xyz
+- Message (string):
+
+```json
+{
+    "name": "MyWalletTransactions",
+    "chainIds": ["evm:1", "evm:56"],
+    "events": ["trace", "log", "trasaction", "block", "swap"],
+};
+```
+
+### Parameters
+
+- chainIds: [details here](/blockchains/intro-blockchains)
+- events: transactions, traces, logs, blocks, swaps
+- filters: [details here](/indexing-stream/stream/filters)
+
+### Implementation example
+
+Let's take a look at:
+
+```typescript
+const socket = new WebSocket("wss://stream.zobula.xyz");
+
+socket.addEventListener("open", () => {
+  socket.send(`{
+    "type": "stream",
+    "payload": {
+      "chainIds": ["evm:1", "evm:56"],
+      "events": ["trace", "log", "trasaction", "block", "swap"],
+    }
+}`);
+});
+
+socket.addEventListener("message", (event) => {
+  const data = JSON.parse(event.data);
+
+  if (event.reorg) {
+    // Handle reorg
+    return;
+  }
+});
+
+// No need to close the socket, it will close automatically.
+```
+
+<Tip>You can use the Network tab in your browser to see the WSS requests. </Tip>
+
+Can’t find what you’re looking for? Reach out to us, response times < 1h.
+
+<CardGroup>
+
+<Card
+  title="Support"
+  icon="Telegram"
+  href="https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Key"
+>
+  Telegram
+</Card>
+
+<Card
+  title="Support"
+  icon="Slack"
+  href="https://join.slack.com/t/mobulaapi/shared_invite/zt-29zrrpjnl-I0tyD73sy7zKy8q~KLL3Ug"
+>
+  Slack
+</Card>
+
+<Card title="Need help?" icon="envelope" href="mailto:contact@mobulalabs.org">
+  Email
+</Card>
+
+</CardGroup>

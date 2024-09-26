@@ -281,7 +281,17 @@
 		{
 			"group": "Stream",
 			"pages": [
-				"indexing-stream/stream/getting-started",
+				{
+					"group": "Webhook",
+					"pages": ["indexing-stream/stream/webhook/getting-started"]
+				},
+				{
+					"group": "WebSocket",
+					"pages": [
+						"indexing-stream/stream/websocket/getting-started",
+						"indexing-stream/stream/websocket/ohlcv-stream"
+					]
+				},
 				"indexing-stream/stream/data-model",
 				"indexing-stream/stream/reorg-handling",
 				"indexing-stream/stream/filters"

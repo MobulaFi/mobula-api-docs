@@ -1,0 +1,89 @@
+---
+title: "OHLCV Stream"
+description: "Mobula provides WSS support for retrieving OHLCV data for any asset."
+---
+
+<Tip> This endpoint is only available to Growth and Enterprise plans. </Tip>
+
+### Product demo
+
+Coming soon.
+
+### Endpoint details
+
+- URL: wss://api.zobula.xyz
+- Message (string):
+
+```json
+{
+    "type": "ohlcv",
+    "apiKey": "xxxxxxxxxx",
+    "address": "0x123456789",
+    "chainId": "evm:1",
+    "period": "1h",
+};
+```
+
+### Parameters
+
+- apiKey: your Mobula API key (you can get one [here](https://admin.mobula.fi))
+- address: the address of the pool you want to get OHLCV data for
+- chainId: [details here](/blockchains/intro-blockchains)
+- period: the period of the OHLCV data you want to get (1min, 5min, 15min, 1h, 4h, 1d, 1w, 1M)
+
+### Implementation example
+
+Let's take a look at:
+
+```typescript
+const socket = new WebSocket("wss://api.zobula.xyz");
+
+socket.addEventListener("open", () => {
+  socket.send(`{
+    "type": "ohlcv",
+    "payload": {
+      "address": ["0x123456789"],
+      "chainId": "evm:1",
+      "period": "1h",
+    }
+}`);
+});
+
+socket.addEventListener("message", (event) => {
+  const data = JSON.parse(event.data);
+
+  console.log(data);
+
+  // ...
+});
+
+// No need to close the socket, it will close automatically.
+```
+
+<Tip>You can use the Network tab in your browser to see the WSS requests. </Tip>
+
+Can’t find what you’re looking for? Reach out to us, response times < 1h.
+
+<CardGroup>
+
+<Card
+  title="Support"
+  icon="Telegram"
+  href="https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Key"
+>
+  Telegram
+</Card>
+
+<Card
+  title="Support"
+  icon="Slack"
+  href="https://join.slack.com/t/mobulaapi/shared_invite/zt-29zrrpjnl-I0tyD73sy7zKy8q~KLL3Ug"
+>
+  Slack
+</Card>
+
+<Card title="Need help?" icon="envelope" href="mailto:contact@mobulalabs.org">
+  Email
+</Card>
+
+</CardGroup>
