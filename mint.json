@@ -218,6 +218,14 @@
 					"group": "Docs",
 					"pages": ["rest-api-reference/docs/market-asset-query"]
 				},
+				{
+					"group": "Warehouse",
+					"pages": [
+						"rest-api-reference/endpoint/warehouse/wallet-transactions-count",
+						"rest-api-reference/endpoint/warehouse/token-holders",
+						"rest-api-reference/endpoint/warehouse/contract-deployer"
+					]
+				},
 				"rest-api-reference/endpoint/market-data",
 				"rest-api-reference/endpoint/market-multi-data",
 				"rest-api-reference/endpoint/market-pair",
