@@ -1,0 +1,18 @@
+---
+title: Get Wallet Transactions Count
+openapi: get /warehouse/wallet-transactions-count
+---
+
+### Query quick start
+
+Input in “walletAddress” the wallet address you want to query.
+
+### SQL 
+
+```sql
+SELECT * FROM postgres.`warehouse.transactions` WHERE from = {walletAddress:String} or to = {walletAddress:String}
+```
+
+### Data details
+
+Returns the count of transactions for the given wallet address.

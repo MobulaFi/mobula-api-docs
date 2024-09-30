@@ -1,0 +1,18 @@
+---
+title: Get Token Holders
+openapi: get /warehouse/token-holders
+---
+
+### Query quick start
+
+Input in “tokenAddress” the contract address you want to query.
+
+### SQL 
+
+```sql
+SELECT * FROM postgres.`warehouse.balances` WHERE token_address = {tokenAddress:String}
+```
+
+### Data details
+
+Returns the count of token holders for the given contract address.

@@ -1,0 +1,18 @@
+---
+title: Get Contract Deployer
+openapi: get /warehouse/contract-deployer
+---
+
+### Query quick start
+
+Input in “tokenAddress” the contract address you want to query.
+
+### SQL 
+
+```sql
+SELECT * FROM evm_traces WHERE result_address = {contractAddress:String}
+```
+
+### Data details
+
+Returns the address of the contract deployer for the given contract address and the trace of the creation.
