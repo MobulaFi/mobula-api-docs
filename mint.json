@@ -236,11 +236,7 @@
 				"rest-api-reference/endpoint/market-history-pair",
 				"rest-api-reference/endpoint/market-query",
 				"rest-api-reference/endpoint/market-query-token",
-				"rest-api-reference/endpoint/quote",
-				"rest-api-reference/endpoint/wss-price-feed",
-				"rest-api-reference/endpoint/wss-market-data",
-				"rest-api-reference/endpoint/wss-market-pair",
-				"rest-api-reference/endpoint/wss-market-trades"
+				"rest-api-reference/endpoint/quote"
 			]
 		},
 		{
@@ -251,9 +247,7 @@
 				"rest-api-reference/endpoint/wallet-portfolio",
 				"rest-api-reference/endpoint/wallet-multi-portfolio",
 				"rest-api-reference/endpoint/wallet-defi-positions",
-				"rest-api-reference/endpoint/wallet-transactions",
-				"rest-api-reference/endpoint/wss-complete-data",
-				"rest-api-reference/endpoint/wss-portfolio"
+				"rest-api-reference/endpoint/wallet-transactions"
 			]
 		},
 		{
@@ -296,8 +290,14 @@
 				{
 					"group": "WebSocket",
 					"pages": [
-						"indexing-stream/stream/websocket/getting-started",
-						"indexing-stream/stream/websocket/ohlcv-stream"
+						"indexing-stream/stream/websocket/multi-events-stream",
+						"indexing-stream/stream/websocket/ohlcv-stream",
+						"indexing-stream/stream/websocket/wss-complete-data",
+						"indexing-stream/stream/websocket/wss-market-data",
+						"indexing-stream/stream/websocket/wss-market-pair",
+						"indexing-stream/stream/websocket/wss-market-trades",
+						"indexing-stream/stream/websocket/wss-portfolio",
+						"indexing-stream/stream/websocket/wss-price-feed"
 					]
 				},
 				"indexing-stream/stream/data-model",
