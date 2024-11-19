@@ -2157,4 +2157,29 @@ paths:
                     properties:
                       transaction_count:
                         type: integer
-                          
+
+  /market/sparklines:
+    get:
+      summary: Get Sparklines
+      description: Get the 24h sparkline url for an asset
+      operationId: fetchSparklines
+      parameters:
+        - name: asset
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: png
+          in: query
+          schema:
+            type: boolean
+      responses:
+        "200":
+          description: Successful response
+          content:
+            image/svg+xml:
+              schema:
+                type: string
+            image/png:
+              schema:
+                type: string

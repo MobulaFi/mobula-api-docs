@@ -1,0 +1,16 @@
+---
+title: Get Sparklines
+openapi: get /market/sparklines
+---
+
+### Query quick start
+
+Input in “asset” the name of the asset you want to query, or the contract address while adding the blockchain as a second parameter. The market data asset query pattern is explained [in great details here](/rest-api-reference/docs/market-asset-query), with blockchain format, etc.
+
+The default response is a SVG image, if you want a png you can just add a param `png=true` to the query.
+
+### Data details
+
+Returns the 24h sparkline url for the given asset.
+
+<img src="https://storage.googleapis.com/mobula-assets/sparklines/100001656/24h.png" />
