@@ -263,6 +263,10 @@
 				"rest-api-reference/endpoint/blockchain-decode"
 			]
 		},
+		{
+			"group": "Misc",
+			"pages": ["rest-api-reference/endpoint/sparklines"]
+		},
 
 		{
 			"group": "Introduction",
