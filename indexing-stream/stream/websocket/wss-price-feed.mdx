@@ -8,7 +8,7 @@ description: "Get WSS price feeds weighted by volume & market depth (slippage)"
 
 ### Endpoint details
 
-- URL: wss://general-api-wss-preprod-fgpupeioaa-uc.a.run.app
+- URL: wss://production-feed.mobula.io
 - Message (string):
 
 ```json
@@ -18,10 +18,6 @@ description: "Get WSS price feeds weighted by volume & market depth (slippage)"
 }
 ```
 
-Parameters:
-
-- `assets`: array of assets to track - can be queried by name, symbol, or address + blockchain
-- `interval`: interval in seconds between updates (min 5s, default 30s)
 
 ### Data model
 
@@ -31,35 +27,37 @@ Data reponses includes:
 
 ```json
 {
-    {
-      ath: number,
-      atl: number,
-      contracts: {
-        address: string,
-        blockchain: string,
-        blockchainId: string,
-        decimals: number
-      },
-      is_listed: boolean,
-      liquidity: number,
-      market_cap: number,
-      market_cap_diluted: number,
-      name: string,
-      off_chain_volume: number,
-      price: number,
-      price_change_1h: number,
-      price_change_1m: number,
-      price_change_1y: number,
-      price_change_7d: number,
-      price_change_24h: number,
-      rank: number,
-      symbol: string,
-      volume: number,
-      volume_7d: number,
-      volume_change_24h: number
+    "timestamp": 1733173907000,
+    "price": 3881.328639607063,
+    "marketDepthUSDUp": 418639.4559697787,
+    "marketDepthUSDDown": 623414.4447679224,
+    "volume24h": 874713.342519723,
+    "baseSymbol": "SWETH",
+    "quoteSymbol": "USD",
+    "extra": {
+        "priceUSD": 3881.328639607063,
+        "quoteAssetPrice": 1,
+        "blockNumber": "21317425"
     }
 }
 ```
+
+### Pricing methodology
+Our basic pricing methodology is explained [here](https://mirror.xyz/0x6483Ca5ac1EbC6eB08d36979d217db2572CbAad2/Lw8NSSjqR4JSzthKZQCfHLwD3NPGsuaAfHGMY1zi-WI). We use a weighted average price based on market depth and volume for each contract, 
+and re-weight based on each contract volume to get final multichain price. Our asset list can be explored via the /all endpoint.
+
+
+### Add new asset to the feed
+
+```
+curl --request GET \
+  --url https://production-api.mobula.io/api/1/feed/create?assetId=<assetId>&quoteId=<quoteId> \
+  --header 'Authorization: YOUR-API-KEY' \
+  --header 'Content-Type: application/json' \
+ 
+```
+
+You can leave quoteId empty to use default USD. You can find asset IDs in the /all endpoint.
 
 Can’t find what you’re looking for? Reach out to us, response times < 1h.
 
