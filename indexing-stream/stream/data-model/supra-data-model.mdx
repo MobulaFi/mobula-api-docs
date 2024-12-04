@@ -1,0 +1,215 @@
+---
+title: "Supra"
+---
+
+### Block model
+
+```json
+{
+    "header": {
+        "author": "0xd5bf4b562af75f386eb8a75472f5c05587532577778cd9cfdfb0b5614816c76e",
+        "hash": "0xa3725d96d75a69d517135d144e4b5b8fc5efaeb7990c964e2648705efe9142a3",
+        "height": 784478,
+        "parent": "0x106fac82c4b60a84118d84ae6601c11e3c3070f960c8fcb5ccda9c228c06cbd7",
+        "timestamp": {
+            "microseconds_since_unix_epoch": 1733250951957323,
+            "utc_date_time": "2024-12-03T18:35:51.957323+00:00"
+        },
+        "view": {
+            "epoch_id": {
+                "chain_id": 8,
+                "epoch": 147
+            },
+            "round": 5079
+        }
+    },
+    "transactions": [
+          // transactions data
+    ],
+    "chainId": "supra:supra"
+}
+```
+
+### Events model
+
+```json
+{
+    {
+    "data": [
+        {
+            "guid": {
+                "creation_number": "0",
+                "account_address": "0x0"
+            },
+            "sequence_number": "0",
+            "type": "0xe3948c9e3a24c51c4006ef2acc44606055117d021158f320062df099c4a94150::supra_oracle_storage::Price",
+            "data": {
+                "decimal": 18,
+                "pair": 444,
+                "round": "1733250949000",
+                "timestamp": "1733250949235",
+                "value": "316200000000"
+            }
+        },
+    ],
+    "webhookUrl": "https://webhook.com/xxxxxxxxxx",
+    "chainId": "supra:supra",
+    "streamId": "639dbfc1-f241-4f9c-ada6-a2c45d810b2b"
+    }
+}
+```
+
+### Transaction model
+
+```json
+{
+    "data": {
+        "authenticator": {
+            "Move": {
+                "Ed25519": {
+                    "public_key": "0xf9ed1e454f3c87e92bd6a3f10fec9b3aa234a027c47482a009e27f17a7af0e5f",
+                    "signature": "0xe1b5f67de5dc1fd5bfd064471baf429d634a7748bcdb2147dddb56938ff89085353cd56abcb6b2858aa170c5e9c36bff4c0437cd0c4f971c925d52aa89a4eb00"
+                }
+            }
+        },
+        "block_header": {
+            "hash": "0xb9d315089a9786487f719a8855ef8effc3540d5bc65a0c20cda143abd61fdec9",
+            "height": 784009,
+            "timestamp": {
+                "microseconds_since_unix_epoch": 1733250397321060,
+                "utc_date_time": "2024-12-03T18:26:37.321060+00:00"
+            }
+        },
+        "hash": "0x65f57e31d89db39cd3aa8d83ec6ee8c440a6438084ad47c8286e5bb200f9b3e3",
+        "header": {
+            "chain_id": 8,
+            "expiration_timestamp": {
+                "microseconds_since_unix_epoch": 1733250696000000,
+                "utc_date_time": "2024-12-03T18:31:36+00:00"
+            },
+            "sender": {
+                "Move": "0x0bf501dcc92fdf17797eaf5e544011202f7fae43f2bc13eb4d2253e0f2faf8cb"
+            },
+            "sequence_number": 3843,
+            "gas_unit_price": 100,
+            "max_gas_amount": 500000
+        },
+        "payload": {
+            "Move": {
+                "type": "entry_function_payload",
+                "function": "0x1::supra_account::transfer",
+                "type_arguments": [],
+                "arguments": [
+                    "0xfeb7d9ac7d4c83b69a3353702230b0426f1c50cfe11cd1ef832049f9c233fd59",
+                    "20656218"
+                ]
+            }
+        },
+        "output": {
+            "Move": {
+                "gas_used": 9,
+                "events": [
+                    {
+                        "guid": {
+                            "creation_number": "0",
+                            "account_address": "0x0"
+                        },
+                        "sequence_number": "0",
+                        "type": "0x1::coin::CoinWithdraw",
+                        "data": {
+                            "account": "0xbf501dcc92fdf17797eaf5e544011202f7fae43f2bc13eb4d2253e0f2faf8cb",
+                            "amount": "20656218",
+                            "coin_type": "0x1::supra_coin::SupraCoin"
+                        }
+                    },
+                    {
+                        "guid": {
+                            "creation_number": "3",
+                            "account_address": "0xbf501dcc92fdf17797eaf5e544011202f7fae43f2bc13eb4d2253e0f2faf8cb"
+                        },
+                        "sequence_number": "3843",
+                        "type": "0x1::coin::WithdrawEvent",
+                        "data": {
+                            "amount": "20656218"
+                        }
+                    },
+                    {
+                        "guid": {
+                            "creation_number": "0",
+                            "account_address": "0x0"
+                        },
+                        "sequence_number": "0",
+                        "type": "0x1::coin::CoinDeposit",
+                        "data": {
+                            "account": "0xfeb7d9ac7d4c83b69a3353702230b0426f1c50cfe11cd1ef832049f9c233fd59",
+                            "amount": "20656218",
+                            "coin_type": "0x1::supra_coin::SupraCoin"
+                        }
+                    },
+                    {
+                        "guid": {
+                            "creation_number": "2",
+                            "account_address": "0xfeb7d9ac7d4c83b69a3353702230b0426f1c50cfe11cd1ef832049f9c233fd59"
+                        },
+                        "sequence_number": "3845",
+                        "type": "0x1::coin::DepositEvent",
+                        "data": {
+                            "amount": "20656218"
+                        }
+                    },
+                    {
+                        "guid": {
+                            "creation_number": "0",
+                            "account_address": "0x0"
+                        },
+                        "sequence_number": "0",
+                        "type": "0x1::transaction_fee::FeeStatement",
+                        "data": {
+                            "execution_gas_units": "4",
+                            "io_gas_units": "5",
+                            "storage_fee_quants": "0",
+                            "storage_fee_refund_quants": "0",
+                            "total_charge_gas_units": "9"
+                        }
+                    }
+                ],
+                "vm_status": "Executed successfully"
+            }
+        },
+        "status": "Success"
+    }
+    "chainId": "supra:supra"
+}
+```
+
+
+
+### Transfer model
+
+Coming soon.
+
+Can’t find what you’re looking for? Reach out to us, response times < 1h.
+
+<CardGroup>
+
+<Card
+  title="Support"
+  icon="Telegram"
+  href="https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Key"
+>
+  Telegram
+</Card>
+
+<Card
+  title="Support"
+  icon="Slack"
+  href="https://join.slack.com/t/mobulaapi/shared_invite/zt-29zrrpjnl-I0tyD73sy7zKy8q~KLL3Ug"
+>
+  Slack
+</Card>
+
+<Card title="Need help?" icon="envelope" href="mailto:contact@mobulalabs.org">
+  Email
+</Card>
+
+</CardGroup>
