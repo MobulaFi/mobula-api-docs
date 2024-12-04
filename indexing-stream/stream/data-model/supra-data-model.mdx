@@ -4,6 +4,10 @@ title: "Supra"
 
 ### Block model
 
+<b>Identifier on Mobula:</b> `block`
+
+<b>Example:</b>
+
 ```json
 {
     "header": {
@@ -23,19 +27,19 @@ title: "Supra"
             "round": 5079
         }
     },
-    "transactions": [
-          // transactions data
-    ],
-    "chainId": "supra:supra"
+    "transactions": []
 }
 ```
 
 ### Events model
 
+<b>Identifier on Mobula:</b> `log`
+
+<b>Example:</b>
+
 ```json
 {
-    {
-    "data": [
+    "data": 
         {
             "guid": {
                 "creation_number": "0",
@@ -51,15 +55,15 @@ title: "Supra"
                 "value": "316200000000"
             }
         },
-    ],
-    "webhookUrl": "https://webhook.com/xxxxxxxxxx",
-    "chainId": "supra:supra",
-    "streamId": "639dbfc1-f241-4f9c-ada6-a2c45d810b2b"
-    }
+    
 }
 ```
 
 ### Transaction model
+
+<b>Identifier on Mobula:</b> `transaction`
+
+<b>Example:</b>
 
 ```json
 {
@@ -178,15 +182,9 @@ title: "Supra"
         },
         "status": "Success"
     }
-    "chainId": "supra:supra"
 }
 ```
 
-
-
-### Transfer model
-
-Coming soon.
 
 Can’t find what you’re looking for? Reach out to us, response times < 1h.
 

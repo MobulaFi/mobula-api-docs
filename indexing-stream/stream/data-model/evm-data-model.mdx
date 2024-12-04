@@ -4,6 +4,12 @@ title: "EVM"
 
 ### Block model
 
+Blocks are the core data structure in Ethereum. They contain transactions, logs, and other data.
+
+<b>Identifier on Mobula:</b> `block`
+
+<b>Example:</b>
+
 ```json
 {
     "data": {
@@ -28,9 +34,7 @@ title: "EVM"
         "stateRoot": "0x28d3da83c1e9bbb20518c545e7a875687a22d05551a54d688528329fb20eff31",
         "timestamp": "1720039223",
         "totalDifficulty": "58750003716598352816469",
-        "transactions": [
-          // transactions data
-        ],
+        "transactions": [], // This data model is break down in the transaction model
         "transactionsRoot": "0xb3e1878bbed347013c7432be246b9ef7236ddb1f91c533567952ba45494c0fd0",
         "uncles": [],
         "withdrawals": [
@@ -56,25 +60,26 @@ title: "EVM"
         "withdrawalsRoot": "0x55fea77d31836b9a50d9594c3198367a7bce63c97908681b31efbb84a0b40a55",
         "chainId": "evm:1",
         "type": "block"
-    },
-    "chainId": "evm:1"
+    }
 }
 ```
 
 ### Logs model
+Logs are a way to emit events from the Ethereum blockchain.
+
+<b>Identifier on Mobula:</b> `log`
+
+<b>Example:</b>
 
 ```json
 {
-    {
-    "data": [
+    "data": 
       {
         "address":"0xu8765fyv6756127893187gygzfevz652bzef672",
         "block_hash":"0xu8765fyv6756127893187gygzfevz652bzef672",
         "block_number":46924501,
         "block_timestamp":1693374057,
         "data":"0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001",
-        "item_id":"log_0x11876578YGVBNNJBVFCTGYHUGVFC678765678U8789_470",
-        "item_timestamp":"2023-08-30T05:40:57Z",
         "log_index":470,
         "topics":[
             "0xc3d58168c5ae7397731d063d5bbf3d657854427343f4c083240f7aacaa2d0f62",
@@ -86,21 +91,18 @@ title: "EVM"
         "transaction_index":27,
         "type":"log"
       }
-    ],
-    "webhookUrl": "https://webhook.com/xxxxxxxxxx",
-    "chainId": "evm:1",
-    "streamId": "639dbfc1-f241-4f9c-ada6-a2c45d810b2b"
-    }
 }
 ```
 
 ### Trace model
+Traces are low-level operations that occurred during a transaction (function calls, etc).
+<b>Identifier on Mobula:</b> `trace`
+
+<b>Example:</b>
 
 ```json
-
 {
-  {
-  "data":[
+  "data":
     {
       "action": {
         "from": "0x52780fd4f8ea4465a6da9da9d1d051288ddc71ef",
@@ -122,41 +124,19 @@ title: "EVM"
       "transactionPosition": 99,
       "type": "trace"
     }
-    {
-      "action": {
-        "from": "0x52780fd4f8ea4465a6da9da9d1d051288ddc71ef",
-        "callType": "call",
-        "gas": "0x2f8a4",
-        "input": "0xd55ec697",
-        "to": "0x8177cf86a69fe1eaba3238a9eeaa725dc79dd665",
-        "value": "0x0"
-      },
-      "blockHash": "0x0cb48ef81152d30caaecad0bd238d3880e1039943c2ff747382845cac4b6ff82",
-      "blockNumber": "20368747",
-      "result": {
-        "gasUsed": "0x1d3c2",
-        "output": "0x"
-      },
-      "subtraces": 4,
-      "traceAddress": [],
-      "transactionHash": "0x81325ba90fc71e865f6a5558c70bf8fa3040cef83ec1a99216de785706a7fae9",
-      "transactionPosition": 99,
-      "type": "trace"
-    }
-  ],
-  "webhookUrl": "https://webhook.com/xxxxxxxxxx",
-  "chainId": "evm:1",
-  "webhookId": "639dbfc1-f241-4f9c-ada6-a2c45d810b2b"
-  },
 }
 ```
 
 ### Transaction model
+Transactions are the core data structure in Ethereum. They contain the data of a transaction, including the sender, recipient, amount, and other details.
+
+<b>Identifier on Mobula:</b> `transaction`
+
+<b>Example:</b>
 
 ```json
 {
     "data": {
-        "type": "transaction",
         "transaction": {
             "blockHash": "0x39567221d9b562e28097f1e861e74a70f74adc47012a5d445e90deaedd055553",
             "blockNumber": "20371760",
@@ -307,27 +287,11 @@ title: "EVM"
                 "type": "call"
             },
         ]
-    },
-    "chainId": "evm:1"
+    }
 }
 ```
 
-### Swap model
 
-```json
-{
-  "pair":"0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
-  "date":1726221539000,
-  "token_price":2351.381714933306,
-  "token_price_vs":0.998884903651478,
-  "token_amount":0.000567795864740687,
-  "token_amount_vs":1.336148,
-  "token_amount_usd":1.3339898168941882,
-  "type":"buy",
-  "blockchain":"Ethereum",
-  "hash":"0xa4bc93bde539f25653fde7538f59bd54e86fdba4cc9f3019f50557b072d05f3e"
-}
-```
 
 ### Transfer model
 

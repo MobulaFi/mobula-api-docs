@@ -307,8 +307,9 @@
 				{
 					"group": "Data Models",
 					"pages": [
+						"indexing-stream/stream/data-model/curated-data-model",
 						"indexing-stream/stream/data-model/supra-data-model",
-						"indexing-stream/stream/data-model/data-model"
+						"indexing-stream/stream/data-model/evm-data-model"
 					]
 				},
 				"indexing-stream/stream/reorg-handling",
