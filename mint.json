@@ -304,7 +304,13 @@
 						"indexing-stream/stream/websocket/wss-price-feed"
 					]
 				},
-				"indexing-stream/stream/data-model",
+				{
+					"group": "Data Models",
+					"pages": [
+						"indexing-stream/stream/data-model/supra-data-model",
+						"indexing-stream/stream/data-model/data-model"
+					]
+				},
 				"indexing-stream/stream/reorg-handling",
 				"indexing-stream/stream/filters"
 			]
