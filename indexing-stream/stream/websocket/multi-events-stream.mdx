@@ -16,11 +16,14 @@ Coming soon.
 - Message (string):
 
 ```json
-{
+{ 
+    "type": "stream",
+    "payload": {
     "name": "MyWalletTransactions",
     "chainIds": ["evm:1", "evm:56"],
-    "events": ["trace", "log", "trasaction", "block", "swap"],
-};
+    "events": ["trace", "log", "trasaction", "block", "swap"]
+    }
+}
 ```
 
 ### Parameters
