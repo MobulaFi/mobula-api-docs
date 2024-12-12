@@ -20,6 +20,19 @@ The filters model is used to filter the data you want to receive from the stream
 }
 ```
 
+### Filters table
+
+| Filter | Description |
+|--------|-------------|
+| `eq` | Checks if a field equals a specific value. The value can be a string, number, boolean or null. Example: `{ "eq": ["action.from", "0x123"] }` |
+| `neq` | Checks if a field does not equal a specific value. The value can be a string, number, boolean or null. Example: `{ "neq": ["transaction.status", "0x0"] }` |
+| `lt` | Checks if a numeric field is less than a specific value. The value is coerced to a number. Example: `{ "lt": ["block.number", 15000000] }` |
+| `lte` | Checks if a numeric field is less than or equal to a specific value. The value is coerced to a number. Example: `{ "lte": ["transaction.value", 1000000] }` |
+| `gt` | Checks if a numeric field is greater than a specific value. The value is coerced to a number. Example: `{ "gt": ["log.logIndex", 5] }` |
+| `gte` | Checks if a numeric field is greater than or equal to a specific value. The value is coerced to a number. Example: `{ "gte": ["block.timestamp", 1672527600] }` |
+| `in` | Checks if a field's value is included in a specific value. The value can be a string, number, boolean or null. Example: `{ "in": ["action.to", "0x123"] }` |
+
+
 ### Multiple filters
 
 You can use multiple filters to get the data you need. The filters are applied in the order they are defined.
