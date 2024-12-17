@@ -203,6 +203,8 @@
 				"blockchains/wemix",
 				"blockchains/astar",
 				"blockchains/solana",
+				"blockchains/supra",
+				"blockchains/supra-testnet",
 				"blockchains/starknet",
 				"blockchains/secret-network",
 				"blockchains/celestia",
