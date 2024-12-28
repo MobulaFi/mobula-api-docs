@@ -1,0 +1,188 @@
+---
+title: "How to build a Crypto AI Agent"
+description: "In an ever-changing ecosystem like cryptocurrencies, having the right tools to analyze, monitor, and respond to market movements is crucial. Crypto AI agents, combining data from advanced APIs with AI-powered analytical capabilities, offer a robust solution to these challenges by enabling smarter decision-making and streamlined portfolio management."
+---
+
+Mobula API enables the development of efficient and reliable Crypto AI agents by providing seamless access to real-time and historical cryptocurrency data. These agents harness the power of data aggregation and machine learning to automate portfolio monitoring, analyze token trends, and predict market movements. This guide is tailored for developers and crypto enthusiasts with basic Python knowledge, providing step-by-step instructions to build and deploy your own AI-powered crypto agent.
+
+### What you’ll need
+
+- Basic Python knowledge.
+- Python environment configured with `requests` and `pandas`.
+- An API key from the [Dashboard](https://admin.mobula.fi) (only for production use, you can use the API without an API key in development mode)
+
+### Walkthrough
+
+<Steps>
+  <Step title="Setting Up the Environment and Connecting to Mobula APIs">
+    **Install Dependencies**:
+
+      ```bash
+      pip install requests pandas
+      ```
+
+    **Mobula API Configuration**: Obtain your free API key from [Dashboard](https://docs.mobula.io/).
+    
+    **Connecting to Mobula APIs**: Use Mobula’s endpoints for market and wallet data:
+      
+      **Market Data**
+
+        ```python
+        import requests
+
+        headers = {
+            'Authorization': 'Bearer YOUR_MOBULA_API_KEY',
+        }
+        response = requests.get('https://api.mobula.io/api/1/market/data?asset=bitcoin', headers=headers)
+        data = response.json()
+        print(data)
+        ```
+
+        Retrieve prices, volumes, and market caps using the `/market/data` endpoint. Refer to the [Market Data Documentation](https://docs.mobula.io/rest-api-reference/endpoint/market-data) for more information.
+
+      **Wallet Data**
+
+        Access balances and transactions via wallet endpoints:
+
+        ```python
+        response = requests.get('https://api.mobula.io/api/1/wallet/portfolio?wallet=WALLET_ADDRESS', headers=headers)
+        wallet_data = response.json()
+        print(wallet_data)
+        ```
+
+        Relevant guides:
+
+        - [How to query Any Crypto Balance](https://docs.mobula.io/guides/query-any-crypto-balance-from-a-wallet)
+        - [How to query Crypto Transactions](https://docs.mobula.io/guides/query-any-crypto-transactions-from-a-wallet)
+        - [How to query Wallet USD Balance](https://docs.mobula.io/guides/query-usd-balance-of-a-wallet)
+  </Step>
+
+  <Step title="Adding an AI Layer">
+    Add an AI layer to analyze and interpret collected data and turn it into actionable insights.
+
+    **Choosing a Model**: Use GPT (e.g., OpenAI’s API) or a local ML model to analyze data retrieved from Mobula APIs.
+    
+    **Example Analysis**:
+
+      ```python
+      import openai
+
+      openai.api_key = 'YOUR_OPENAI_API_KEY'
+
+      prompt = f"Analyze the following data and give a recommendation: {data}"
+      response = openai.Completion.create(
+          engine="text-davinci-003", prompt=prompt, max_tokens=150)
+      print(response.choices[0].text.strip())
+      ```
+  </Step>
+
+  <Step title="Enabling the LLM to Use the API">
+    To enhance automation and flexibility, provide the LLM with Mobula's API context. This will allow the AI to understand the API's functions and generate requests or interpret responses dynamically.
+
+    **Defining the API Context**: Provide detailed documentation of Mobula's API endpoints, parameters, and expected responses to the LLM. For example:
+
+      ```python
+      api_context = """
+      Mobula API allows you to retrieve market and wallet data for cryptocurrencies.
+
+      Endpoints:
+      - Market Data (`/market/data`): Retrieve information about asset prices, volumes, and market caps.
+        Parameters:
+        - asset (string): The symbol of the asset (e.g., "bitcoin").
+        Response Example:
+        {
+            "asset": "bitcoin",
+            "price": 98381.92,
+            "volume": 7988374,
+            "market_cap": 589321034.32
+        }
+
+      - Wallet Portfolio (`/wallet/portfolio`): Retrieve the portfolio of a given wallet.
+        Parameters:
+        - wallet (string): The wallet address.
+        Response Example:
+        {
+            "wallet": "WALLET_ADDRESS",
+            "assets": [
+                {"asset": "ethereum", "balance": 11.05},
+                {"asset": "bitcoin", "balance": 0.61}
+            ]
+        }
+      """
+      ```
+
+    **Prompting the LLM**: Use the API context and an instruction to generate a query or analyze data dynamically.
+
+      ```python
+      import openai
+
+      openai.api_key = 'YOUR_OPENAI_API_KEY'
+
+      user_request = "Get the current price of Ethereum."
+      prompt = f"""
+      Using the following API context, determine how to retrieve the requested data:
+
+      API Context:
+      {api_context}
+
+      User Request:
+      {user_request}
+
+      Generate an appropriate API request and interpret the response.
+      """
+      response = openai.Completion.create(
+          engine="text-davinci-003", prompt=prompt, max_tokens=300)
+      print(response.choices[0].text.strip())
+      ```
+  </Step>
+
+  <Step title="Automating and Alerting">
+    Automate trend detection and set up real-time alerts for significant changes, ensuring quick market response.
+
+    **Trend Detection**: Write scripts to detect significant price or volume changes.
+    
+    **Sending Alerts**: Configure email or Slack notifications based on specific conditions:
+
+      ```python
+      def send_alert(message):
+          msg = MIMEText(message)
+          msg['Subject'] = 'Crypto Alert'
+          msg['From'] = 'your_email@example.com'
+          msg['To'] = 'recipient@example.com'
+
+          try:
+              with smtplib.SMTP('smtp.example.com', 587) as server:
+                  server.starttls()
+                  server.login('your_email@example.com', 'your_password')
+                  server.send_message(msg)
+              print("Alert sent successfully.")
+          except smtplib.SMTPException as e:
+              print(f"Failed to send alert: {e}")
+      ```
+  </Step>
+
+  <Step title="(Optional) Simple User Interface">
+    Use frameworks like Flask or Streamlit to create a basic interface for displaying real-time insights.
+  </Step>
+</Steps>
+
+To take it further, connect it to a Telegram bot to receive real-time notifications, enhancing your responsiveness to market changes and increasing automation.
+
+### Need Assistance?
+
+Having issue integrating your API key? Reach out to us, response times < 1h.
+
+<CardGroup>
+  <Card title="Support" icon="Telegram" href="https://t.me/MobulaPartnerBot?start=Mobula_API_Support_Key">
+    Telegram
+  </Card>
+  <Card title="Support" icon="Slack" href="https://join.slack.com/t/mobulaapi/shared_invite/zt-29zrrpjnl-I0tyD73sy7zKy8q~KLL3Ug">
+    Slack
+  </Card>
+  <Card title="Support" icon="Discord" href="https://discord.gg/JVT7xKm3AD">
+    Discord
+  </Card>
+  <Card title="Email Support" icon="envelope" href="mailto:contact@mobulalabs.org">
+    Email
+  </Card>
+</CardGroup>
