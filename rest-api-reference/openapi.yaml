@@ -839,33 +839,6 @@ paths:
           description: OK
       summary: Get the market metrics for any asset
   
-  /market/token/holders:
-    get:
-      operationId: fetchTokenHolders
-      parameters:
-        - description: The asset you want to target - asset name only works for assets listed on Mobula.
-          in: query
-          name: asset
-          schema:
-            type: string
-          required: true
-        - description: The blockchain of the asset (only mandatory if asset is sent as smart-contract).
-          in: query
-          name: blockchain
-          schema:
-            type: string
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    type: object
-      summary: Get the token holders for any asset
-
-
   /market/pair:
     get:
       operationId: fetchPairMarketData
@@ -2186,3 +2159,30 @@ paths:
             image/png:
               schema:
                 type: string
+
+  /market/token/holders:
+    get:
+      operationId: fetchTokenHolders
+      parameters:
+        - description: The asset you want to target - asset name only works for assets listed on Mobula.
+          in: query
+          name: asset
+          schema:
+            type: string
+          required: true
+        - description: The blockchain of the asset (only mandatory if asset is sent as smart-contract).
+          in: query
+          name: blockchain
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+      summary: Get the token holders for any asset
