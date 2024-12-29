@@ -2161,11 +2161,11 @@ paths:
                       transaction_count:
                         type: integer
 
-  /market/sparklines:
+  /market/sparkline:
     get:
-      summary: Get Sparklines
+      summary: Get Sparkline
       description: Get the 24h sparkline url for an asset
-      operationId: fetchSparklines
+      operationId: fetchSparkline
       parameters:
         - name: asset
           in: query
