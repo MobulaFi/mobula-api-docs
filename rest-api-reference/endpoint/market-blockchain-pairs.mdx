@@ -1,0 +1,29 @@
+---
+title: Get Blockchain Pairs
+openapi: get /market/blockchain/pairs
+---
+
+Possible filters & sort fields:
+
+| Field | Type | Description |
+|-------|------|-------------|
+| latest_trade_date | timestamp(6) | Timestamp of the most recent trade |
+| latest_price | double precision | Current price of the asset |
+| price_5min_ago | double precision | Price of the asset 5 minutes ago |
+| price_1h_ago | double precision | Price of the asset 1 hour ago |
+| price_4h_ago | double precision | Price of the asset 4 hours ago |
+| price_24h_ago | double precision | Price of the asset 24 hours ago |
+| price_change_5min | double precision | Price change in the last 5 minutes |
+| price_change_1h | double precision | Price change in the last hour |
+| price_change_4h | double precision | Price change in the last 4 hours |
+| price_change_24h | double precision | Price change in the last 24 hours |
+| holders_count | double precision | Number of token holders |
+| latest_market_cap | double precision | Current market capitalization |
+| price_1min_ago | double precision | Price of the asset 1 minute ago |
+| price_change_1min | double precision | Price change in the last minute |
+| trades_1min | double precision | Number of trades in the last minute |
+| trades_5min | double precision | Number of trades in the last 5 minutes |
+| volume_1min | double precision | Trading volume in the last minute |
+| volume_5min | double precision | Trading volume in the last 5 minutes |
+| created_at | timestamp(6) | Creation timestamp of the record |
+| market_cap | double precision | Market capitalization |

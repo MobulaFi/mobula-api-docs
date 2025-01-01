@@ -2186,3 +2186,41 @@ paths:
                   data:
                     type: object
       summary: Get the token holders for any asset
+  /market/blockchain/pairs:
+    get:
+      operationId: fetchBlockchainPairs
+      parameters:
+        - description: The blockchain you want assets from
+          in: query
+          name: blockchain
+          schema:
+            type: string
+        - description: The sort field
+          in: query
+          name: sortBy
+          schema:
+            type: string
+        - description: The sort order
+          in: query
+          name: sortOrder
+          schema:
+            type: string
+            enum: [desc, asc]
+        - description: Filters (comma separated)
+          in: query
+          name: filters
+          schema:
+            type: string
+
+      responses:
+          "200":
+            description: Successful response
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    data:
+                      type: object
+      
+      summary: Get the token holders for any asset

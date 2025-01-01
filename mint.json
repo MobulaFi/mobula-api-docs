@@ -239,7 +239,8 @@
 				"rest-api-reference/endpoint/market-history-pair",
 				"rest-api-reference/endpoint/market-query",
 				"rest-api-reference/endpoint/market-query-token",
-				"rest-api-reference/endpoint/market-token-holders"
+				"rest-api-reference/endpoint/market-token-holders",
+				"rest-api-reference/endpoint/market-blockchain-pairs"
 			]
 		},
 		{
