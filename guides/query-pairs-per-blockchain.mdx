@@ -1,0 +1,76 @@
+---
+title: "Get Trading Pairs per Blockchain"
+description: "Get detailed trading pair information for a specific blockchain. Perfect for developers and investors seeking real-time insights."
+---
+
+Mobula API provides precise and real-time data on trading pairs for specific blockchains, enabling developers and investors to gain actionable insights into market liquidity, trading volumes, and pair creation trends. This guide will walk you through retrieving detailed trading pair information via the API, showcasing its practical applications in portfolio tracking, market research, and DEX integrations.
+
+### **What You’ll Need**
+
+1. Basic knowledge of RESTful APIs and JavaScript.
+2. Preferences for specific blockchains, cache settings, and stale data handling (optional).
+3. An API key from the [**Dashboard**](https://admin.mobula.fi/) (required for production; optional in development mode).
+
+### **Walkthrough**
+
+#### **Execute the API Call**
+
+You can call the Mobula API directly from your terminal using cURL or any HTTP client.
+
+**Using cURL**:
+
+```bash
+curl --request GET \
+  --url 'https://api.mobula.io/api/1/market/blockchain/pairs?blockchain=Base&sortBy=createdAt'
+```
+
+**Using Axios**:
+
+```javascript
+import axios from "axios";
+
+axios.get('https://api.mobula.io/api/1/market/blockchain/pairs', {
+  params: {
+    blockchain: "Base",
+    sortBy: "createdAt"
+  },
+})
+  .then(response => console.log(response.data))
+  .catch(error => console.error(error));
+```
+
+#### **Get Your Data**
+The API provides detailed data on trading pairs for a specific blockchain, including pair creation trends, market liquidity, and trading volumes. Available filters and sorting fields are listed [here](https://docs.mobula.io/rest-api-reference/endpoint/market-blockchain-pairs).
+
+
+### **Insights You Can Extract**
+
+- **Liquidity Monitoring**: Assess market liquidity for specific pairs to identify trading opportunities.
+- **Volume Analysis**: Track 24-hour trading volumes to determine market trends and pair popularity.
+- **New Pair Tracking**: Monitor recently created trading pairs with the `sortBy=createdAt` parameter.
+
+### **Use Cases**
+
+- **Portfolio Tracking**: Enhance portfolio tools with real-time pair data for a specific blockchain.
+- **Market Research**: Evaluate trading pair performance to plan trading strategies.
+- **DEX Integrations**: Build applications that rely on specific blockchain trading pair data.
+
+### **Need Help?**
+
+Our support team is available to assist you with any questions or challenges in using the API.
+
+<CardGroup>
+  <Card title="Support" icon="Telegram" href="https://t.me/MobulaConnectBot">
+    Telegram
+  </Card>
+  <Card title="Support" icon="Slack" href="https://join.slack.com/t/mobulaapi/shared_invite/zt-29zrrpjnl-I0tyD73sy7zKy8q~KLL3Ug">
+    Slack
+  </Card>
+  <Card title="Support" icon="Discord" href="https://discord.gg/JVT7xKm3AD">
+    Discord
+  </Card>
+  <Card title="Email Support" icon="envelope" href="mailto:contact@mobulalabs.org">
+    Email
+  </Card>
+</CardGroup>
+```
