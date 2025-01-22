@@ -20,14 +20,14 @@ Using Mobula API to track price fluctuations can significantly enhance trading s
     **Using cURL**:
     ```bash
     curl --request GET \
-    --url 'https://api.mobula.io/api/1/market/data?asset=bitcoin'
+    --url 'https://production-api.mobula.io/api/1/market/data?asset=bitcoin'
     ```
 
     **Using Axios**:
     ```javascript
     import axios from "axios";
 
-    axios.get('https://api.mobula.io/api/1/market/data?asset=bitcoin')
+    axios.get('https://production-api.mobula.io/api/1/market/data?asset=bitcoin')
     .then(function (response) {
       console.log(response);
     })

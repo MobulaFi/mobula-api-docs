@@ -20,14 +20,14 @@ Mobula API provides access to real-time and historical OHLCV data for a wide ran
     **Using cURL**:
     ```bash
     curl --request GET \
-    --url 'https://api.mobula.io/api/1/market/history?asset=base&blockchain=base'
+    --url 'https://production-api.mobula.io/api/1/market/history?asset=base&blockchain=base'
     ```
 
     **Using Axios**:
     ```javascript
     import axios from "axios";
 
-    axios.get('https://api.mobula.io/api/1/market/history?asset=base&blockchain=base')
+    axios.get('https://production-api.mobula.io/api/1/market/history?asset=base&blockchain=base')
     .then(function (response) {
       console.log(response);
     })

@@ -20,14 +20,14 @@ Mobula API delivers precise and immediate data on newly created trading pairs, e
     **Using cURL**:
     ```bash
     curl --request GET \
-    --url 'https://api.mobula.io/api/1/market/query/token?sortBy=listed_at&sortOrder=desc&blockchain=Base'
+    --url 'https://production-api.mobula.io/api/1/market/query/token?sortBy=listed_at&sortOrder=desc&blockchain=Base'
     ```
 
     **Using Axios**:
     ```javascript
     import axios from "axios";
 
-    axios.get('https://api.mobula.io/api/1/market/query/token?sortBy=listed_at&sortOrder=desc&blockchain=Base')
+    axios.get('https://production-api.mobula.io/api/1/market/query/token?sortBy=listed_at&sortOrder=desc&blockchain=Base')
     .then(function (response) {
       console.log(response);
     })

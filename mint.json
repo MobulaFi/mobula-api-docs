@@ -269,7 +269,7 @@
 		},
 		{
 			"group": "Misc",
-			"pages": ["rest-api-reference/endpoint/sparklines"]
+			"pages": ["rest-api-reference/endpoint/sparklines", "rest-api-reference/endpoint/market-cefi-funding-rate"]
 		},
 
 		{

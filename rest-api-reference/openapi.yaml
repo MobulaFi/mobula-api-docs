@@ -1,5 +1,5 @@
 servers:
-  - url: https://api.mobula.io/api/1
+  - url: https://production-api.mobula.io/api/1
 components:
   schemas:
     Asset:
@@ -2224,3 +2224,24 @@ paths:
                       type: object
       
       summary: Get the token holders for any asset
+  /market/cefi/funding-rate:
+    get:
+      operationId: fetchCefiFundingRate
+      parameters:
+        - description: The symbol you want to get the funding rate for
+          in: query
+          name: symbol
+          schema:
+            type: string
+      responses:
+          "200":
+            description: Successful response
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    data:
+                      type: object
+      
+      summary: Get the funding rate for any cefi pair

@@ -23,13 +23,13 @@ Mobula API enables the retrieval of historical balance data from EVM-compatible 
     **Using cURL**:
     ```bash
     curl --request GET \
-    --url 'https://api.mobula.io/api/1/wallet/history?wallet=0x77A89C51f106D6cD547542a3A83FE73cB4459135&from=1650788304000&to=1651940430000'
+    --url 'https://production-api.mobula.io/api/1/wallet/history?wallet=0x77A89C51f106D6cD547542a3A83FE73cB4459135&from=1650788304000&to=1651940430000'
     ```
 
     **Using Axios**:
     ```javascript
     import axios from "axios";
-    axios.get('https://api.mobula.io/api/1/wallet/history?wallet=0x77A89C51f106D6cD547542a3A83FE73cB4459135&from=1650788304000&to=1651940430000')
+    axios.get('https://production-api.mobula.io/api/1/wallet/history?wallet=0x77A89C51f106D6cD547542a3A83FE73cB4459135&from=1650788304000&to=1651940430000')
     .then(response => console.log(response.data))
     .catch(error => console.log(error));
     ```

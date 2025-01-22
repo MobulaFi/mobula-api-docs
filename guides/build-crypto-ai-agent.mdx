@@ -33,7 +33,7 @@ Mobula API enables the development of efficient and reliable Crypto AI agents by
         headers = {
             'Authorization': 'Bearer YOUR_MOBULA_API_KEY',
         }
-        response = requests.get('https://api.mobula.io/api/1/market/data?asset=bitcoin', headers=headers)
+        response = requests.get('https://production-api.mobula.io/api/1/market/data?asset=bitcoin', headers=headers)
         data = response.json()
         print(data)
         ```
@@ -45,7 +45,7 @@ Mobula API enables the development of efficient and reliable Crypto AI agents by
         Access balances and transactions via wallet endpoints:
 
         ```python
-        response = requests.get('https://api.mobula.io/api/1/wallet/portfolio?wallet=WALLET_ADDRESS', headers=headers)
+        response = requests.get('https://production-api.mobula.io/api/1/wallet/portfolio?wallet=WALLET_ADDRESS', headers=headers)
         wallet_data = response.json()
         print(wallet_data)
         ```

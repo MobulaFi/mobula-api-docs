@@ -65,7 +65,7 @@ client.on('messageCreate', async message => {
     }
 
     try {
-        const response = await axios.get(`https://api.mobula.io/api/1/market/data?asset=${asset}`, {
+        const response = await axios.get(`https://production-api.mobula.io/api/1/market/data?asset=${asset}`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'YOUR_API_KEY_HERE'

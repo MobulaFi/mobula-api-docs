@@ -21,7 +21,7 @@ Mobula API allows you to query market data from any kind of assets in a unified 
 
     ```bash
 
-curl --location --request GET 'https://api.mobula.io/api/1/market/data?asset=Bitcoin' \
+curl --location --request GET 'https://production-api.mobula.io/api/1/market/data?asset=Bitcoin' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: YOUR_API_KEY_HERE'
 
@@ -50,7 +50,7 @@ import { Mobula } from "mobula-sdk";
 
 import axios from "axios";
 
-axios.get('https://api.mobula.io/api/1/market/data?asset=Bitcoin')
+axios.get('https://production-api.mobula.io/api/1/market/data?asset=Bitcoin')
   .then(function (response) {
     console.log(response);
   })
