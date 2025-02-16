@@ -1,0 +1,128 @@
+---
+title: "GMGN APIs"
+description: "GMGN specializes in MEME trading and signal execution on Solana/ETH/Base, but **its APIs are not publicly available.** In contrast, Mobula provides an open, multi-chain API with real-time data, historical insights, and advanced customization, making it the go-to choice for developers."
+---
+
+In today’s fast-paced DeFi landscape, access to reliable data is crucial. Unlike GMGN’s private APIs, which are restricted to their ecosystem and not publicly accessible, **Mobula** offers a publicly available, multi-chain API with advanced customization and comprehensive market data, including **deep support for Solana**.
+
+## Feature Table
+
+| **Feature** | **GMGN APIs** | **Mobula APIs** |
+| --- | --- | --- |
+| **Real-Time Trading Data** | ✅ Yes – Focused on rapid token trades and copy trading | ✅ Yes – Extensive real-time data covering prices, volumes, liquidity, and more |
+| **Multi-Blockchain Support** | 👎 Limited – Primarily Solana and ETH/Base | 🌟 Extensive – Supports 50+ chains including non-EVM networks |
+| **On-Chain & Off-Chain Data** | 👎 Primarily on-chain; focused on trading signals | 🌟 Both on-chain and off-chain data for deeper market insights |
+| **Customization & Query Flexibility** | 👎 Basic – Pre-defined endpoints for trading routes and simulation | 🌟 Advanced – Customizable queries across market data, historical trends, vesting, etc. |
+| **Additional Metrics** | 👎 Trading routes, slippage, anti-MEV features | 🌟 Comprehensive metrics including historical token data, vesting/unlock details, wallet transactions, and more |
+| **Developer Tools & SDK** | 👎 Limited documentation focused on trading automation | 🌟 Robust documentation, SDKs, and integration guides for various use cases |
+
+---
+
+## Examples of Mobula API Usage
+
+### 1. Retrieving Real-Time Market Data
+
+**Using cURL:**
+
+```bash
+curl --request GET \
+  --url 'https://api.mobula.io/api/1/market/blockchain/pairs?blockchain=solana&sortBy=createdAt'
+```
+
+**Using Axios:**
+
+```jsx
+import axios from "axios";
+
+axios.get('https://api.mobula.io/api/1/market/blockchain/pairs', {
+  params: {
+    blockchain: "solana",
+    sortBy: "createdAt"
+  }
+})
+  .then(response => console.log(response.data))
+  .catch(error => console.error(error));
+```
+
+### 2. Accessing Historical Token Data (Mobula Exclusive)
+
+**Using cURL:**
+
+```bash
+curl --request GET \
+  --url 'https://api.mobula.io/api/1/market/history?asset=solana&blockchain=solana'
+```
+
+**Using Axios:**
+
+```jsx
+import axios from "axios";
+
+axios.get('https://api.mobula.io/api/1/market/history', {
+  params: {
+    asset: "solana",
+    blockchain: "solana"
+  }
+})
+  .then(response => console.log(response.data))
+  .catch(error => console.error(error));
+```
+
+### 3. Retrieving Token Vesting and Unlock Details (Mobula Exclusive)
+
+**Using cURL:**
+
+```bash
+curl --request GET \
+  --url 'https://api.mobula.io/api/1/market/vesting?asset=tokenName&blockchain=ethereum'
+```
+
+**Using Axios:**
+
+```jsx
+import axios from "axios";
+
+axios.get('https://api.mobula.io/api/1/market/vesting', {
+  params: {
+    asset: "tokenName",
+    blockchain: "solana"
+  }
+})
+  .then(response => console.log(response.data))
+  .catch(error => console.error(error));
+```
+
+###  
+###  
+###  
+
+While GMGN’s private APIs specialize in rapid trading signals and execution within a restricted ecosystem, Mobula’s public APIs provide a comprehensive suite of data tools that empower developers to:
+
+- **Integrate Multi-Chain Data:** Access a wide array of blockchain networks, including Solana, ensuring your application isn’t limited to just one ecosystem.
+- **Perform Deep Market Analysis:** Retrieve not only real-time trading data but also historical trends, token vesting details, and comprehensive wallet transactions.
+- **Customize Data Queries:** Leverage advanced query capabilities to tailor the data to your specific needs—ideal for building detailed dashboards, analytical tools, and automated trading strategies.
+- **Ensure Seamless Integration:** With extensive documentation, robust SDK support, and flexible endpoints, Mobula’s APIs are designed to integrate effortlessly into any development workflow.
+
+
+If you need a powerful, all-encompassing solution for real-time market data, historical analysis, and multi-blockchain support, including comprehensive Solana data, **Mobula’s APIs** are your go-to choice.
+
+Ready to get started? Check out Mobula’s [API documentation](https://docs.mobula.io/) and [OpenAPI spec](https://github.com/MobulaFi/mobula-api-docs/blob/main/rest-api-reference/openapi.yaml) to see the full potential of what you can build.
+
+### Need Assistance?
+
+Having issue integrating your API key? Reach out to us, response times < 1h.
+
+<CardGroup>
+  <Card title="Support" icon="Telegram" href="https://t.me/MobulaConnectBot">
+    Telegram
+  </Card>
+  <Card title="Support" icon="Slack" href="https://join.slack.com/t/mobulaapi/shared_invite/zt-29zrrpjnl-I0tyD73sy7zKy8q~KLL3Ug">
+    Slack
+  </Card>
+  <Card title="Support" icon="Discord" href="https://discord.gg/JVT7xKm3AD">
+    Discord
+  </Card>
+  <Card title="Email Support" icon="envelope" href="mailto:contact@mobulalabs.org">
+    Email
+  </Card>
+</CardGroup>

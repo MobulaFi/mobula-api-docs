@@ -1,0 +1,145 @@
+---
+title: "DEX Screener APIs"
+description: "This guide provides a comprehensive overview of how to access and utilize DEXScreener-like data through Mobula's APIs."
+---
+
+## **Dexscreener APIs vs. Mobula APIs: What’s the Difference?**
+
+Dexscreener provides free APIs that allow access to real-time price, volume, and liquidity data for DEX trading pairs. However, these APIs are **focused on trading** and limited to token pairs.  
+**Mobula**, on the other hand, provides **a more comprehensive API**, aggregating both **on-chain and off-chain** token data, with **multi-blockchain support** and advanced query customization.
+
+| **Features** | **Dexscreener APIs** | **Mobula APIs** |
+| --- | --- | --- |
+| **Real-time price data** | ✅ Yes | ✅ Yes |
+| **DEX trading data** | ✅ Yes | ✅ Yes |
+| **Multi-blockchain support** | ❌ No (DEX-focused) | ✅ Yes |
+| **On-chain + off-chain data** | ❌ No | ✅ Yes |
+| **Customizable queries** | ❌ Limited | ✅ Advanced |
+| **Vesting/unlock data** | ❌ No | ✅ Yes |
+| **New token tracking** | ❌ Limited | ✅ Yes |
+| **Global market data** | ❌ No | ✅ Yes |
+
+If you only need basic DEX trading pair data, Dexscreener API is a solid free option.  
+But if you require **a broader, multi-blockchain,** and **customizable data solution**, **Mobula API** is clearly superior.
+
+**Mobula APIs** provide comprehensive access to decentralized exchange (DEX) data, offering the same level of detail as platforms like **Dexscreener**, but with more flexibility and integration options.  
+Whether you need token prices, liquidity, or trade volumes, **Mobula** allows you to easily fetch this data in real-time from multiple blockchain networks, integrating seamlessly into your applications.
+
+## **General Prerequisites**
+
+Before diving into Mobula's APIs, ensure you have the following:
+
+- Basic understanding of **RESTful APIs** and **JavaScript**.
+- An API key from the [**Mobula Dashboard**](https://admin.mobula.fi/) (required for production; optional in development mode).
+
+## **Retrieving Real-Time Trade Transactions for a Specific Pair**
+
+With **Mobula APIs**, you can easily access transaction data for specific token pairs, just like Dexscreener. This feature allows you to track trading volumes, liquidity, and price changes in real-time.
+
+### Using cURL
+```bash
+curl --request GET \
+  --url 'https://api.mobula.io/api/1/market/blockchain/pairs?blockchain=cronos&sortBy=createdAt'
+```
+
+### Using JavaScript
+```jsx
+import axios from "axios";
+
+axios.get('https://api.mobula.io/api/1/market/blockchain/pairs', {
+  params: {
+    blockchain: "cronos",
+    sortBy: "createdAt"
+  },
+})
+  .then(response => console.log(response.data))
+  .catch(error => console.error(error));
+```
+
+## **Retrieving Comprehensive Token Metrics**
+
+Using **Mobula APIs** you can fetch key metrics such as buy volume, sell volume, total trade volume, and more for specific tokens.
+
+### Using cURL
+```bash
+curl --request GET \
+  --url 'https://production-api.mobula.io/api/1/market/data?asset=bitcoin'
+```
+
+### Using JavaScript
+```jsx
+import axios from "axios";
+
+axios.get('https://production-api.mobula.io/api/1/market/data?asset=bitcoin')
+  .then(response => console.log(response.data))
+  .catch(error => console.error(error));
+```
+
+## **Accessing Top Trading Pairs**
+
+**Mobula** also allows you to retrieve the most traded pairs, just like Dexscreener. This enables you to track the most popular assets and trading pairs across various blockchains, allowing you to spot trends in real-time.
+
+### Using cURL
+```bash
+curl --request GET \
+  --url 'https://api.mobula.io/api/1/market/top-pairs'
+```
+
+### Using JavaScript
+```jsx
+import axios from "axios";
+
+axios.get('https://api.mobula.io/api/1/market/top-pairs')
+  .then(response => console.log(response.data))
+  .catch(error => console.error(error));
+```
+
+## **Discovering Newly Listed Tokens**
+
+**Mobula** enables you to stay ahead of emerging trends by tracking newly listed tokens across multiple blockchains.
+
+### Using cURL
+```bash
+curl --request GET \
+  --url 'https://api.mobula.io/api/1/market/new-tokens?blockchain=ethereum'
+```
+
+### Using JavaScript
+```jsx
+import axios from "axios";
+
+axios.get('https://api.mobula.io/api/1/market/new-tokens', {
+  params: {
+    blockchain: "ethereum"
+  },
+})
+  .then(response => console.log(response.data))
+  .catch(error => console.error(error));
+```
+
+## **Why Choose Mobula APIs Over Dexscreener?**
+
+- **Real-Time Data**: Always up-to-date, integrated directly into your platform.
+- **Customizable Queries**: Filter and customize the data you retrieve.
+- **Multi-Blockchain Support**: Fetch data across multiple networks.
+
+By leveraging **Mobula's APIs**, you can access the same crucial DEX data available on platforms like Dexscreener, but with added benefits of customization, multi-blockchain support, and seamless integration into your applications.
+
+### Need Assistance?
+
+Having issue integrating your API key? Reach out to us, response times < 1h.
+
+<CardGroup>
+  <Card title="Support" icon="Telegram" href="https://t.me/MobulaConnectBot">
+    Telegram
+  </Card>
+  <Card title="Support" icon="Slack" href="https://join.slack.com/t/mobulaapi/shared_invite/zt-29zrrpjnl-I0tyD73sy7zKy8q~KLL3Ug">
+    Slack
+  </Card>
+  <Card title="Support" icon="Discord" href="https://discord.gg/JVT7xKm3AD">
+    Discord
+  </Card>
+  <Card title="Email Support" icon="envelope" href="mailto:contact@mobulalabs.org">
+    Email
+  </Card>
+</CardGroup>
