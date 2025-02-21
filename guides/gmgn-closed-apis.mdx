@@ -1,0 +1,156 @@
+---
+title: "Why is GMGN API Not Open to the Public?"
+description: "Decoding the Closed Ecosystem of Solana’s Leading Trading Tool"
+---
+
+Despite its impressive features, **GMGN’s API remains inaccessible to the public**, limiting opportunities for developers and enterprises.  
+Why? Let’s break it down.
+
+GMGN has opted to keep its data API private. Instead, they provide access to their data crawling IP whitelist, but only for users with GMGN transaction records. To apply, users must submit their GMGN transaction address, invitation code, and IP address for whitelist approval. The API is heavily restricted, with a rate limit of just 2 requests per second, and frequent modifications or removals of API fields. Additionally, GMGN lacks the infrastructure to support a high-availability and high-throughput API for enterprise use.
+
+## GMGN’s Core Features vs. Public Accessibility
+
+| **Feature** | **GMGN Capability** | **Public API Availability** |
+| --- | --- | --- |
+| **Anti-MEV Execution** | Jito-style bundles for MEV protection | ❌ Closed |
+| **Telegram Bot Automation** | Stop-loss, take-profit, and DCA strategies via bots | ❌ Closed |
+| **DEX Aggregation** | Real-time price feeds from Raydium, Orca, and other Solana DEXs | ❌ Closed |
+| **Transaction Simulation** | Pre-trade simulation to avoid failed transactions | ❌ Closed |
+| **Wallet Tracking** | Monitor wallet activity for “smart money” insights | ❌ Closed |
+
+## Why GMGN Keeps Its API Closed
+
+### 1. Protecting Intellectual Property
+
+GMGN’s **anti-MEV execution engine** is a key differentiator. By restricting API access, they prevent competitors from reverse-engineering their proprietary algorithms.
+
+**Example**:
+
+- GMGN’s `/router/quote` endpoint minimizes slippage and mitigates sandwich attacks.
+- A public API could enable forks or clones, eroding GMGN’s competitive advantage.
+
+### 2. Ensuring Platform Stability
+
+Public APIs are vulnerable to abuse, leading to performance degradation. GMGN’s closed system guarantees:
+
+- **Low Latency**: Sub-500ms trade execution.
+- **High Uptime**: Protection from unauthorized overloads.
+
+**Developer Impact**:
+
+- Without strict rate limits, API access could compromise reliability for paying users.
+- GMGN prioritizes stability over accessibility.
+
+### 3. Monetization Strategy
+
+GMGN profits from **subscription-based Telegram bots** and **partner integrations**. Opening its API could:
+
+- Undermine its revenue streams.
+- Enable third parties to develop competing platforms.
+
+**Example**:
+
+- GMGN charges users for premium bot features (e.g., stop-loss, DCA).
+- Public API access could facilitate free alternatives.
+
+### 4. Regulatory and Security Concerns
+
+Handling sensitive transaction data requires stringent security measures. A closed API:
+
+- Limits exposure to hacks.
+- Simplifies compliance with financial regulations (AML, KYC).
+
+**Developer Perspective**:
+
+- Secure API infrastructure demands significant resources.
+- GMGN circumvents these challenges by restricting access.
+
+## What Developers Are Missing Out On
+
+### 1. Anti-MEV Trade Execution
+
+GMGN’s `/router/quote` and `/submit-tx` endpoints provide advanced MEV protection. Developers must rely on:
+
+- Solana’s `@solana/web3.js` for transaction bundling.
+- Standalone DEX APIs (Raydium, Orca) for liquidity data.
+
+### 2. Telegram Bot Automation
+
+GMGN automates trading strategies (stop-loss, DCA). Without API access, developers must:
+
+- Build bots using Solana RPC nodes.
+- Handle rate limits and transaction failures manually.
+
+**Example**:
+
+```python
+# Simulate GMGN’s stop-loss bot
+if token_price < stop_loss:
+    execute_sell_via_solana_rpc()
+```
+
+### 3. Real-Time DEX Analytics
+
+GMGN aggregates data from multiple DEXs. Developers need to:
+
+- Manually integrate each DEX API.
+- Deal with inconsistent data formats.
+
+**Alternative**: Use **Mobula’s `/market/data` endpoint** for unified DEX data.
+
+## The Future of GMGN’s API
+
+While GMGN’s API remains closed, developers have options:
+
+1. **Partner Programs**: GMGN may grant API access to select partners.
+2. **Open-Source Alternatives**: Solutions like **Jupiter and Mobula** offer similar features.
+3. **Community Pressure**: Increased demand may push GMGN towards openness.
+
+## The Trade-Offs of a Closed Ecosystem
+
+GMGN’s restricted API has pros and cons:
+
+- **Pros**: Protects IP, ensures stability, and supports monetization.
+- **Cons**: Stifles innovation and developer participation.
+
+For developers seeking **scalable and accessible** API solutions, **Mobula offers a superior alternative**.
+
+## Comparing Mobula API vs. GMGN API
+
+| Feature | Mobula API | GMGN API |
+| --- | --- | --- |
+| **Access** | ✨ Open to all developers (API key required for production) | 👎 Restricted; requires GMGN transaction records and IP whitelist |
+| **Rate Limiting** | ✨ Flexible limits based on subscription tier | 👎 Strict 2 requests per second cap |
+| **Field Stability** | ✨ Regular updates with clear documentation | 👎 Frequent changes/removals |
+| **Enterprise Support** | ✨ High availability, scalable for large applications | 👎 Not optimized for enterprise use |
+
+## Why Mobula Stands Out
+
+- **Multi-Chain Coverage**: Supports **50+ blockchains** (Ethereum, BNB, Avalanche, Polygon, etc.).
+- **Comprehensive Data Access**: Fetch **market data, wallet transactions, holdings, and metadata** via **REST, GraphQL, and SQL**.
+- **Advanced Indexing Solutions**: Offers **The Graph, Ponder, and Octoflow** frameworks as cloud services.
+- **Real-Time Streaming**: Webhooks & WebSockets for **instant data updates**.
+- **Token Vesting Insights**: Detailed vesting schedules and unlock events.
+
+By leveraging Mobula’s cutting-edge APIs, developers can build scalable, data-rich applications without the limitations imposed by GMGN.
+
+  
+
+### Need Assistance?
+
+Having issue integrating your API key? Reach out to us, response times < 1h.
+
+<CardGroup>
+  <Card title="Support" icon="Telegram" href="https://t.me/MobulaConnectBot">
+    Telegram
+  </Card>
+  <Card title="Support" icon="Slack" href="https://join.slack.com/t/mobulaapi/shared_invite/zt-29zrrpjnl-I0tyD73sy7zKy8q~KLL3Ug">
+    Slack
+  </Card>
+  <Card title="Support" icon="Discord" href="https://discord.gg/JVT7xKm3AD">
+    Discord
+  </Card>
+  <Card title="Email Support" icon="envelope" href="mailto:contact@mobulalabs.org">
+    Email
+  </Card>
+</CardGroup>

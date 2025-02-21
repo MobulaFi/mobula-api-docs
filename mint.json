@@ -108,7 +108,9 @@
 				"guides/dex-screener-apis",
 				"guides/gmgn-apis",
 				"guides/dextools-v2-apis",
-				"guides/token-unlock"
+				"guides/token-unlock",
+				"guides/gmgn-closed-apis",
+				"guides/gmgn-alternatives"
 			]
 		},
 		{
