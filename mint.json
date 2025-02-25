@@ -256,7 +256,6 @@
 				"rest-api-reference/endpoint/wallet-history",
 				"rest-api-reference/endpoint/wallet-portfolio",
 				"rest-api-reference/endpoint/wallet-multi-portfolio",
-				"rest-api-reference/endpoint/wallet-defi-positions",
 				"rest-api-reference/endpoint/wallet-transactions"
 			]
 		},
@@ -275,7 +274,10 @@
 		},
 		{
 			"group": "Misc",
-			"pages": ["rest-api-reference/endpoint/sparklines", "rest-api-reference/endpoint/market-cefi-funding-rate"]
+			"pages": [
+				"rest-api-reference/endpoint/sparklines",
+				"rest-api-reference/endpoint/market-cefi-funding-rate"
+			]
 		},
 
 		{

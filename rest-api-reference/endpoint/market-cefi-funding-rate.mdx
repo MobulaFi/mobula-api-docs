@@ -6,8 +6,13 @@ openapi: get /market/cefi/funding-rate
 
 The endpoint can also be accessed via WSS: 
 - endpoint: wss://api.mobula.io
-- payload: ```json {
-"type":"funding","authorization":"api-key","payload":{"symbol":"BTC" }
-
-} ```
-
+- payload: >
+  ```json
+  {
+    "type": "funding",
+    "authorization": "api-key",
+    "payload": {
+      "symbol": "BTC"
+    }
+  }
+  ```

@@ -9,6 +9,246 @@ components:
   schemas: {}
   parameters: {}
 paths:
+  /all:
+    get:
+      summary: Get all assets
+      parameters:
+        - schema:
+            type: string
+            default: ""
+          required: false
+          name: fields
+          in: query
+      responses:
+        "200":
+          description: All response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: number
+                        name:
+                          type: string
+                        symbol:
+                          type: string
+                        logo:
+                          type: string
+                          nullable: true
+                        price:
+                          type: number
+                          nullable: true
+                        price_change_1h:
+                          type: number
+                        price_change_24h:
+                          type: number
+                        price_change_7d:
+                          type: number
+                        price_change_1m:
+                          type: number
+                        price_change_1y:
+                          type: number
+                        market_cap:
+                          type: number
+                        liquidity:
+                          type: number
+                        volume:
+                          type: number
+                        blockchains:
+                          type: array
+                          items:
+                            type: string
+                        contracts:
+                          type: array
+                          items:
+                            type: string
+                        decimals:
+                          type: array
+                          items:
+                            type: number
+                        website:
+                          type: string
+                          nullable: true
+                        twitter:
+                          type: string
+                          nullable: true
+                        chat:
+                          type: string
+                          nullable: true
+                      required:
+                        - id
+                        - name
+                        - symbol
+                required:
+                  - data
+  /blockchains:
+    get:
+      summary: Get all blockchains
+      responses:
+        "200":
+          description: Blockchains response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        shortName:
+                          type: string
+                        rpcs:
+                          type: array
+                          items:
+                            type: string
+                        privateRpcs:
+                          type: array
+                          items:
+                            type: string
+                        chainId:
+                          type: string
+                        evmChainId:
+                          type: number
+                        cosmosChainId:
+                          type: string
+                        testnet:
+                          type: boolean
+                        explorer:
+                          type: string
+                        eth:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            symbol:
+                              type: string
+                            address:
+                              type: string
+                            type:
+                              type: string
+                              enum: &a1
+                                - eth
+                                - stable
+                                - other
+                            decimals:
+                              type: number
+                            denom:
+                              type: string
+                            logo:
+                              type: string
+                            id:
+                              type: number
+                          required:
+                            - name
+                            - symbol
+                            - address
+                            - type
+                            - decimals
+                            - logo
+                        stable:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            symbol:
+                              type: string
+                            address:
+                              type: string
+                            type:
+                              type: string
+                              enum: *a1
+                            decimals:
+                              type: number
+                            denom:
+                              type: string
+                            logo:
+                              type: string
+                            blockchain:
+                              type: string
+                            blockchains:
+                              type: array
+                              items:
+                                type: string
+                            contracts:
+                              type: array
+                              items:
+                                type: string
+                          required:
+                            - name
+                            - symbol
+                            - address
+                            - type
+                            - decimals
+                            - logo
+                            - blockchain
+                            - blockchains
+                            - contracts
+                        multicall_contract:
+                          type: string
+                        uniswapV3Factory:
+                          type: array
+                          items:
+                            type: string
+                        routers:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              address:
+                                type: string
+                              name:
+                                type: string
+                            required:
+                              - address
+                              - name
+                        tokens:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              address:
+                                type: string
+                              name:
+                                type: string
+                            required:
+                              - address
+                              - name
+                        supportedProtocols:
+                          type: array
+                          items:
+                            type: string
+                        logo:
+                          type: string
+                        color:
+                          type: string
+                        coingeckoChain:
+                          type: string
+                        dexscreenerChain:
+                          type: string
+                        isLayer2:
+                          type: boolean
+                      required:
+                        - name
+                        - rpcs
+                        - chainId
+                        - explorer
+                        - routers
+                        - tokens
+                        - supportedProtocols
+                        - logo
+                        - color
+                required:
+                  - data
   /market/blockchain/pairs:
     get:
       summary: Get blockchain pairs
@@ -620,7 +860,7 @@ paths:
         - schema:
             type: number
             nullable: true
-            default: 1740503662193
+            default: 1740508289523
           required: false
           name: to
           in: query
@@ -1973,7 +2213,7 @@ paths:
                   - market_cap_history
                   - market_cap_change_24h
                   - btc_dominance_history
-  /market/trades:
+  /market/trades/pair:
     get:
       summary: Get market trades
       parameters:
@@ -2519,6 +2759,106 @@ paths:
                             - type
                 required:
                   - data
+  /wallet/nfts:
+    get:
+      summary: Get wallet nfts
+      parameters:
+        - schema:
+            type: string
+            minLength: 1
+          required: true
+          name: wallet
+          in: query
+        - schema:
+            type: string
+          required: false
+          name: blockchains
+          in: query
+        - schema:
+            type: string
+            default: "1"
+          required: false
+          name: page
+          in: query
+        - schema:
+            type: string
+            default: "0"
+          required: false
+          name: offset
+          in: query
+        - schema:
+            type: string
+            default: "100"
+          required: false
+          name: limit
+          in: query
+        - schema:
+            type: string
+            default: "false"
+          required: false
+          name: pagination
+          in: query
+      responses:
+        "200":
+          description: Wallet NFTs response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        token_address:
+                          type: string
+                        token_id:
+                          type: string
+                        token_uri:
+                          type: string
+                        amount:
+                          type: string
+                        owner_of:
+                          type: string
+                        name:
+                          type: string
+                        symbol:
+                          type: string
+                        blockchain:
+                          type: string
+                        chain_id:
+                          type: string
+                      required:
+                        - token_address
+                        - token_id
+                        - token_uri
+                        - amount
+                        - owner_of
+                        - name
+                        - symbol
+                        - blockchain
+                        - chain_id
+                  pagination:
+                    type: object
+                    nullable: true
+                    properties:
+                      total:
+                        type: number
+                      page:
+                        type: number
+                      offset:
+                        type: number
+                      limit:
+                        type: number
+                    required:
+                      - total
+                      - page
+                      - offset
+                      - limit
+                required:
+                  - data
+                  - pagination
   /wallet/transactions:
     get:
       summary: Get wallet transactions
@@ -2876,6 +3216,353 @@ paths:
                       - wallets
                       - balance_usd
                       - balance_history
+                required:
+                  - data
+  /wallet/multi-portfolio:
+    get:
+      summary: Get wallet multi portfolio
+      parameters:
+        - schema:
+            type: string
+          required: false
+          name: wallet
+          in: query
+        - schema:
+            type: string
+          required: false
+          name: wallets
+          in: query
+        - schema:
+            type: string
+          required: false
+          name: portfolio
+          in: query
+        - schema:
+            type: string
+          required: false
+          name: blockchains
+          in: query
+        - schema:
+            type: string
+          required: false
+          name: asset
+          in: query
+        - schema:
+            type: boolean
+          required: false
+          name: pnl
+          in: query
+        - schema:
+            type: boolean
+          required: false
+          name: cache
+          in: query
+        - schema:
+            type: number
+          required: false
+          name: stale
+          in: query
+        - schema:
+            type: boolean
+          required: false
+          name: recheck_contract
+          in: query
+        - schema:
+            type: string
+          required: false
+          name: from
+          in: query
+        - schema:
+            type: string
+          required: false
+          name: to
+          in: query
+        - schema:
+            type: string
+          required: false
+          name: portfolio_settings
+          in: query
+        - schema:
+            type: boolean
+          required: false
+          name: unlistedAssets
+          in: query
+        - schema:
+            type: string
+          required: false
+          name: period
+          in: query
+        - schema:
+            type: string
+          required: false
+          name: accuracy
+          in: query
+        - schema:
+            type: boolean
+          required: false
+          name: testnet
+          in: query
+      responses:
+        "200":
+          description: Wallet multi portfolio response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      total_wallet_balance:
+                        type: number
+                      wallets:
+                        type: array
+                        items:
+                          type: string
+                      assets:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            contracts_balances:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  address:
+                                    type: string
+                                  balance:
+                                    type: number
+                                  balanceRaw:
+                                    type: string
+                                  chainId:
+                                    type: string
+                                  decimals:
+                                    type: number
+                                required:
+                                  - address
+                                  - balance
+                                  - balanceRaw
+                                  - chainId
+                                  - decimals
+                            cross_chain_balances:
+                              type: object
+                              additionalProperties:
+                                type: object
+                                properties:
+                                  balance:
+                                    type: number
+                                  balanceRaw:
+                                    type: string
+                                  chainId:
+                                    type: string
+                                  address:
+                                    type: string
+                                required:
+                                  - balance
+                                  - balanceRaw
+                                  - chainId
+                                  - address
+                            price_change_24h:
+                              type: number
+                            estimated_balance:
+                              type: number
+                            price:
+                              type: number
+                            token_balance:
+                              type: number
+                            allocation:
+                              type: number
+                            asset:
+                              type: object
+                              properties:
+                                id:
+                                  type: number
+                                  nullable: true
+                                name:
+                                  type: string
+                                symbol:
+                                  type: string
+                                decimals:
+                                  type: array
+                                  items:
+                                    type: string
+                                    pattern: ^d+$
+                                contracts:
+                                  type: array
+                                  items:
+                                    type: string
+                                blockchains:
+                                  type: array
+                                  items:
+                                    type: string
+                              required:
+                                - id
+                                - name
+                                - symbol
+                                - decimals
+                                - contracts
+                                - blockchains
+                            realized_pnl:
+                              type: number
+                            unrealized_pnl:
+                              type: number
+                            price_bought:
+                              type: number
+                            total_invested:
+                              type: number
+                            min_buy_price:
+                              type: number
+                            max_buy_price:
+                              type: number
+                          required:
+                            - contracts_balances
+                            - cross_chain_balances
+                            - price_change_24h
+                            - estimated_balance
+                            - price
+                            - token_balance
+                            - allocation
+                            - asset
+                      pnl_history:
+                        type: object
+                        properties:
+                          1y:
+                            type: array
+                            items:
+                              type: array
+                              items:
+                                anyOf:
+                                  - type: string
+                                  - type: object
+                                    properties:
+                                      realized:
+                                        type: number
+                                      unrealized:
+                                        type: number
+                                    required:
+                                      - realized
+                                      - unrealized
+                              minItems: 2
+                              maxItems: 2
+                          7d:
+                            type: array
+                            items:
+                              type: array
+                              items:
+                                anyOf:
+                                  - type: string
+                                  - type: object
+                                    properties:
+                                      realized:
+                                        type: number
+                                      unrealized:
+                                        type: number
+                                    required:
+                                      - realized
+                                      - unrealized
+                              minItems: 2
+                              maxItems: 2
+                          24h:
+                            type: array
+                            items:
+                              type: array
+                              items:
+                                anyOf:
+                                  - type: string
+                                  - type: object
+                                    properties:
+                                      realized:
+                                        type: number
+                                      unrealized:
+                                        type: number
+                                    required:
+                                      - realized
+                                      - unrealized
+                              minItems: 2
+                              maxItems: 2
+                          30d:
+                            type: array
+                            items:
+                              type: array
+                              items:
+                                anyOf:
+                                  - type: string
+                                  - type: object
+                                    properties:
+                                      realized:
+                                        type: number
+                                      unrealized:
+                                        type: number
+                                    required:
+                                      - realized
+                                      - unrealized
+                              minItems: 2
+                              maxItems: 2
+                        required:
+                          - 1y
+                          - 7d
+                          - 24h
+                          - 30d
+                      total_realized_pnl:
+                        type: number
+                      total_unrealized_pnl:
+                        type: number
+                      total_pnl_history:
+                        type: object
+                        properties:
+                          24h:
+                            type: object
+                            properties:
+                              realized:
+                                type: number
+                              unrealized:
+                                type: number
+                            required:
+                              - realized
+                              - unrealized
+                          7d:
+                            type: object
+                            properties:
+                              realized:
+                                type: number
+                              unrealized:
+                                type: number
+                            required:
+                              - realized
+                              - unrealized
+                          30d:
+                            type: object
+                            properties:
+                              realized:
+                                type: number
+                              unrealized:
+                                type: number
+                            required:
+                              - realized
+                              - unrealized
+                          1y:
+                            type: object
+                            properties:
+                              realized:
+                                type: number
+                              unrealized:
+                                type: number
+                            required:
+                              - realized
+                              - unrealized
+                        required:
+                          - 24h
+                          - 7d
+                          - 30d
+                          - 1y
+                      balances_length:
+                        type: number
+                    required:
+                      - total_wallet_balance
+                      - wallets
+                      - assets
+                      - balances_length
                 required:
                   - data
   /wallet/portfolio:
