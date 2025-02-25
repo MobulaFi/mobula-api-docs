@@ -860,7 +860,7 @@ paths:
         - schema:
             type: number
             nullable: true
-            default: 1740508289523
+            default: 1740516673958
           required: false
           name: to
           in: query
@@ -1476,6 +1476,50 @@ paths:
   /market/pairs:
     get:
       summary: Get market pairs
+      parameters:
+        - schema:
+            type: string
+            default: "25"
+          required: false
+          name: limit
+          in: query
+        - schema:
+            type: string
+            default: "0"
+          required: false
+          name: offset
+          in: query
+        - schema:
+            type: number
+            nullable: true
+          required: false
+          name: id
+          in: query
+        - schema:
+            type: string
+          required: false
+          name: asset
+          in: query
+        - schema:
+            type: string
+          required: false
+          name: symbol
+          in: query
+        - schema:
+            type: string
+          required: false
+          name: blockchain
+          in: query
+        - schema:
+            type: string
+          required: false
+          name: tokens
+          in: query
+        - schema:
+            type: string
+          required: false
+          name: blockchains
+          in: query
       responses:
         "200":
           description: Market pairs response
@@ -2021,6 +2065,39 @@ paths:
   /market/sparkline:
     get:
       summary: Get market sparkline
+      parameters:
+        - schema:
+            type: string
+          required: false
+          name: asset
+          in: query
+        - schema:
+            type: string
+          required: false
+          name: blockchain
+          in: query
+        - schema:
+            type: string
+          required: false
+          name: symbol
+          in: query
+        - schema:
+            type: string
+          required: false
+          name: id
+          in: query
+        - schema:
+            type: string
+            default: 24h
+          required: false
+          name: timeFrame
+          in: query
+        - schema:
+            type: string
+            default: "false"
+          required: false
+          name: png
+          in: query
       responses:
         "200":
           description: Market sparkline response
