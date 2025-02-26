@@ -492,6 +492,7 @@ paths:
                                 - logo
                             factory:
                               type: string
+                              nullable: true
                             quoteToken:
                               type: string
                             price:
@@ -583,6 +584,7 @@ paths:
                         type: number
                       volume_change_total:
                         type: number
+                        nullable: true
                       liquidity_history:
                         type: array
                         items:
@@ -593,6 +595,7 @@ paths:
                         type: number
                       liquidity_change_total:
                         type: number
+                        nullable: true
                       tokens_history:
                         type: array
                         items:
@@ -603,6 +606,7 @@ paths:
                         type: number
                       tokens_change_total:
                         type: number
+                        nullable: true
                     required:
                       - volume_history
                       - volume_change_24h
@@ -860,7 +864,7 @@ paths:
         - schema:
             type: number
             nullable: true
-            default: 1740516673958
+            default: 1740585379298
           required: false
           name: to
           in: query
@@ -887,8 +891,6 @@ paths:
                         type: string
                     required:
                       - price_history
-                      - name
-                      - symbol
                 required:
                   - data
   /market/multi-data:
@@ -970,10 +972,12 @@ paths:
                           type: string
                         decimals:
                           type: number
+                          nullable: true
                         logo:
                           type: string
                         rank:
                           type: number
+                          nullable: true
                         price:
                           type: number
                         market_cap:
@@ -1070,10 +1074,12 @@ paths:
                           type: string
                         decimals:
                           type: number
+                          nullable: true
                         logo:
                           type: string
                         rank:
                           type: number
+                          nullable: true
                         price:
                           type: number
                         market_cap:
@@ -1447,6 +1453,7 @@ paths:
                           - logo
                       factory:
                         type: string
+                        nullable: true
                       quoteToken:
                         type: string
                       price:
@@ -1662,6 +1669,7 @@ paths:
                                 - logo
                             factory:
                               type: string
+                              nullable: true
                             quoteToken:
                               type: string
                             price:
@@ -2825,8 +2833,6 @@ paths:
                             - contracts
                             - blockchains
                             - decimals
-                            - twitter
-                            - website
                             - logo
                             - price
                             - market_cap
@@ -2941,17 +2947,17 @@ paths:
       summary: Get wallet transactions
       parameters:
         - schema:
-            type: number
+            type: string
           required: false
           name: limit
           in: query
         - schema:
-            type: number
+            type: string
           required: false
           name: offset
           in: query
         - schema:
-            type: number
+            type: string
           required: false
           name: page
           in: query
@@ -2961,12 +2967,12 @@ paths:
           name: order
           in: query
         - schema:
-            type: boolean
+            type: string
           required: false
           name: cache
           in: query
         - schema:
-            type: number
+            type: string
           required: false
           name: stale
           in: query
@@ -2981,17 +2987,17 @@ paths:
           name: wallets
           in: query
         - schema:
-            type: boolean
+            type: string
           required: false
           name: recheckContract
           in: query
         - schema:
-            type: number
+            type: string
           required: false
           name: from
           in: query
         - schema:
-            type: number
+            type: string
           required: false
           name: to
           in: query
@@ -3001,12 +3007,12 @@ paths:
           name: asset
           in: query
         - schema:
-            type: boolean
+            type: string
           required: false
           name: trades
           in: query
         - schema:
-            type: boolean
+            type: string
           required: false
           name: transactions
           in: query
@@ -3016,7 +3022,7 @@ paths:
           name: blockchains
           in: query
         - schema:
-            type: boolean
+            type: string
           required: false
           name: unlistedAssets
           in: query
@@ -3026,7 +3032,7 @@ paths:
           name: onlyAssets
           in: query
         - schema:
-            type: boolean
+            type: string
           required: false
           name: pagination
           in: query
@@ -3053,8 +3059,10 @@ paths:
                               type: number
                             from:
                               type: string
+                              nullable: true
                             to:
                               type: string
+                              nullable: true
                             contract:
                               type: string
                               nullable: true
