@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
   version: 1.0.0
-  title: API de Métadonnées
-  description: Documentation de l’API pour les métadonnées
+  title: Mobula API
+  description: Documentation for the Mobula API
 servers:
   - url: https://api.mobula.io/api/1
 components:
