@@ -21,7 +21,7 @@ description: "Mobula provides WSS support for retrieving OHLCV data for any asse
 
 ### Endpoint details
 
-- URL: wss://production-production-api.mobula.io
+- URL: wss://production-api.mobula.io
 - Message (string):
 
 ```json
@@ -48,7 +48,7 @@ description: "Mobula provides WSS support for retrieving OHLCV data for any asse
 Let's take a look at:
 
 ```typescript
-const socket = new WebSocket("wss://production-production-api.mobula.io");
+const socket = new WebSocket("wss://production-api.mobula.io");
 
 socket.addEventListener("open", () => {
   socket.send(`{
