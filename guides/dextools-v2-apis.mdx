@@ -1,0 +1,179 @@
+---
+title: "DEXTools V2 APIs"
+description: "This guide provides a comprehensive overview of how to access and utilize DEXScreener-like data through Mobula's APIs."
+---
+
+In the rapidly evolving DeFi space, accessing reliable, multi-chain data is crucial. Both **Mobula APIs** and **DEXTools V2 APIs** offer valuable features, but Mobula stands out as the more comprehensive, flexible solution for developers building applications beyond Ethereum. Below, we’ll compare key features and provide code examples to highlight why Mobula APIs offer more for DeFi developers.
+
+## **Feature Comparison: Mobula vs. DEXTools V2 APIs**
+
+| **Feature** | **Mobula APIs** | **DEXTools V2 APIs** |
+| --- | --- | --- |
+| **Real-Time Trading Data** | ✅ Yes – Extensive real-time data covering prices, volumes, liquidity across 50+ blockchains. | ✅ Yes – Primarily Ethereum-based trading pairs. |
+| **Vesting Data** | ✅ Detailed vesting schedules for tokens. | ❌ Not Available. |
+| **New Pairs Detection** | ✅ Real-time new pair alerts across multiple blockchains. | ❌ Not Available. |
+| **Historical Data** | 🌟 Full historical price and volume data for advanced analytics. | 👎 Limited to Ethereum pairs. |
+| **Token Metadata** | 🌟 Includes logos, social links, and more for tokens across chains. | 👎 Available for Ethereum tokens. |
+| **Customization & Query Flexibility** | 🌟 Advanced queries for market data, token vesting, historical trends, and more. | 👎 Basic, predefined endpoints. |
+| **On-Chain + Off-Chain Data** | 🌟 Combines on-chain metrics with off-chain data (e.g., social sentiment). | 👎 On-chain data only. |
+| **Developer Tools & SDK** | 🌟 Robust documentation, SDKs, and integration guides. | 👎 Limited documentation. |
+| **API Rate Limits** | 🌟 Generous, scalable for enterprise needs. | 👎 More restrictive. |
+
+### **Analysis**
+
+- **Mobula**: Provides extensive support for multi-blockchain data, including Ethereum, Binance Smart Chain, Solana, and more. It delivers deeper market insights by combining on-chain and off-chain data, which is critical for advanced analytics and building next-gen DeFi applications.
+- **DEXTools V2**: Great for Ethereum-based DEX data but lacks broader blockchain support, historical data depth, and off-chain metrics.
+
+## Code Examples
+
+### **1. Fetching Token Data Across Multiple Blockchains**
+
+Mobula's APIs allow developers to easily query token data from multiple blockchains in one request.
+
+**Using cURL:**
+
+```bash
+# Mobula: Fetch token data on Ethereum and BSC
+curl -X 'GET' \
+  'https://api.mobula.io/api/1/market/data?blockchain=ethereum&blockchain=bsc&token=0xYourTokenAddress' \
+  -H 'accept: application/json'
+```
+
+**Using Axios:**
+
+```jsx
+const axios = require('axios');
+axios.get('https://api.mobula.io/api/1/market/data', {
+  params: {
+    blockchain: ['ethereum', 'bsc'],
+    token: '0xYourTokenAddress'
+  }
+}).then(response => console.log(response.data));
+```
+
+### **2. Retrieving Real-Time Market Data**
+
+Both Mobula and DEXTools provide real-time market data, but Mobula covers more blockchains and has greater flexibility.
+
+**Using cURL (Mobula):**
+
+```bash
+curl --request GET \
+  --url 'https://api.mobula.io/api/1/market/blockchain/pairs?blockchain=ethereum&sortBy=createdAt'
+```
+
+**Using Axios (Mobula):**
+
+```jsx
+axios.get('https://api.mobula.io/api/1/market/blockchain/pairs', {
+  params: {
+    blockchain: "ethereum",
+    sortBy: "createdAt"
+  }
+})
+  .then(response => console.log(response.data))
+  .catch(error => console.error(error));
+```
+
+### **3. Vesting and Unlock Data (Exclusive to Mobula)**
+
+Mobula provides detailed token vesting and unlock schedules, crucial for understanding tokenomics and potential market impacts.
+
+**Using cURL (Mobula):**
+
+```bash
+curl --request GET \
+  --url 'https://api.mobula.io/api/1/token/vesting?token=0xYourTokenAddress' \
+  -H 'accept: application/json'
+```
+
+**Using Axios (Mobula):**
+
+```jsx
+axios.get('https://api.mobula.io/api/1/token/vesting', {
+  params: {
+    token: '0xYourTokenAddress'
+  }
+}).then(response => console.log(response.data));
+```
+
+### **4. Detecting New Trading Pairs in Real-Time**
+
+Mobula’s real-time new pair detection gives developers a competitive edge in identifying emerging trends.
+
+**Using cURL (Mobula):**
+
+```bash
+curl --request GET \
+  --url 'https://api.mobula.io/api/1/market/new-pairs' \
+  -H 'accept: application/json'
+```
+
+**Using Axios (Mobula):**
+
+```jsx
+axios.get('https://api.mobula.io/api/1/market/new-pairs')
+  .then(response => console.log(response.data));
+```
+
+### **5. Comprehensive Historical Data**
+
+Mobula offers complete historical data for price and volume trends, ideal for backtesting and advanced analytics.
+
+**Using cURL (Mobula):**
+
+```bash
+curl -X 'GET' \
+  'https://api.mobula.io/api/1/market/history?token=0xYourTokenAddress&from=2023-01-01&to=2023-10-01' \
+  -H 'accept: application/json'
+```
+
+**Using Axios (Mobula):**
+
+```jsx
+axios.get('https://api.mobula.io/api/1/market/history', {
+  params: {
+    token: '0xYourTokenAddress',
+    from: '2023-01-01',
+    to: '2023-10-01'
+  }
+}).then(response => console.log(response.data));
+```
+
+## **Why Mobula APIs Stand Out**
+
+1. **Multi-Chain Support**: Mobula offers unified endpoints for 50+ blockchains, including EVM and non-EVM networks like Solana, making it versatile for DeFi development.
+2. **Comprehensive Data**: Combines on-chain data with off-chain metrics (social sentiment, news), offering a 360° view of tokens, which is critical for advanced analytics.
+3. **Advanced Customization**: Mobula enables highly customizable queries for market data, historical trends, vesting schedules, and more.
+4. **Developer-Friendly**: Extensive documentation, SDKs, and guides ensure smooth integration and fast development cycles.
+5. **Exclusive Features**: Real-time new pair detection, token vesting schedules, and more give Mobula a competitive edge in the DeFi space.
+
+##  
+##  
+
+For developers building the next generation of DeFi applications, Mobula’s APIs provide a more robust, flexible, and future-proof solution compared to DEXTools V2.  
+With multi-chain support, richer data, and unique features like vesting schedules and new pair detection, Mobula empowers you to build smarter and faster.
+
+Ready to get started? Check out Mobula’s [API documentation](https://docs.mobula.io/) and [OpenAPI spec](https://github.com/MobulaFi/mobula-api-docs/blob/main/rest-api-reference/openapi.yaml) to see the full potential of what you can build.
+
+##  
+##  
+
+### Need Assistance?
+
+Having issue integrating your API key? Reach out to us, response times < 1h.
+
+<CardGroup>
+  <Card title="Support" icon="Telegram" href="https://t.me/MobulaConnectBot">
+    Telegram
+  </Card>
+  <Card title="Support" icon="Slack" href="https://join.slack.com/t/mobulaapi/shared_invite/zt-29zrrpjnl-I0tyD73sy7zKy8q~KLL3Ug">
+    Slack
+  </Card>
+  <Card title="Support" icon="Discord" href="https://discord.gg/JVT7xKm3AD">
+    Discord
+  </Card>
+  <Card title="Email Support" icon="envelope" href="mailto:contact@mobulalabs.org">
+    Email
+  </Card>
+</CardGroup>

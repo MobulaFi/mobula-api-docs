@@ -1,0 +1,90 @@
+---
+title: "Get Token Unlocks Data"
+description: "Learn how to retrieve upcoming token unlocks data to anticipate market movements and optimize trading strategies."
+---
+
+Understanding token unlock schedules is crucial for traders, investors, and protocols aiming to anticipate market supply changes. The Mobula API provides real-time access to token unlock data, helping users stay ahead.
+
+### What you’ll need
+
+1. Basic knowledge of RESTful APIs and JavaScript.
+2. An API key from the [Dashboard](https://admin.mobula.fi) (required for production; optional in development mode).
+
+### Walkthrough
+
+<Steps>
+  <Step title="Execute the API Call">
+    You can call the Mobula API directly from your terminal using cURL or any HTTP client.
+
+    **Using cURL**:
+    ```bash
+    curl --request GET \
+    --url 'https://production-api.mobula.io/api/1/metadata?asset=Uniswap'
+    ```
+
+    **Using Axios**:
+    ```javascript
+    import axios from "axios";
+    
+    axios.get('https://production-api.mobula.io/api/1/metadata?asset=Uniswap')
+    .then(function (response) {
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+    ```
+  </Step>
+
+  <Step title="Retrieve Multiple Assets Metadata">
+    The `multi-metadata` endpoint allows fetching metadata for multiple assets in a single request, improving efficiency.
+
+    **Using cURL**:
+    ```bash
+    curl --request GET \
+    --url 'https://production-api.mobula.io/api/1/multi-metadata?assets=Uniswap,Ethereum,Bitcoin'
+    ```
+
+    **Using Axios**:
+    ```javascript
+    import axios from "axios";
+
+    axios.get('https://production-api.mobula.io/api/1/multi-metadata?assets=Uniswap,Ethereum,Bitcoin')
+    .then(function (response) {
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+    ```
+  </Step>
+</Steps>
+
+  <Step title="Review the Response">
+    The API provides a structured response listing upcoming token unlocks under _**release_schedule**_, including relevant details such as the token name, symbol, amount to be unlocked, and the scheduled unlock date.
+    
+  </Step>
+
+**With this information, you can:**
+
+- **Track Token Unlocks**: Identify upcoming token releases to anticipate potential market shifts.
+- **Monitor Project Vesting Schedules**: Follow how project teams release tokens over time.
+
+### Need help?
+
+Can’t find what you’re looking for? Reach out to us, response times < 1h.
+
+<CardGroup>
+  <Card title="Support" icon="Telegram" href="https://t.me/MobulaConnectBot">
+    Telegram
+  </Card>
+  <Card title="Support" icon="Slack" href="https://join.slack.com/t/mobulaapi/shared_invite/zt-29zrrpjnl-I0tyD73sy7zKy8q~KLL3Ug">
+    Slack
+  </Card>
+  <Card title="Support" icon="Discord" href="https://discord.gg/JVT7xKm3AD">
+    Discord
+  </Card>
+  <Card title="Email Support" icon="envelope" href="mailto:contact@mobulalabs.org">
+    Email
+  </Card>
+</CardGroup>
