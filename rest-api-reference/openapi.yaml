@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
   version: 1.0.0
-  title: API de Métadonnées
-  description: Documentation de l’API pour les métadonnées
+  title: Mobula API
+  description: Documentation of the Mobula API
 servers:
   - url: https://api.mobula.io/api/1
 components:
@@ -864,7 +864,7 @@ paths:
         - schema:
             type: number
             nullable: true
-            default: 1740735220612
+            default: 1740735669314
           required: false
           name: to
           in: query
