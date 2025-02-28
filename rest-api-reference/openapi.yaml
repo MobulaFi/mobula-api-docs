@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   version: 1.0.0
   title: Mobula API
-  description: Documentation for the Mobula API
+  description: Documentation of the Mobula API
 servers:
   - url: https://api.mobula.io/api/1
 components:
@@ -864,7 +864,7 @@ paths:
         - schema:
             type: number
             nullable: true
-            default: 1740585379298
+            default: 1740735669314
           required: false
           name: to
           in: query
@@ -898,42 +898,49 @@ paths:
       summary: Get market multi data
       parameters:
         - schema:
-            type: array
-            items:
-              type: string
+            anyOf:
+              - type: string
+              - type: array
+                items:
+                  type: string
           required: false
           name: ids
           in: query
         - schema:
-            type: array
-            items:
-              type: string
+            anyOf:
+              - type: string
+              - type: array
+                items:
+                  type: string
           required: false
           name: symbols
           in: query
         - schema:
-            type: array
-            items:
-              type: string
+            anyOf:
+              - type: string
+              - type: array
+                items:
+                  type: string
           required: false
           name: blockchains
           in: query
         - schema:
-            type: array
-            nullable: true
-            items:
-              type: object
-              properties:
-                type:
-                  type: string
-                  enum:
-                    - address
-                    - name
-                value:
-                  type: string
-              required:
-                - type
-                - value
+            anyOf:
+              - type: string
+              - type: array
+                items:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                        - address
+                        - name
+                    value:
+                      type: string
+                  required:
+                    - type
+                    - value
           required: false
           name: assets
           in: query
@@ -2423,21 +2430,9 @@ paths:
           name: input
           in: query
         - schema:
-            type: object
-            properties:
-              blockchains:
-                type: string
+            type: string
           required: false
           name: filters
-          in: query
-        - schema:
-            type: string
-            enum:
-              - tokens
-              - assets
-              - pairs
-          required: false
-          name: type
           in: query
       responses:
         "200":
@@ -3218,12 +3213,12 @@ paths:
           name: asset
           in: query
         - schema:
-            type: boolean
+            type: string
           required: false
           name: pnl
           in: query
         - schema:
-            type: boolean
+            type: string
           required: false
           name: cache
           in: query
@@ -3233,7 +3228,7 @@ paths:
           name: stale
           in: query
         - schema:
-            type: boolean
+            type: string
           required: false
           name: recheck_contract
           in: query
@@ -3253,7 +3248,7 @@ paths:
           name: portfolio_settings
           in: query
         - schema:
-            type: boolean
+            type: string
           required: false
           name: unlistedAssets
           in: query
@@ -3268,9 +3263,14 @@ paths:
           name: accuracy
           in: query
         - schema:
-            type: boolean
+            type: string
           required: false
           name: testnet
+          in: query
+        - schema:
+            type: string
+          required: false
+          name: liqmin
           in: query
       responses:
         "200":
