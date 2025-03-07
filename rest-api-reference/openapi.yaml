@@ -111,6 +111,10 @@ paths:
                           type: array
                           items:
                             type: string
+                        explorer:
+                          type: string
+                        color:
+                          type: string
                         privateRpcs:
                           type: array
                           items:
@@ -123,8 +127,12 @@ paths:
                           type: string
                         testnet:
                           type: boolean
-                        explorer:
+                        multicall_contract:
                           type: string
+                        uniswapV3Factory:
+                          type: array
+                          items:
+                            type: string
                         eth:
                           type: object
                           properties:
@@ -193,12 +201,6 @@ paths:
                             - blockchain
                             - blockchains
                             - contracts
-                        multicall_contract:
-                          type: string
-                        uniswapV3Factory:
-                          type: array
-                          items:
-                            type: string
                         routers:
                           type: array
                           items:
@@ -208,6 +210,10 @@ paths:
                                 type: string
                               name:
                                 type: string
+                              factory:
+                                type: string
+                              fee:
+                                type: number
                             required:
                               - address
                               - name
@@ -220,6 +226,12 @@ paths:
                                 type: string
                               name:
                                 type: string
+                              symbol:
+                                type: string
+                              decimals:
+                                type: number
+                              type:
+                                type: string
                             required:
                               - address
                               - name
@@ -229,24 +241,26 @@ paths:
                             type: string
                         logo:
                           type: string
-                        color:
-                          type: string
                         coingeckoChain:
                           type: string
                         dexscreenerChain:
                           type: string
                         isLayer2:
                           type: boolean
+                        coverage:
+                          type: array
+                          items:
+                            type: string
                       required:
                         - name
                         - rpcs
-                        - chainId
                         - explorer
+                        - color
+                        - chainId
                         - routers
                         - tokens
                         - supportedProtocols
                         - logo
-                        - color
                 required:
                   - data
   /market/blockchain/pairs:
@@ -476,6 +490,7 @@ paths:
                               type: string
                             createdAt:
                               type: string
+                              nullable: true
                             type:
                               type: string
                             baseToken:
@@ -501,6 +516,146 @@ paths:
                               type: number
                             priceTokenString:
                               type: string
+                            trades_1min:
+                              type: number
+                            buys_1min:
+                              type: number
+                            sells_1min:
+                              type: number
+                            volume_1min:
+                              type: number
+                            buy_volume_1min:
+                              type: number
+                            sell_volume_1min:
+                              type: number
+                            sellers_1min:
+                              type: number
+                            buyers_1min:
+                              type: number
+                            traders_1min:
+                              type: number
+                            trades_5min:
+                              type: number
+                            buys_5min:
+                              type: number
+                            sells_5min:
+                              type: number
+                            volume_5min:
+                              type: number
+                            buy_volume_5min:
+                              type: number
+                            sell_volume_5min:
+                              type: number
+                            sellers_5min:
+                              type: number
+                            buyers_5min:
+                              type: number
+                            traders_5min:
+                              type: number
+                            trades_15min:
+                              type: number
+                            buys_15min:
+                              type: number
+                            sells_15min:
+                              type: number
+                            volume_15min:
+                              type: number
+                            buy_volume_15min:
+                              type: number
+                            sell_volume_15min:
+                              type: number
+                            sellers_15min:
+                              type: number
+                            buyers_15min:
+                              type: number
+                            traders_15min:
+                              type: number
+                            trades_1h:
+                              type: number
+                            buys_1h:
+                              type: number
+                            sells_1h:
+                              type: number
+                            volume_1h:
+                              type: number
+                            buy_volume_1h:
+                              type: number
+                            sell_volume_1h:
+                              type: number
+                            sellers_1h:
+                              type: number
+                            buyers_1h:
+                              type: number
+                            traders_1h:
+                              type: number
+                            trades_4h:
+                              type: number
+                            buys_4h:
+                              type: number
+                            sells_4h:
+                              type: number
+                            volume_4h:
+                              type: number
+                            buy_volume_4h:
+                              type: number
+                            sell_volume_4h:
+                              type: number
+                            sellers_4h:
+                              type: number
+                            buyers_4h:
+                              type: number
+                            traders_4h:
+                              type: number
+                            trades_12h:
+                              type: number
+                            buys_12h:
+                              type: number
+                            sells_12h:
+                              type: number
+                            volume_12h:
+                              type: number
+                            buy_volume_12h:
+                              type: number
+                            sell_volume_12h:
+                              type: number
+                            sellers_12h:
+                              type: number
+                            buyers_12h:
+                              type: number
+                            traders_12h:
+                              type: number
+                            trades_24h:
+                              type: number
+                            buys_24h:
+                              type: number
+                            sells_24h:
+                              type: number
+                            volume_24h:
+                              type: number
+                            buy_volume_24h:
+                              type: number
+                            sell_volume_24h:
+                              type: number
+                            sellers_24h:
+                              type: number
+                            buyers_24h:
+                              type: number
+                            traders_24h:
+                              type: number
+                            pool_addr:
+                              type: number
+                            price_change_1min:
+                              type: number
+                            price_change_5min:
+                              type: number
+                            price_change_1h:
+                              type: number
+                            price_change_4h:
+                              type: number
+                            price_change_12h:
+                              type: number
+                            price_change_24h:
+                              type: number
                           required:
                             - token0
                             - token1
@@ -508,11 +663,9 @@ paths:
                             - liquidity
                             - blockchain
                             - address
-                            - createdAt
                             - type
                             - baseToken
                             - exchange
-                            - factory
                             - quoteToken
                             - price
                             - priceToken
@@ -864,7 +1017,7 @@ paths:
         - schema:
             type: number
             nullable: true
-            default: 1740735669314
+            default: 1741383095609
           required: false
           name: to
           in: query
@@ -885,9 +1038,35 @@ paths:
                           type: array
                           items:
                             type: number
+                            nullable: true
+                      volume_history:
+                        type: array
+                        items:
+                          type: array
+                          items:
+                            type: number
+                            nullable: true
+                      market_cap_history:
+                        type: array
+                        items:
+                          type: array
+                          items:
+                            type: number
+                            nullable: true
+                      market_cap_diluted_history:
+                        type: array
+                        items:
+                          type: array
+                          items:
+                            type: number
+                            nullable: true
                       name:
                         type: string
                       symbol:
+                        type: string
+                      blockchain:
+                        type: string
+                      address:
                         type: string
                     required:
                       - price_history
@@ -973,6 +1152,7 @@ paths:
                           type: string
                         id:
                           type: number
+                          nullable: true
                         name:
                           type: string
                         symbol:
@@ -982,6 +1162,7 @@ paths:
                           nullable: true
                         logo:
                           type: string
+                          nullable: true
                         rank:
                           type: number
                           nullable: true
@@ -1001,8 +1182,10 @@ paths:
                           type: number
                         ath:
                           type: number
+                          nullable: true
                         atl:
                           type: number
+                          nullable: true
                         off_chain_volume:
                           type: number
                         is_listed:
@@ -1075,6 +1258,7 @@ paths:
                           type: string
                         id:
                           type: number
+                          nullable: true
                         name:
                           type: string
                         symbol:
@@ -1084,6 +1268,7 @@ paths:
                           nullable: true
                         logo:
                           type: string
+                          nullable: true
                         rank:
                           type: number
                           nullable: true
@@ -1103,8 +1288,10 @@ paths:
                           type: number
                         ath:
                           type: number
+                          nullable: true
                         atl:
                           type: number
+                          nullable: true
                         off_chain_volume:
                           type: number
                         is_listed:
@@ -1239,14 +1426,38 @@ paths:
                             type: array
                             items:
                               type: number
+                              nullable: true
+                        volume_history:
+                          type: array
+                          items:
+                            type: array
+                            items:
+                              type: number
+                              nullable: true
+                        market_cap_history:
+                          type: array
+                          items:
+                            type: array
+                            items:
+                              type: number
+                              nullable: true
+                        market_cap_diluted_history:
+                          type: array
+                          items:
+                            type: array
+                            items:
+                              type: number
+                              nullable: true
                         name:
                           type: string
                         symbol:
                           type: string
                         address:
                           type: string
+                        id:
+                          type: number
+                          nullable: true
                       required:
-                        - price_history
                         - name
                         - symbol
                         - address
@@ -1444,6 +1655,7 @@ paths:
                         type: string
                       createdAt:
                         type: string
+                        nullable: true
                       type:
                         type: string
                       baseToken:
@@ -1469,6 +1681,146 @@ paths:
                         type: number
                       priceTokenString:
                         type: string
+                      trades_1min:
+                        type: number
+                      buys_1min:
+                        type: number
+                      sells_1min:
+                        type: number
+                      volume_1min:
+                        type: number
+                      buy_volume_1min:
+                        type: number
+                      sell_volume_1min:
+                        type: number
+                      sellers_1min:
+                        type: number
+                      buyers_1min:
+                        type: number
+                      traders_1min:
+                        type: number
+                      trades_5min:
+                        type: number
+                      buys_5min:
+                        type: number
+                      sells_5min:
+                        type: number
+                      volume_5min:
+                        type: number
+                      buy_volume_5min:
+                        type: number
+                      sell_volume_5min:
+                        type: number
+                      sellers_5min:
+                        type: number
+                      buyers_5min:
+                        type: number
+                      traders_5min:
+                        type: number
+                      trades_15min:
+                        type: number
+                      buys_15min:
+                        type: number
+                      sells_15min:
+                        type: number
+                      volume_15min:
+                        type: number
+                      buy_volume_15min:
+                        type: number
+                      sell_volume_15min:
+                        type: number
+                      sellers_15min:
+                        type: number
+                      buyers_15min:
+                        type: number
+                      traders_15min:
+                        type: number
+                      trades_1h:
+                        type: number
+                      buys_1h:
+                        type: number
+                      sells_1h:
+                        type: number
+                      volume_1h:
+                        type: number
+                      buy_volume_1h:
+                        type: number
+                      sell_volume_1h:
+                        type: number
+                      sellers_1h:
+                        type: number
+                      buyers_1h:
+                        type: number
+                      traders_1h:
+                        type: number
+                      trades_4h:
+                        type: number
+                      buys_4h:
+                        type: number
+                      sells_4h:
+                        type: number
+                      volume_4h:
+                        type: number
+                      buy_volume_4h:
+                        type: number
+                      sell_volume_4h:
+                        type: number
+                      sellers_4h:
+                        type: number
+                      buyers_4h:
+                        type: number
+                      traders_4h:
+                        type: number
+                      trades_12h:
+                        type: number
+                      buys_12h:
+                        type: number
+                      sells_12h:
+                        type: number
+                      volume_12h:
+                        type: number
+                      buy_volume_12h:
+                        type: number
+                      sell_volume_12h:
+                        type: number
+                      sellers_12h:
+                        type: number
+                      buyers_12h:
+                        type: number
+                      traders_12h:
+                        type: number
+                      trades_24h:
+                        type: number
+                      buys_24h:
+                        type: number
+                      sells_24h:
+                        type: number
+                      volume_24h:
+                        type: number
+                      buy_volume_24h:
+                        type: number
+                      sell_volume_24h:
+                        type: number
+                      sellers_24h:
+                        type: number
+                      buyers_24h:
+                        type: number
+                      traders_24h:
+                        type: number
+                      pool_addr:
+                        type: number
+                      price_change_1min:
+                        type: number
+                      price_change_5min:
+                        type: number
+                      price_change_1h:
+                        type: number
+                      price_change_4h:
+                        type: number
+                      price_change_12h:
+                        type: number
+                      price_change_24h:
+                        type: number
                     required:
                       - token0
                       - token1
@@ -1476,11 +1828,9 @@ paths:
                       - liquidity
                       - blockchain
                       - address
-                      - createdAt
                       - type
                       - baseToken
                       - exchange
-                      - factory
                       - quoteToken
                       - price
                       - priceToken
@@ -1660,6 +2010,7 @@ paths:
                               type: string
                             createdAt:
                               type: string
+                              nullable: true
                             type:
                               type: string
                             baseToken:
@@ -1685,6 +2036,146 @@ paths:
                               type: number
                             priceTokenString:
                               type: string
+                            trades_1min:
+                              type: number
+                            buys_1min:
+                              type: number
+                            sells_1min:
+                              type: number
+                            volume_1min:
+                              type: number
+                            buy_volume_1min:
+                              type: number
+                            sell_volume_1min:
+                              type: number
+                            sellers_1min:
+                              type: number
+                            buyers_1min:
+                              type: number
+                            traders_1min:
+                              type: number
+                            trades_5min:
+                              type: number
+                            buys_5min:
+                              type: number
+                            sells_5min:
+                              type: number
+                            volume_5min:
+                              type: number
+                            buy_volume_5min:
+                              type: number
+                            sell_volume_5min:
+                              type: number
+                            sellers_5min:
+                              type: number
+                            buyers_5min:
+                              type: number
+                            traders_5min:
+                              type: number
+                            trades_15min:
+                              type: number
+                            buys_15min:
+                              type: number
+                            sells_15min:
+                              type: number
+                            volume_15min:
+                              type: number
+                            buy_volume_15min:
+                              type: number
+                            sell_volume_15min:
+                              type: number
+                            sellers_15min:
+                              type: number
+                            buyers_15min:
+                              type: number
+                            traders_15min:
+                              type: number
+                            trades_1h:
+                              type: number
+                            buys_1h:
+                              type: number
+                            sells_1h:
+                              type: number
+                            volume_1h:
+                              type: number
+                            buy_volume_1h:
+                              type: number
+                            sell_volume_1h:
+                              type: number
+                            sellers_1h:
+                              type: number
+                            buyers_1h:
+                              type: number
+                            traders_1h:
+                              type: number
+                            trades_4h:
+                              type: number
+                            buys_4h:
+                              type: number
+                            sells_4h:
+                              type: number
+                            volume_4h:
+                              type: number
+                            buy_volume_4h:
+                              type: number
+                            sell_volume_4h:
+                              type: number
+                            sellers_4h:
+                              type: number
+                            buyers_4h:
+                              type: number
+                            traders_4h:
+                              type: number
+                            trades_12h:
+                              type: number
+                            buys_12h:
+                              type: number
+                            sells_12h:
+                              type: number
+                            volume_12h:
+                              type: number
+                            buy_volume_12h:
+                              type: number
+                            sell_volume_12h:
+                              type: number
+                            sellers_12h:
+                              type: number
+                            buyers_12h:
+                              type: number
+                            traders_12h:
+                              type: number
+                            trades_24h:
+                              type: number
+                            buys_24h:
+                              type: number
+                            sells_24h:
+                              type: number
+                            volume_24h:
+                              type: number
+                            buy_volume_24h:
+                              type: number
+                            sell_volume_24h:
+                              type: number
+                            sellers_24h:
+                              type: number
+                            buyers_24h:
+                              type: number
+                            traders_24h:
+                              type: number
+                            pool_addr:
+                              type: number
+                            price_change_1min:
+                              type: number
+                            price_change_5min:
+                              type: number
+                            price_change_1h:
+                              type: number
+                            price_change_4h:
+                              type: number
+                            price_change_12h:
+                              type: number
+                            price_change_24h:
+                              type: number
                           required:
                             - token0
                             - token1
@@ -1692,17 +2183,18 @@ paths:
                             - liquidity
                             - blockchain
                             - address
-                            - createdAt
                             - type
                             - baseToken
                             - exchange
-                            - factory
                             - quoteToken
                             - price
                             - priceToken
                             - priceTokenString
+                      total_count:
+                        type: number
                     required:
                       - pairs
+                      - total_count
                 required:
                   - data
   /market/query/token:
@@ -1993,6 +2485,11 @@ paths:
           name: blockchains
           in: query
         - schema:
+            type: string
+          required: false
+          name: categories
+          in: query
+        - schema:
             type: number
             nullable: true
             default: 20
@@ -2039,6 +2536,10 @@ paths:
                       type: number
                     price_change_7d:
                       type: number
+                    categories:
+                      type: array
+                      items:
+                        type: string
                     contracts:
                       type: array
                       items:
@@ -2074,6 +2575,7 @@ paths:
                     - price_change_1h
                     - price_change_24h
                     - price_change_7d
+                    - categories
                     - contracts
                     - id
                     - rank
@@ -2362,6 +2864,15 @@ paths:
           required: false
           name: offset
           in: query
+        - schema:
+            type: string
+            enum:
+              - pair
+              - asset
+            default: pair
+          required: false
+          name: mode
+          in: query
       responses:
         "200":
           description: Market trades response
@@ -2580,6 +3091,7 @@ paths:
                                     type: string
                                   createdAt:
                                     type: string
+                                    nullable: true
                                   type:
                                     type: string
                                   baseToken:
@@ -2777,6 +3289,7 @@ paths:
                                     type: string
                                   createdAt:
                                     type: string
+                                    nullable: true
                                   type:
                                     type: string
                                   baseToken:
@@ -2835,6 +3348,298 @@ paths:
                             - volume
                             - pairs
                             - type
+                        - type: object
+                          properties:
+                            token0:
+                              type: object
+                              properties:
+                                address:
+                                  type: string
+                                price:
+                                  type: number
+                                priceToken:
+                                  type: number
+                                priceTokenString:
+                                  type: string
+                                approximateReserveUSD:
+                                  type: number
+                                approximateReserveTokenRaw:
+                                  type: string
+                                approximateReserveToken:
+                                  type: number
+                                symbol:
+                                  type: string
+                                name:
+                                  type: string
+                                id:
+                                  type: number
+                                decimals:
+                                  type: number
+                                totalSupply:
+                                  type: number
+                                circulatingSupply:
+                                  type: number
+                                logo:
+                                  type: string
+                                  nullable: true
+                                chainId:
+                                  type: string
+                              required:
+                                - address
+                                - price
+                                - priceToken
+                                - priceTokenString
+                                - approximateReserveUSD
+                                - approximateReserveTokenRaw
+                                - approximateReserveToken
+                                - symbol
+                                - name
+                                - id
+                                - decimals
+                                - totalSupply
+                                - circulatingSupply
+                                - logo
+                                - chainId
+                            token1:
+                              type: object
+                              properties:
+                                address:
+                                  type: string
+                                price:
+                                  type: number
+                                priceToken:
+                                  type: number
+                                priceTokenString:
+                                  type: string
+                                approximateReserveUSD:
+                                  type: number
+                                approximateReserveTokenRaw:
+                                  type: string
+                                approximateReserveToken:
+                                  type: number
+                                symbol:
+                                  type: string
+                                name:
+                                  type: string
+                                id:
+                                  type: number
+                                decimals:
+                                  type: number
+                                totalSupply:
+                                  type: number
+                                circulatingSupply:
+                                  type: number
+                                logo:
+                                  type: string
+                                  nullable: true
+                                chainId:
+                                  type: string
+                              required:
+                                - address
+                                - price
+                                - priceToken
+                                - priceTokenString
+                                - approximateReserveUSD
+                                - approximateReserveTokenRaw
+                                - approximateReserveToken
+                                - symbol
+                                - name
+                                - id
+                                - decimals
+                                - totalSupply
+                                - circulatingSupply
+                                - logo
+                                - chainId
+                            volume24h:
+                              type: number
+                            liquidity:
+                              type: number
+                            blockchain:
+                              type: string
+                            address:
+                              type: string
+                            createdAt:
+                              type: string
+                              nullable: true
+                            type:
+                              type: string
+                            baseToken:
+                              type: string
+                            exchange:
+                              type: object
+                              properties:
+                                name:
+                                  type: string
+                                logo:
+                                  type: string
+                              required:
+                                - name
+                                - logo
+                            factory:
+                              type: string
+                              nullable: true
+                            quoteToken:
+                              type: string
+                            price:
+                              type: number
+                            priceToken:
+                              type: number
+                            priceTokenString:
+                              type: string
+                            trades_1min:
+                              type: number
+                            buys_1min:
+                              type: number
+                            sells_1min:
+                              type: number
+                            volume_1min:
+                              type: number
+                            buy_volume_1min:
+                              type: number
+                            sell_volume_1min:
+                              type: number
+                            sellers_1min:
+                              type: number
+                            buyers_1min:
+                              type: number
+                            traders_1min:
+                              type: number
+                            trades_5min:
+                              type: number
+                            buys_5min:
+                              type: number
+                            sells_5min:
+                              type: number
+                            volume_5min:
+                              type: number
+                            buy_volume_5min:
+                              type: number
+                            sell_volume_5min:
+                              type: number
+                            sellers_5min:
+                              type: number
+                            buyers_5min:
+                              type: number
+                            traders_5min:
+                              type: number
+                            trades_15min:
+                              type: number
+                            buys_15min:
+                              type: number
+                            sells_15min:
+                              type: number
+                            volume_15min:
+                              type: number
+                            buy_volume_15min:
+                              type: number
+                            sell_volume_15min:
+                              type: number
+                            sellers_15min:
+                              type: number
+                            buyers_15min:
+                              type: number
+                            traders_15min:
+                              type: number
+                            trades_1h:
+                              type: number
+                            buys_1h:
+                              type: number
+                            sells_1h:
+                              type: number
+                            volume_1h:
+                              type: number
+                            buy_volume_1h:
+                              type: number
+                            sell_volume_1h:
+                              type: number
+                            sellers_1h:
+                              type: number
+                            buyers_1h:
+                              type: number
+                            traders_1h:
+                              type: number
+                            trades_4h:
+                              type: number
+                            buys_4h:
+                              type: number
+                            sells_4h:
+                              type: number
+                            volume_4h:
+                              type: number
+                            buy_volume_4h:
+                              type: number
+                            sell_volume_4h:
+                              type: number
+                            sellers_4h:
+                              type: number
+                            buyers_4h:
+                              type: number
+                            traders_4h:
+                              type: number
+                            trades_12h:
+                              type: number
+                            buys_12h:
+                              type: number
+                            sells_12h:
+                              type: number
+                            volume_12h:
+                              type: number
+                            buy_volume_12h:
+                              type: number
+                            sell_volume_12h:
+                              type: number
+                            sellers_12h:
+                              type: number
+                            buyers_12h:
+                              type: number
+                            traders_12h:
+                              type: number
+                            trades_24h:
+                              type: number
+                            buys_24h:
+                              type: number
+                            sells_24h:
+                              type: number
+                            volume_24h:
+                              type: number
+                            buy_volume_24h:
+                              type: number
+                            sell_volume_24h:
+                              type: number
+                            sellers_24h:
+                              type: number
+                            buyers_24h:
+                              type: number
+                            traders_24h:
+                              type: number
+                            pool_addr:
+                              type: number
+                            price_change_1min:
+                              type: number
+                            price_change_5min:
+                              type: number
+                            price_change_1h:
+                              type: number
+                            price_change_4h:
+                              type: number
+                            price_change_12h:
+                              type: number
+                            price_change_24h:
+                              type: number
+                          required:
+                            - token0
+                            - token1
+                            - volume24h
+                            - liquidity
+                            - blockchain
+                            - address
+                            - type
+                            - baseToken
+                            - exchange
+                            - quoteToken
+                            - price
+                            - priceToken
+                            - priceTokenString
                 required:
                   - data
   /wallet/nfts:
@@ -3223,7 +4028,7 @@ paths:
           name: cache
           in: query
         - schema:
-            type: number
+            type: string
           required: false
           name: stale
           in: query
@@ -3270,7 +4075,7 @@ paths:
         - schema:
             type: string
           required: false
-          name: liqmin
+          name: minliq
           in: query
       responses:
         "200":
@@ -3333,22 +4138,22 @@ paths:
           name: asset
           in: query
         - schema:
-            type: boolean
+            type: string
           required: false
           name: pnl
           in: query
         - schema:
-            type: boolean
+            type: string
           required: false
           name: cache
           in: query
         - schema:
-            type: number
+            type: string
           required: false
           name: stale
           in: query
         - schema:
-            type: boolean
+            type: string
           required: false
           name: recheck_contract
           in: query
@@ -3368,7 +4173,7 @@ paths:
           name: portfolio_settings
           in: query
         - schema:
-            type: boolean
+            type: string
           required: false
           name: unlistedAssets
           in: query
@@ -3383,9 +4188,14 @@ paths:
           name: accuracy
           in: query
         - schema:
-            type: boolean
+            type: string
           required: false
           name: testnet
+          in: query
+        - schema:
+            type: string
+          required: false
+          name: liqmin
           in: query
       responses:
         "200":
@@ -3680,22 +4490,22 @@ paths:
           name: asset
           in: query
         - schema:
-            type: boolean
+            type: string
           required: false
           name: pnl
           in: query
         - schema:
-            type: boolean
+            type: string
           required: false
           name: cache
           in: query
         - schema:
-            type: number
+            type: string
           required: false
           name: stale
           in: query
         - schema:
-            type: boolean
+            type: string
           required: false
           name: recheck_contract
           in: query
@@ -3715,7 +4525,7 @@ paths:
           name: portfolio_settings
           in: query
         - schema:
-            type: boolean
+            type: string
           required: false
           name: unlistedAssets
           in: query
@@ -3730,9 +4540,14 @@ paths:
           name: accuracy
           in: query
         - schema:
-            type: boolean
+            type: string
           required: false
           name: testnet
+          in: query
+        - schema:
+            type: string
+          required: false
+          name: liqmin
           in: query
       responses:
         "200":
