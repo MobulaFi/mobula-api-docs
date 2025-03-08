@@ -1017,7 +1017,7 @@ paths:
         - schema:
             type: number
             nullable: true
-            default: 1741383095609
+            default: 1741388265293
           required: false
           name: to
           in: query
@@ -4278,6 +4278,9 @@ paths:
                                   type: string
                                 symbol:
                                   type: string
+                                logo:
+                                  type: string
+                                  nullable: true
                                 decimals:
                                   type: array
                                   items:
@@ -4295,6 +4298,7 @@ paths:
                                 - id
                                 - name
                                 - symbol
+                                - logo
                                 - decimals
                                 - contracts
                                 - blockchains
@@ -4630,6 +4634,9 @@ paths:
                                   type: string
                                 symbol:
                                   type: string
+                                logo:
+                                  type: string
+                                  nullable: true
                                 decimals:
                                   type: array
                                   items:
@@ -4647,6 +4654,7 @@ paths:
                                 - id
                                 - name
                                 - symbol
+                                - logo
                                 - decimals
                                 - contracts
                                 - blockchains
@@ -4855,173 +4863,126 @@ paths:
                         type: string
                       symbol:
                         type: string
-                      contracts:
-                        type: array
-                        items:
-                          type: string
-                      blockchains:
-                        type: array
-                        items:
-                          type: string
                       decimals:
-                        type: array
-                        items:
-                          type: number
-                      twitter:
-                        type: string
-                        nullable: true
-                      website:
-                        type: string
+                        type: number
                         nullable: true
                       logo:
                         type: string
+                        nullable: true
+                      rank:
+                        type: number
                         nullable: true
                       price:
                         type: number
                         nullable: true
                       market_cap:
                         type: number
-                      liquidity:
+                      market_cap_diluted:
                         type: number
                       volume:
                         type: number
-                      description:
-                        type: string
                         nullable: true
-                      kyc:
-                        type: string
+                      volume_change_24h:
+                        type: number
                         nullable: true
-                      audit:
-                        type: string
+                      volume_7d:
+                        type: number
                         nullable: true
-                      total_supply_contracts:
-                        type: array
-                        items:
-                          type: string
-                      circulating_supply_addresses:
-                        type: array
-                        items:
-                          type: string
+                      liquidity:
+                        type: number
+                      ath:
+                        type: number
+                        nullable: true
+                      atl:
+                        type: number
+                        nullable: true
+                      off_chain_volume:
+                        type: number
+                        nullable: true
+                      is_listed:
+                        type: boolean
+                      price_change_1h:
+                        type: number
+                      price_change_24h:
+                        type: number
+                      price_change_7d:
+                        type: number
+                      price_change_1m:
+                        type: number
+                      price_change_1y:
+                        type: number
                       total_supply:
                         type: number
                       circulating_supply:
                         type: number
-                      discord:
-                        type: string
-                        nullable: true
-                      max_supply:
+                      contracts:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            address:
+                              type: string
+                            blockchainId:
+                              type: string
+                            blockchain:
+                              type: string
+                            decimals:
+                              type: number
+                          required:
+                            - address
+                            - blockchainId
+                            - blockchain
+                            - decimals
+                      native:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                          symbol:
+                            type: string
+                          address:
+                            type: string
+                          type:
+                            type: string
+                          decimals:
+                            type: number
+                          logo:
+                            type: string
+                        required:
+                          - name
+                          - symbol
+                          - address
+                          - type
+                          - decimals
+                          - logo
+                      priceNative:
                         type: number
-                        nullable: true
-                      chat:
-                        type: string
-                        nullable: true
-                      tags:
-                        type: array
-                        items:
-                          type: string
-                      investors:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            lead:
-                              type: boolean
-                            name:
-                              type: string
-                            type:
-                              type: string
-                            image:
-                              type: string
-                            country_name:
-                              type: string
-                            description:
-                              type: string
-                          required:
-                            - lead
-                            - name
-                            - type
-                            - image
-                            - country_name
-                            - description
-                      distribution:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            percentage:
-                              type: number
-                            name:
-                              type: string
-                          required:
-                            - percentage
-                            - name
-                      release_schedule:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            allocation_details:
-                              type: object
-                              additionalProperties:
-                                type: number
-                            tokens_to_unlock:
-                              type: number
-                            unlock_date:
-                              type: number
-                          required:
-                            - allocation_details
-                            - tokens_to_unlock
-                            - unlock_date
-                      cexs:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            logo:
-                              type: string
-                              nullable: true
-                            name:
-                              type: string
-                              nullable: true
-                            id:
-                              type: string
-                          required:
-                            - logo
-                            - name
-                            - id
-                      listed_at:
-                        type: string
-                        nullable: true
                     required:
                       - id
                       - name
                       - symbol
-                      - contracts
-                      - blockchains
                       - decimals
-                      - twitter
-                      - website
                       - logo
+                      - rank
                       - price
                       - market_cap
-                      - liquidity
+                      - market_cap_diluted
                       - volume
-                      - description
-                      - kyc
-                      - audit
-                      - total_supply_contracts
-                      - circulating_supply_addresses
+                      - volume_change_24h
+                      - volume_7d
+                      - liquidity
+                      - ath
+                      - atl
+                      - off_chain_volume
+                      - is_listed
+                      - price_change_1h
+                      - price_change_24h
+                      - price_change_7d
+                      - price_change_1m
+                      - price_change_1y
                       - total_supply
                       - circulating_supply
-                      - discord
-                      - max_supply
-                      - chat
-                      - tags
-                      - investors
-                      - distribution
-                      - release_schedule
-                      - cexs
-                      - listed_at
+                      - contracts
                 required:
                   - data
   /metadata:
